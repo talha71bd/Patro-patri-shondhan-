@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পাত্রপাত্রী সন্ধান | গোপনীয়তা নীতি ও সেবা শর্তাবলী (Privacy Policy)</title>
+    
+    <!-- গুগলের সুতন্নিএমজে-লুক ক্লাসিক বাংলা ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+        :root {
+            --pp-teal: #0d9488;
+            --pp-teal-dark: #0f766e;
+            --pp-rose: #e11d48;
+            --pp-border: #cbd5e1;
+            --pp-text: #0f172a;
+            --pp-muted: #64748b;
+            --pp-bg: #f8fafc;
+            --pp-card: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tiro Bangla', 'Hind Siliguri', serif; }
+        body { background-color: var(--pp-bg); color: var(--pp-text); overflow-x: hidden; }
+
+        /* অ্যানিমেশনস */
+        @keyframes floatAnim { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        @keyframes pulseGlow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .float-anim { animation: floatAnim 3s ease-in-out infinite; }
+
+        /* ড্রয়ার মেনু সিএসএস */
+        .drawer-backdrop {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(3px);
+            z-index: 99998; display: none; opacity: 0; transition: opacity .3s ease;
+        }
+        .drawer-backdrop.active { display: block !important; opacity: 1; }
+        .drawer-menu {
+            position: fixed; top: 0; left: -280px; width: 260px; height: 100vh;
+            background: #fff; z-index: 99999; box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+            display: flex; flex-direction: column; justify-content: space-between;
+            transition: left .3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .drawer-menu.active { left: 0 !important; }
+        .drawer-header {
+            padding: 14px; background: linear-gradient(135deg, #ccfbf1, #e0f2fe);
+            border-bottom: 1px solid #99f6e4; display: flex; align-items: center; justify-content: space-between;
+        }
+        .drawer-brand { display: flex; align-items: center; gap: 8px; }
+        .drawer-title { font-size: 15px; font-weight: 800; color: var(--pp-teal-dark); }
+        .drawer-close { background: none; border: none; font-size: 16px; color: var(--pp-muted); cursor: pointer; }
+        .drawer-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+        .drawer-link {
+            padding: 8px 12px; border-radius: 8px; color: var(--pp-text);
+            text-decoration: none; font-size: 12.5px; font-weight: 600;
+            background: #f8fafc; border: 1px solid #f1f5f9; transition: all 0.2s;
+        }
+        .drawer-link:hover { background: #ccfbf1; color: var(--pp-teal-dark); border-color: #99f6e4; }
+
+        /* কমপ্যাক্ট টপ নেভিগেশন বার */
+        .top-nav {
+            position: sticky; top: 0; z-index: 900;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e2e8f0; padding: 8px 12px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-left { display: flex; align-items: center; gap: 8px; }
+        .menu-btn {
+            background: #f1f5f9; border: 1px solid #cbd5e1;
+            padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 16px; color: var(--pp-text);
+        }
+        .brand-title { font-size: 16px; font-weight: 800; color: var(--pp-teal-dark); display: flex; align-items: center; gap: 4px; text-decoration: none; }
+        .nav-links { display: flex; align-items: center; gap: 5px; }
+        .nav-btn {
+            background: #f8fafc; color: var(--pp-text); border: 1px solid #cbd5e1;
+            padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 700;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 3px; transition: all 0.2s;
+        }
+        .nav-btn:hover { background: #ccfbf1; border-color: #99f6e4; color: var(--pp-teal-dark); }
+        .nav-btn.primary { background: var(--pp-teal); color: #fff; border-color: var(--pp-teal); }
+
+        /* রানিং নোটিশ টিকার */
+        .ticker-bar {
+            background: linear-gradient(135deg, #ccfbf1, #f0fdf4);
+            border-bottom: 1px solid #99f6e4; padding: 4px 0; overflow: hidden; display: flex; white-space: nowrap;
+        }
+        .ticker-track {
+            display: flex; align-items: center; gap: 20px;
+            animation: tickerSlide 22s linear infinite; font-size: 11.5px; font-weight: 700; color: var(--pp-teal-dark);
+        }
+        @keyframes tickerSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        /* কন্টেইনার */
+        .container { max-width: 900px; margin: 0 auto; padding: 20px 12px; }
+
+        /* হিরো ব্যানার */
+        .policy-hero {
+            text-align: center; padding: 30px 16px;
+            background: linear-gradient(180deg, #ccfbf1 0%, #ffffff 100%);
+            border: 1px solid #99f6e4; border-radius: 20px; margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.05);
+        }
+        .policy-badge {
+            display: inline-block; padding: 4px 12px; background: #fff; border: 1px solid #99f6e4;
+            border-radius: 15px; font-size: 11.5px; font-weight: 800; color: var(--pp-teal-dark); margin-bottom: 8px;
+        }
+        .policy-hero h1 { font-size: 24px; font-weight: 800; color: var(--pp-text); margin-bottom: 6px; }
+        .policy-hero p { font-size: 12.5px; color: var(--pp-muted); max-width: 650px; margin: 0 auto; line-height: 1.6; }
+        .last-updated { font-size: 11px; font-weight: 700; color: var(--pp-teal-dark); margin-top: 10px; display: inline-block; background: #f0fdf4; padding: 2px 10px; border-radius: 10px; border: 1px solid #bbf7d0; }
+
+        /* ৩টি পলিসি পিলার কার্ড */
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 25px; }
+        .pillar-card { background: #fff; border: 1px solid var(--pp-border); padding: 16px; border-radius: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+        .pillar-icon { font-size: 28px; display: block; margin-bottom: 6px; }
+        .pillar-title { font-size: 13.5px; font-weight: 800; color: var(--pp-teal-dark); margin-bottom: 4px; }
+        .pillar-desc { font-size: 11.5px; color: var(--pp-muted); line-height: 1.5; }
+
+        /* বিস্তারিত আর্টিকেল সেকশনস */
+        .policy-article {
+            background: #fff; border: 1px solid var(--pp-border); border-radius: 16px;
+            padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .art-heading {
+            font-size: 15px; font-weight: 800; color: var(--pp-teal-dark); margin-bottom: 8px;
+            display: flex; align-items: center; gap: 6px; border-bottom: 1.5px solid #ccfbf1; padding-bottom: 6px;
+        }
+        .art-body { font-size: 12.5px; color: #334155; line-height: 1.7; }
+        .art-body p { margin-bottom: 10px; }
+        .art-body ul { margin-left: 20px; margin-bottom: 10px; }
+        .art-body li { margin-bottom: 4px; }
+
+        /* এডমিন ও পরিচিতি কার্ড */
+        .admin-profile-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            border: 1.5px solid #99f6e4; border-radius: 18px; padding: 20px 16px;
+            margin-bottom: 25px; box-shadow: 0 4px 15px rgba(13, 148, 136, 0.06);
+        }
+        .admin-flex { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+        .admin-avatar {
+            width: 65px; height: 65px; background: #ccfbf1; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 30px;
+            border: 2px solid #0d9488; shrink: 0; box-shadow: 0 4px 10px rgba(13,148,136,0.15);
+        }
+        .admin-details { flex: 1; min-width: 220px; }
+        .admin-role { font-size: 10.5px; font-weight: 800; color: var(--pp-teal-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+        .admin-name { font-size: 18px; font-weight: 800; color: var(--pp-text); margin: 2px 0 6px 0; }
+        .admin-quote { font-size: 12px; color: var(--pp-muted); font-style: italic; line-height: 1.5; margin-bottom: 8px; }
+        
+        .admin-loc-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 6px;
+            font-size: 11.5px; background: #fff; padding: 8px 12px; border-radius: 10px; border: 1px solid #e2e8f0;
+        }
+        .loc-item b { color: var(--pp-teal-dark); }
+
+        /* সোশ্যাল ও সহযোগী লিংক গ্রিড */
+        .social-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-bottom: 25px;
+        }
+        .social-card {
+            display: flex; align-items: center; gap: 10px; padding: 12px 14px;
+            border-radius: 12px; border: 1.5px solid #e2e8f0; text-decoration: none; color: var(--pp-text);
+            background: #fff; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .social-card:hover { transform: translateY(-2px); border-color: var(--pp-teal); box-shadow: 0 4px 12px rgba(13,148,136,0.1); }
+        .s-icon { font-size: 24px; }
+        .s-info h4 { font-size: 13px; font-weight: 800; margin: 0; }
+        .s-info p { font-size: 11px; color: var(--pp-muted); margin: 1px 0 0 0; }
+
+        /* ফুটার */
+        .footer { background: #0f172a; color: #fff; padding: 24px 12px 14px 12px; text-align: center; }
+        .footer-title { color: #2dd4bf; font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+        .footer-copy { border-top: 1px solid #334155; padding-top: 10px; font-size: 10.5px; color: #64748b; margin-top: 12px; }
+    </style>
+</head>
+<body>
+
+    <!-- স্লাইড ওভার ড্রয়ার মেনু ব্যাকড্রপ -->
+    <div id="drawerBackdrop" class="drawer-backdrop" onclick="ppToggleDrawer(false)"></div>
+
+    <!-- বাম পাশের মেনুবার -->
+    <div id="drawerMenu" class="drawer-menu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <span class="float-anim">🌸</span>
+                <span class="drawer-title">পাত্রপাত্রী সন্ধান</span>
+            </div>
+            <button class="drawer-close" onclick="ppToggleDrawer(false)">✕</button>
+        </div>
+        <div class="drawer-body">
+            <a href="index.html" class="drawer-link">🏠 হোম পেজ</a>
+            <a href="biodata-list.html" class="drawer-link">🔍 বায়োডাটা খুঁজুন</a>
+            <a href="biodata-form.html" class="drawer-link">📝 বায়োডাটা জমা দিন (ফ্রি)</a>
+            <a href="faq.html" class="drawer-link">❓ সাহায্য ও সাধারণ জিজ্ঞাসা</a>
+            <a href="privacy-policy.html" class="drawer-link">📜 গোপনীয়তা নীতি ও শর্তাবলী</a>
+            <a href="https://sikkha71bd.vercel.app/" target="_blank" class="drawer-link">🎓 শিক্ষা ৭১ বিডি</a>
+            
+            <div style="margin-top:10px; padding:8px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; font-size:11px; color:#166534; font-weight:700; text-align:center;">
+                🎉 ১০০% ফ্রি সেবা • কোনো হিডেন ফি নেই
+            </div>
+        </div>
+        <div style="padding:12px; border-top:1px solid #e2e8f0; font-size:11px; color:var(--pp-muted);">
+            <p>পরিচালক: <b>Abu Talha Khan</b></p>
+            <p>📍 ঢাকা ফার্মগেট | মেহেন্দিগঞ্জ, বরিশাল</p>
+        </div>
+    </div>
+
+    <!-- কমপ্যাক্ট টপ নেভিগেশন বার -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <button class="menu-btn" onclick="ppToggleDrawer(true)" title="মেনু খুলুন">☰</button>
+            <a href="index.html" class="brand-title">
+                <span class="float-anim">🌸</span> পাত্রপাত্রী সন্ধান
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">🏠 হোম</a>
+            <a href="biodata-list.html" class="nav-btn">🔍 বায়োডাটা</a>
+            <a href="biodata-form.html" class="nav-btn primary">📝 জমা দিন</a>
+        </div>
+    </nav>
+
+    <!-- রানিং নোটিশ টিকার -->
+    <div class="ticker-bar">
+        <div class="ticker-track">
+            <span>📜 পাত্রপাত্রী সন্ধান - গোপনীয়তা নীতি ও সেবা শর্তাবলী (Privacy Policy & Terms)</span>
+            <span>• আপনার তথ্য শতভাগ সুরক্ষিত ও গোপনীয় রাখা হয় ✨</span>
+            <span>• কোনো বাণিজ্যিক উদ্দেশ্যে আপনার তথ্য লেনদেন করা হয় না</span>
+        </div>
+    </div>
+
+    <!-- মেইন কন্টেইনার -->
+    <div class="container">
+        
+        <!-- হিরো ব্যানার -->
+        <div class="policy-hero">
+            <span class="policy-badge float-anim">🛡️ ডাটা সিকিউরিটি ও নীতিমালা</span>
+            <h1>গোপনীয়তা নীতি ও শর্তাবলী</h1>
+            <p>আমাদের প্ল্যাটফর্ম ব্যবহারে আপনার তথ্যের নিরাপত্তা, প্রাইভেসি প্রোটোকল, অভিভাবকের সম্মতি এবং গুগল এডসেন্স ও ফেসবুক এডস সম্পর্কিত নীতিমালার বিস্তারিত বিবর্ণ।</p>
+            <span class="last-updated">সর্বশেষ আপডেট: আগস্ট ২০২৬</span>
+        </div>
+
+        <!-- ৩টি প্রধান পলিসি পিলার -->
+        <div class="pillar-grid">
+            <div class="pillar-card">
+                <span class="pillar-icon">🔒</span>
+                <div class="pillar-title">যোগাযোগের তথ্য গোপন</div>
+                <div class="pillar-desc">ইউজারের মোবাইল নম্বর ও ফেসবুক আইডি পাবলিক ওয়েবসাইটে সম্পূর্ণ গোপন রাখা হয়।</div>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">👨‍👩‍👧</span>
+                <div class="pillar-title">অভিভাবকের মাধ্যমে যোগাযোগ</div>
+                <div class="pillar-desc">সরাসরি ডেটিং নিষিদ্ধ। কেবল মা-বাবা বা অভিভাবকের সম্মতিক্রমেই প্রস্তাব আদান-প্রদান সম্ভব।</div>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">🎁</span>
+                <div class="pillar-title">১০০% সম্পূর্ণ ফ্রি</div>
+                <div class="pillar-desc">নিবন্ধন বা প্রস্তাব পাঠানোর কোনো পর্যায়েই কোনো সার্ভিস চার্জ বা অর্থ দাবি করা হয় না।</div>
+            </div>
+        </div>
+
+        <!-- আর্টিকেল ১: তথ্য সংগ্রহের উদ্দেশ্য -->
+        <div class="policy-article">
+            <div class="art-heading">📌 ১. তথ্য সংগ্রহের উদ্দেশ্য ও ধরন (Data Collection)</div>
+            <div class="art-body">
+                <p><b>পাত্রপাত্রী সন্ধান</b> প্ল্যাটফর্মে সেবা পাওয়ার জন্য ইউজার বা অভিভাবক স্বেচ্ছায় যেসব তথ্য প্রদান করেন তা আমরা সংরক্ষণ করি। সংগৃহীত তথ্যের মধ্যে রয়েছে:</p>
+                <ul>
+                    <li><b>ব্যক্তিগত তথ্য:</b> নাম, বয়স/জন্মতারিখ, উচ্চতা, রক্তের গ্রুপ, ধর্ম ও বৈবাহিক অবস্থা।</li>
+                    <li><b>শিক্ষা ও পেশা:</b> শিক্ষাগত যোগ্যতা, বর্তমান পেশা ও আর্থিক অবস্থা।</li>
+                    <li><b>ঠিকানা ও পরিবার:</b> স্থায়ী জেলা, বর্তমান ঠিকানা, পিতা-মাতার নাম, ভাই-বোনের তথ্য।</li>
+                    <li><b>যোগাযোগের তথ্য:</b> মোবাইল নম্বর/হোয়াটসঅ্যাপ এবং ফেসবুক আইডি লিংক (যা গোপন থাকে)।</li>
+                </ul>
+                <p>এই সকল তথ্য শুধুমাত্র উপযুক্ত দ্বীনি পাত্র-পাত্রী ম্যাচমেকিং এবং অভিভাবকের সাথে যোগাযোগের উদ্দেশ্যেই ব্যবহৃত হয়।</p>
+            </div>
+        </div>
+
+        <!-- আর্টিকেল ২: প্রাইভেসী প্রোটোকল -->
+        <div class="policy-article">
+            <div class="art-heading">🛡️ ২. প্রাইভেসী প্রোটোকল ও তথ্য গোপন রাখা (Privacy Shield)</div>
+            <div class="art-body">
+                <p>আমরা আমাদের ইউজারদের প্রাইভেসীকে সর্বোচ্চ অগ্রাধিকার দিয়ে থাকি:</p>
+                <ul>
+                    <li><b>নম্বর গোপন রাখা:</b> পাবলিক ওয়েবসাইটে কোনো অবস্থাতেই পাত্র বা পাত্রীর মোবাইল নম্বর বা সোশ্যাল লিংক প্রদর্শন করা হয় না।</li>
+                    <li><b>পর্দা ও ছবি নীতিমালা:</b> দ্বীনি হিজাব ও পর্দার হুকুম রক্ষার সুবিধার্থে পাবলিক পেজে ছবি দেখানো হয় না।</li>
+                    <li><b>এডমিন নজরদারি:</b> শুধু অনুমোদিত এডমিন টিম যোগাযোগের তথ্য দেখতে পান এবং তথ্যপ্রার্থীর সত্যতা যাচাই করে অভিভাবকের কাছে বার্তা পৌঁছান।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- আর্টিকেল ৩: অভিভাবকের সম্মতি -->
+        <div class="policy-article">
+            <div class="art-heading">👨‍👩‍👧 ৩. অভিভাবকের সম্মতি ও শরীয়াহ ফ্রেমওয়ার্ক (Shariah Ethics)</div>
+            <div class="art-body">
+                <p>আমাদের প্ল্যাটফর্মটি সম্পূর্ণ শরীয়াহ সম্মত সুন্নতি বিবাহ নীতিমালার ওপর ভিত্তি করে পরিচালিত:</p>
+                <ul>
+                    <li>কোনো প্রকার অনৈতিক প্রেম, ডেটিং বা সরাসরি ছেলে-মেয়ের যোগাযোগের সুযোগ এখানে নেই।</li>
+                    <li>বায়োডাটা পছন্দ হওয়ার পর অভিভাবকের (পিতা/মাতা/অভিভাবক) উপস্থিতিতেই কেবল তথ্য শেয়ার করা হয়।</li>
+                    <li>মিথ্যা বা বিভ্রান্তিকর তথ্য দিলে উক্ত বায়োডাটা স্থায়ীভাবে বাতিল বা ডিলিট করার অধিকার এডমিন সংরক্ষণ করে।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- আর্টিকেল ৪: এডসেন্স ও কুকিজ পলিসি -->
+        <div class="policy-article">
+            <div class="art-heading">🌐 ৪. গুগল এডসেন্স ও কুকিজ নীতিমালা (Google AdSense & Cookies)</div>
+            <div class="art-body">
+                <p>আমাদের ওয়েবসাইট পরিচালনা এবং বিনামূল্যে সেবা সচল রাখার সুবিধার্থে তৃতীয় পক্ষের বিজ্ঞাপন নেটওয়ার্ক (যেমন Google AdSense) ব্যবহৃত হতে পারে:</p>
+                <ul>
+                    <li><b>Cookies ব্যবহার:</b> ভিজিটরের পছন্দ ও ব্রাউজিং অভিজ্ঞতার ওপর ভিত্তি করে বিজ্ঞাপন দেখানোর জন্য কুকিজ (Cookies) ব্যবহৃত হতে পারে।</li>
+                    <li><b>Google DART Cookie:</b> গুগল তৃতীয় পক্ষ ভেন্ডর হিসেবে কুকিজের মাধ্যমে আমাদের সাইটে বিজ্ঞাপন পরিবেশন করতে পারে। ইউজার চাইলে গুগলের এডস প্রাইভেসী সেটিং থেকে এটি বন্ধ রাখতে পারেন।</li>
+                    <li>আপনার কোনো ব্যক্তিগত তথ্য (যেমন ফোন নম্বর বা নাম) বিজ্ঞাপনদাতাদের কাছে বিক্রি বা হস্তান্তর করা হয় না।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- আর্টিকেল ৫: ফেসবুক এডস নীতিমালা -->
+        <div class="policy-article">
+            <div class="art-heading">📘 ৫. ফেসবুক এডস ও থার্ড-পার্টি নীতি (Facebook Ads Policy)</div>
+            <div class="art-body">
+                <p>আমরা যখন ফেসবুক বা অন্যান্য সামাজিক মাধ্যমে প্রচারমূলক বিজ্ঞাপন (Facebook Ads/Boost) চালাই, তখন ফেসবুকের থার্ড-পার্টি ডাটা পলিসি কঠোরভাবে মেনে চলা হয়। আমাদের ওয়েবসাইটে ব্যবহৃত সকল উপাদান এবং ফর্ম ইউজারদের নিরাপত্তার কথা মাথায় রেখে এনক্রিপ্টেড ও সুরক্ষিত রাখা হয়।</p>
+            </div>
+        </div>
+
+        <!-- আর্টিকেল ৬: ডাটা মুছে ফেলা -->
+        <div class="policy-article">
+            <div class="art-heading">🗑️ ৬. ডাটা সংশোধন ও মুছে ফেলার অধিকার (Data Removal Right)</div>
+            <div class="art-body">
+                <p>যেকোনো ইউজার বা অভিভাবক যেকোনো সময় তাদের বায়োডাটার তথ্য সংশোধন বা ওয়েবসাইট থেকে সম্পূর্ণ মুছে ফেলার দাবি জানাতে পারেন:</p>
+                <p>আপনার বায়োডাটা আইডিটি উল্লেখ করে আমাদের অফিসিয়াল হোয়াটসঅ্যাপে বার্তা দিলে **২৪ ঘণ্টার মধ্যে** উক্ত ডাটা আমাদের সার্ভার ও ওয়েবসাইট থেকে স্থায়ীভাবে রিমুভ করে দেওয়া হবে।</p>
+            </div>
+        </div>
+
+        <!-- এডমিন ও প্রতিষ্ঠাতা পরিচিতি -->
+        <div class="admin-profile-card">
+            <div class="admin-flex">
+                <div class="admin-avatar">👨‍💼</div>
+                <div class="admin-details">
+                    <span class="admin-role">প্রতিষ্ঠাতা ও প্রধান পরিচালক</span>
+                    <h3 class="admin-name">Abu Talha Khan</h3>
+                    <p class="admin-quote">
+                        "আসসালামু আলাইকুম। আমাদের নীতি ও শর্তাবলীর একমাত্র উদ্দেশ্য হলো পাত্র-পাত্রী এবং তাদের অভিভাবকদের শতভাগ প্রাইভেসী ও নিরাপত্তা নিশ্চিত করা।"
+                    </p>
+                    <div class="admin-loc-grid">
+                        <div class="loc-item">📍 <b>বর্তমান ঠিকানা:</b> ফার্মগেট, ঢাকা</div>
+                        <div class="loc-item">🏠 <b>স্থায়ী ঠিকানা:</b> মেহেন্দিগঞ্জ থানা, বরিশাল</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- সামাজিক যোগাযোগ ও সহযোগী লিংকস -->
+        <div class="social-grid">
+            <a href="https://wa.me/8801516513987" target="_blank" class="social-card">
+                <span class="s-icon">💬</span>
+                <div class="s-info">
+                    <h4>অফিসিয়াল হোয়াটসঅ্যাপ</h4>
+                    <p>+880 1516-513987</p>
+                </div>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61592377920436" target="_blank" class="social-card">
+                <span class="s-icon">📘</span>
+                <div class="s-info">
+                    <h4>অফিসিয়াল ফেসবুক পেজ</h4>
+                    <p>লাইক ও ফলো দিয়ে যুক্ত থাকুন</p>
+                </div>
+            </a>
+
+            <a href="https://facebook.com/groups/557796373008781/" target="_blank" class="social-card">
+                <span class="s-icon">👥</span>
+                <div class="s-info">
+                    <h4>অফিসিয়াল ফেসবুক গ্রুপ</h4>
+                    <p>আমাদের দ্বীনি পরিবারে যুক্ত হন</p>
+                </div>
+            </a>
+
+            <a href="https://sikkha71bd.vercel.app/" target="_blank" class="social-card" style="border-color: #99f6e4;">
+                <span class="s-icon">🎓</span>
+                <div class="s-info">
+                    <h4 style="color:var(--pp-teal-dark);">শিক্ষা ৭১ বিডি (Sikkha 71)</h4>
+                    <p>আমাদের সহযোগী শিক্ষা ওয়েবসাইট</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- অ্যাকশন বাটন -->
+        <div style="background: #fff; border: 1.5px solid #99f6e4; padding: 16px; border-radius: 16px; text-align: center; margin-bottom: 20px;">
+            <h3 style="font-size: 15px; font-weight: 800; color: var(--pp-teal-dark); margin-bottom: 6px;">আপনার বায়োডাটা সম্পূর্ণ সুরক্ষিত রাখতে আমরা প্রতিশ্রুতিবদ্ধ</h3>
+            <p style="font-size: 12px; color: var(--pp-muted); margin-bottom: 12px;">নিরাপদে আজই আপনার বায়োডাটা জমা দিন</p>
+            
+            <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                <a href="biodata-form.html" style="background: var(--pp-teal); color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 800;">📝 বায়োডাটা জমা দিন</a>
+                <a href="faq.html" style="background: #0f172a; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 800;">❓ সাধারণ জিজ্ঞাসা (FAQ)</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ফুটার -->
+    <footer class="footer">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <h3 class="footer-title">🌸 পাত্রপাত্রী সন্ধান</h3>
+            <p style="font-size: 11.5px; color: #94a3b8;">একটি সম্পূর্ণ ফি-মুক্ত ইসলামিক ও সুন্নতি বিবাহ সন্ধান প্ল্যাটফর্ম।</p>
+            <p style="font-size: 11.5px; color: #cbd5e1; margin-top: 6px;">
+                পরিচালক: <b>Abu Talha Khan</b> | ফার্মগেট, ঢাকা (স্থায়ী: মেহেন্দিগঞ্জ, বরিশাল)
+            </p>
+        </div>
+        <div class="footer-copy">
+            © ২০২৬ পাত্রপাত্রী সন্ধান প্ল্যাটফর্ম। সর্বস্বত্ব সংরক্ষিত।
+        </div>
+    </footer>
+
+    <!-- জাভাস্ক্রিপ্ট লজিক -->
+    <script>
+        function ppToggleDrawer(open) {
+            const menu = document.getElementById('drawerMenu');
+            const backdrop = document.getElementById('drawerBackdrop');
+            if (open) { menu.classList.add('active'); backdrop.classList.add('active'); }
+            else { menu.classList.remove('active'); backdrop.classList.remove('active'); }
+        }
+    </script>
+</body>
+</html>
