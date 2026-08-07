@@ -1,3 +1,231 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>পাত্রপাত্রী সন্ধান | দ্বীনি জীবনসঙ্গী</title>
+    
+    <!-- গুগলের সুতন্নিএমজে-লুক ক্লাসিক বাংলা ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --pp-teal: #0d9488;
+            --pp-teal-dark: #0f766e;
+            --pp-primary: #e11d48;
+            --pp-bg: #f8fafc;
+            --pp-text-main: #0f172a;
+            --pp-text-muted: #64748b;
+            --pp-border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tiro Bangla', 'Hind Siliguri', serif !important; }
+        html, body { width: 100%; min-height: 100vh; background-color: var(--pp-bg); color: var(--pp-text-main); overflow-x: hidden; }
+
+        /* অ্যানিমেশনস */
+        @keyframes floatAnim { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        .float-anim { animation: floatAnim 3s ease-in-out infinite; }
+        @keyframes avatarGlow { 0% { box-shadow: 0 0 0 0 rgba(13,148,136,0.4); } 70% { box-shadow: 0 0 0 8px rgba(13,148,136,0); } 100% { box-shadow: 0 0 0 0 rgba(13,148,136,0); } }
+        @keyframes ppPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+        /* ড্রয়ার মেনু সিএসএস */
+        .drawer-backdrop {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
+            z-index: 99998; display: none; opacity: 0; transition: opacity .3s ease;
+        }
+        .drawer-backdrop.active { display: block !important; opacity: 1; }
+        .drawer-menu {
+            position: fixed; top: 0; left: -285px; width: 265px; height: 100vh;
+            background: #fff; z-index: 99999; box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+            display: flex; flex-direction: column; justify-content: space-between;
+            transition: left .3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .drawer-menu.active { left: 0 !important; }
+        .drawer-header { padding: 16px; background: linear-gradient(135deg,#ccfbf1,#e0f2fe); border-bottom: 1px solid #99f6e4; display: flex; align-items: center; justify-content: space-between; }
+        .drawer-brand { display: flex; align-items: center; gap: 8px; }
+        .drawer-logo { font-size: 22px; }
+        .drawer-title { margin: 0; font-size: 16px; font-weight: 800; color: var(--pp-teal-dark); }
+        .drawer-subtitle { margin: 0; font-size: 11px; color: var(--pp-text-muted); }
+        .drawer-close-btn { background: none; border: none; font-size: 18px; color: var(--pp-text-muted); cursor: pointer; padding: 4px; }
+        .drawer-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+        .drawer-item { padding: 10px 12px; border-radius: 8px; color: var(--pp-text-main); text-decoration: none; font-size: 13.5px; font-weight: 600; transition: all .2s; background: #f8fafc; border: 1px solid #f1f5f9; }
+        .drawer-item:hover { background: #ccfbf1; color: var(--pp-teal-dark); border-color: #99f6e4; }
+        .drawer-free-badge { margin-top: 12px; padding: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; border-radius: 10px; font-size: 11.5px; font-weight: 700; text-align: center; }
+        .drawer-footer { padding: 14px; border-top: 1px solid #e2e8f0; background: #f8fafc; font-size: 11.5px; color: var(--pp-text-muted); }
+        .drawer-footer p { margin: 2px 0; }
+
+        /* টপ নেভিগেশন বার */
+        .top-navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255,255,255,0.98); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 900; }
+        .menu-toggle-btn { background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .menu-icon { font-size: 18px; color: var(--pp-text-main); }
+        .nav-brand { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+        .brand-logo { font-size: 22px; }
+        .brand-name { font-size: 18px; font-weight: 800; color: var(--pp-teal-dark); }
+        .nav-cta-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 8px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 3px 10px rgba(13,148,136,0.2); }
+
+        /* টিকার */
+        .header-ticker-container { display: flex; overflow: hidden; width: 100%; background: linear-gradient(135deg,#ccfbf1 0%,#f0fdf4 100%); border-bottom: 1px solid #99f6e4; padding: 6px 0; }
+        .header-ticker-track { display: flex; align-items: center; gap: 15px; white-space: nowrap; padding-right: 40px; animation: tickerSlide 22s linear infinite; }
+        @keyframes tickerSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        .app-title { color: var(--pp-teal-dark); margin: 0; font-size: 13px; font-weight: 800; display: inline-block; }
+        .app-subtitle { color: var(--pp-text-muted); font-size: 11.5px; font-weight: 600; margin: 0; display: inline-block; }
+
+        /* হিরো সেকশন (মোবাইলে ১ কলাম) */
+        .hero-section { padding: 28px 14px; text-align: center; background: linear-gradient(180deg,#ccfbf1 0%,#ffffff 100%); border-bottom: 1px solid #e2e8f0; }
+        .hero-badge { display: inline-block; padding: 5px 14px; background: #fff; border: 1px solid #99f6e4; border-radius: 20px; font-size: 12px; font-weight: 700; color: var(--pp-teal-dark); margin-bottom: 12px; box-shadow: 0 2px 8px rgba(13,148,136,0.08); }
+        .hero-title { font-size: 22px; font-weight: 800; line-height: 1.4; margin: 0 0 10px 0; color: #0f172a; }
+        @media (min-width: 640px) { .hero-title { font-size: 32px; } }
+        .highlight-text { color: var(--pp-teal-dark); }
+        .hero-description { font-size: 13.5px; color: var(--pp-text-muted); max-width: 600px; margin: 0 auto 18px auto; line-height: 1.6; }
+        .hero-btn-group { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
+        .hero-btn { padding: 10px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; border: none; text-decoration: none; display: inline-block; }
+        .primary-btn { background: var(--pp-teal); color: #fff !important; box-shadow: 0 4px 14px rgba(13,148,136,0.25); }
+        .secondary-btn { background: #0f172a; color: #fff !important; }
+        
+        /* গ্রিডসমূহ: মোবাইলে ১ কলাম (1 Column Default) */
+        .hero-stats-grid,
+        .features-grid,
+        .steps-container,
+        .social-grid,
+        .cards-container {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        /* ট্যাবলেট ও ডেস্কটপে কলাম বাড়ানো হবে */
+        @media (min-width: 640px) {
+            .hero-stats-grid { grid-template-columns: repeat(3, 1fr) !important; max-width: 750px !important; }
+            .features-grid { grid-template-columns: repeat(3, 1fr) !important; max-width: 900px !important; }
+            .steps-container { grid-template-columns: repeat(2, 1fr) !important; max-width: 900px !important; }
+            .social-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 850px !important; }
+            .cards-container { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+
+        @media (min-width: 1024px) {
+            .steps-container { grid-template-columns: repeat(4, 1fr) !important; }
+            .social-grid { grid-template-columns: repeat(4, 1fr) !important; }
+            .cards-container { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+
+        .stat-card { background: #fff; padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+        .stat-icon { font-size: 24px; display: block; margin-bottom: 4px; }
+        .stat-title { font-size: 13px; font-weight: 800; display: block; color: #0f172a; }
+        .stat-desc { font-size: 11px; color: var(--pp-text-muted); }
+
+        .info-section { padding: 28px 14px; border-bottom: 1px solid #e2e8f0; }
+        .bg-soft { background: #f8fafc; }
+        .section-header { text-align: center; margin-bottom: 20px; }
+        .section-tag { font-size: 11.5px; font-weight: 800; color: var(--pp-teal-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+        .section-title { font-size: 20px; font-weight: 800; margin: 4px 0 0 0; color: #0f172a; }
+
+        .feature-card { background: #fff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .f-icon { font-size: 28px; margin-bottom: 6px; }
+        .feature-card h3 { margin: 0 0 6px 0; font-size: 15px; font-weight: 800; color: #0f172a; }
+        .feature-card p { margin: 0; font-size: 12.5px; color: var(--pp-text-muted); line-height: 1.55; }
+
+        .step-card { background: #fff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; position: relative; }
+        .step-num { position: absolute; top: 14px; right: 14px; width: 26px; height: 26px; background: #ccfbf1; color: var(--pp-teal-dark); border-radius: 50%; font-size: 12.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+        .step-card h3 { margin: 0 0 6px 0; font-size: 14.5px; font-weight: 800; color: #0f172a; padding-right: 25px; }
+        .step-card p { margin: 0; font-size: 12px; color: var(--pp-text-muted); line-height: 1.5; }
+
+        .clean-register-section { padding: 28px 14px; background: linear-gradient(135deg,#ccfbf1 0%,#fafafa 100%); border-bottom: 1px solid #e2e8f0; }
+        .reg-cta-card { max-width: 750px; margin: 0 auto; background: #fff; padding: 24px 16px; border-radius: 18px; border: 1.5px solid #99f6e4; box-shadow: 0 8px 25px rgba(13,148,136,0.06); text-align: center; }
+        .reg-badge { display: inline-block; padding: 4px 12px; background: #f0fdf4; color: var(--pp-teal-dark); border-radius: 20px; font-size: 11.5px; font-weight: 800; margin-bottom: 8px; border: 1px solid #bbf7d0; }
+        .reg-title { margin: 0 0 8px 0; font-size: 21px; font-weight: 800; color: #0f172a; }
+        .reg-desc { font-size: 13px; color: var(--pp-text-muted); max-width: 550px; margin: 0 auto 14px auto; line-height: 1.6; }
+        .reg-features-mini { font-size: 11.5px; font-weight: 700; color: #166534; margin-bottom: 18px; }
+        .reg-btn-box { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .reg-main-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 11px 22px; border-radius: 10px; font-size: 13.5px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 12px rgba(13,148,136,0.25); text-decoration: none; transition: all .2s; }
+        .reg-wa-btn { background: #0f172a; color: #fff !important; border: none; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 800; cursor: pointer; }
+
+        .search-engine-section { padding: 28px 12px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+        .view-all-biodata-btn { display: inline-block; background: var(--pp-teal); color: #fff !important; padding: 11px 22px; border-radius: 10px; font-size: 13.5px; font-weight: 800; text-decoration: none; box-shadow: 0 4px 15px rgba(13,148,136,0.25); }
+
+        .mini-faq-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px; cursor: pointer; }
+        .mini-faq-q { font-size: 13.5px; font-weight: 800; color: #0f172a; display: flex; justify-content: space-between; align-items: center; }
+        .mini-faq-a { font-size: 12px; color: #475569; margin-top: 6px; display: none; line-height: 1.5; border-top: 1px dashed #e2e8f0; padding-top: 6px; }
+        .mini-faq-card.open .mini-faq-a { display: block; }
+        .q-arrow { font-size: 11px; color: var(--pp-teal-dark); transition: transform 0.2s; }
+
+        .sec-link-btn { display: inline-block; background: #0f172a; color: #fff !important; padding: 9px 18px; border-radius: 8px; font-size: 12.5px; font-weight: 700; text-decoration: none; }
+        .sec-link-btn.primary { background: var(--pp-teal); }
+
+        .admin-profile-section { padding: 28px 14px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+        .admin-card { max-width: 600px; margin: 0 auto; background: #fff; padding: 18px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+        .admin-avatar-box { width: 60px; height: 60px; background: #ccfbf1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; border: 2px solid #99f6e4; shrink: 0; }
+        .admin-info { flex: 1; min-width: 200px; }
+        .admin-tag { font-size: 10px; font-weight: 800; color: var(--pp-teal-dark); text-transform: uppercase; }
+        .admin-name { margin: 2px 0 6px 0; font-size: 17px; font-weight: 800; color: #0f172a; }
+        .admin-bio { margin: 0 0 8px 0; font-size: 12px; color: var(--pp-text-muted); line-height: 1.55; font-style: italic; }
+        .admin-details { font-size: 11.5px; font-weight: 600; color: #0f172a; }
+
+        .social-contact-section { padding: 28px 14px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+        .social-card { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; border: 1px solid #e2e8f0; text-decoration: none; color: #0f172a; background: #f8fafc; }
+        .social-card .s-icon { font-size: 24px; }
+        .social-card h4 { margin: 0; font-size: 13.5px; font-weight: 800; }
+        .social-card p { margin: 2px 0 0 0; font-size: 11.5px; color: var(--pp-text-muted); }
+
+        .app-footer { padding: 28px 14px 16px 14px; background: #0f172a; color: #fff !important; }
+        .footer-content { max-width: 900px; margin: 0 auto 16px auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .footer-brand h3 { margin: 0 0 4px 0; font-size: 16.5px; color: #2dd4bf; }
+        .footer-brand p { margin: 0; font-size: 12px; color: #94a3b8; max-width: 300px; }
+        .footer-info p { margin: 3px 0; font-size: 12px; color: #cbd5e1; }
+        .footer-bottom { border-top: 1px solid #334155; padding-top: 14px; text-align: center; font-size: 11px; color: #64748b; }
+
+        /* ফিল্টার কন্ট্রোলস */
+        .filter-wrapper { background: #f8fafc; padding: 8px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 10px; width: 100%; }
+        .filter-row { display: flex !important; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 6px; width: 100%; }
+        .filter-row:last-child { margin-bottom: 0; }
+        .search-box { flex: 1 1 100%; min-width: 0; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12px; outline: none; background: #fff; height: 34px; }
+        .category-select { flex: 1 1 30%; min-width: 100px; padding: 6px 18px 6px 8px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12px; outline: none; background-color: #fff; font-weight: 600; cursor: pointer; -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230f766e' stroke-width='3'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 6px center; background-size: 10px; height: 34px; line-height: 1.2; }
+        .reset-btn { flex: 1 1 100%; background: #64748b; color: #fff !important; border: none; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; height: 34px; }
+
+        .loading-container { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 25px 10px; width: 100%; margin: 0 auto; }
+        .heart-spinner { font-size: 28px !important; margin-bottom: 4px !important; animation: ppPulse 1s infinite !important; display: inline-block !important; }
+
+        /* বায়োডাটা কার্ড স্টাইলিং */
+        .biodata-card { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.02); overflow: hidden; border: 1px solid var(--pp-border); display: flex !important; flex-direction: column !important; justify-content: space-between; cursor: pointer; transition: all .2s ease; margin: 0 !important; width: 100 !important; }
+        .card-top { padding: 8px 6px; text-align: center !important; background: linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%); position: relative; border-bottom: 1px solid #dcfce7; width: 100% !important; }
+        .card-top.female-bg { background: linear-gradient(180deg,#fff1f2 0%,#ffffff 100%); border-bottom: 1px solid #ffe4e6; }
+        .badge-container { position: absolute; top: 6px; left: 6px; background: #fff; padding: 2px 6px; border-radius: 6px; border: 1px solid #99f6e4; font-size: 10.5px; font-weight: 800; color: var(--pp-teal-dark); }
+        .fav-heart-btn { position: absolute; top: 6px; right: 6px; background: #fff; border: 1px solid #e2e8f0; padding: 2px 6px; border-radius: 12px; font-size: 11px; cursor: pointer; }
+        .fav-heart-btn.liked { background: #fff1f2; border-color: #fecdd3; color: var(--pp-primary); }
+
+        .avatar-box { position: relative; width: 54px; height: 54px; margin: 2px auto 4px auto; border-radius: 50%; padding: 2px; background: linear-gradient(135deg,var(--pp-teal),#38bdf8); animation: avatarGlow 2s infinite; }
+        .avatar-box img { width: 100% !important; height: 100% !important; object-fit: cover; border-radius: 50%; background: #fff; }
+        .card-top h3 { margin: 2px 0 1px 0; font-size: 15.5px; color: var(--pp-text-main); font-weight: 800; text-align: center !important; }
+        .card-top p { margin: 0; font-size: 11.5px; color: var(--pp-text-muted); font-weight: 600; text-align: center !important; }
+        .card-body { padding: 8px; width: 100% !important; text-align: left; }
+        .info-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 5px !important; margin-bottom: 5px; }
+        .info-box { background: #f8fafc; padding: 5px 7px; border-radius: 6px; border: 1px solid #f1f5f9; text-align: left !important; }
+        .info-title { font-size: 9.5px; color: var(--pp-text-muted); display: block; font-weight: 700; text-transform: uppercase; }
+        .info-value { font-size: 12px; color: var(--pp-text-main); font-weight: 700; word-break: break-word; }
+        
+        .expanded-details { max-height: 0; overflow: hidden; opacity: 0; transition: all .35s ease; background: #fafafa; padding: 0 6px; }
+        .expanded-details.open { max-height: 1000px; opacity: 1; padding: 8px 6px; border-top: 1px dashed #cbd5e1; }
+        .section-title { font-size: 11px; font-weight: 800; color: var(--pp-teal-dark); margin: 6px 0 3px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; text-transform: uppercase; }
+        .detail-row { display: flex !important; justify-content: space-between !important; margin-bottom: 3px; font-size: 12px; border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px; gap: 4px; }
+        .detail-label { color: var(--pp-text-muted); font-weight: 600; }
+        .detail-val { color: var(--pp-text-main); font-weight: 700; text-align: right !important; word-break: break-word; flex: 1; }
+        .privacy-badge { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 5px 6px; border-radius: 6px; font-size: 10.5px; font-weight: 600; text-align: center !important; margin-top: 6px; }
+        
+        .card-footer { padding: 8px; background: #fff; border-top: 1px solid #f1f5f9; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 4px; flex-wrap: wrap; }
+        .toggle-hint { font-size: 11.5px; color: var(--pp-teal-dark); font-weight: 700; display: flex; align-items: center; gap: 2px; }
+        .whatsapp-btn { background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); color: #fff !important; border: none; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+        .download-btn { background: #f0fdf4; color: #166534 !important; border: 1px solid #bbf7d0; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+        .toast-msg { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #fff !important; padding: 8px 16px; border-radius: 18px; font-size: 12px; font-weight: 600; z-index: 999999; box-shadow: 0 3px 12px rgba(0,0,0,.3); }
+    </style>
+</head>
+<body>
+
 <div id="ppSearchPageRoot">
     <!-- স্লাইড ওভার ড্রয়ার মেনু ব্যাকড্রপ -->
     <div id="ppDrawerBackdrop" class="drawer-backdrop" onclick="ppToggleDrawer(false)"></div>
@@ -179,7 +407,7 @@
         <section id="ppSearchSection" class="search-engine-section">
             <div class="section-header">
                 <span class="section-tag">সর্বশেষ বায়োডাটা</span>
-                <h2 class="section-title">recently প্রকাশিত বায়োডাটা সমূহ (১০টি)</h2>
+                <h2 class="section-title">সম্প্রতি প্রকাশিত বায়োডাটা সমূহ (১০টি)</h2>
             </div>
 
             <div class="filter-wrapper">
@@ -365,206 +593,12 @@
     <div id="ppToastMsg" class="toast-msg"></div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 <script>
 (function(){
-    // গুগলের ক্লাসিক ট্রেডিশনাল বাংলা ফন্ট ইমপোর্ট
     var fontImport = document.createElement('link');
     fontImport.rel = 'stylesheet';
     fontImport.href = 'https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap';
     document.head.appendChild(fontImport);
-
-    var cssStyles = `@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
-    
-    #ppSearchPageRoot{--pp-teal:#0d9488;--pp-teal-dark:#0f766e;--pp-primary:#e11d48;--pp-bg:#f8fafc;--pp-text-main:#0f172a;--pp-text-muted:#64748b;--pp-border:#e2e8f0;all:initial;display:block!important;width:100%!important;max-width:100%!important;overflow-x:hidden!important;box-sizing:border-box!important;font-family:'Tiro Bangla','Hind Siliguri',serif!important;color:var(--pp-text-main)!important;background:var(--pp-bg)!important}#ppSearchPageRoot,#ppSearchPageRoot *{box-sizing:border-box!important;font-family:'Tiro Bangla','Hind Siliguri',serif!important}#ppSearchPageRoot .main-app-container{width:100%!important;margin:0 auto!important;padding:0!important;text-align:left}
-    
-    /* এনিমেশনস */
-    @keyframes floatAnim{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-    .float-anim{animation:floatAnim 3s ease-in-out infinite}
-    @keyframes avatarGlow{0%{box-shadow:0 0 0 0 rgba(13,148,136,0.4)}70%{box-shadow:0 0 0 8px rgba(13,148,136,0)}100%{box-shadow:0 0 0 0 rgba(13,148,136,0)}}
-
-    /* ড্রয়ার মেনু সিএসএস ফিক্স */
-    #ppSearchPageRoot .drawer-backdrop{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);z-index:99998;display:none;opacity:0;transition:opacity .3s ease}
-    #ppSearchPageRoot .drawer-backdrop.active{display:block!important;opacity:1}
-    #ppSearchPageRoot .drawer-menu{position:fixed;top:0;left:-285px;width:265px;height:100vh;background:#fff;z-index:99999;box-shadow:4px 0 25px rgba(0,0,0,0.15);display:flex;flex-direction:column;justify-content:space-between;transition:left .3s cubic-bezier(0.4,0,0.2,1)}
-    #ppSearchPageRoot .drawer-menu.active{left:0!important}
-    #ppSearchPageRoot .drawer-header{padding:16px;background:linear-gradient(135deg,#ccfbf1,#e0f2fe);border-bottom:1px solid #99f6e4;display:flex;align-items:center;justify-content:space-between}
-    #ppSearchPageRoot .drawer-brand{display:flex;align-items:center;gap:8px}
-    #ppSearchPageRoot .drawer-logo{font-size:22px}
-    #ppSearchPageRoot .drawer-title{margin:0;font-size:16px;font-weight:800;color:var(--pp-teal-dark)}
-    #ppSearchPageRoot .drawer-subtitle{margin:0;font-size:11px;color:var(--pp-text-muted)}
-    #ppSearchPageRoot .drawer-close-btn{background:none;border:none;font-size:18px;color:var(--pp-text-muted);cursor:pointer;padding:4px}
-    #ppSearchPageRoot .drawer-body{padding:14px;display:flex;flex-direction:column;gap:8px;overflow-y:auto}
-    #ppSearchPageRoot .drawer-item{padding:9px 12px;border-radius:8px;color:var(--pp-text-main);text-decoration:none;font-size:13px;font-weight:600;transition:all .2s;background:#f8fafc;border:1px solid #f1f5f9}
-    #ppSearchPageRoot .drawer-item:hover{background:#ccfbf1;color:var(--pp-teal-dark);border-color:#99f6e4;transform:translateX(3px)}
-    #ppSearchPageRoot .drawer-free-badge{margin-top:15px;padding:10px;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;border-radius:10px;font-size:11.5px;font-weight:700;text-align:center}
-    #ppSearchPageRoot .drawer-footer{padding:14px;border-top:1px solid #e2e8f0;background:#f8fafc;font-size:11px;color:var(--pp-text-muted)}
-    #ppSearchPageRoot .drawer-footer p{margin:2px 0}
-
-    /* টপ নেভিগেশন বার */
-    #ppSearchPageRoot .top-navbar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:900}
-    #ppSearchPageRoot .menu-toggle-btn{background:#f8fafc;border:1px solid #cbd5e1;padding:5px 10px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-    #ppSearchPageRoot .menu-icon{font-size:17px;color:var(--pp-text-main)}
-    #ppSearchPageRoot .nav-brand{display:flex;align-items:center;gap:6px;cursor:pointer}
-    #ppSearchPageRoot .brand-logo{font-size:20px}
-    #ppSearchPageRoot .brand-name{font-size:17px;font-weight:800;color:var(--pp-teal-dark)}
-    #ppSearchPageRoot .nav-cta-btn{background:var(--pp-teal);color:#fff!important;border:none;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;box-shadow:0 3px 10px rgba(13,148,136,0.2)}
-
-    /* হিরো সেকশন সিএসএস */
-    #ppSearchPageRoot .hero-section{padding:35px 16px;text-align:center;background:linear-gradient(180deg,#ccfbf1 0%,#ffffff 100%);border-bottom:1px solid #e2e8f0}
-    #ppSearchPageRoot .hero-badge{display:inline-block;padding:4px 14px;background:#fff;border:1px solid #99f6e4;border-radius:20px;font-size:12px;font-weight:700;color:var(--pp-teal-dark);margin-bottom:12px;box-shadow:0 2px 8px rgba(13,148,136,0.08)}
-    #ppSearchPageRoot .hero-title{font-size:25px;font-weight:800;line-height:1.3;margin:0 0 10px 0;color:#0f172a}
-    @media (min-width:640px){#ppSearchPageRoot .hero-title{font-size:34px}}
-    #ppSearchPageRoot .highlight-text{color:var(--pp-teal-dark)}
-    #ppSearchPageRoot .hero-description{font-size:13.5px;color:var(--pp-text-muted);max-width:600px;margin:0 auto 20px auto;line-height:1.6}
-    #ppSearchPageRoot .hero-btn-group{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:25px}
-    #ppSearchPageRoot .hero-btn{padding:10px 20px;border-radius:10px;font-size:13.5px;font-weight:700;cursor:pointer;border:none;text-decoration:none}
-    #ppSearchPageRoot .primary-btn{background:var(--pp-teal);color:#fff!important;box-shadow:0 4px 14px rgba(13,148,136,0.25)}
-    #ppSearchPageRoot .primary-btn:hover{background:var(--pp-teal-dark)}
-    #ppSearchPageRoot .secondary-btn{background:#0f172a;color:#fff!important}
-    
-    #ppSearchPageRoot .hero-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;max-width:700px;margin:0 auto}
-    #ppSearchPageRoot .stat-card{background:#fff;padding:12px;border-radius:12px;border:1px solid #e2e8f0;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,0.02)}
-    #ppSearchPageRoot .stat-icon{font-size:22px;display:block;margin-bottom:4px}
-    #ppSearchPageRoot .stat-title{font-size:12.5px;font-weight:800;display:block;color:#0f172a}
-    #ppSearchPageRoot .stat-desc{font-size:10.5px;color:var(--pp-text-muted)}
-
-    /* ইনফো সেকশনস */
-    #ppSearchPageRoot .info-section{padding:35px 16px;border-bottom:1px solid #e2e8f0}
-    #ppSearchPageRoot .bg-soft{background:#f8fafc}
-    #ppSearchPageRoot .section-header{text-align:center;margin-bottom:24px}
-    #ppSearchPageRoot .section-tag{font-size:11.5px;font-weight:800;color:var(--pp-teal-dark);text-transform:uppercase;letter-spacing:0.5px}
-    #ppSearchPageRoot .section-title{font-size:21px;font-weight:800;margin:4px 0 0 0;color:#0f172a}
-
-    #ppSearchPageRoot .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;max-width:900px;margin:0 auto}
-    #ppSearchPageRoot .feature-card{background:#fff;padding:18px;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,0.03)}
-    #ppSearchPageRoot .f-icon{font-size:28px;margin-bottom:8px}
-    #ppSearchPageRoot .feature-card h3{margin:0 0 6px 0;font-size:14.5px;font-weight:800;color:#0f172a}
-    #ppSearchPageRoot .feature-card p{margin:0;font-size:12px;color:var(--pp-text-muted);line-height:1.55}
-
-    #ppSearchPageRoot .steps-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:900px;margin:0 auto}
-    #ppSearchPageRoot .step-card{background:#fff;padding:18px;border-radius:14px;border:1px solid #e2e8f0;position:relative}
-    #ppSearchPageRoot .step-num{position:absolute;top:14px;right:14px;width:26px;height:26px;background:#ccfbf1;color:var(--pp-teal-dark);border-radius:50%;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
-    #ppSearchPageRoot .step-card h3{margin:0 0 6px 0;font-size:14px;font-weight:800;color:#0f172a;padding-right:25px}
-    #ppSearchPageRoot .step-card p{margin:0;font-size:12px;color:var(--pp-text-muted);line-height:1.5}
-
-    /* ক্লিন রেজিস্ট্রেশন সেকশন */
-    #ppSearchPageRoot .clean-register-section{padding:35px 16px;background:linear-gradient(135deg,#ccfbf1 0%,#fafafa 100%);border-bottom:1px solid #e2e8f0}
-    #ppSearchPageRoot .reg-cta-card{max-width:750px;margin:0 auto;background:#fff;padding:28px 18px;border-radius:20px;border:1.5px solid #99f6e4;box-shadow:0 8px 25px rgba(13,148,136,0.06);text-align:center}
-    #ppSearchPageRoot .reg-badge{display:inline-block;padding:4px 12px;background:#f0fdf4;color:var(--pp-teal-dark);border-radius:20px;font-size:11.5px;font-weight:800;margin-bottom:8px;border:1px solid #bbf7d0}
-    #ppSearchPageRoot .reg-title{margin:0 0 8px 0;font-size:22px;font-weight:800;color:#0f172a}
-    #ppSearchPageRoot .reg-desc{font-size:13px;color:var(--pp-text-muted);max-width:550px;margin:0 auto 14px auto;line-height:1.6}
-    #ppSearchPageRoot .reg-features-mini{font-size:11.5px;font-weight:700;color:#166534;margin-bottom:20px}
-    #ppSearchPageRoot .reg-btn-box{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-    #ppSearchPageRoot .reg-main-btn{background:var(--pp-teal);color:#fff!important;border:none;padding:11px 22px;border-radius:10px;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.25);text-decoration:none;transition:all .2s}
-    #ppSearchPageRoot .reg-main-btn:hover{background:var(--pp-teal-dark)}
-    #ppSearchPageRoot .reg-wa-btn{background:#0f172a;color:#fff!important;border:none;padding:11px 18px;border-radius:10px;font-size:13.5px;font-weight:800;cursor:pointer}
-
-    /* মিনি FAQ ও সেকশন লিংক বাটন */
-    .mini-faq-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; cursor: pointer; }
-    .mini-faq-q { font-size: 13px; font-weight: 800; color: #0f172a; display: flex; justify-content: space-between; align-items: center; }
-    .mini-faq-a { font-size: 11.5px; color: #475569; margin-top: 6px; display: none; line-height: 1.5; border-top: 1px dashed #e2e8f0; padding-top: 6px; }
-    .mini-faq-card.open .mini-faq-a { display: block; }
-    .mini-faq-card.open .q-arrow { transform: rotate(180deg); }
-    .q-arrow { font-size: 10px; color: var(--pp-teal-dark); transition: transform 0.2s; }
-
-    .sec-link-btn { display: inline-block; background: #0f172a; color: #fff !important; padding: 9px 18px; border-radius: 8px; font-size: 12.5px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-    .sec-link-btn.primary { background: var(--pp-teal); }
-
-    /* ১০টি বায়োডাটা দেখার সেকশন */
-    #ppSearchPageRoot .search-engine-section{padding:35px 12px;background:#fff;border-bottom:1px solid #e2e8f0}
-    #ppSearchPageRoot .view-all-biodata-btn{display:inline-block;background:var(--pp-teal);color:#fff!important;padding:11px 24px;border-radius:10px;font-size:13.5px;font-weight:800;text-decoration:none;box-shadow:0 4px 15px rgba(13,148,136,0.25);transition:all .2s}
-    #ppSearchPageRoot .view-all-biodata-btn:hover{background:var(--pp-teal-dark);transform:translateY(-2px)}
-
-    /* এডমিন সেকশন */
-    #ppSearchPageRoot .admin-profile-section{padding:35px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0}
-    #ppSearchPageRoot .admin-card{max-width:600px;margin:0 auto;background:#fff;padding:20px;border-radius:16px;border:1px solid #e2e8f0;display:flex;gap:15px;align-items:center;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
-    #ppSearchPageRoot .admin-avatar-box{width:60px;height:60px;background:#ccfbf1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;border:2px solid #99f6e4;shrink:0}
-    #ppSearchPageRoot .admin-info{flex:1;min-width:200px}
-    #ppSearchPageRoot .admin-tag{font-size:10px;font-weight:800;color:var(--pp-teal-dark);text-transform:uppercase}
-    #ppSearchPageRoot .admin-name{margin:2px 0 6px 0;font-size:16.5px;font-weight:800;color:#0f172a}
-    #ppSearchPageRoot .admin-bio{margin:0 0 8px 0;font-size:11.5px;color:var(--pp-text-muted);line-height:1.55;font-style:italic}
-    #ppSearchPageRoot .admin-details{font-size:11px;font-weight:600;color:#0f172a}
-
-    /* সোশ্যাল সেকশন */
-    #ppSearchPageRoot .social-contact-section{padding:35px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
-    #ppSearchPageRoot .social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:850px;margin:0 auto}
-    #ppSearchPageRoot .social-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid #e2e8f0;text-decoration:none;color:#0f172a;transition:all .2s;background:#f8fafc}
-    #ppSearchPageRoot .social-card:hover{transform:translateY(-2px);background:#fff;border-color:var(--pp-teal)}
-    #ppSearchPageRoot .social-card .s-icon{font-size:24px}
-    #ppSearchPageRoot .social-card h4{margin:0;font-size:13px;font-weight:800}
-    #ppSearchPageRoot .social-card p{margin:2px 0 0 0;font-size:11px;color:var(--pp-text-muted)}
-
-    /* ফুটার */
-    #ppSearchPageRoot .app-footer{padding:30px 16px 16px 16px;background:#0f172a;color:#fff!important}
-    #ppSearchPageRoot .footer-content{max-width:900px;margin:0 auto 16px auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-    #ppSearchPageRoot .footer-brand h3{margin:0 0 4px 0;font-size:16px;color:#2dd4bf}
-    #ppSearchPageRoot .footer-brand p{margin:0;font-size:11.5px;color:#94a3b8;max-width:300px}
-    #ppSearchPageRoot .footer-info p{margin:3px 0;font-size:11.5px;color:#cbd5e1}
-    #ppSearchPageRoot .footer-bottom{border-top:1px solid #334155;padding-top:14px;text-align:center;font-size:11px;color:#64748b}
-
-    /* টিকার ও কার্ড ফিল্টার সিএসএস */
-    #ppSearchPageRoot .header-ticker-container{display:flex;overflow:hidden;width:100%!important;background:linear-gradient(135deg,#ccfbf1 0%,#f0fdf4 100%);border-bottom:1px solid #99f6e4;padding:5px 0}
-    #ppSearchPageRoot .header-ticker-track{display:flex;align-items:center;gap:15px;white-space:nowrap;padding-right:40px;animation:ppTickerSlide 20s linear infinite}
-    @keyframes ppTickerSlide{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-    #ppSearchPageRoot .app-title{color:var(--pp-teal-dark);margin:0;font-size:12.5px;font-weight:800;display:inline-block}
-    #ppSearchPageRoot .app-subtitle{color:var(--pp-text-muted);font-size:11px;font-weight:600;margin:0;display:inline-block}
-
-    #ppSearchPageRoot .filter-wrapper{background:#f8fafc;padding:6px;border-radius:10px;border:1px solid #e2e8f0;margin-bottom:10px;width:100%!important}
-    #ppSearchPageRoot .filter-row{display:flex!important;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:5px;width:100%!important}
-    #ppSearchPageRoot .filter-row:last-child{margin-bottom:0}
-    #ppSearchPageRoot .search-box{flex:1 1 100%;min-width:0;padding:6px 10px;border:1px solid #cbd5e1;border-radius:6px;font-size:11.5px;outline:none;background:#fff;height:32px}
-    #ppSearchPageRoot .search-box:focus{border-color:var(--pp-teal)}
-    #ppSearchPageRoot .category-select{flex:1 1 30%;min-width:100px;padding:6px 18px 6px 8px;border:1px solid #cbd5e1;border-radius:6px;font-size:11.5px;outline:none;background-color:#fff;font-weight:600;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230f766e' stroke-width='3'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 6px center;background-size:10px;height:32px;line-height:1.2}
-    #ppSearchPageRoot .reset-btn{flex:1 1 100%;background:#64748b;color:#fff!important;border:none;padding:6px 10px;border-radius:6px;font-size:11.5px;font-weight:700;cursor:pointer;height:32px}
-
-    #ppSearchPageRoot .loading-container{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px 10px;width:100%;margin:0 auto}
-    #ppSearchPageRoot .loading-container.pp-hidden{display:none!important}
-    #ppSearchPageRoot .heart-spinner{font-size:26px!important;margin-bottom:4px!important;animation:ppPulse 1s infinite!important;display:inline-block!important}
-    @keyframes ppPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-
-    #ppSearchPageRoot .cards-container{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;width:100%!important;margin:0!important}
-    @media (min-width:640px){#ppSearchPageRoot .cards-container{grid-template-columns:repeat(2,1fr)!important}}
-    @media (min-width:1024px){#ppSearchPageRoot .cards-container{grid-template-columns:repeat(3,1fr)!important}}
-
-    #ppSearchPageRoot .biodata-card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.02);overflow:hidden;border:1px solid var(--pp-border);display:flex!important;flex-direction:column!important;justify-content:space-between;cursor:pointer;transition:all .2s ease;margin:0!important;width:100%!important}
-    #ppSearchPageRoot .biodata-card:hover{border-color:#99f6e4;box-shadow:0 4px 12px rgba(13,148,136,.1)}
-    #ppSearchPageRoot .card-top{padding:6px;text-align:center!important;background:linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%);position:relative;border-bottom:1px solid #dcfce7;width:100%!important}
-    #ppSearchPageRoot .card-top.female-bg{background:linear-gradient(180deg,#fff1f2 0%,#ffffff 100%);border-bottom:1px solid #ffe4e6}
-    #ppSearchPageRoot .badge-container{position:absolute;top:6px;left:6px;background:#fff;padding:1px 6px;border-radius:6px;border:1px solid #99f6e4;font-size:10.5px;font-weight:800;color:var(--pp-teal-dark)}
-    
-    #ppSearchPageRoot .fav-heart-btn{position:absolute;top:6px;right:6px;background:#fff;border:1px solid #e2e8f0;padding:2px 6px;border-radius:12px;font-size:11px;cursor:pointer;transition:all .2s}
-    #ppSearchPageRoot .fav-heart-btn.liked{background:#fff1f2;border-color:#fecdd3;color:var(--pp-primary)}
-
-    #ppSearchPageRoot .avatar-box{position:relative;width:52px;height:52px;margin:2px auto 4px auto;border-radius:50%;padding:2px;background:linear-gradient(135deg,var(--pp-teal),#38bdf8);animation:avatarGlow 2s infinite}
-    #ppSearchPageRoot .avatar-box img{width:100%!important;height:100%!important;object-fit:cover;border-radius:50%;background:#fff}
-    #ppSearchPageRoot .card-top h3{margin:1px 0;font-size:15px;color:var(--pp-text-main);font-weight:800;text-align:center!important}
-    #ppSearchPageRoot .card-top p{margin:0;font-size:11px;color:var(--pp-text-muted);font-weight:600;text-align:center!important}
-    #ppSearchPageRoot .card-body{padding:6px;width:100%!important;text-align:left}
-    #ppSearchPageRoot .info-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:4px!important;margin-bottom:4px}
-    #ppSearchPageRoot .info-box{background:#f8fafc;padding:4px 6px;border-radius:6px;border:1px solid #f1f5f9;text-align:left!important}
-    #ppSearchPageRoot .info-title{font-size:9px;color:var(--pp-text-muted);display:block;font-weight:700;text-transform:uppercase}
-    #ppSearchPageRoot .info-value{font-size:11.5px;color:var(--pp-text-main);font-weight:700;word-break:break-word}
-    
-    #ppSearchPageRoot .expanded-details{max-height:0;overflow:hidden;opacity:0;transition:all .35s ease;background:#fafafa;padding:0 6px}
-    #ppSearchPageRoot .expanded-details.open{max-height:1000px;opacity:1;padding:6px 6px 8px 6px;border-top:1px dashed #cbd5e1}
-    #ppSearchPageRoot .section-title{font-size:10.5px;font-weight:800;color:var(--pp-teal-dark);margin:5px 0 2px 0;border-bottom:1px solid #e2e8f0;padding-bottom:2px;text-transform:uppercase}
-    #ppSearchPageRoot .detail-row{display:flex!important;justify-content:space-between!important;margin-bottom:3px;font-size:11.5px;border-bottom:1px dashed #f1f5f9;padding-bottom:2px;gap:4px}
-    #ppSearchPageRoot .detail-label{color:var(--pp-text-muted);font-weight:600}
-    #ppSearchPageRoot .detail-val{color:var(--pp-text-main);font-weight:700;text-align:right!important;word-break:break-word;flex:1}
-    #ppSearchPageRoot .privacy-badge{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;padding:4px 6px;border-radius:6px;font-size:10px;font-weight:600;text-align:center!important;margin-top:6px}
-    
-    #ppSearchPageRoot .card-footer{padding:6px;background:#fff;border-top:1px solid #f1f5f9;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:4px;flex-wrap:wrap}
-    #ppSearchPageRoot .toggle-hint{font-size:11px;color:var(--pp-teal-dark);font-weight:700;display:flex;align-items:center;gap:2px}
-    #ppSearchPageRoot .whatsapp-btn{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff!important;border:none;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer}
-    #ppSearchPageRoot .download-btn{background:#f0fdf4;color:#166534!important;border:1px solid #bbf7d0;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer}
-    #ppSearchPageRoot .toast-msg{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff!important;padding:8px 16px;border-radius:18px;font-size:11.5px;font-weight:600;z-index:999999;box-shadow:0 3px 12px rgba(0,0,0,.3)}`;
-    
-    var styleTag = document.createElement('style');
-    styleTag.type = 'text/css';
-    styleTag.appendChild(document.createTextNode(cssStyles));
-    document.head.appendChild(styleTag);
 
     const API_URL = "https://script.google.com/macros/s/AKfycby2aXpIWmDTv6o8rF9YV_2VifmeoKqz01QLHQP-upoxbpa120rS-NnMqNG9JbwdR0Y0Bw/exec";
     const boyAvatar = "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
@@ -573,11 +607,10 @@
     var districtsList = ["ঢাকা", "চট্টগ্রাম", "সিলেট", "খুলনা", "রাজশাহী", "বরিশাল", "রংপুর", "ময়মনসিংহ", "কুমিল্লা", "গাজীপুর", "নারায়ণগঞ্জ", "ফেনী", "নোয়াখালী", "বগুড়া", "পাবনা", "যশোর", "কুষ্টিয়া", "দিনাজপুর", "টাঙ্গাইল", "কিশোরগঞ্জ", "ব্রাহ্মণবাড়িয়া", "চাঁদপুর", "কক্সবাজার"];
 
     let allData = [], filteredData = [];
-    const itemsPerPage = 10; // ল্যান্ডিং পেজে ১০টি দেখাবে
+    const itemsPerPage = 10;
 
     let myFavorites = JSON.parse(localStorage.getItem('pp_fav_ids') || '[]');
 
-    // গ্লোবাল স্লাইড মেনু টগল ফিক্স
     window.ppToggleDrawer = function(open) {
         var menu = document.getElementById('ppDrawerMenu');
         var backdrop = document.getElementById('ppDrawerBackdrop');
@@ -596,8 +629,7 @@
         var div = document.createElement('div');
         div.innerHTML = str;
         var txt = div.textContent || div.innerText || str;
-        return txt.replace(/&#(\d+);/g, function(m, d) { return String.fromCharCode(d); })
-                  .replace(/&amp;/g, '&');
+        return txt.replace(/&#(\d+);/g, function(m, d) { return String.fromCharCode(d); }).replace(/&amp;/g, '&');
     }
 
     function getNormalizedGender(str) {
@@ -630,6 +662,7 @@
 
     function ppShowToast(msg) {
         var t = document.getElementById('ppToastMsg');
+        if(!t) return;
         t.innerText = msg; t.style.display = 'block';
         setTimeout(function() { t.style.display = 'none'; }, 2200);
     }
@@ -672,12 +705,14 @@
             
             ppRenderCards();
         }).catch(err => {
-            document.getElementById('ppLoadingDiv').innerHTML = '<p style="color:#ef4444; font-size:12px;">ডেটা লোড করতে সমস্যা হয়েছে।</p>';
+            var loader = document.getElementById('ppLoadingDiv');
+            if(loader) loader.innerHTML = '<p style="color:#ef4444; font-size:12px;">ডেটা লোড করতে সমস্যা হয়েছে।</p>';
         });
     }
 
     function ppRenderCards() {
         const container = document.getElementById('ppCardsContainer');
+        if(!container) return;
         container.innerHTML = '';
 
         if (!filteredData || filteredData.length === 0) {
@@ -715,7 +750,6 @@
                         <div class="info-box"><span class="info-title">শিক্ষাগত যোগ্যতা</span><span class="info-value">${item.education}</span></div>
                     </div>
 
-                    <!-- ইনলাইন এক্সপ্যান্ডেবল ডিটেইলস (NO POPUP!) -->
                     <div class="expanded-details" id="${detailsId}">
                         <div class="section-title">১. ব্যক্তিগত তথ্য</div>
                         <div class="detail-row"><span class="detail-label">উচ্চতা:</span><span class="detail-val">${item.height}</span></div>
