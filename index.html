@@ -31,6 +31,7 @@
         .float-anim { animation: floatAnim 3s ease-in-out infinite; }
         @keyframes avatarGlow { 0% { box-shadow: 0 0 0 0 rgba(13,148,136,0.4); } 70% { box-shadow: 0 0 0 8px rgba(13,148,136,0); } 100% { box-shadow: 0 0 0 0 rgba(13,148,136,0); } }
         @keyframes ppPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        @keyframes modalPop { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 
         /* ড্রয়ার মেনু সিএসএস */
         .drawer-backdrop {
@@ -53,20 +54,20 @@
         .drawer-subtitle { margin: 0; font-size: 11px; color: var(--pp-text-muted); }
         .drawer-close-btn { background: none; border: none; font-size: 18px; color: var(--pp-text-muted); cursor: pointer; padding: 4px; }
         .drawer-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
-        .drawer-item { padding: 10px 12px; border-radius: 8px; color: var(--pp-text-main); text-decoration: none; font-size: 13.5px; font-weight: 600; transition: all .2s; background: #f8fafc; border: 1px solid #f1f5f9; }
-        .drawer-item:hover { background: #ccfbf1; color: var(--pp-teal-dark); border-color: #99f6e4; }
-        .drawer-free-badge { margin-top: 12px; padding: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; border-radius: 10px; font-size: 11.5px; font-weight: 700; text-align: center; }
-        .drawer-footer { padding: 14px; border-top: 1px solid #e2e8f0; background: #f8fafc; font-size: 11.5px; color: var(--pp-text-muted); }
+        .drawer-item { padding: 9px 12px; border-radius: 8px; color: var(--pp-text-main); text-decoration: none; font-size: 13px; font-weight: 600; transition: all .2s; background: #f8fafc; border: 1px solid #f1f5f9; }
+        .drawer-item:hover { background: #ccfbf1; color: var(--pp-teal-dark); border-color: #99f6e4; transform: translateX(3px); }
+        .drawer-free-badge { margin-top: 15px; padding: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; border-radius: 10px; font-size: 11.5px; font-weight: 700; text-align: center; }
+        .drawer-footer { padding: 14px; border-top: 1px solid #e2e8f0; background: #f8fafc; font-size: 11px; color: var(--pp-text-muted); }
         .drawer-footer p { margin: 2px 0; }
 
         /* টপ নেভিগেশন বার */
         .top-navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255,255,255,0.98); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 900; }
-        .menu-toggle-btn { background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .menu-icon { font-size: 18px; color: var(--pp-text-main); }
-        .nav-brand { display: flex; align-items: center; gap: 6px; cursor: pointer; }
-        .brand-logo { font-size: 22px; }
-        .brand-name { font-size: 18px; font-weight: 800; color: var(--pp-teal-dark); }
-        .nav-cta-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 8px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 3px 10px rgba(13,148,136,0.2); }
+        .menu-toggle-btn { background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 5px 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .menu-icon { font-size: 17px; color: var(--pp-text-main); }
+        .nav-brand { display: flex; align-items: center; gap: 6px; cursor: pointer; user-select: none; }
+        .brand-logo { font-size: 20px; }
+        .brand-name { font-size: 17px; font-weight: 800; color: var(--pp-teal-dark); }
+        .nav-cta-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 3px 10px rgba(13,148,136,0.2); }
 
         /* টিকার */
         .header-ticker-container { display: flex; overflow: hidden; width: 100%; background: linear-gradient(135deg,#ccfbf1 0%,#f0fdf4 100%); border-bottom: 1px solid #99f6e4; padding: 6px 0; }
@@ -75,7 +76,7 @@
         .app-title { color: var(--pp-teal-dark); margin: 0; font-size: 13px; font-weight: 800; display: inline-block; }
         .app-subtitle { color: var(--pp-text-muted); font-size: 11.5px; font-weight: 600; margin: 0; display: inline-block; }
 
-        /* হিরো সেকশন (মোবাইলে ১ কলাম) */
+        /* হিরো সেকশন */
         .hero-section { padding: 28px 14px; text-align: center; background: linear-gradient(180deg,#ccfbf1 0%,#ffffff 100%); border-bottom: 1px solid #e2e8f0; }
         .hero-badge { display: inline-block; padding: 5px 14px; background: #fff; border: 1px solid #99f6e4; border-radius: 20px; font-size: 12px; font-weight: 700; color: var(--pp-teal-dark); margin-bottom: 12px; box-shadow: 0 2px 8px rgba(13,148,136,0.08); }
         .hero-title { font-size: 22px; font-weight: 800; line-height: 1.4; margin: 0 0 10px 0; color: #0f172a; }
@@ -87,7 +88,7 @@
         .primary-btn { background: var(--pp-teal); color: #fff !important; box-shadow: 0 4px 14px rgba(13,148,136,0.25); }
         .secondary-btn { background: #0f172a; color: #fff !important; }
         
-        /* গ্রিডসমূহ: মোবাইলে ১ কলাম (1 Column Default) */
+        /* গ্রিডসমূহ: মোবাইলে ১ কলাম */
         .hero-stats-grid,
         .features-grid,
         .steps-container,
@@ -100,7 +101,6 @@
             margin: 0 auto !important;
         }
 
-        /* ট্যাবলেট ও ডেস্কটপে কলাম বাড়ানো হবে */
         @media (min-width: 640px) {
             .hero-stats-grid { grid-template-columns: repeat(3, 1fr) !important; max-width: 750px !important; }
             .features-grid { grid-template-columns: repeat(3, 1fr) !important; max-width: 900px !important; }
@@ -180,7 +180,7 @@
         .footer-info p { margin: 3px 0; font-size: 12px; color: #cbd5e1; }
         .footer-bottom { border-top: 1px solid #334155; padding-top: 14px; text-align: center; font-size: 11px; color: #64748b; }
 
-        /* ফিল্টার কন্ট্রোলস */
+        /* ফিল্টার ও কার্ড কন্ট্রোলস */
         .filter-wrapper { background: #f8fafc; padding: 8px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 10px; width: 100%; }
         .filter-row { display: flex !important; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 6px; width: 100%; }
         .filter-row:last-child { margin-bottom: 0; }
@@ -191,8 +191,7 @@
         .loading-container { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 25px 10px; width: 100%; margin: 0 auto; }
         .heart-spinner { font-size: 28px !important; margin-bottom: 4px !important; animation: ppPulse 1s infinite !important; display: inline-block !important; }
 
-        /* বায়োডাটা কার্ড স্টাইলিং */
-        .biodata-card { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.02); overflow: hidden; border: 1px solid var(--pp-border); display: flex !important; flex-direction: column !important; justify-content: space-between; cursor: pointer; transition: all .2s ease; margin: 0 !important; width: 100 !important; }
+        .biodata-card { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.02); overflow: hidden; border: 1px solid var(--pp-border); display: flex !important; flex-direction: column !important; justify-content: space-between; cursor: pointer; transition: all .2s ease; margin: 0 !important; width: 100% !important; }
         .card-top { padding: 8px 6px; text-align: center !important; background: linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%); position: relative; border-bottom: 1px solid #dcfce7; width: 100% !important; }
         .card-top.female-bg { background: linear-gradient(180deg,#fff1f2 0%,#ffffff 100%); border-bottom: 1px solid #ffe4e6; }
         .badge-container { position: absolute; top: 6px; left: 6px; background: #fff; padding: 2px 6px; border-radius: 6px; border: 1px solid #99f6e4; font-size: 10.5px; font-weight: 800; color: var(--pp-teal-dark); }
@@ -203,25 +202,30 @@
         .avatar-box img { width: 100% !important; height: 100% !important; object-fit: cover; border-radius: 50%; background: #fff; }
         .card-top h3 { margin: 2px 0 1px 0; font-size: 15.5px; color: var(--pp-text-main); font-weight: 800; text-align: center !important; }
         .card-top p { margin: 0; font-size: 11.5px; color: var(--pp-text-muted); font-weight: 600; text-align: center !important; }
-        .card-body { padding: 8px; width: 100% !important; text-align: left; }
+        .card-body { padding: 6px; width: 100% !important; text-align: left; }
         .info-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 5px !important; margin-bottom: 5px; }
         .info-box { background: #f8fafc; padding: 5px 7px; border-radius: 6px; border: 1px solid #f1f5f9; text-align: left !important; }
         .info-title { font-size: 9.5px; color: var(--pp-text-muted); display: block; font-weight: 700; text-transform: uppercase; }
         .info-value { font-size: 12px; color: var(--pp-text-main); font-weight: 700; word-break: break-word; }
         
         .expanded-details { max-height: 0; overflow: hidden; opacity: 0; transition: all .35s ease; background: #fafafa; padding: 0 6px; }
-        .expanded-details.open { max-height: 1000px; opacity: 1; padding: 8px 6px; border-top: 1px dashed #cbd5e1; }
+        .expanded-details.open { max-height: 1000px; opacity: 1; padding: 6px 6px 8px 6px; border-top: 1px dashed #cbd5e1; }
         .section-title { font-size: 11px; font-weight: 800; color: var(--pp-teal-dark); margin: 6px 0 3px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; text-transform: uppercase; }
         .detail-row { display: flex !important; justify-content: space-between !important; margin-bottom: 3px; font-size: 12px; border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px; gap: 4px; }
         .detail-label { color: var(--pp-text-muted); font-weight: 600; }
         .detail-val { color: var(--pp-text-main); font-weight: 700; text-align: right !important; word-break: break-word; flex: 1; }
         .privacy-badge { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 5px 6px; border-radius: 6px; font-size: 10.5px; font-weight: 600; text-align: center !important; margin-top: 6px; }
         
-        .card-footer { padding: 8px; background: #fff; border-top: 1px solid #f1f5f9; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 4px; flex-wrap: wrap; }
+        .card-footer { padding: 6px; background: #fff; border-top: 1px solid #f1f5f9; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 4px; flex-wrap: wrap; }
         .toggle-hint { font-size: 11.5px; color: var(--pp-teal-dark); font-weight: 700; display: flex; align-items: center; gap: 2px; }
         .whatsapp-btn { background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); color: #fff !important; border: none; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
         .download-btn { background: #f0fdf4; color: #166534 !important; border: 1px solid #bbf7d0; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
-        .toast-msg { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #fff !important; padding: 8px 16px; border-radius: 18px; font-size: 12px; font-weight: 600; z-index: 999999; box-shadow: 0 3px 12px rgba(0,0,0,.3); }
+        .toast-msg { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #fff !important; padding: 8px 16px; border-radius: 18px; font-size: 11.5px; font-weight: 600; z-index: 999999; box-shadow: 0 3px 12px rgba(0,0,0,.3); }
+
+        /* হিডেন গোপন এডমিন মোডাল */
+        .secret-modal-backdrop { position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(5px); z-index: 999999; display: none; align-items: center; justify-content: center; padding: 16px; }
+        .secret-modal-backdrop.active { display: flex !important; }
+        .secret-modal-card { background: #fff; max-width: 360px; width: 100%; border-radius: 20px; padding: 24px 18px; text-align: center; border: 1.5px solid #99f6e4; box-shadow: 0 20px 40px rgba(0,0,0,0.3); animation: modalPop 0.3s ease-out; }
     </style>
 </head>
 <body>
@@ -264,12 +268,12 @@
     <!-- মেইন অ্যাপ কন্টেইনার -->
     <div class="main-app-container">
         
-        <!-- টপ নেভিগেশন বার -->
+        <!-- টপ নেভিগেশন বার (ব্র্যান্ড টাইটেলে ৩ বার ট্যাপ করলে এডমিন প্যানেল আনলক হবে) -->
         <nav class="top-navbar">
             <button class="menu-toggle-btn" onclick="ppToggleDrawer(true)" title="মেনু খুলুন">
                 <span class="menu-icon">☰</span>
             </button>
-            <div class="nav-brand" onclick="window.location.href='index.html'">
+            <div class="nav-brand" onclick="handleBrandClick(event)">
                 <span class="brand-logo float-anim">🌸</span>
                 <span class="brand-name">পাত্রপাত্রী সন্ধান</span>
             </div>
@@ -589,6 +593,23 @@
 
     </div>
 
+    <!-- গোপন এডমিন পপ-আপ মোডাল (৩ বার ক্লিক করলে এটি আনলক হবে) -->
+    <div id="secretAdminModal" class="secret-modal-backdrop" onclick="this.classList.remove('active')">
+        <div class="secret-modal-card" onclick="event.stopPropagation()">
+            <div style="font-size:32px; margin-bottom:6px;">🔐</div>
+            <h3 style="font-size:16px; font-weight:800; color:var(--pp-teal-dark);">হিডেন এডমিন প্যানেল</h3>
+            <p style="font-size:12px; color:var(--pp-text-muted); margin:6px 0 16px 0; line-height:1.5;">
+                আপনি হিডেন এডমিন অপশন আনলক করেছেন। এডমিন ড্যাশবোর্ডে প্রবেশ করতে নিচের বাটনে চাপ দিন।
+            </p>
+            <a href="admin.html" class="reg-main-btn" style="display:block; text-decoration:none; text-align:center;">
+                🔑 এডমিন প্যানেলে প্রবেশ করুন ➔
+            </a>
+            <button onclick="document.getElementById('secretAdminModal').classList.remove('active')" style="background:none; border:none; color:var(--pp-text-muted); font-size:12px; font-weight:bold; margin-top:12px; cursor:pointer; text-decoration:underline;">
+                বন্ধ করুন
+            </button>
+        </div>
+    </div>
+
     <!-- টোস্ট নোটিফিকেশন -->
     <div id="ppToastMsg" class="toast-msg"></div>
 </div>
@@ -610,6 +631,26 @@
     const itemsPerPage = 10;
 
     let myFavorites = JSON.parse(localStorage.getItem('pp_fav_ids') || '[]');
+
+    // গোপন এডমিন ৩-বার ক্লিক লজিক (Secret Triple Click Handler)
+    let secretClickCount = 0;
+    let secretClickTimer = null;
+
+    window.handleBrandClick = function(e) {
+        secretClickCount++;
+        clearTimeout(secretClickTimer);
+
+        if (secretClickCount >= 3) {
+            secretClickCount = 0;
+            ppShowToast("🔓 হিডেন এডমিন অ্যাকসেস আনলক হয়েছে!");
+            document.getElementById('secretAdminModal').classList.add('active');
+        } else {
+            secretClickTimer = setTimeout(() => {
+                secretClickCount = 0;
+                window.location.href = 'index.html'; // ১ বার ক্লিক করলে হোমপেজে নিয়ে যাবে
+            }, 800);
+        }
+    };
 
     window.ppToggleDrawer = function(open) {
         var menu = document.getElementById('ppDrawerMenu');
@@ -869,3 +910,5 @@
     };
 })();
 </script>
+</body>
+</html>

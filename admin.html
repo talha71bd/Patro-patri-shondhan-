@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পাত্রপাত্রী সন্ধান | এডমিন ড্যাশবোর্ড</title>
+    
+    <!-- সুতন্নিএমজে-লুক ক্লাসিক বাংলা ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --admin-teal: #0d9488;
+            --admin-teal-dark: #0f766e;
+            --admin-rose: #e11d48;
+            --admin-bg: #0f172a;
+            --admin-card: #1e293b;
+            --admin-border: #334155;
+            --admin-text: #f8fafc;
+            --admin-muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tiro Bangla', 'Hind Siliguri', serif; }
+        body { background-color: var(--admin-bg); color: var(--admin-text); overflow-x: hidden; padding: 12px; }
+
+        /* এনিমেশনস */
+        @keyframes pulseGlow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes spinnerRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* সিকিউর লগইন স্ক্রিন */
+        .login-wrapper {
+            display: flex; align-items: center; justify-content: center; min-height: 85vh;
+        }
+        .login-box {
+            background: var(--admin-card); border: 1.5px solid var(--admin-border);
+            padding: 28px 20px; border-radius: 20px; text-align: center;
+            max-width: 340px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+        .login-title { font-size: 20px; font-weight: 800; color: #2dd4bf; margin-bottom: 4px; }
+        .login-sub { font-size: 12px; color: var(--admin-muted); margin-bottom: 20px; }
+        .login-input {
+            width: 100%; padding: 11px; border: 1.5px solid #475569; border-radius: 10px;
+            font-size: 14px; text-align: center; outline: none; background: #0f172a; color: #fff; margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .login-input:focus { border-color: #2dd4bf; }
+        .login-btn {
+            width: 100%; padding: 11px; background: linear-gradient(135deg, var(--admin-teal), var(--admin-teal-dark));
+            color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(13,148,136,0.3); transition: all 0.2s;
+        }
+        .login-btn:hover { transform: translateY(-2px); }
+
+        /* ড্যাশবোর্ড প্রধান অংশ */
+        .dashboard { display: none; }
+        .dashboard.active { display: block; }
+
+        .top-header {
+            background: var(--admin-card); border: 1px solid var(--admin-border);
+            padding: 12px 16px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .brand-title { font-size: 16px; font-weight: 800; color: #2dd4bf; display: flex; align-items: center; gap: 6px; }
+        .logout-btn { background: var(--admin-rose); color: #fff; border: none; padding: 6px 12px; border-radius: 8px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+
+        /* স্ট্যাটস্টিক্স গ্রিড */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+        @media (min-width: 600px) { .stats-grid { grid-template-columns: repeat(6, 1fr); } }
+        .stat-card { background: var(--admin-card); border: 1px solid var(--admin-border); padding: 10px 8px; border-radius: 12px; text-align: center; }
+        .stat-num { font-size: 18px; font-weight: 800; color: #2dd4bf; }
+        .stat-label { font-size: 10.5px; color: var(--admin-muted); font-weight: 600; }
+
+        /* ফিল্টার ও টুলবার */
+        .toolbar {
+            background: var(--admin-card); border: 1px solid var(--admin-border);
+            padding: 10px; border-radius: 14px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;
+        }
+        .search-box {
+            width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #475569;
+            background: #0f172a; color: #fff; outline: none; font-size: 12px; font-weight: 600;
+        }
+        .filter-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+        .tab-group { display: flex; gap: 4px; overflow-x: auto; }
+        .tab-btn {
+            background: #0f172a; color: var(--admin-muted); border: 1px solid var(--admin-border);
+            padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; white-space: nowrap;
+        }
+        .tab-btn.active { background: var(--admin-teal); color: #fff; border-color: var(--admin-teal); }
+        .export-btn { background: #0f172a; color: #fff; border: 1px solid #475569; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; }
+
+        /* ডাটা কার্ডস তালিকা */
+        .cards-list { display: flex; flex-direction: column; gap: 10px; }
+        .data-card {
+            background: var(--admin-card); border-radius: 14px; border: 1px solid var(--admin-border);
+            padding: 12px; transition: all 0.2s; position: relative;
+        }
+        .card-header-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px dashed var(--admin-border); padding-bottom: 6px; margin-bottom: 8px;
+        }
+        .bio-id { font-size: 12.5px; font-weight: 800; color: #2dd4bf; font-family: monospace; }
+        .badge { padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 800; }
+        .APPROVED { background: #064e3b; color: #4ade80; border: 1px solid #059669; }
+        .PENDING { background: #713f12; color: #facc15; border: 1px solid #ca8a04; }
+        .REJECTED { background: #7f1d1d; color: #f87171; border: 1px solid #dc2626; }
+
+        .card-details { font-size: 12px; color: #cbd5e1; display: flex; flex-direction: column; gap: 4px; }
+        .detail-item b { color: #94a3b8; }
+        .contact-link { color: #38bdf8; text-decoration: none; font-weight: bold; }
+        .wa-link { color: #4ade80; text-decoration: none; font-weight: bold; }
+
+        /* অ্যাকশন বাটন গ্রুপ */
+        .act-group {
+            display: flex; gap: 4px; flex-wrap: wrap; border-top: 1px solid var(--admin-border);
+            padding-top: 8px; margin-top: 8px;
+        }
+        .act-btn {
+            border: none; padding: 5px 9px; border-radius: 6px;
+            font-size: 11px; font-weight: 700; cursor: pointer; color: #fff; transition: opacity 0.2s;
+        }
+        .btn-approve { background: #059669; }
+        .btn-pending { background: #ca8a04; }
+        .btn-reject { background: #dc2626; }
+        .btn-edit { background: #2563eb; }
+        .btn-delete { background: #475569; }
+
+        /* এডিট মোডাল পপ-আপ */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            z-index: 9999; display: none; align-items: center; justify-content: center; padding: 14px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-card {
+            background: var(--admin-card); border: 1.5px solid #475569; border-radius: 18px;
+            max-width: 400px; width: 100%; padding: 18px 14px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .modal-title { font-size: 16px; font-weight: 800; color: #2dd4bf; margin-bottom: 12px; text-align: center; }
+        .modal-input {
+            width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #475569;
+            background: #0f172a; color: #fff; font-size: 12px; font-weight: 600; outline: none; margin-bottom: 8px;
+        }
+        .save-btn { width: 100%; padding: 9px; background: var(--admin-teal); color: #fff; border: none; border-radius: 8px; font-size: 12.5px; font-weight: 800; cursor: pointer; margin-top: 6px; }
+        .cancel-btn { width: 100%; padding: 8px; background: #475569; color: #fff; border: none; border-radius: 8px; font-size: 11.5px; font-weight: 700; cursor: pointer; margin-top: 4px; }
+
+        .spinner { width: 30px; height: 30px; border: 3px solid #334155; border-top: 3px solid #2dd4bf; border-radius: 50%; animation: spinnerRotate 0.8s linear infinite; margin: 20px auto; }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #fff; color: #0f172a; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 800; z-index: 99999; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    </style>
+</head>
+<body>
+
+    <!-- ১. পাসওয়ার্ড সিকিউরড লগইন স্ক্রিন -->
+    <div id="loginScreen" class="login-wrapper">
+        <div class="login-box">
+            <h3 class="login-title">🔒 এডমিন লগইন</h3>
+            <p class="login-sub">পাত্রপাত্রী সন্ধান কন্ট্রোল প্যানেল</p>
+            <!-- পাসওয়ার্ড সুরক্ষিত টাইপ (পাসওয়ার্ড সংখ্যা দৃশ্যমান হবে না) -->
+            <input type="password" id="adminPasswordInput" placeholder="পাসওয়ার্ড দিন" class="login-input" autocomplete="current-password" onkeypress="if(event.key==='Enter') attemptLogin()">
+            <button onclick="attemptLogin()" class="login-btn">প্রবেশ করুন ➔</button>
+            <p id="loginError" style="color:#f87171; font-size:11.5px; margin-top:10px; display:none; font-weight:bold;"></p>
+        </div>
+    </div>
+
+    <!-- ২. এডমিন ড্যাশবোর্ড -->
+    <div id="adminDashboard" class="dashboard">
+        
+        <!-- হেডার -->
+        <div class="top-header">
+            <div class="brand-title">🌸 পাত্রপাত্রী সন্ধান এডমিন</div>
+            <button onclick="logout()" class="logout-btn">🚪 লগআউট</button>
+        </div>
+
+        <!-- লাইভ স্ট্যাটস্টিক্স -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-num" id="stTotal">০</div>
+                <div class="stat-label">মোট বায়োডাটা</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stApproved" style="color:#4ade80;">০</div>
+                <div class="stat-label">এপ্রুভড</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stPending" style="color:#facc15;">০</div>
+                <div class="stat-label">পেন্ডিং</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stRejected" style="color:#f87171;">০</div>
+                <div class="stat-label">রিজেক্টেড</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stGrooms">০</div>
+                <div class="stat-label">মোট পাত্র</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stBrides">০</div>
+                <div class="stat-label">মোট পাত্রী</div>
+            </div>
+        </div>
+
+        <!-- ফিল্টার ও সার্চ বার -->
+        <div class="toolbar">
+            <input type="text" id="adminSearchInput" oninput="renderList()" placeholder="🔍 আইডি, নাম, জেলা বা মোবাইল নম্বর দিয়ে খুঁজুন..." class="search-box">
+            
+            <div class="filter-row">
+                <div class="tab-group">
+                    <button class="tab-btn active" onclick="setFilterStatus('ALL', this)">সকল</button>
+                    <button class="tab-btn" onclick="setFilterStatus('APPROVED', this)">APPROVED</button>
+                    <button class="tab-btn" onclick="setFilterStatus('PENDING', this)">PENDING</button>
+                    <button class="tab-btn" onclick="setFilterStatus('REJECTED', this)">REJECTED</button>
+                </div>
+                <button onclick="exportCSV()" class="export-btn">⬇️ CSV ব্যাকআপ</button>
+            </div>
+        </div>
+
+        <!-- ডাটা তালিকা -->
+        <div id="cardsList" class="cards-list">
+            <div class="spinner"></div>
+        </div>
+
+    </div>
+
+    <!-- ৩. এডিট মোডাল -->
+    <div id="editModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-title">✏️ বায়োডাটা তথ্য এডিট করুন</div>
+            <input type="hidden" id="editBioId">
+            <div style="margin-bottom:6px;">
+                <label style="font-size:10.5px; color:#94a3b8; display:block;">পুরো নাম:</label>
+                <input type="text" id="editName" class="modal-input">
+            </div>
+            <div style="margin-bottom:6px;">
+                <label style="font-size:10.5px; color:#94a3b8; display:block;">স্থায়ী জেলা:</label>
+                <input type="text" id="editDistrict" class="modal-input">
+            </div>
+            <div style="margin-bottom:6px;">
+                <label style="font-size:10.5px; color:#94a3b8; display:block;">মোবাইল নম্বর:</label>
+                <input type="text" id="editPhone" class="modal-input">
+            </div>
+            <div style="margin-bottom:6px;">
+                <label style="font-size:10.5px; color:#94a3b8; display:block;">ফেসবুক প্রোফাইল লিংক:</label>
+                <input type="url" id="editFb" class="modal-input">
+            </div>
+            <button onclick="saveEdit()" id="saveEditBtn" class="save-btn">💾 সেভ করুন</button>
+            <button onclick="closeEditModal()" class="cancel-btn">বাতিল</button>
+        </div>
+    </div>
+
+    <!-- টোস্ট বার্তা -->
+    <div id="toastMsg" class="toast"></div>
+
+    <!-- জাভাস্ক্রিপ্ট এপিআই লজিক -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycby2aXpIWmDTv6o8rF9YV_2VifmeoKqz01QLHQP-upoxbpa120rS-NnMqNG9JbwdR0Y0Bw/exec";
+        
+        let currentAdminKey = sessionStorage.getItem('pp_admin_key') || '';
+        let allAdminData = [];
+        let activeStatusFilter = 'ALL';
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (currentAdminKey) {
+                showDashboard();
+            }
+        });
+
+        function attemptLogin() {
+            const inputKey = document.getElementById('adminPasswordInput').value.trim();
+            const err = document.getElementById('loginError');
+
+            if (!inputKey) {
+                err.innerText = 'অনুগ্রহ করে পাসওয়ার্ড দিন!';
+                err.style.display = 'block';
+                return;
+            }
+
+            err.style.display = 'none';
+            
+            // ব্যাকএন্ড এপিআই দিয়ে পাসওয়ার্ড যাচাইকরণ
+            fetch(`${API_URL}?action=getAllForAdmin&key=${encodeURIComponent(inputKey)}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.result === 'error') {
+                    err.innerText = '❌ ভুল পাসওয়ার্ড! সঠিক পাসওয়ার্ড দিন।';
+                    err.style.display = 'block';
+                } else {
+                    currentAdminKey = inputKey;
+                    sessionStorage.setItem('pp_admin_key', currentAdminKey);
+                    showDashboard();
+                }
+            })
+            .catch(e => {
+                err.innerText = 'নেটওয়ার্ক এরর! ইন্টারনেট কানেকশন চেক করুন।';
+                err.style.display = 'block';
+            });
+        }
+
+        function showDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('adminDashboard').classList.add('active');
+            loadAdminData();
+            loadStats();
+        }
+
+        function logout() {
+            sessionStorage.removeItem('pp_admin_key');
+            location.reload();
+        }
+
+        function loadAdminData() {
+            const container = document.getElementById('cardsList');
+            container.innerHTML = '<div class="spinner"></div>';
+
+            fetch(`${API_URL}?action=getAllForAdmin&key=${encodeURIComponent(currentAdminKey)}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.result === 'error') {
+                    logout();
+                    return;
+                }
+                allAdminData = Array.isArray(data) ? data : [];
+                renderList();
+            })
+            .catch(err => {
+                container.innerHTML = '<p style="text-align:center; color:#f87171; padding:20px;">ডাটা লোড করতে সমস্যা হয়েছে!</p>';
+            });
+        }
+
+        function loadStats() {
+            fetch(`${API_URL}?action=stats`)
+            .then(res => res.json())
+            .then(s => {
+                document.getElementById('stTotal').innerText = s.total || 0;
+                document.getElementById('stApproved').innerText = s.approved || 0;
+                document.getElementById('stPending').innerText = s.pending || 0;
+                document.getElementById('stRejected').innerText = s.rejected || 0;
+                document.getElementById('stGrooms').innerText = s.grooms || 0;
+                document.getElementById('stBrides').innerText = s.brides || 0;
+            })
+            .catch(e => console.log('Stats Error:', e));
+        }
+
+        function renderList() {
+            const container = document.getElementById('cardsList');
+            const query = document.getElementById('adminSearchInput').value.trim().toLowerCase();
+            container.innerHTML = '';
+
+            const filtered = allAdminData.filter(item => {
+                const matchQ = !query || 
+                    (item.biodataId && item.biodataId.toLowerCase().includes(query)) ||
+                    (item.fullName && item.fullName.toLowerCase().includes(query)) ||
+                    (item.district && item.district.toLowerCase().includes(query)) ||
+                    (item.contactNumber && item.contactNumber.includes(query));
+
+                let st = item.status || 'APPROVED';
+                const matchSt = (activeStatusFilter === 'ALL') || (st === activeStatusFilter);
+
+                return matchQ && matchSt;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#94a3b8; padding:30px;">কোনো বায়োডাটা পাওয়া যায়নি</p>';
+                return;
+            }
+
+            filtered.forEach(item => {
+                const st = item.status || 'APPROVED';
+                const phoneDigits = String(item.contactNumber || '').replace(/\D/g, '');
+                const waUrl = phoneDigits ? `https://wa.me/88${phoneDigits}` : '#';
+
+                container.innerHTML += `
+                    <div class="data-card">
+                        <div class="card-header-bar">
+                            <span class="bio-id">${esc(item.biodataId)}</span>
+                            <span class="badge ${st}">${st}</span>
+                        </div>
+                        <div class="card-details">
+                            <div><b>নাম:</b> ${esc(item.fullName)} (${esc(item.gender || 'N/A')})</div>
+                            <div><b>জেলা:</b> ${esc(item.district || 'N/A')}</div>
+                            <div>
+                                <b>মোবাইল:</b> 
+                                <a href="tel:${phoneDigits}" class="contact-link">${esc(item.contactNumber)}</a>
+                                <a href="${waUrl}" target="_blank" class="wa-link" style="margin-left:8px;">💬 WhatsApp</a>
+                            </div>
+                            ${item.fbLink ? `<div><b>ফেসবুক:</b> <a href="${esc(item.fbLink)}" target="_blank" class="contact-link">প্রোফাইল লিংক ➔</a></div>` : ''}
+                        </div>
+                        <div class="act-group">
+                            <button onclick="setStatus('${item.biodataId}', 'APPROVED')" class="act-btn btn-approve">✅ Approve</button>
+                            <button onclick="setStatus('${item.biodataId}', 'PENDING')" class="act-btn btn-pending">⏳ Pending</button>
+                            <button onclick="setStatus('${item.biodataId}', 'REJECTED')" class="act-btn btn-reject">❌ Reject</button>
+                            <button onclick="openEditModal('${item.biodataId}')" class="act-btn btn-edit">✏️ Edit</button>
+                            <button onclick="deleteBiodata('${item.biodataId}')" class="act-btn btn-delete">🗑️ Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function setFilterStatus(st, btn) {
+            activeStatusFilter = st;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderList();
+        }
+
+        function setStatus(id, newSt) {
+            toast('স্ট্যাটাস আপডেট হচ্ছে...');
+            fetch(`${API_URL}?action=updateStatus&id=${encodeURIComponent(id)}&status=${newSt}&key=${encodeURIComponent(currentAdminKey)}`)
+            .then(res => res.json())
+            .then(resData => {
+                if (resData.result === 'success') {
+                    toast(`✅ স্ট্যাটাস ${newSt} হয়েছে`);
+                    loadAdminData();
+                    loadStats();
+                } else {
+                    toast('❌ আপডেট করা যায়নি');
+                }
+            });
+        }
+
+        function deleteBiodata(id) {
+            if (!confirm(`আপনি কি নিশ্চিত বায়োডাটা (${id}) সম্পূর্ণ মুছে ফেলতে চান?`)) return;
+            toast('ডিলিট হচ্ছে...');
+            fetch(`${API_URL}?action=deleteBiodata&id=${encodeURIComponent(id)}&key=${encodeURIComponent(currentAdminKey)}`)
+            .then(res => res.json())
+            .then(resData => {
+                if (resData.result === 'success') {
+                    toast('🗑️ সফলভাবে ডিলিট হয়েছে');
+                    loadAdminData();
+                    loadStats();
+                } else {
+                    toast('❌ ডিলিট করা যায়নি');
+                }
+            });
+        }
+
+        function openEditModal(id) {
+            const item = allAdminData.find(x => x.biodataId === id);
+            if (!item) return;
+            document.getElementById('editBioId').value = item.biodataId;
+            document.getElementById('editName').value = item.fullName || '';
+            document.getElementById('editDistrict').value = item.district || '';
+            document.getElementById('editPhone').value = item.contactNumber || '';
+            document.getElementById('editFb').value = item.fbLink || '';
+            document.getElementById('editModal').classList.add('active');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('active');
+        }
+
+        function saveEdit() {
+            const id = document.getElementById('editBioId').value;
+            const name = document.getElementById('editName').value.trim();
+            const dist = document.getElementById('editDistrict').value.trim();
+            const phone = document.getElementById('editPhone').value.trim();
+            const fb = document.getElementById('editFb').value.trim();
+            const btn = document.getElementById('saveEditBtn');
+
+            btn.disabled = true;
+            btn.innerText = 'সেভ হচ্ছে...';
+
+            const payload = {
+                id: id,
+                fields: {
+                    fullName: name,
+                    district: dist,
+                    contactNumber: phone,
+                    fbLink: fb
+                }
+            };
+
+            fetch(`${API_URL}?action=adminEdit&key=${encodeURIComponent(currentAdminKey)}`, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    toast('💾 সফলভাবে আপডেট হয়েছে!');
+                    closeEditModal();
+                    loadAdminData();
+                } else {
+                    toast('❌ আপডেট করা যায়নি');
+                }
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerText = '💾 সেভ করুন';
+            });
+        }
+
+        function exportCSV() {
+            if (!allAdminData || allAdminData.length === 0) {
+                toast('কোনো ডাটা নেই!');
+                return;
+            }
+            let csv = '\uFEFFআইডি,নাম,লিঙ্গ,স্ট্যাটাস,জেলা,মোবাইল,ফেসবুক\n';
+            allAdminData.forEach(item => {
+                csv += `"${item.biodataId}","${item.fullName}","${item.gender}","${item.status}","${item.district}","${item.contactNumber}","${item.fbLink}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `patra_patri_admin_backup_${new Date().toISOString().slice(0,10)}.csv`;
+            link.click();
+            toast('⬇️ CSV ব্যাকআপ ডাউনলোড হয়েছে');
+        }
+
+        function toast(text) {
+            const t = document.getElementById('toastMsg');
+            t.innerText = text;
+            t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 2000);
+        }
+
+        function esc(str) {
+            return String(str || '').replace(/[<>]/g, '').trim();
+        }
+    </script>
+</body>
+</html>
