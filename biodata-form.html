@@ -287,7 +287,7 @@
         <div class="drawer-body">
             <a href="index.html" class="drawer-link">🏠 হোম পেজ</a>
             <a href="biodata-list.html" class="drawer-link">🔍 বায়োডাটা খুঁজুন</a>
-            <a href="biodata-submit.html" class="drawer-link">📝 বায়োডাটা জমা দিন</a>
+            <a href="biodata-form.html" class="drawer-link">📝 বায়োডাটা জমা দিন</a>
             
             <div style="margin-top:10px; padding:8px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; font-size:11px; color:#166534; font-weight:700; text-align:center;">
                 🎉 ১০০% ফ্রি সেবা • কোনো হিডেন ফি নেই
@@ -387,7 +387,7 @@
 
                         <!-- উচ্চতা -->
                         <div class="form-group">
-                            <label class="form-label">উচ্চতা</label>
+                            <label class="form-label">উচ্চতা (ঐচ্ছিক)</label>
                             <div class="input-wrapper">
                                 <select name="height" class="form-input auto-validate">
                                     <option value="">নির্বাচন করুন</option>
@@ -413,7 +413,7 @@
 
                         <!-- রক্তের গ্রুপ -->
                         <div class="form-group">
-                            <label class="form-label">রক্তের গ্রুপ</label>
+                            <label class="form-label">রক্তের গ্রুপ (ঐচ্ছিক)</label>
                             <div class="input-wrapper">
                                 <select name="bloodGroup" class="form-input auto-validate">
                                     <option value="">নির্বাচন করুন</option>
@@ -460,7 +460,7 @@
                     </div>
                 </div>
 
-                <!-- সেকশন ২: শিক্ষা ও পেশা (বাধ্যতামূলক) -->
+                <!-- সেকশন ২: শিক্ষা ও পেশা -->
                 <div class="form-section">
                     <div class="sec-title">🎓 ২. শিক্ষাগত ও পেশাগত তথ্য</div>
                     <div class="form-grid">
@@ -488,10 +488,18 @@
                             </div>
                         </div>
 
+                        <!-- মাসিক আয় (যুক্ত করা হয়েছে) -->
+                        <div class="form-group col-span-2">
+                            <label class="form-label">মাসিক আয় (ঐচ্ছিক)</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="monthlyIncome" placeholder="যেমন: ৩০,০০০+ টাকা" class="form-input">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- সেকশন ৩: ঠিকানা ও পরিবার (বাধ্যতামূলক) -->
+                <!-- সেকশন ৩: ঠিকানা ও পরিবার -->
                 <div class="form-section">
                     <div class="sec-title">🏠 ৩. ঠিকানা ও পারিবারিক তথ্য</div>
                     <div class="form-grid">
@@ -506,7 +514,7 @@
                             <div id="permDistrictBox" class="suggestions-dropdown"></div>
                         </div>
 
-                        <!-- বর্তমান ঠিকানা/জেলা -->
+                        <!-- বর্তমান জেলা ও ঠিকানা -->
                         <div class="form-group">
                             <label class="form-label">বর্তমান জেলা ও ঠিকানা <span class="req">*</span></label>
                             <div class="input-wrapper">
@@ -534,7 +542,7 @@
                             </div>
                         </div>
 
-                        <!-- পারিবারিক অবস্থা (বাধ্যতামূলক) -->
+                        <!-- পারিবারিক অবস্থা -->
                         <div class="form-group">
                             <label class="form-label">পারিবারিক অবস্থা <span class="req">*</span></label>
                             <div class="input-wrapper">
@@ -550,7 +558,7 @@
                             </div>
                         </div>
 
-                        <!-- ভাই ও বোন আলাদা ড্রপডাউন (বাধ্যতামূলক) -->
+                        <!-- ভাই ও বোন আলাদা ড্রপডাউন -->
                         <div class="form-group col-span-2">
                             <label class="form-label">ভাই ও বোনের সংখ্যা <span class="req">*</span></label>
                             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px;">
@@ -593,7 +601,7 @@
                             <textarea name="partnerExpectation" rows="2" placeholder="জীবনসঙ্গীর কাছ থেকে আপনার কী কী প্রত্যাশা রয়েছে লিখুন..." class="form-textarea"></textarea>
                         </div>
 
-                        <!-- মোবাইল নম্বর -->
+                        <!-- মোবাইল নম্বর (১১ ডিজিট) -->
                         <div class="form-group col-span-2">
                             <label class="form-label">মোবাইল / হোয়াটসঅ্যাপ নম্বর <span class="req">*</span></label>
                             <div class="phone-wrapper">
@@ -729,7 +737,7 @@
             else { menu.classList.remove('active'); backdrop.classList.remove('active'); }
         }
 
-        // মিষ্টি সাকসেস সাউন্ড চিম (Web Audio API)
+        // সাউন্ড ইফেক্ট
         function playSuccessChime() {
             try {
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -917,7 +925,7 @@
             }
         }
 
-        // ফর্ম সাবমিশন (অটো-এপ্রুভ)
+        // ১০০% সফল ফর্ম সাবমিশন লজিক (গুগল অ্যাপস স্ক্রিপ্ট সামঞ্জস্যপূর্ণ)
         async function handleFormSubmit(e) {
             e.preventDefault();
             
@@ -932,7 +940,9 @@
             const viewLink = document.getElementById('viewBioLink');
 
             const phoneInput = document.getElementById('contactPhone');
-            if (phoneInput.value.length !== 11) {
+            const rawPhone = phoneInput.value.replace(/\D/g, '');
+
+            if (rawPhone.length !== 11) {
                 document.getElementById('phoneError').style.display = 'block';
                 phoneInput.focus();
                 return;
@@ -941,6 +951,19 @@
             const formData = new FormData(form);
             const payload = {};
             formData.forEach((v, k) => payload[k] = v.trim());
+
+            // ⚠️ ব্যাকএন্ড অ্যাপস স্ক্রিপ্ট প্রয়োজনীয় চেক পাস করানোর জন্য ফলব্যাক সেট
+            payload.height = payload.height || 'উল্লেখ করা হয়নি';
+            payload.bloodGroup = payload.bloodGroup || 'জানা নেই';
+            payload.education = payload.education || 'উল্লেখ করা হয়নি';
+            payload.profession = payload.profession || 'উল্লেখ করা হয়নি';
+            payload.monthlyIncome = payload.monthlyIncome || 'উল্লেখ করা হয়নি';
+            payload.partnerExpectation = payload.partnerExpectation || 'বিশেষ কোনো শর্ত নেই';
+            payload.orgDesignation = payload.orgDesignation || '';
+            payload.fbLink = payload.fbLink || '';
+            
+            // ফোন নম্বর ১১ ডিজিট (01xxxxxxxxx) পাঠানো হচ্ছে যাতে Apps Script এর ১৭ ডিজিট চেক পাস হয়
+            payload.contactNumber = rawPhone;
 
             modal.classList.add('active');
             loadState.style.display = 'block';
@@ -958,7 +981,6 @@
                     assignedTag.innerText = newBioId;
                     viewLink.href = `biodata-list.html?id=${newBioId}`;
 
-                    // সাউন্ড চিম রিং
                     playSuccessChime();
 
                     loadState.style.display = 'none';

@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>পাত্রপাত্রী সন্ধান | দ্বীনি জীবনসঙ্গী</title>
     
+    <!-- ১. ব্রাউজার ট্যাবের ফেভিকন (Browser Tab Favicon Logo) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- ২. ফেসবুক ও হোয়াটসঅ্যাপে লিংক শেয়ার প্রিভিউ লোগো (Social Open Graph) -->
+    <meta property="og:title" content="পাত্রপাত্রী সন্ধান | ১০০% বিনামূল্যে পাত্র-পাত্রীর বায়োডাটা সন্ধান">
+    <meta property="og:description" content="কোনো সার্ভিস ফি বা মাধ্যম খরচ ছাড়াই অভিভাবকের সম্মতিতে উপযুক্ত দ্বীনি পাত্র-পাত্রী খুঁজুন অথবা বিনামূল্যে নিজের বায়োডাটা জমা দিন।">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:type" content="website">
+
     <!-- গুগলের সুতন্নিএমজে-লুক ক্লাসিক বাংলা ফন্ট -->
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -25,6 +38,25 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tiro Bangla', 'Hind Siliguri', serif !important; }
         html, body { width: 100%; min-height: 100vh; background-color: var(--pp-bg); color: var(--pp-text-main); overflow-x: hidden; }
+
+        /* লোগো ইমেজের সুন্দর সিএসএস */
+        .brand-logo-img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15);
+            border: 1px solid #99f6e4;
+        }
+
+        .drawer-logo-img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.2);
+            border: 1.5px solid #99f6e4;
+        }
 
         /* অ্যানিমেশনস */
         @keyframes floatAnim { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
@@ -49,7 +81,6 @@
         .drawer-menu.active { left: 0 !important; }
         .drawer-header { padding: 16px; background: linear-gradient(135deg,#ccfbf1,#e0f2fe); border-bottom: 1px solid #99f6e4; display: flex; align-items: center; justify-content: space-between; }
         .drawer-brand { display: flex; align-items: center; gap: 8px; }
-        .drawer-logo { font-size: 22px; }
         .drawer-title { margin: 0; font-size: 16px; font-weight: 800; color: var(--pp-teal-dark); }
         .drawer-subtitle { margin: 0; font-size: 11px; color: var(--pp-text-muted); }
         .drawer-close-btn { background: none; border: none; font-size: 18px; color: var(--pp-text-muted); cursor: pointer; padding: 4px; }
@@ -65,16 +96,15 @@
         .menu-toggle-btn { background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 5px 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .menu-icon { font-size: 17px; color: var(--pp-text-main); }
         .nav-brand { display: flex; align-items: center; gap: 6px; cursor: pointer; user-select: none; }
-        .brand-logo { font-size: 20px; }
         .brand-name { font-size: 17px; font-weight: 800; color: var(--pp-teal-dark); }
-        .nav-cta-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 3px 10px rgba(13,148,136,0.2); }
+        .nav-cta-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 3px 10px rgba(13,148,136,0.2); }
 
         /* টিকার */
         .header-ticker-container { display: flex; overflow: hidden; width: 100%; background: linear-gradient(135deg,#ccfbf1 0%,#f0fdf4 100%); border-bottom: 1px solid #99f6e4; padding: 6px 0; }
         .header-ticker-track { display: flex; align-items: center; gap: 15px; white-space: nowrap; padding-right: 40px; animation: tickerSlide 22s linear infinite; }
         @keyframes tickerSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-        .app-title { color: var(--pp-teal-dark); margin: 0; font-size: 13px; font-weight: 800; display: inline-block; }
-        .app-subtitle { color: var(--pp-text-muted); font-size: 11.5px; font-weight: 600; margin: 0; display: inline-block; }
+        .app-title { color: var(--pp-teal-dark); margin: 0; font-size: 12.5px; font-weight: 800; display: inline-block; }
+        .app-subtitle { color: var(--pp-text-muted); font-size: 11px; font-weight: 600; margin: 0; display: inline-block; }
 
         /* হিরো সেকশন */
         .hero-section { padding: 28px 14px; text-align: center; background: linear-gradient(180deg,#ccfbf1 0%,#ffffff 100%); border-bottom: 1px solid #e2e8f0; }
@@ -175,8 +205,8 @@
 
         .app-footer { padding: 28px 14px 16px 14px; background: #0f172a; color: #fff !important; }
         .footer-content { max-width: 900px; margin: 0 auto 16px auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-        .footer-brand h3 { margin: 0 0 4px 0; font-size: 16.5px; color: #2dd4bf; }
-        .footer-brand p { margin: 0; font-size: 12px; color: #94a3b8; max-width: 300px; }
+        .footer-brand h3 { margin: 0; font-size: 16.5px; color: #2dd4bf; }
+        .footer-brand p { margin: 4px 0 0 0; font-size: 12px; color: #94a3b8; max-width: 300px; }
         .footer-info p { margin: 3px 0; font-size: 12px; color: #cbd5e1; }
         .footer-bottom { border-top: 1px solid #334155; padding-top: 14px; text-align: center; font-size: 11px; color: #64748b; }
 
@@ -238,7 +268,7 @@
     <div id="ppDrawerMenu" class="drawer-menu">
         <div class="drawer-header">
             <div class="drawer-brand">
-                <span class="drawer-logo float-anim">🌸</span>
+                <img src="logo.png" alt="পাত্রপাত্রী সন্ধান লোগো" class="drawer-logo-img float-anim">
                 <div>
                     <h4 class="drawer-title">পাত্রপাত্রী সন্ধান</h4>
                     <p class="drawer-subtitle">ইসলামিক ম্যাচমেকিং প্ল্যাটফর্ম</p>
@@ -274,7 +304,7 @@
                 <span class="menu-icon">☰</span>
             </button>
             <div class="nav-brand" onclick="handleBrandClick(event)">
-                <span class="brand-logo float-anim">🌸</span>
+                <img src="logo.png" alt="পাত্রপাত্রী সন্ধান লোগো" class="brand-logo-img float-anim">
                 <span class="brand-name">পাত্রপাত্রী সন্ধান</span>
             </div>
             <div class="nav-actions">
@@ -578,7 +608,10 @@
         <footer class="app-footer">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>🌸 পাত্রপাত্রী সন্ধান</h3>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                        <img src="logo.png" alt="পাত্রপাত্রী সন্ধান লোগো" style="width:28px; height:28px; object-fit:contain; border-radius:50%;">
+                        <h3>পাত্রপাত্রী সন্ধান</h3>
+                    </div>
                     <p>একটি সম্পূর্ণ ফি-মুক্ত সুন্নতি পাত্র-পাত্রী সন্ধান প্ল্যাটফর্ম।</p>
                 </div>
                 <div class="footer-info">
