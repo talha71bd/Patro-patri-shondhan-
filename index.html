@@ -135,7 +135,7 @@
             <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
                 
                 <!-- Brand Logo -->
-                <a href="#home" class="flex items-center gap-3 group">
+                <a href="index.html" class="flex items-center gap-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
                         W
                     </div>
@@ -147,7 +147,7 @@
                     </div>
                 </a>
 
-                <!-- Navigation Links to Standalone Pages (Matching Exact Filenames from Screenshot) -->
+                <!-- Navigation Links to Standalone Pages (Matching Exact Filenames) -->
                 <nav class="hidden lg:flex items-center space-x-1">
                     <a href="index.html" class="nav-link px-3 py-2 text-xs font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1">
                         <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Home
@@ -188,7 +188,7 @@
             </div>
         </div>
 
-        <!-- Mobile Drawer Navigation with Exact Filenames -->
+        <!-- Mobile Drawer Navigation with Exact Case Filename Links -->
         <div id="mobileDrawer" class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-navyDark/95 backdrop-blur-xl transition-all duration-300">
             <div class="px-4 pt-2 pb-6 space-y-2 text-sm font-semibold">
                 <a href="index.html" class="block px-4 py-2 rounded-xl text-brandPrimary bg-brandPrimary/10 font-bold">🏠 Home</a>
@@ -208,7 +208,7 @@
                 <a href="contact.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">📞 Contact Page</a>
                 <a href="dashboard.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">👤 Client Login</a>
                 
-                <!-- Special Admin Login Modal Trigger at Very Bottom of Mobile Drawer -->
+                <!-- Admin Login Modal Trigger at Very Bottom -->
                 <div class="pt-3 border-t border-slate-200 dark:border-slate-800">
                     <button onclick="openAdminLoginModal(); toggleMobileMenu();" class="w-full text-left px-4 py-2.5 rounded-xl bg-slate-900 text-amber-400 font-extrabold text-xs shadow flex items-center justify-between">
                         <span>🔐 Admin Login</span>
@@ -440,7 +440,7 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b pb-4">
                 <div>
                     <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">OUR SERVICES</span>
-                    <h2 class="text-2xl sm:text-3xl font-black text-navyDark dark:text-white mt-2">আমাদের সেবাসমূহ</h2>
+                    <h2 class="text-2xl sm:text-3xl font-black text-navyDark dark:text-white mt-2">আমাদের প্রধান সেবাসমূহ</h2>
                 </div>
                 <a href="service.html" class="bg-brandPrimary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow">
                     সব সার্ভিস দেখুন &rarr;
@@ -639,71 +639,8 @@
         </div>
     </section>
 
-    <!-- ==================== ORDER / GET QUOTE SECTION (#order) ==================== -->
-    <section id="order" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="text-center space-y-2">
-                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">INQUIRY FORM</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-navyDark dark:text-white">আপনার Website Order করুন / Quote Request পাঠান</h2>
-                <p class="text-xs text-slate-500">অন্য কোথাও না গিয়ে সরাসরি এখান থেকেই ইনকোয়ারি জমা দিন:</p>
-            </div>
-
-            <div class="bg-lightBg dark:bg-navyCard p-6 sm:p-10 rounded-3xl border shadow-sm">
-                <form id="homeOrderForm" onsubmit="handleHomeOrderSubmit(event)" class="space-y-4 text-xs">
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">আপনার নাম *</label>
-                            <input type="text" id="orderCustName" required placeholder="পূর্ণ নাম লিখুন" class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl">
-                        </div>
-                        <div>
-                            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">মোবাইল নম্বর *</label>
-                            <input type="tel" id="orderCustPhone" required placeholder="01516513987" class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Email Address *</label>
-                            <input type="email" id="orderCustEmail" required placeholder="example@gmail.com" class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl">
-                        </div>
-                        <div>
-                            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Website Type / সার্ভিস *</label>
-                            <select id="orderServiceType" class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl font-bold text-brandPrimary">
-                                <option value="Business Website">Business Website</option>
-                                <option value="E-commerce Website">E-commerce Website</option>
-                                <option value="Landing Page">Landing Page</option>
-                                <option value="Portfolio Website">Portfolio Website</option>
-                                <option value="Custom Web App">Custom Web App</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">প্রজেক্টের বিবরণ / রিকোয়ারমেন্টস *</label>
-                        <textarea id="orderCustDetails" required rows="3" placeholder="আপনি কী ধরনের ওয়েবসাইট চান, কী কী ফিচার করতে চান—সংক্ষেপে বিস্তারিত লিখুন..." class="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl"></textarea>
-                    </div>
-
-                    <button type="submit" id="homeOrderSubmitBtn" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-3.5 rounded-xl font-bold text-xs shadow-lg transition flex items-center justify-center gap-2">
-                        <span>🚀 Quote Request পাঠান</span>
-                    </button>
-                </form>
-
-                <!-- Order Success State Box -->
-                <div id="homeOrderSuccessState" class="hidden text-center py-6 space-y-3">
-                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto font-bold">🎉</div>
-                    <h3 class="text-lg font-black text-navyDark dark:text-white">আপনার Request সফলভাবে পাঠানো হয়েছে!</h3>
-                    <p class="text-xs text-slate-500">Request ID: <strong id="resHomeReqId" class="text-brandPrimary font-mono">WBP-2026-1001</strong></p>
-                    <a id="homeWaBtn" href="#" target="_blank" class="bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs inline-flex items-center gap-2 shadow">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp-এ সরাসরি কথা বলুন
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ==================== REVIEWS SECTION (#reviews) ==================== -->
-    <section id="reviews" class="py-16 bg-lightBg dark:bg-navyDark border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
+    <section id="reviews" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="flex justify-between items-center border-b pb-4">
                 <div>
@@ -716,17 +653,17 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
+                <div class="bg-lightBg dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
                     <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full">🏷️ ডেমো রিভিউ</span>
                     <p class="text-slate-600 dark:text-slate-300 italic">"Web Pro BD-এর মাধ্যমে একটি modern business website তৈরির অভিজ্ঞতা কেমন হতে পারে তার নমুনা উদাহরণ।"</p>
                     <span class="font-bold text-navyDark dark:text-white block">— Demo Customer A</span>
                 </div>
-                <div class="bg-white dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
+                <div class="bg-lightBg dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
                     <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full">🏷️ ডেমো রিভিউ</span>
                     <p class="text-slate-600 dark:text-slate-300 italic">"একটি online store-এর জন্য responsive এবং professional interface-এর নমুনা লেআউট।"</p>
                     <span class="font-bold text-navyDark dark:text-white block">— Demo Customer B</span>
                 </div>
-                <div class="bg-white dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
+                <div class="bg-lightBg dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
                     <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full">🏷️ ডেমো রিভিউ</span>
                     <p class="text-slate-600 dark:text-slate-300 italic">"business website-এর জন্য পরিষ্কার design, mobile responsiveness এবং সহজ navigation-এর একটি লেআউট নমুনা।"</p>
                     <span class="font-bold text-navyDark dark:text-white block">— Demo Customer C</span>
@@ -736,7 +673,7 @@
     </section>
 
     <!-- ==================== FAQ SECTION (#faq) ==================== -->
-    <section id="faq" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
+    <section id="faq" class="py-16 bg-lightBg dark:bg-navyDark border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
         <div class="max-w-3xl mx-auto px-4 space-y-6">
             <div class="text-center">
                 <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FAQ</span>
@@ -744,11 +681,11 @@
             </div>
 
             <div class="space-y-3" id="faqAccordion">
-                <div class="border rounded-2xl p-4 bg-lightBg dark:bg-navyCard text-xs font-bold text-navyDark dark:text-white">
+                <div class="border rounded-2xl p-4 bg-white dark:bg-navyCard text-xs font-bold text-navyDark dark:text-white">
                     <span>Website তৈরি করতে কতদিন সময় লাগে?</span>
                     <p class="text-[11px] font-normal text-slate-500 mt-1">প্রজেক্টের সাইজ ও ফিচারের ওপর নির্ভর করে সময় নির্ধারিত হয়।</p>
                 </div>
-                <div class="border rounded-2xl p-4 bg-lightBg dark:bg-navyCard text-xs font-bold text-navyDark dark:text-white">
+                <div class="border rounded-2xl p-4 bg-white dark:bg-navyCard text-xs font-bold text-navyDark dark:text-white">
                     <span>Website-এর দাম কীভাবে নির্ধারণ হয়?</span>
                     <p class="text-[11px] font-normal text-slate-500 mt-1">পেজ সংখ্যা, ফিচার ও রিকোয়ারমেন্টস অনুযায়ী নির্দিষ্ট বাজেট নির্ধারণ করা হয়।</p>
                 </div>
@@ -761,9 +698,9 @@
     </section>
 
     <!-- ==================== CONTACT SECTION (#contact) ==================== -->
-    <section id="contact" class="py-16 bg-lightBg dark:bg-navyDark border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
+    <section id="contact" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-navyCard rounded-3xl border p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="bg-lightBg dark:bg-navyCard rounded-3xl border p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
                 
                 <div class="space-y-3 text-center lg:text-left">
                     <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT CARD</span>
@@ -859,18 +796,6 @@
         </div>
     </footer>
 
-    <!-- SERVICE DETAILS MODAL (HOMEPAGE) -->
-    <div id="homeServiceModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
-        <div class="bg-white dark:bg-navyCard rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
-            <button onclick="closeHomeServiceModal()" class="absolute top-4 right-4 text-slate-400"><i class="fa-solid fa-xmark text-lg"></i></button>
-            <h3 id="modalServiceTitle" class="text-xl font-extrabold text-navyDark dark:text-white mb-2">Service Details</h3>
-            <p id="modalServiceDesc" class="text-xs text-slate-500 dark:text-slate-300 leading-relaxed mb-4"></p>
-            <div class="flex gap-2">
-                <button id="modalOrderBtn" onclick="" class="flex-1 bg-brandPrimary text-white py-2.5 rounded-xl font-bold text-xs shadow">এই Service নিতে চাই</button>
-            </div>
-        </div>
-    </div>
-
     <!-- ADMIN LOGIN MODAL -->
     <div id="adminLoginModal" class="fixed inset-0 bg-navyDark/90 backdrop-blur-md hidden items-center justify-center p-4 z-50 animate__animated animate__fadeIn">
         <div class="bg-white dark:bg-navyCard rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 dark:border-slate-700">
@@ -921,7 +846,6 @@
             setupHeaderScroll();
             initTheme();
             updateHomeCalculator();
-            handleUrlHashScroll();
         });
 
         function setupHeaderScroll() {
@@ -935,15 +859,6 @@
                     header.classList.remove('glass-header-scrolled', 'shadow-lg');
                 }
             });
-        }
-
-        function handleUrlHashScroll() {
-            if (window.location.hash) {
-                const target = document.querySelector(window.location.hash);
-                if (target) {
-                    setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 200);
-                }
-            }
         }
 
         function toggleMobileMenu() {
@@ -994,33 +909,6 @@
             document.getElementById('homeCalcDisplay').innerText = `৳${min.toLocaleString()} - ৳${max.toLocaleString()}`;
         }
 
-        function selectServiceAndOrder(serviceName) {
-            document.getElementById('orderServiceType').value = serviceName;
-            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-            showToast(`Order ফর্ম-এ "${serviceName}" সিলেক্ট করা হয়েছে!`);
-        }
-
-        function applyCalcToOrder() {
-            const typeSelect = document.getElementById('homeCalcType');
-            const selectedText = typeSelect.options[typeSelect.selectedIndex].text;
-            document.getElementById('orderServiceType').value = selectedText.split(' (')[0];
-            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-            showToast('ক্যালকুলেটরের তথ্য অটোপপুলেট করা হয়েছে!');
-        }
-
-        function openHomeServiceModal(title) {
-            document.getElementById('modalServiceTitle').innerText = title;
-            document.getElementById('modalServiceDesc').innerText = `${title} এর জন্য প্রফেশনাল ডিজাইন, রেসপন্সিভ লেআউট ও হাই-স্পিড অপ্টিমাইজেশন সার্ভিস অন্তর্ভুক্ত।`;
-            document.getElementById('modalOrderBtn').onclick = () => { closeHomeServiceModal(); selectServiceAndOrder(title); };
-            document.getElementById('homeServiceModal').classList.remove('hidden');
-            document.getElementById('homeServiceModal').classList.add('flex');
-        }
-
-        function closeHomeServiceModal() {
-            document.getElementById('homeServiceModal').classList.add('hidden');
-            document.getElementById('homeServiceModal').classList.remove('flex');
-        }
-
         // Admin Login Modal Controls
         function openAdminLoginModal() {
             document.getElementById('adminLoginModal').classList.remove('hidden');
@@ -1042,57 +930,6 @@
             setTimeout(() => {
                 window.location.href = "admin.html";
             }, 800);
-        }
-
-        async function handleHomeOrderSubmit(e) {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('homeOrderSubmitBtn');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "পাঠানো হচ্ছে...";
-
-            const reqId = `WBP-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-            const name = document.getElementById('orderCustName').value;
-            const phone = document.getElementById('orderCustPhone').value;
-            const type = document.getElementById('orderServiceType').value;
-            const details = document.getElementById('orderCustDetails').value;
-
-            const payload = {
-                requestId: reqId,
-                name: name,
-                phone: phone,
-                email: document.getElementById('orderCustEmail').value,
-                service: type,
-                details: details,
-                source: 'Home Master Page'
-            };
-
-            try {
-                await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain' },
-                    body: JSON.stringify({ action: 'createHomeOrder', payload: payload })
-                });
-
-                showHomeOrderSuccess(name, type, reqId, payload);
-            } catch (err) {
-                showHomeOrderSuccess(name, type, reqId, payload);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = `<span>🚀 Quote Request পাঠান</span>`;
-            }
-        }
-
-        function showHomeOrderSuccess(name, type, reqId, payload) {
-            document.getElementById('homeOrderForm').classList.add('hidden');
-            document.getElementById('homeOrderSuccessState').classList.remove('hidden');
-
-            document.getElementById('resHomeReqId').innerText = reqId;
-
-            const msg = encodeURIComponent(`আসসালামু আলাইকুম, আমি ${name} (${payload.phone})। Web Pro BD হোম পেজ থেকে একটি ${type} Order/Quote রিকোয়েস্ট পাঠালাম (ID: ${reqId})।`);
-            document.getElementById('homeWaBtn').href = `https://wa.me/8801516513987?text=${msg}`;
-
-            showToast("আপনার Quote Request সফলভাবে জমা হয়েছে!");
         }
 
         function showToast(msg) {
