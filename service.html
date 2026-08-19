@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Web Development Services in Bangladesh | Web Pro BD</title>
+    <meta name="title" content="Web Development Services in Bangladesh | Web Pro BD">
+    <meta name="description" content="Web Pro BD provides professional business websites, e-commerce websites, landing pages, portfolio websites and custom web solutions in Bangladesh.">
+    <meta name="keywords" content="web development bangladesh, e-commerce website bd, business website design, custom web solutions dhaka, web pro bd, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/Service.html">
+    <meta property="og:title" content="Web Development Services in Bangladesh | Web Pro BD">
+    <meta property="og:description" content="Professional, responsive and conversion-focused web development services for Bangladeshi businesses.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css for smooth element entrances -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Indigo / Blue
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Hind Siliguri', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', 'Hind Siliguri', sans-serif; }
+        
+        /* Glassmorphism Header */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Float Animations */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .accordion-content {
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .service-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card-hover:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Web Pro BD",
+      "url": "https://webprobd.com",
+      "telephone": "+8801516513987",
+      "priceRange": "৳৳",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Farmgate",
+        "addressLocality": "Dhaka",
+        "addressCountry": "BD"
+      },
+      "provider": {
+        "@type": "Person",
+        "name": "Abu Talha Khan"
+      }
+    }
+    </script>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Services
+                    </a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">Services</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Portfolio</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2">
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-2">
+                        <span>Get a Free Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-24 border-b border-slate-800 overflow-hidden">
+        <!-- Background Ambient Blur -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left animate__animated animate__fadeInLeft">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                        <i class="fa-solid fa-sparkles text-amber-400"></i>
+                        <span>WHAT WE DO</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                        Professional Web Solutions <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">for Your Business</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        “From business websites to complete e-commerce platforms, Web Pro BD creates modern, responsive and conversion-focused digital experiences for businesses and professionals.”
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#servicesContainer" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-brandPrimary/30 transition-all duration-300 text-center flex items-center justify-center gap-2 group">
+                            <span>Explore Services</span>
+                            <i class="fa-solid fa-chevron-down text-xs group-hover:translate-y-1 transition duration-300"></i>
+                        </a>
+                        <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-7 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
+                            <span>Get a Free Quote</span>
+                            <i class="fa-solid fa-calculator text-xs text-brandPrimary"></i>
+                        </button>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-400">
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brandPrimary"></i> Business Websites</span>
+                        <span class="text-slate-700">•</span>
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brandPrimary"></i> E-commerce</span>
+                        <span class="text-slate-700">•</span>
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-brandPrimary"></i> Custom Web Solutions</span>
+                    </div>
+                </div>
+
+                <!-- Right Abstract UI Visual -->
+                <div class="lg:col-span-5 flex justify-center animate__animated animate__fadeInRight">
+                    <div class="w-full max-w-md bg-navyCard/90 border border-slate-700/80 rounded-2xl shadow-2xl p-5 backdrop-blur-xl animate-float relative z-10">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-700/80 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">webprobd.com/services</span>
+                            <i class="fa-solid fa-code text-xs text-brandPrimary"></i>
+                        </div>
+
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="flex items-center justify-between bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                                <span class="text-blue-400">&lt;ServiceCard <span class="text-emerald-400">status</span>=<span class="text-amber-300">"Active"</span> /&gt;</span>
+                                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded">200 OK</span>
+                            </div>
+
+                            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800 space-y-2">
+                                <div class="h-2.5 w-3/4 bg-brandPrimary/40 rounded animate-pulse"></div>
+                                <div class="h-2 w-1/2 bg-slate-700 rounded"></div>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-brandPrimary/20 to-indigo-900/30 p-3 rounded-xl border border-brandPrimary/40 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-lg bg-brandPrimary flex items-center justify-center text-white font-bold text-xs">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-[11px] font-bold text-white">E-commerce Engine</div>
+                                        <div class="text-[9px] text-slate-400">Google Sheets Backend API</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-amber-400">৳ Starting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CATEGORY FILTER & SEARCH (NON-STICKY) ==================== -->
+    <section class="py-8 bg-white border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+                
+                <!-- Category Buttons Horizontal Scroll -->
+                <div class="w-full lg:w-auto overflow-x-auto no-scrollbar py-1">
+                    <div class="flex items-center gap-2 min-w-max" id="categoryContainer">
+                        <button onclick="filterServices('All')" class="category-btn bg-brandPrimary text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-all duration-300" data-category="All">
+                            All Services
+                        </button>
+                        <button onclick="filterServices('Business')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="Business">
+                            Business
+                        </button>
+                        <button onclick="filterServices('E-commerce')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="E-commerce">
+                            E-commerce
+                        </button>
+                        <button onclick="filterServices('Landing Page')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="Landing Page">
+                            Landing Page
+                        </button>
+                        <button onclick="filterServices('Portfolio')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="Portfolio">
+                            Portfolio
+                        </button>
+                        <button onclick="filterServices('Restaurant')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="Restaurant">
+                            Restaurant
+                        </button>
+                        <button onclick="filterServices('Education')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="Education">
+                            Education
+                        </button>
+                        <button onclick="filterServices('Booking')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="Booking">
+                            Booking
+                        </button>
+                        <button onclick="filterServices('Custom')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300" data-category="Custom">
+                            Custom
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search Input Field -->
+                <div class="w-full lg:w-80 relative">
+                    <input type="text" id="serviceSearchInput" oninput="handleSearch()" placeholder="Search services..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brandPrimary focus:ring-2 focus:ring-brandPrimary/20 transition-all shadow-inner">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-xs sm:text-sm"></i>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN SERVICES GRID ==================== -->
+    <section id="servicesContainer" class="py-12 lg:py-16 flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-navyDark">Available Services</h2>
+                    <p id="serviceCountText" class="text-xs sm:text-sm font-medium text-slate-500 mt-0.5">Showing all website solutions</p>
+                </div>
+            </div>
+
+            <!-- Grid: Desktop 3, Tablet 2, Mobile 1 -->
+            <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Dynamically Populated via JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptySearchState" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-slate-300 p-8 shadow-sm">
+                <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <h3 class="text-lg font-bold text-navyDark">No Services Found</h3>
+                <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mt-1 mb-6">We couldn't find any service matching your search query or selected category.</p>
+                <button onclick="resetFilters()" class="bg-brandPrimary text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-brandDark transition shadow-md">
+                    Reset All Filters
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== HOW WE BUILD YOUR WEBSITE ==================== -->
+    <section class="py-16 bg-slate-900 text-white border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full border border-brandPrimary/20">WORKFLOW</span>
+                <h2 class="text-2xl sm:text-3xl font-black mt-3">How We Build Your Website</h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">A simple, transparent and efficient 4-step web development process.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl hover:border-brandPrimary/50 transition duration-300 group">
+                    <span class="text-3xl font-black text-brandPrimary/40 block mb-3 font-mono group-hover:text-brandPrimary transition">01</span>
+                    <h3 class="font-bold text-base text-white mb-2">Tell Us Your Requirement</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Customer explains business and website requirements.</p>
+                </div>
+
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl hover:border-brandPrimary/50 transition duration-300 group">
+                    <span class="text-3xl font-black text-brandPrimary/40 block mb-3 font-mono group-hover:text-brandPrimary transition">02</span>
+                    <h3 class="font-bold text-base text-white mb-2">Get Your Plan</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">We suggest the best solution and provide a quotation.</p>
+                </div>
+
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl hover:border-brandPrimary/50 transition duration-300 group">
+                    <span class="text-3xl font-black text-brandPrimary/40 block mb-3 font-mono group-hover:text-brandPrimary transition">03</span>
+                    <h3 class="font-bold text-base text-white mb-2">Design & Development</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">We design and develop the website.</p>
+                </div>
+
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl hover:border-emerald-500/50 transition duration-300 group">
+                    <span class="text-3xl font-black text-emerald-400/40 block mb-3 font-mono group-hover:text-emerald-400 transition">04</span>
+                    <h3 class="font-bold text-base text-white mb-2">Launch</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">After testing and approval, the website goes live.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE WEB PRO BD ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">WHY US</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">Why Choose Web Pro BD?</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-2">Built with modern technology and a commitment to quality service.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 hover:border-brandPrimary/40 hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brandPrimary/10 text-brandPrimary flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-navyDark mb-2">📱 Mobile Friendly</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Your website will work smoothly on phones, tablets and computers.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 hover:border-brandPrimary/40 hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-navyDark mb-2">⚡ Fast & Modern</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Clean development and optimized interface.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 hover:border-brandPrimary/40 hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-navyDark mb-2">🎨 Professional Design</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Modern UI designed around your business.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 hover:border-brandPrimary/40 hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-navyDark mb-2">💬 WhatsApp Integration</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Customers can contact you directly.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 hover:border-brandPrimary/40 hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-navyDark mb-2">🔧 Easy Management</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Future admin system will make content management easier.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 hover:border-brandPrimary/40 hover:shadow-md transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-navyDark mb-2">🤝 After-Sales Support</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Provide support after project delivery according to the selected package.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== CAPABILITY SECTION ==================== -->
+    <section class="py-12 bg-lightBg border-b border-slate-200 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-xs font-extrabold uppercase tracking-widest text-slate-400 mb-6">Built for Modern Businesses</h3>
+            <div class="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto">
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">HTML</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">CSS</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">JavaScript</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">Responsive UI</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">Google Apps Script</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">Google Sheets</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">API Integration</span>
+                <span class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-700 shadow-sm hover:border-brandPrimary transition">Database Integration</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CUSTOM REQUIREMENT CTA ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-2xl sm:text-4xl font-black mb-4">Have a Different Idea?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8 font-normal leading-relaxed">
+                “Tell us what you need. We can discuss a custom website solution for your business.”
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg hover:shadow-brandPrimary/30">
+                    Get a Quote
+                </button>
+                <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20discuss%20a%20custom%20website%20for%20my%20business." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4" id="faqAccordion">
+                
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>How much does a website cost?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Pricing depends on website type, features and requirements.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>How long does it take?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Delivery time depends on project scope and requirements.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Do you provide e-commerce websites?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Can I request custom features?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Will the website work on mobile?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes, websites are designed responsively.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Can I contact you through WhatsApp?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Can you update my website later?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes, according to the selected support/maintenance arrangement.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Do you provide domain and hosting?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Availability and pricing depend on the customer's requirements.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT CTA ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT US</span>
+                    <h3 class="text-2xl font-black text-navyDark">Abu Talha Khan</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Web Pro BD</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> Farmgate, Dhaka, Bangladesh</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                        <p><i class="fa-brands fa-facebook text-brandPrimary w-5"></i> <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="hover:underline">Facebook Profile</a></p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="tel:01516513987" class="bg-navyDark hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brandPrimary"></i>
+                        <span>Call Now</span>
+                    </a>
+                    <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20more%20about%20your%20website%20services." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-facebook text-base"></i>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            Chat with us
+        </span>
+        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20more%20about%20your%20website%20services." target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Web Pro BD creates modern, responsive and conversion-focused digital web solutions for businesses and professionals in Bangladesh.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                        <li>Education</li>
+                        <li>Custom Website</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="text-brandPrimary font-bold">Services</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">Pricing</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">About</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>Farmgate, Dhaka, Bangladesh</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                    <p class="pt-1"><a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="text-brandPrimary hover:underline">Facebook</a></p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== GET A QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">GET A QUOTE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">Get a Free Web Quotation</h3>
+                <p class="text-xs text-slate-500">Fill in your details and we will discuss your website project.</p>
+            </div>
+
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                    <input type="text" id="quoteName" required placeholder="Enter your full name" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                    <input type="tel" id="quotePhone" required placeholder="01516513987" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Select Service *</label>
+                    <select id="quoteService" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                        <option value="Business Website">Business Website</option>
+                        <option value="E-commerce Website">E-commerce Website</option>
+                        <option value="Landing Page">Landing Page</option>
+                        <option value="Portfolio Website">Portfolio Website</option>
+                        <option value="Restaurant Website">Restaurant Website</option>
+                        <option value="Education Website">Education Website</option>
+                        <option value="Booking Website">Booking Website</option>
+                        <option value="Custom Website">Custom Website</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Project Requirements</label>
+                    <textarea id="quoteDetails" rows="3" placeholder="Tell us briefly about your business or required features..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-lg transition">
+                    Submit Quote Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ENGINE ==================== -->
+    <script>
+        // Apps Script API URL
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        // Initial Data Structure (Dynamic Architecture for Google Sheets Backend Integration)
+        const defaultServices = [
+            {
+                serviceId: 'SER-01',
+                name: 'Business Website',
+                category: 'Business',
+                description: 'Professional websites for small businesses, companies, shops and service providers.',
+                icon: 'fa-briefcase',
+                startingPrice: 'X,XXX',
+                features: ['Responsive design', 'Professional UI', 'Business pages', 'Contact form', 'WhatsApp integration', 'Google Maps', 'Basic SEO', 'Social media integration'],
+                featured: false,
+                cta: 'Get Business Website'
+            },
+            {
+                serviceId: 'SER-02',
+                name: 'E-commerce Website',
+                category: 'E-commerce',
+                description: 'Complete online shopping websites designed to help businesses sell products online.',
+                icon: 'fa-cart-shopping',
+                startingPrice: 'X,XXX',
+                features: ['Product catalog', 'Categories', 'Product details', 'Shopping cart', 'Order system', 'Customer information', 'WhatsApp ordering', 'Payment integration support', 'Admin management'],
+                featured: true, // MOST POPULAR
+                cta: 'Build My Store'
+            },
+            {
+                serviceId: 'SER-03',
+                name: 'Landing Page',
+                category: 'Landing Page',
+                description: 'High-converting landing pages for products, services, campaigns and advertisements.',
+                icon: 'fa-rocket',
+                startingPrice: 'X,XXX',
+                features: ['Conversion-focused design', 'CTA sections', 'Lead form', 'WhatsApp button', 'Mobile responsive', 'Fast loading', 'Advertisement friendly'],
+                featured: false,
+                cta: 'Create Landing Page'
+            },
+            {
+                serviceId: 'SER-04',
+                name: 'Portfolio Website',
+                category: 'Portfolio',
+                description: 'Professional portfolio websites for freelancers, creators, developers, designers and professionals.',
+                icon: 'fa-user-tie',
+                startingPrice: 'X,XXX',
+                features: ['About section', 'Skills', 'Projects', 'Experience', 'Contact', 'Social links', 'Responsive design'],
+                featured: false,
+                cta: 'Create My Portfolio'
+            },
+            {
+                serviceId: 'SER-05',
+                name: 'Restaurant Website',
+                category: 'Restaurant',
+                description: 'Modern restaurant websites that showcase menus, location, contact information and ordering options.',
+                icon: 'fa-utensils',
+                startingPrice: 'X,XXX',
+                features: ['Digital menu', 'Food categories', 'Gallery', 'Location', 'Contact', 'WhatsApp order', 'Reservation/booking support'],
+                featured: false,
+                cta: 'Build Restaurant Website'
+            },
+            {
+                serviceId: 'SER-06',
+                name: 'Education / Coaching Website',
+                category: 'Education',
+                description: 'Professional websites for schools, coaching centers, training institutes and educational organizations.',
+                icon: 'fa-graduation-cap',
+                startingPrice: 'X,XXX',
+                features: ['Courses', 'Teachers', 'Notices', 'Admission information', 'Contact system', 'Student enquiry', 'WhatsApp integration'],
+                featured: false,
+                cta: 'Build Education Website'
+            },
+            {
+                serviceId: 'SER-07',
+                name: 'Booking Website',
+                category: 'Booking',
+                description: 'Online booking solutions for appointments, services, consultations, travel and other businesses.',
+                icon: 'fa-calendar-check',
+                startingPrice: 'X,XXX',
+                features: ['Service listing', 'Booking form', 'Date/time selection', 'Customer information', 'Confirmation system', 'Admin management'],
+                featured: false,
+                cta: 'Create Booking System'
+            },
+            {
+                serviceId: 'SER-08',
+                name: 'Custom Website',
+                category: 'Custom',
+                description: 'Need something unique? We create custom web solutions based on your business requirements.',
+                icon: 'fa-code',
+                startingPrice: 'X,XXX',
+                features: ['Custom UI/UX', 'Custom functionality', 'Business automation', 'API integration', 'Database integration', 'Admin dashboard', 'Custom development'],
+                featured: false,
+                cta: 'Discuss My Project'
+            }
+        ];
+
+        let services = [...defaultServices];
+        let currentCategory = 'All';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadServicesFromAPI();
+            renderServices(services);
+            setupHeaderScroll();
+        });
+
+        // Sticky Navbar Glassmorphism on Scroll
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Backend Integration Handler
+        async function loadServicesFromAPI() {
+            try {
+                const res = await fetch(`${API_URL}?action=getServices`);
+                const json = await res.json();
+                if (json.status === 'success' && json.data && json.data.length > 0) {
+                    services = json.data;
+                    renderServices(services);
+                }
+            } catch (err) {
+                console.log('Using fallback static services dataset');
+            }
+        }
+
+        // Render Cards Grid
+        function renderServices(list) {
+            const grid = document.getElementById('servicesGrid');
+            const countText = document.getElementById('serviceCountText');
+            const emptyState = document.getElementById('emptySearchState');
+
+            countText.innerText = `Showing ${list.length} web services`;
+
+            if (list.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            grid.innerHTML = list.map(item => `
+                <div class="bg-white rounded-3xl border ${item.featured ? 'border-2 border-brandPrimary shadow-xl ring-4 ring-brandPrimary/10' : 'border-slate-200 shadow-sm'} p-6 sm:p-7 flex flex-col justify-between service-card-hover relative group">
+                    
+                    ${item.featured ? `
+                        <div class="absolute -top-3.5 left-6 bg-brandPrimary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                            MOST POPULAR
+                        </div>
+                    ` : ''}
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brandPrimary/10 text-brandPrimary flex items-center justify-center text-xl font-bold group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid ${item.icon}"></i>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full uppercase">${item.category}</span>
+                        </div>
+
+                        <h3 class="text-xl font-black text-navyDark mb-2">${item.name}</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-4">${item.description}</p>
+
+                        <div class="space-y-2 mb-6 border-t border-slate-100 pt-4">
+                            ${item.features.map(f => `
+                                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                                    <i class="fa-solid fa-check text-brandPrimary text-[10px]"></i>
+                                    <span>${f}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-4 mt-2">
+                        <div class="mb-3">
+                            <span class="text-[10px] text-slate-400 font-bold uppercase block">Starting from</span>
+                            <span class="text-xl font-black text-navyDark">৳${item.startingPrice}</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="openQuoteModal('${item.name}')" class="flex-1 bg-brandPrimary hover:bg-brandDark text-white py-2.5 rounded-xl font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5 group">
+                                <span>${item.cta}</span>
+                                <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition duration-300"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            `).join('');
+        }
+
+        // Category Filter Function
+        function filterServices(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === cat) {
+                    btn.className = 'category-btn bg-brandPrimary text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-all duration-300';
+                } else {
+                    btn.className = 'category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all duration-300';
+                }
+            });
+            applyCombinedFilters();
+        }
+
+        // Search Input Filter Function
+        function handleSearch() {
+            applyCombinedFilters();
+        }
+
+        function applyCombinedFilters() {
+            const query = document.getElementById('serviceSearchInput').value.toLowerCase();
+            let filtered = services;
+
+            if (currentCategory !== 'All') {
+                filtered = filtered.filter(s => s.category.toLowerCase() === currentCategory.toLowerCase());
+            }
+
+            if (query) {
+                filtered = filtered.filter(s => 
+                    s.name.toLowerCase().includes(query) ||
+                    s.description.toLowerCase().includes(query) ||
+                    s.category.toLowerCase().includes(query) ||
+                    s.features.some(f => f.toLowerCase().includes(query))
+                );
+            }
+
+            renderServices(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('serviceSearchInput').value = '';
+            filterServices('All');
+        }
+
+        // Mobile Navigation Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // Accordion Toggle
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('#faqAccordion i').forEach(i => i.style.transform = 'rotate(0deg)');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Quote Modal Functions
+        function openQuoteModal(serviceName = '') {
+            if (serviceName) {
+                document.getElementById('quoteService').value = serviceName;
+            }
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const service = document.getElementById('quoteService').value;
+            const details = document.getElementById('quoteDetails').value;
+            
+            const message = `Hello Web Pro BD, I am ${name} (${phone}). I want to discuss a quote for: ${service}. Requirements: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(message)}`, '_blank');
+            closeQuoteModal();
+        }
+    </script>
+</body>
+</html>Pricing.html

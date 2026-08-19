@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Website FAQ & Help Center | Web Pro BD</title>
+    <meta name="title" content="Website FAQ & Help Center | Web Pro BD">
+    <meta name="description" content="Website তৈরি, খরচ, Domain, Hosting, E-commerce, SEO, Admin Panel ও অন্যান্য বিষয়ে Web Pro BD-এর বিস্তারিত প্রশ্নোত্তর ও সাহায্য কেন্দ্র।">
+    <meta name="keywords" content="website বানাতে কত টাকা লাগে, website তৈরি, website খরচ, business website bd, ecommerce website bangladesh, website design dhaka, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/Faq.html">
+    <meta property="og:title" content="Website FAQ & Help Center | Web Pro BD">
+    <meta property="og:description" content="Website তৈরি, খরচ, Domain, Hosting, E-commerce ও SEO সম্পর্কিত সাধারণ প্রশ্নের সহজ বাংলা সমাধান।">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .accordion-content {
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .faq-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .faq-card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float, .whatsapp-pulse, .animate__animated {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+
+    <!-- Schema.org FAQPage Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Website কী?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Website হলো ইন্টারনেটে থাকা একটি digital platform যেখানে আপনার ব্যবসা, প্রতিষ্ঠান, service, product বা ব্যক্তিগত তথ্য মানুষের কাছে উপস্থাপন করা যায়।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Website তৈরি করতে কত টাকা লাগে?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Website-এর খরচ নির্ভর করে website-এর ধরন, page সংখ্যা, design, functionality এবং প্রয়োজনীয় feature-এর ওপর। Requirement জানালে project অনুযায়ী quotation দেওয়া যায়।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "E-commerce Website কী?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "E-commerce website হলো এমন website যেখানে online-এ product দেখানো, customer order নেওয়া এবং প্রয়োজন অনুযায়ী online shopping-এর বিভিন্ন functionality রাখা যায়।"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="Portfolio.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="About.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="Faq.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> FAQ & Help
+                    </a>
+                    <a href="Contact.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="Portfolio.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="About.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="Faq.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">FAQ & Help</a>
+                <a href="Contact.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2">
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-2">
+                        <span>Get a Free Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200/80 text-xs text-slate-500 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 font-medium">
+            <a href="#" class="hover:text-brandPrimary transition"><i class="fa-solid fa-house text-slate-400"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-navyDark font-bold">FAQ & Help Center</span>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION WITH LIVE SEARCH ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-24 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                <i class="fa-solid fa-circle-question text-amber-400"></i>
+                <span>WEB PRO BD HELP CENTER</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-snug sm:leading-tight">
+                Website নিয়ে আপনার যেকোনো <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">প্রশ্নের উত্তর এখানে</span>
+            </h1>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
+                Website তৈরি, খরচ, Domain & Hosting, E-commerce, SEO, Design, Development এবং অন্যান্য বিষয় সম্পর্কে সহজ ভাষায় প্রয়োজনীয় তথ্য জানুন।
+            </p>
+
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto relative pt-2">
+                <div class="relative flex items-center">
+                    <input type="text" id="faqSearchInput" oninput="handleFaqSearch()" placeholder="আপনার প্রশ্ন লিখে খুঁজুন (যেমন: খরচ, ডোমেইন, ই-কমার্স)..." class="w-full pl-11 pr-24 py-4 bg-white text-navyDark border-2 border-transparent focus:border-brandPrimary rounded-2xl text-xs sm:text-sm font-medium shadow-2xl focus:outline-none transition">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-base"></i>
+                    <button onclick="handleFaqSearch()" class="absolute right-2 bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-md transition">
+                        খুঁজুন
+                    </button>
+                </div>
+
+                <!-- Suggested Search Chips -->
+                <div class="flex flex-wrap justify-center items-center gap-2 mt-3 text-[11px] text-slate-400">
+                    <span class="font-bold">জনপ্রিয় প্রশ্ন:</span>
+                    <button onclick="quickSearch('খরচ')" class="bg-slate-800/80 hover:bg-brandPrimary text-slate-300 hover:text-white px-2.5 py-1 rounded-lg transition">Website বানাতে কত টাকা লাগে?</button>
+                    <button onclick="quickSearch('ই-কমার্স')" class="bg-slate-800/80 hover:bg-brandPrimary text-slate-300 hover:text-white px-2.5 py-1 rounded-lg transition">E-commerce কী?</button>
+                    <button onclick="quickSearch('ডোমেইন')" class="bg-slate-800/80 hover:bg-brandPrimary text-slate-300 hover:text-white px-2.5 py-1 rounded-lg transition">Domain কী?</button>
+                    <button onclick="quickSearch('Google')" class="bg-slate-800/80 hover:bg-brandPrimary text-slate-300 hover:text-white px-2.5 py-1 rounded-lg transition">Google-এ কীভাবে আসবে?</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Introductory SEO Section -->
+    <section class="py-8 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-base sm:text-lg font-bold text-navyDark">Website তৈরি করার আগে যেসব বিষয় জানা দরকার</h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                একটি website তৈরি করার আগে শুধু design বা price জানা যথেষ্ট নয়। Website-এর উদ্দেশ্য, target customer, প্রয়োজনীয় features, domain, hosting, mobile responsiveness, SEO, security এবং future maintenance—এসব বিষয়ও বিবেচনা করা গুরুত্বপূর্ণ। Web Pro BD-এর এই Help Center-এর মাধ্যমে আপনি প্রয়োজনীয় বিষয়গুলো সহজ ভাষায় জানতে পারবেন।
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SEARCH RESULTS SECTION ==================== -->
+    <section id="searchResultsSection" class="hidden py-12 bg-lightBg border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex justify-between items-center border-b pb-3">
+                <span id="searchResultCountText" class="text-xs font-bold text-brandPrimary bg-brandPrimary/10 px-3 py-1 rounded-full">
+                    আপনার জন্য ০টি প্রশ্ন পাওয়া গেছে
+                </span>
+                <button onclick="clearSearch()" class="text-xs font-bold text-slate-500 hover:text-brandPrimary">সকল প্রশ্ন দেখুন</button>
+            </div>
+
+            <!-- Dynamic Search Results Grid -->
+            <div id="searchResultsGrid" class="space-y-4"></div>
+
+            <!-- Empty Search State -->
+            <div id="emptySearchState" class="hidden text-center py-12 bg-white rounded-3xl border border-dashed p-8 space-y-4">
+                <i class="fa-solid fa-circle-exclamation text-4xl text-amber-500 block"></i>
+                <h3 class="text-base font-bold text-navyDark">দুঃখিত, আপনার প্রশ্নের উত্তর খুঁজে পাওয়া যায়নি।</h3>
+                <p class="text-xs text-slate-500 max-w-md mx-auto">অন্যভাবে প্রশ্নটি লিখে চেষ্টা করুন অথবা সরাসরি Web Pro BD-এর সাথে যোগাযোগ করুন।</p>
+                <div class="flex gap-2 justify-center pt-2">
+                    <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20have%20a%20question%20about%20your%20website%20services." target="_blank" class="bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp করুন
+                    </a>
+                    <a href="Contact.html" class="bg-navyDark text-white font-bold px-5 py-2.5 rounded-xl text-xs">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CATEGORY CARDS ==================== -->
+    <section class="py-12 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">HELP CATEGORIES</span>
+                <h2 class="text-2xl font-black text-navyDark mt-3">কোন বিষয়ে জানতে চান?</h2>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div onclick="filterByCategory('General')" class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm cursor-pointer faq-card-hover text-center space-y-2">
+                    <i class="fa-solid fa-globe text-2xl text-brandPrimary"></i>
+                    <h3 class="font-bold text-xs sm:text-sm text-navyDark">Website General</h3>
+                    <p class="text-[11px] text-slate-400">তৈরি, ডিজাইন ও বেসিক</p>
+                </div>
+                <div onclick="filterByCategory('Pricing')" class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm cursor-pointer faq-card-hover text-center space-y-2">
+                    <i class="fa-solid fa-tags text-2xl text-emerald-500"></i>
+                    <h3 class="font-bold text-xs sm:text-sm text-navyDark">Pricing & Cost</h3>
+                    <p class="text-[11px] text-slate-400">খরচ, বাজেট ও প্যাকেজ</p>
+                </div>
+                <div onclick="filterByCategory('Ecommerce')" class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm cursor-pointer faq-card-hover text-center space-y-2">
+                    <i class="fa-solid fa-cart-shopping text-2xl text-amber-500"></i>
+                    <h3 class="font-bold text-xs sm:text-sm text-navyDark">E-commerce</h3>
+                    <p class="text-[11px] text-slate-400">অনলাইন শপ ও অর্ডার</p>
+                </div>
+                <div onclick="filterByCategory('Domain')" class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm cursor-pointer faq-card-hover text-center space-y-2">
+                    <i class="fa-solid fa-server text-2xl text-sky-500"></i>
+                    <h3 class="font-bold text-xs sm:text-sm text-navyDark">Domain & Hosting</h3>
+                    <p class="text-[11px] text-slate-400">এড্রেস ও অনলাইন সার্ভার</p>
+                </div>
+                <div onclick="filterByCategory('SEO')" class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm cursor-pointer faq-card-hover text-center space-y-2">
+                    <i class="fa-solid fa-chart-line text-2xl text-indigo-500"></i>
+                    <h3 class="font-bold text-xs sm:text-sm text-navyDark">SEO & Google</h3>
+                    <p class="text-[11px] text-slate-400">গুগল সার্চ ও র‍্যাঙ্কিং</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN POPULAR FAQ ACCORDIONS ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">POPULAR FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">জনপ্রিয় প্রশ্ন ও উত্তরসমূহ</h2>
+            </div>
+
+            <!-- Dynamic Accordion List -->
+            <div id="mainFaqContainer" class="space-y-4"></div>
+
+        </div>
+    </section>
+
+    <!-- ==================== EDUCATIONAL GUIDE: HOW TO CHOOSE A WEBSITE ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">GUIDE</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">একটি Professional Website তৈরি করার সময় কী কী বিষয় বিবেচনা করা উচিত?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">১. উদ্দেশ্য</span>
+                    <h3 class="font-bold text-base text-navyDark">Website-এর উদ্দেশ্য</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Website কেন তৈরি করছেন তা প্রথমে পরিষ্কার করা গুরুত্বপূর্ণ।</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">২. কাস্টমার</span>
+                    <h3 class="font-bold text-base text-navyDark">Target Customer</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">কারা website ব্যবহার করবে তা বুঝে design করা উচিত।</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">৩. কন্টেন্ট</span>
+                    <h3 class="font-bold text-base text-navyDark">Content & Data</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">সঠিক তথ্য, ছবি ও পরিষ্কার service/product description প্রয়োজন।</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">৪. ডিজাইন</span>
+                    <h3 class="font-bold text-base text-navyDark">Design Quality</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Design professional এবং সহজে ব্যবহারযোগ্য হওয়া উচিত।</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">৫. মোবাইল</span>
+                    <h3 class="font-bold text-base text-navyDark">Mobile Experience</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">মোবাইল ব্যবহারকারীদের জন্য responsive layout অত্যন্ত গুরুত্বপূর্ণ।</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">৬. স্পিড</span>
+                    <h3 class="font-bold text-base text-navyDark">Performance & Speed</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">অপ্রয়োজনীয় heavy assets এড়িয়ে website দ্রুত রাখার চেষ্টা করা উচিত।</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">৭. এসইও</span>
+                    <h3 class="font-bold text-base text-navyDark">SEO Structure</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Search engine যেন website সহজে বুঝতে পারে সেজন্য technical SEO দরকার।</p>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-xs bg-brandPrimary/10 px-2.5 py-1 rounded-full">৮. ভবিষ্যৎ</span>
+                    <h3 class="font-bold text-base text-navyDark">Future Expansion</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">ভবিষ্যতে নতুন feature যোগ করার কথা মাথায় রেখে প্ল্যান করা উচিত।</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== ASK YOUR QUESTION SECTION ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200 text-center">
+        <div class="max-w-3xl mx-auto px-4 space-y-4">
+            <h2 class="text-2xl font-black text-navyDark">আপনার প্রশ্ন এখানে নেই?</h2>
+            <p class="text-xs sm:text-sm text-slate-500">আপনার প্রশ্নটি FAQ-তে খুঁজে না পেলে সরাসরি Web Pro BD-এর সাথে যোগাযোগ করুন।</p>
+            <div class="flex flex-wrap justify-center gap-3 pt-2">
+                <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20have%20a%20question%20about%20website%20development." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp করুন
+                </a>
+                <a href="Contact.html" class="bg-brandPrimary hover:bg-brandDark text-white font-bold px-6 py-3 rounded-xl text-xs shadow-md">
+                    Inquiry Form খুলুন
+                </a>
+                <a href="tel:01516513987" class="bg-navyDark text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brandPrimary"></i> Call করুন
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT INFO & SOCIAL ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT CARD</span>
+                    <h3 class="text-2xl font-black text-navyDark">Web Pro BD</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Abu Talha Khan</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-brands fa-whatsapp text-emerald-500 w-5"></i> WhatsApp: 01516513987</p>
+                        <p><i class="fa-solid fa-comments text-sky-500 w-5"></i> IMO: 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-facebook"></i> Web Pro BD Page
+                    </a>
+                    <a href="https://www.facebook.com/Abu.talha017467" target="_blank" class="bg-slate-800 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-facebook text-blue-400"></i> Owner Profile
+                    </a>
+                    <button onclick="copyNumber()" class="bg-brandPrimary text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-copy"></i> Copy Number
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-black">Website নিয়ে এখনও কোনো প্রশ্ন আছে?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-normal leading-relaxed">
+                আপনার প্রশ্ন যত ছোট বা বড়ই হোক, requirement জানালে project-এর জন্য উপযুক্ত solution নিয়ে আলোচনা করা যাবে।
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <a href="Contact.html" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                    Project Inquiry পাঠান
+                </a>
+                <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20have%20questions%20about%20building%20a%20website." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp করুন</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            WhatsApp-এ প্রশ্ন করুন
+        </span>
+        <a href="https://wa.me/8801516513987?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%82%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20Web%20Pro%20BD%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%86%E0%A6%AE%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%BF%E0%A6%9B%E0%A7%81%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%B6%E0%A7%8D%E0%A6%A8%20%E0%A6%86%E0%A6%9B%E0%A7%87%E0%A6%A4" target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        আধুনিক ও professional website solution।
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li>
+                        <li><a href="Pricing.html" class="hover:text-brandPrimary">Pricing</a></li>
+                        <li><a href="Portfolio.html" class="hover:text-brandPrimary">Portfolio</a></li>
+                        <li><a href="Faq.html" class="text-brandPrimary font-bold">FAQ</a></li>
+                        <li><a href="Contact.html" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== GET A QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">GET A QUOTE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">Get a Free Web Quotation</h3>
+            </div>
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <input type="text" id="quoteName" required placeholder="Your Name" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <input type="tel" id="quotePhone" required placeholder="Phone / WhatsApp" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <select id="quoteService" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    <option value="Business Website">Business Website</option>
+                    <option value="E-commerce Website">E-commerce Website</option>
+                    <option value="Custom Website">Custom Website</option>
+                </select>
+                <textarea id="quoteDetails" rows="3" placeholder="Project details..." class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs"></textarea>
+                <button type="submit" class="w-full bg-brandPrimary text-white py-3.5 rounded-xl font-bold text-xs shadow-lg">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION ENGINE ==================== -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        // Comprehensive FAQ Master Dataset (Structured for future Apps Script API)
+        const faqMasterData = [
+            {
+                id: 1,
+                question: 'Website কী?',
+                answer: 'Website হলো ইন্টারনেটে থাকা একটি digital platform যেখানে আপনার ব্যবসা, প্রতিষ্ঠান, service, product বা ব্যক্তিগত তথ্য বিশ্বের যেকোনো জায়গা থেকে মানুষের কাছে উপস্থাপন করা যায়।',
+                category: 'General',
+                keywords: ['website ki', 'ওয়েবসাইট কি', 'definition', 'platform'],
+                popular: true
+            },
+            {
+                id: 2,
+                question: 'আমার ব্যবসার জন্য Website কেন দরকার?',
+                answer: 'একটি professional website আপনার business-এর online presence ও বিশ্বাসযোগ্যতা তৈরি করতে সাহায্য করে। Customer আপনার service, product, contact information এবং প্রয়োজনীয় তথ্য দিনরাত ২৪ ঘণ্টা এক জায়গায় দেখতে পারে।',
+                category: 'General',
+                keywords: ['dorkar', 'কেন দরকার', 'importance', 'business benefit'],
+                popular: true
+            },
+            {
+                id: 3,
+                question: 'Web Pro BD কী ধরনের Website তৈরি করে?',
+                answer: 'Business website, E-commerce website, Portfolio website, Landing Page, Restaurant website, Education website, Booking website এবং প্রয়োজন অনুযায়ী Custom website তৈরি করা হয়। <br><a href="Service.html" class="text-brandPrimary font-bold underline mt-1 inline-block">আমাদের সকল Services দেখুন &rarr;</a>',
+                category: 'General',
+                keywords: ['services', 'ধরনের', 'types', 'category'],
+                popular: false
+            },
+            {
+                id: 4,
+                question: 'Website তৈরি করতে কত টাকা লাগে?',
+                answer: 'Website-এর খরচ নির্ভর করে website-এর ধরন, page সংখ্যা, design, functionality এবং প্রয়োজনীয় feature-এর ওপর। তাই সব website-এর জন্য একই দাম প্রযোজ্য নয়। Requirement জানালে project অনুযায়ী quotation দেওয়া হয়। <br><a href="Pricing.html" class="text-brandPrimary font-bold underline mt-1 inline-block">আমাদের সকল Pricing Packages দেখুন &rarr;</a>',
+                category: 'Pricing',
+                keywords: ['দাম', 'খরচ', 'price', 'cost', 'টাকা', 'budget'],
+                popular: true
+            },
+            {
+                id: 5,
+                question: 'Website তৈরি করতে কতদিন সময় লাগে?',
+                answer: 'Project-এর size, page সংখ্যা, content, design এবং functionality অনুযায়ী সময় পরিবর্তিত হয়। Project শুরু করার আগে সম্ভাব্য timeline আলোচনা করা হয়।',
+                category: 'Pricing',
+                keywords: ['সময়', 'দিন', 'time', 'duration', 'timeline'],
+                popular: true
+            },
+            {
+                id: 6,
+                question: 'Website বানাতে কী কী তথ্য দিতে হবে?',
+                answer: 'আপনার business-এর নাম, logo থাকলে logo, business সম্পর্কে তথ্য, services বা products-এর বিবরণ, contact information এবং আপনি website-এ কী কী feature চান—এসব তথ্য কাজে লাগে।',
+                category: 'General',
+                keywords: ['তথ্য', 'requirements', 'needed', 'info'],
+                popular: true
+            },
+            {
+                id: 7,
+                question: 'Domain কী?',
+                answer: 'Domain হলো আপনার website-এর internet address। যেমন example.com বা webprobd.com নামের মাধ্যমে মানুষ আপনার website-এ প্রবেশ করে।',
+                category: 'Domain',
+                keywords: ['domain ki', 'ডোমেইন কি', 'address', 'url'],
+                popular: true
+            },
+            {
+                id: 8,
+                question: 'Hosting কী?',
+                answer: 'Hosting হলো এমন একটি online server/service যেখানে আপনার website-এর files ও প্রয়োজনীয় data নিরাপদে রাখা হয়, যাতে internet থেকে যেকোনো সময় আপনার website টি ব্যবহার করা যায়।',
+                category: 'Domain',
+                keywords: ['hosting ki', 'হোস্টিং কি', 'server', 'storage'],
+                popular: true
+            },
+            {
+                id: 9,
+                question: 'E-commerce Website কী?',
+                answer: 'E-commerce website হলো এমন website যেখানে online-এ product দেখানো, customer order নেওয়া, cart system এবং প্রয়োজন অনুযায়ী online shopping-এর বিভিন্ন functionality রাখা যায়।',
+                category: 'Ecommerce',
+                keywords: ['ecommerce ki', 'ই কমার্স', 'online shop', 'অনলাইন দোকান'],
+                popular: true
+            },
+            {
+                id: 10,
+                question: 'E-commerce Website-এ কী কী Feature থাকতে পারে?',
+                answer: 'Product catalog, categories, product details modal, cart system, customer checkout form, WhatsApp order button, order tracking এবং admin management prep অন্তর্ভুক্ত থাকতে পারে।',
+                category: 'Ecommerce',
+                keywords: ['features', 'কার্ট', 'cart', 'order'],
+                popular: false
+            },
+            {
+                id: 11,
+                question: 'Admin Panel কী?',
+                answer: 'Admin Panel হলো website পরিচালনার জন্য একটি private management interface, যেখান থেকে website-এর পণ্য, অর্ডার, কাস্টমার তথ্য বা টেক্সট সহজে পরিবর্তন করা যায়।',
+                category: 'General',
+                keywords: ['admin panel ki', 'এডমিন প্যানেল', 'dashboard', 'control'],
+                popular: true
+            },
+            {
+                id: 12,
+                question: 'Google Sheets কি Website-এর Database হিসেবে ব্যবহার করা যায়?',
+                answer: 'হ্যাঁ! ছোট ও মাঝারি ব্যবসার ক্ষেত্রে Google Sheets-কে data storage হিসেবে ব্যবহার করা যায়। Google Apps Script বা API-এর মাধ্যমে ওয়েবসাইট থেকে সরাসরি গুগল শীটে অর্ডার ও কাস্টমার ডাটা সেভ করা সম্ভব।',
+                category: 'General',
+                keywords: ['google sheets', 'গুগল শিট', 'database', 'apps script'],
+                popular: false
+            },
+            {
+                id: 13,
+                question: 'Website কি মোবাইলে ভালোভাবে চলবে?',
+                answer: 'হ্যাঁ! Web Pro BD-এর প্রতিটি ওয়েবসাইটের জন্য Responsive Design অনুসরণ করা হয়, ফলে এটি mobile, tablet এবং desktop যেকোনো স্ক্রিনে সুন্দরভাবে কাজ করে।',
+                category: 'General',
+                keywords: ['mobile', 'মোবাইল', 'responsive', 'phone'],
+                popular: true
+            },
+            {
+                id: 14,
+                question: 'Website কি Google-এ দেখা যাবে?',
+                answer: 'Website Google Search-এ দেখা যাওয়ার জন্য SEO (Search Engine Optimization) এবং indexing গুরুত্বপূর্ণ। ওয়েবসাইটের টেকনিক্যাল স্ট্রাকচার এসইও-ফ্রেন্ডলি করে তৈরি করা হলে তা গুগলে ইনডেক্স হতে সাহায্য করে।',
+                category: 'SEO',
+                keywords: ['google', 'গুগল', 'seo', 'rank', 'search'],
+                popular: true
+            },
+            {
+                id: 15,
+                question: 'পরে কি Website Update করা যাবে?',
+                answer: 'হ্যাঁ! আপনার ব্যবসার গ্রোথের সাথে সাথে ভবিষ্যতে নতুন content, product, page বা custom functionality যোগ করার সুযোগ রাখা হয়।',
+                category: 'General',
+                keywords: ['update', 'আপডেট', 'change', 'future'],
+                popular: true
+            }
+        ];
+
+        let currentFaqList = [...faqMasterData];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFaqs(currentFaqList);
+            setupHeaderScroll();
+        });
+
+        // Sticky Navbar Effect
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Render Accordion List
+        function renderFaqs(list) {
+            const container = document.getElementById('mainFaqContainer');
+            if (list.length === 0) {
+                container.innerHTML = `<div class="text-center py-8 text-slate-400">কোনো প্রশ্ন পাওয়া যায়নি!</div>`;
+                return;
+            }
+
+            container.innerHTML = list.map((item, idx) => `
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4 hover:bg-slate-50 transition">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-question text-brandPrimary text-xs"></i> ${item.question}</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <div class="pb-5 pt-2 border-t border-slate-100 mt-1 leading-relaxed">
+                            ${item.answer}
+                            
+                            <!-- Helpful Feedback Widget -->
+                            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+                                <span>এই উত্তরটি কি আপনার জন্য সহায়ক ছিল?</span>
+                                <div class="flex gap-2">
+                                    <button onclick="giveFeedback(this)" class="px-2.5 py-1 bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 rounded-lg transition font-bold"><i class="fa-solid fa-thumbs-up mr-1"></i> হ্যাঁ</button>
+                                    <button onclick="giveFeedback(this)" class="px-2.5 py-1 bg-slate-100 hover:bg-red-100 hover:text-red-700 rounded-lg transition font-bold"><i class="fa-solid fa-thumbs-down mr-1"></i> না</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search Engine Function
+        function handleFaqSearch() {
+            const query = document.getElementById('faqSearchInput').value.toLowerCase().trim();
+            const resultsSection = document.getElementById('searchResultsSection');
+            const resultsGrid = document.getElementById('searchResultsGrid');
+            const countText = document.getElementById('searchResultCountText');
+            const emptyState = document.getElementById('emptySearchState');
+
+            if (!query) {
+                resultsSection.classList.add('hidden');
+                return;
+            }
+
+            resultsSection.classList.remove('hidden');
+
+            const matched = faqMasterData.filter(item => 
+                item.question.toLowerCase().includes(query) ||
+                item.answer.toLowerCase().includes(query) ||
+                item.keywords.some(k => k.toLowerCase().includes(query))
+            );
+
+            countText.innerText = `আপনার জন্য ${matched.length}টি প্রশ্ন পাওয়া গেছে`;
+
+            if (matched.length === 0) {
+                resultsGrid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                resultsGrid.innerHTML = matched.map(item => `
+                    <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                        <h4 class="font-bold text-sm text-navyDark flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandPrimary"></i> ${item.question}</h4>
+                        <div class="text-xs text-slate-600 leading-relaxed pt-1 border-t">${item.answer}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function quickSearch(term) {
+            document.getElementById('faqSearchInput').value = term;
+            handleFaqSearch();
+            document.getElementById('searchResultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function clearSearch() {
+            document.getElementById('faqSearchInput').value = '';
+            document.getElementById('searchResultsSection').classList.add('hidden');
+        }
+
+        function filterByCategory(cat) {
+            const matched = faqMasterData.filter(i => i.category.toLowerCase() === cat.toLowerCase());
+            renderFaqs(matched);
+            document.getElementById('mainFaqContainer').scrollIntoView({ behavior: 'smooth' });
+            showToast(`${cat} ক্যাটাগরির প্রশ্নসমূহ লোড হয়েছে`);
+        }
+
+        function giveFeedback(btn) {
+            btn.parentElement.innerHTML = `<span class="text-emerald-600 font-bold"><i class="fa-solid fa-check mr-1"></i> ধন্যবাদ আপনার feedback-এর জন্য!</span>`;
+        }
+
+        function copyNumber() {
+            navigator.clipboard.writeText("01516513987");
+            showToast("নম্বর কপি হয়েছে।");
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.fa-chevron-down');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('#mainFaqContainer .fa-chevron-down').forEach(i => i.style.transform = 'rotate(0deg)');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const service = document.getElementById('quoteService').value;
+            const details = document.getElementById('quoteDetails').value;
+            
+            const message = `Hello Web Pro BD, I am ${name} (${phone}). I have a question regarding: ${service}. Details: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(message)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

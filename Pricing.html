@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Website Pricing & Packages in Bangladesh | Web Pro BD</title>
+    <meta name="title" content="Website Pricing & Packages in Bangladesh | Web Pro BD">
+    <meta name="description" content="Explore Web Pro BD website packages for business websites, e-commerce, landing pages and custom web solutions in Bangladesh. Transparent pricing and expert development.">
+    <meta name="keywords" content="website price in bangladesh, e-commerce website cost bd, business website package dhaka, web pro bd pricing, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/Pricing.html">
+    <meta property="og:title" content="Website Pricing & Packages in Bangladesh | Web Pro BD">
+    <meta property="og:description" content="Transparent website development packages for Bangladeshi businesses and professionals.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Hind Siliguri', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', 'Hind Siliguri', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .accordion-content {
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Shimmer Loading Animation */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PriceSpecification",
+      "name": "Web Pro BD Website Packages",
+      "priceCurrency": "BDT",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Web Pro BD",
+        "telephone": "+8801516513987",
+        "url": "https://webprobd.com"
+      }
+    }
+    </script>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Pricing
+                    </a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">Pricing</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2">
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-2">
+                        <span>Get a Free Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-24 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left animate__animated animate__fadeInLeft">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                        <i class="fa-solid fa-tags text-amber-400"></i>
+                        <span>SIMPLE & TRANSPARENT PRICING</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                        Choose the Right Website Package <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">for Your Business</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        “Professional website solutions designed for businesses, entrepreneurs, professionals and organizations. Choose a package or request a custom solution based on your requirements.”
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-brandPrimary/30 transition duration-300 text-center flex items-center justify-center gap-2">
+                            <span>Get a Quote</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20about%20your%20website%20packages." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Talk on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Abstract Visual -->
+                <div class="lg:col-span-5 flex justify-center animate__animated animate__fadeInRight">
+                    <div class="w-full max-w-md bg-navyCard/90 border border-slate-700/80 rounded-2xl shadow-2xl p-5 backdrop-blur-xl animate-float relative z-10">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-700/80 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">webprobd.com/pricing</span>
+                            <i class="fa-solid fa-layer-group text-xs text-brandPrimary"></i>
+                        </div>
+
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="bg-gradient-to-r from-brandPrimary/30 to-indigo-900/40 p-3.5 rounded-xl border border-brandPrimary/50 flex items-center justify-between shadow-inner">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-brandPrimary flex items-center justify-center text-white font-bold">
+                                        <i class="fa-solid fa-crown text-amber-300 text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Business Package</div>
+                                        <div class="text-[10px] text-slate-300">Most Popular Choice</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-black text-amber-400">৳7,000</span>
+                            </div>
+
+                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 flex justify-between items-center text-[11px]">
+                                <span class="text-slate-400"><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Up to 10 Pages</span>
+                                <span class="text-emerald-400 font-bold">Included</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 flex justify-between items-center text-[11px]">
+                                <span class="text-slate-400"><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> WhatsApp Integration</span>
+                                <span class="text-emerald-400 font-bold">Included</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRICING TOGGLE & PACKAGES ==================== -->
+    <section id="packagesSection" class="py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Mode Toggle Switcher -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-white border border-slate-200 p-1.5 rounded-2xl shadow-sm inline-flex items-center gap-1">
+                    <button id="togglePackagesBtn" onclick="switchPricingTab('packages')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-brandPrimary text-white shadow-md">
+                        Website Packages
+                    </button>
+                    <button id="toggleCustomBtn" onclick="switchPricingTab('custom')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 text-slate-600 hover:text-navyDark">
+                        Custom Solution
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Skeleton State -->
+            <div id="loadingState" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 space-y-4">
+                    <div class="h-6 w-1/2 shimmer rounded-lg"></div>
+                    <div class="h-4 w-3/4 shimmer rounded-lg"></div>
+                    <div class="h-10 w-2/3 shimmer rounded-xl"></div>
+                    <div class="space-y-2 pt-4 border-t">
+                        <div class="h-3 w-full shimmer rounded"></div>
+                        <div class="h-3 w-5/6 shimmer rounded"></div>
+                        <div class="h-3 w-4/6 shimmer rounded"></div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 space-y-4">
+                    <div class="h-6 w-1/2 shimmer rounded-lg"></div>
+                    <div class="h-4 w-3/4 shimmer rounded-lg"></div>
+                    <div class="h-10 w-2/3 shimmer rounded-xl"></div>
+                    <div class="space-y-2 pt-4 border-t">
+                        <div class="h-3 w-full shimmer rounded"></div>
+                        <div class="h-3 w-5/6 shimmer rounded"></div>
+                        <div class="h-3 w-4/6 shimmer rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="hidden text-center py-12 bg-white rounded-3xl border border-red-200 p-8 shadow-sm max-w-lg mx-auto">
+                <div class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 class="text-base font-bold text-navyDark">We couldn't load the latest packages</h3>
+                <p class="text-xs text-slate-500 mt-1 mb-4">Please check your internet connection or contact us directly.</p>
+                <div class="flex gap-2 justify-center">
+                    <button onclick="loadPackagesFromAPI()" class="bg-brandPrimary text-white text-xs font-bold px-4 py-2 rounded-xl">Try Again</button>
+                    <a href="https://wa.me/8801516513987" target="_blank" class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Package Cards Grid (Desktop 4/3, Tablet 2, Mobile 1) -->
+            <div id="packageGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-stretch">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== PACKAGE COMPARISON ==================== -->
+    <section class="py-16 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">COMPARISON</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">Compare Our Packages</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-2">Detailed breakdown of feature inclusions per package.</p>
+            </div>
+
+            <!-- Desktop Comparison Table -->
+            <div class="hidden lg:block overflow-x-auto rounded-3xl border border-slate-200 shadow-sm">
+                <table class="w-full text-left text-xs sm:text-sm">
+                    <thead class="bg-slate-900 text-white font-bold border-b border-slate-800">
+                        <tr>
+                            <th class="p-4 sm:p-5 w-2/5">Package Features</th>
+                            <th class="p-4 sm:p-5 text-center w-1/5">Starter</th>
+                            <th class="p-4 sm:p-5 text-center w-1/5 bg-brandPrimary">Business (Popular)</th>
+                            <th class="p-4 sm:p-5 text-center w-1/5">E-commerce</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 bg-lightBg font-medium text-slate-700">
+                        <tr><td class="p-4">Responsive Design</td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center bg-blue-50/50"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                        <tr><td class="p-4">Pages Scope</td><td class="text-center">Up to 5 Pages</td><td class="text-center bg-blue-50/50 font-bold text-navyDark">Up to 10 Pages</td><td class="text-center">Unlimited Catalog</td></tr>
+                        <tr><td class="p-4">WhatsApp Integration</td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center bg-blue-50/50"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                        <tr><td class="p-4">Contact Form & Google Map</td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center bg-blue-50/50"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                        <tr><td class="p-4">Gallery Section</td><td class="text-center"><i class="fa-solid fa-minus text-slate-300"></i></td><td class="text-center bg-blue-50/50"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                        <tr><td class="p-4">Product Catalog & Cart System</td><td class="text-center"><i class="fa-solid fa-minus text-slate-300"></i></td><td class="text-center bg-blue-50/50"><i class="fa-solid fa-minus text-slate-300"></i></td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                        <tr><td class="p-4">WhatsApp Order System</td><td class="text-center"><i class="fa-solid fa-minus text-slate-300"></i></td><td class="text-center bg-blue-50/50"><i class="fa-solid fa-minus text-slate-300"></i></td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                        <tr><td class="p-4">Basic SEO Structure</td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center bg-blue-50/50"><i class="fa-solid fa-check text-brandPrimary"></i></td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                        <tr><td class="p-4">Admin Dashboard Prep</td><td class="text-center"><i class="fa-solid fa-minus text-slate-300"></i></td><td class="text-center bg-blue-50/50">Optional</td><td class="text-center"><i class="fa-solid fa-check text-brandPrimary"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Comparison UI (Stacked Switcher) -->
+            <div class="block lg:hidden">
+                <div class="flex overflow-x-auto no-scrollbar gap-2 mb-6 pb-2" id="mobileCompTabs">
+                    <button onclick="renderMobileComp('Starter')" class="mob-comp-tab bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap">Starter</button>
+                    <button onclick="renderMobileComp('Business')" class="mob-comp-tab bg-brandPrimary text-white px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap shadow-md">Business</button>
+                    <button onclick="renderMobileComp('E-commerce')" class="mob-comp-tab bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap">E-commerce</button>
+                </div>
+                <div id="mobileCompContainer" class="bg-lightBg border border-slate-200 p-5 rounded-2xl space-y-3 text-xs">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== WHAT YOU GET ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">INCLUDED</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">What You Get With Your Website</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                    <i class="fa-solid fa-mobile-screen text-2xl text-brandPrimary mb-3"></i>
+                    <h3 class="font-bold text-base text-navyDark mb-1">Responsive Design</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Works across mobile, tablet and desktop computers.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                    <i class="fa-solid fa-palette text-2xl text-indigo-500 mb-3"></i>
+                    <h3 class="font-bold text-base text-navyDark mb-1">Professional UI</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Designed around your business niche and target audience.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                    <i class="fa-solid fa-comments text-2xl text-emerald-500 mb-3"></i>
+                    <h3 class="font-bold text-base text-navyDark mb-1">Contact Integration</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Phone, WhatsApp and enquiry form options included.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                    <i class="fa-solid fa-share-nodes text-2xl text-sky-500 mb-3"></i>
+                    <h3 class="font-bold text-base text-navyDark mb-1">Social Integration</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Connect your Facebook page and other social platforms.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                    <i class="fa-solid fa-gauge-high text-2xl text-amber-500 mb-3"></i>
+                    <h3 class="font-bold text-base text-navyDark mb-1">Performance</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Clean and optimized implementation for fast loading.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                    <i class="fa-solid fa-headset text-2xl text-purple-500 mb-3"></i>
+                    <h3 class="font-bold text-base text-navyDark mb-1">Support</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Post-delivery support according to selected package/agreement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WEBSITE COST CALCULATOR ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-10">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">CALCULATOR</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">Estimate Your Website Cost</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Select your requirements to get an instant cost range estimate.</p>
+            </div>
+
+            <div class="bg-lightBg border border-slate-200 p-6 sm:p-8 rounded-3xl shadow-sm space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Website Type</label>
+                        <select id="calcType" onchange="updateCalculator()" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                            <option value="business">Business Website</option>
+                            <option value="ecommerce">E-commerce Store</option>
+                            <option value="portfolio">Portfolio</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="education">Education / Coaching</option>
+                            <option value="booking">Booking System</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Number of Pages</label>
+                        <select id="calcPages" onchange="updateCalculator()" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                            <option value="5">1 - 5 Pages</option>
+                            <option value="10">6 - 10 Pages</option>
+                            <option value="20">11 - 20 Pages</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-2">Additional Features</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                        <label class="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer">
+                            <input type="checkbox" id="calcEcom" onchange="updateCalculator()" class="rounded text-brandPrimary"> E-commerce
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer">
+                            <input type="checkbox" id="calcBooking" onchange="updateCalculator()" class="rounded text-brandPrimary"> Booking
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer">
+                            <input type="checkbox" id="calcPayment" onchange="updateCalculator()" class="rounded text-brandPrimary"> Payment
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-200 cursor-pointer">
+                            <input type="checkbox" id="calcAdmin" onchange="updateCalculator()" class="rounded text-brandPrimary"> Admin Panel
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Estimate Display Box -->
+                <div class="bg-navyDark text-white p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-slate-400 font-bold block uppercase">Estimated Project Range</span>
+                        <span id="calcDisplayRange" class="text-2xl sm:text-3xl font-black text-amber-400">৳7,000 - ৳10,000</span>
+                        <span class="block text-[10px] text-slate-400 mt-0.5">* Final pricing depends on your exact requirements.</span>
+                    </div>
+                    <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white px-6 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-md transition">
+                        Request Exact Quote
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== HOW PAYMENT WORKS ==================== -->
+    <section class="py-16 bg-slate-900 text-white border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full border border-brandPrimary/20">PROCESS</span>
+                <h2 class="text-2xl sm:text-3xl font-black mt-3">How Payment Works</h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">Payment terms are confirmed before project development begins.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-navyCard p-6 rounded-2xl border border-slate-800">
+                    <span class="text-2xl font-black text-brandPrimary/40 block mb-2 font-mono">01</span>
+                    <h3 class="font-bold text-sm text-white mb-1">Requirement Discussion</h3>
+                    <p class="text-slate-400 text-xs">We clarify project features, design & final quotation.</p>
+                </div>
+                <div class="bg-navyCard p-6 rounded-2xl border border-slate-800">
+                    <span class="text-2xl font-black text-brandPrimary/40 block mb-2 font-mono">02</span>
+                    <h3 class="font-bold text-sm text-white mb-1">Advance Payment</h3>
+                    <p class="text-slate-400 text-xs">A agreed advance is paid to start development.</p>
+                </div>
+                <div class="bg-navyCard p-6 rounded-2xl border border-slate-800">
+                    <span class="text-2xl font-black text-brandPrimary/40 block mb-2 font-mono">03</span>
+                    <h3 class="font-bold text-sm text-white mb-1">Development & Review</h3>
+                    <p class="text-slate-400 text-xs">We build your website and send a demo link for review.</p>
+                </div>
+                <div class="bg-navyCard p-6 rounded-2xl border border-slate-800">
+                    <span class="text-2xl font-black text-emerald-400/40 block mb-2 font-mono">04</span>
+                    <h3 class="font-bold text-sm text-white mb-1">Final Delivery</h3>
+                    <p class="text-slate-400 text-xs">After approval and final payment, your website goes live.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CUSTOM SOLUTION CTA ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-2xl sm:text-4xl font-black mb-4">Can't Find the Right Package?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8 font-normal leading-relaxed">
+                “Tell us what your business needs and we’ll help you choose the right solution.”
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                    Get Custom Quote
+                </button>
+                <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20discuss%20a%20custom%20website%20package." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4" id="faqAccordion">
+                
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>How much does a website cost?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Pricing depends on features, scope, and specific business requirements.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>How long does website development take?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Timeline depends on project complexity and content readiness.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Can I request a custom website?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes, custom solutions are available based on your exact business needs.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Can I upgrade my package later?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes, upgrades can be discussed depending on requirements.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Is domain and hosting included?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Domain and hosting depend on the selected package/agreement.</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Do you provide e-commerce websites?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-200/60 mt-1">Yes, full-featured online shopping store platforms are available.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT CTA ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT US</span>
+                    <h3 class="text-2xl font-black text-navyDark">Abu Talha Khan</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Web Pro BD</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> Farmgate, Dhaka, Bangladesh</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                        <p><i class="fa-brands fa-facebook text-brandPrimary w-5"></i> <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="hover:underline">Facebook Profile</a></p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="tel:01516513987" class="bg-navyDark hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brandPrimary"></i>
+                        <span>Call Now</span>
+                    </a>
+                    <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20about%20your%20website%20packages." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-facebook text-base"></i>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            Chat with Web Pro BD
+        </span>
+        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20about%20your%20website%20packages." target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Professional website solutions for modern businesses in Bangladesh.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                        <li>Education</li>
+                        <li>Custom Website</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">Portfolio</a></li>
+                        <li><a href="Pricing.html" class="text-brandPrimary font-bold">Pricing</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">About</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>Farmgate, Dhaka, Bangladesh</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                    <p class="pt-1"><a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="text-brandPrimary hover:underline">Facebook</a></p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== PACKAGE DETAILS MODAL ==================== -->
+    <div id="detailsModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeDetailsModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div id="modalContent">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== GET A QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">GET A QUOTE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">Get a Free Web Quotation</h3>
+                <p class="text-xs text-slate-500">Fill in your details and we will discuss your website project.</p>
+            </div>
+
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                    <input type="text" id="quoteName" required placeholder="Enter your full name" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                    <input type="tel" id="quotePhone" required placeholder="01516513987" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Select Package *</label>
+                    <select id="quoteService" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                        <option value="Starter Package (৳3,000)">Starter Package (৳3,000)</option>
+                        <option value="Business Package (৳7,000)">Business Package (৳7,000)</option>
+                        <option value="E-commerce Package (৳12,000+)">E-commerce Package (৳12,000+)</option>
+                        <option value="Custom Solution">Custom Solution</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Project Details</label>
+                    <textarea id="quoteDetails" rows="3" placeholder="Tell us briefly about your business or required features..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-lg transition">
+                    Submit Quote Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ENGINE ==================== -->
+    <script>
+        // Google Apps Script API Base URL
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        // Initial Data Structure (Dynamic Architecture matching future Google Sheets schema)
+        const defaultPackages = [
+            {
+                packageId: 'PKG-01',
+                name: 'Starter',
+                recommendedFor: 'Small businesses, personal businesses and simple online presence.',
+                price: '3,000',
+                oldPrice: '4,500',
+                label: 'Starting From',
+                popular: false,
+                features: [
+                    'Professional responsive design',
+                    'Up to 5 pages (Home, About, Services, Contact)',
+                    'WhatsApp button integration',
+                    'Google Map & Contact form',
+                    'Social media integration',
+                    'Basic SEO structure'
+                ],
+                cta: 'Choose Starter'
+            },
+            {
+                packageId: 'PKG-02',
+                name: 'Business',
+                recommendedFor: 'Businesses that need a professional online presence.',
+                price: '7,000',
+                oldPrice: '10,000',
+                label: 'Starting From',
+                popular: true, // MOST POPULAR
+                features: [
+                    'Everything in Starter package',
+                    'Up to 10 pages scope',
+                    'Professional UI/UX & Service sections',
+                    'Gallery & Lead enquiry system',
+                    'Advanced WhatsApp integration',
+                    'Content management preparation'
+                ],
+                cta: 'Choose Business'
+            },
+            {
+                packageId: 'PKG-03',
+                name: 'E-commerce',
+                recommendedFor: 'Businesses that want to sell products online.',
+                price: '12,000+',
+                oldPrice: '15,000',
+                label: 'Starting From',
+                popular: false,
+                features: [
+                    'Product catalog & categories',
+                    'Shopping cart & Order system',
+                    'Customer information & Order tracking',
+                    'WhatsApp order system',
+                    'Payment integration support',
+                    'Admin management preparation'
+                ],
+                cta: 'Build My Store'
+            },
+            {
+                packageId: 'PKG-04',
+                name: 'Custom Solution',
+                recommendedFor: 'For businesses that need unique functionality or custom web solutions.',
+                price: "Let's Discuss",
+                oldPrice: '',
+                label: 'Tailored Solution',
+                popular: false,
+                features: [
+                    'Custom UI/UX & Workflow',
+                    'API & Database integration',
+                    'Admin dashboard & Automation',
+                    'Booking / Reservation engine',
+                    'Business-specific automation'
+                ],
+                cta: 'Request Custom Quote'
+            }
+        ];
+
+        let packages = [...defaultPackages];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPackagesFromAPI();
+            renderPackages(packages);
+            renderMobileComp('Business');
+            setupHeaderScroll();
+            updateCalculator();
+        });
+
+        // Header Scroll Effect
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Fetch Data from Google Sheets API
+        async function loadPackagesFromAPI() {
+            const skeleton = document.getElementById('loadingState');
+            const grid = document.getElementById('packageGrid');
+            
+            try {
+                const res = await fetch(`${API_URL}?action=getPackages`);
+                const json = await res.json();
+                if (json.status === 'success' && json.data && json.data.length > 0) {
+                    packages = json.data;
+                    renderPackages(packages);
+                }
+            } catch (err) {
+                console.log('Using static fallback packages data');
+            }
+        }
+
+        // Render Package Cards
+        function renderPackages(list) {
+            const grid = document.getElementById('packageGrid');
+            
+            grid.innerHTML = list.map(pkg => `
+                <div class="bg-white rounded-3xl border ${pkg.popular ? 'border-2 border-brandPrimary shadow-2xl ring-4 ring-brandPrimary/10' : 'border-slate-200 shadow-sm'} p-6 sm:p-7 flex flex-col justify-between card-hover-effect relative group">
+                    
+                    ${pkg.popular ? `
+                        <div class="absolute -top-3.5 left-6 bg-brandPrimary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                            MOST POPULAR
+                        </div>
+                    ` : ''}
+
+                    <div>
+                        <div class="mb-4">
+                            <h3 class="text-xl font-black text-navyDark">${pkg.name}</h3>
+                            <p class="text-xs text-slate-500 mt-1 leading-relaxed min-h-[32px]">${pkg.recommendedFor}</p>
+                        </div>
+
+                        <div class="mb-6 pb-4 border-b border-slate-100">
+                            <span class="text-[10px] text-slate-400 font-bold uppercase block">${pkg.label}</span>
+                            <div class="flex items-baseline gap-2 mt-0.5">
+                                <span class="text-3xl font-black text-navyDark">৳${pkg.price}</span>
+                                ${pkg.oldPrice ? `<span class="text-xs text-slate-400 line-through">৳${pkg.oldPrice}</span>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="space-y-2.5 mb-6">
+                            ${pkg.features.map(f => `
+                                <div class="flex items-start gap-2 text-xs font-semibold text-slate-700">
+                                    <i class="fa-solid fa-circle-check text-brandPrimary text-xs mt-0.5"></i>
+                                    <span>${f}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 pt-2">
+                        <button onclick="openQuoteModal('${pkg.name}')" class="w-full ${pkg.popular ? 'bg-brandPrimary hover:bg-brandDark text-white' : 'bg-navyDark hover:bg-slate-800 text-white'} py-3 rounded-xl font-bold text-xs shadow-md transition">
+                            ${pkg.cta}
+                        </button>
+                        <button onclick="openDetailsModal('${pkg.packageId}')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 rounded-xl font-bold text-xs transition">
+                            View Details
+                        </button>
+                    </div>
+
+                </div>
+            `).join('');
+        }
+
+        // Mobile Comparison Render
+        function renderMobileComp(pkgName) {
+            const container = document.getElementById('mobileCompContainer');
+            const pkg = packages.find(p => p.name.toLowerCase() === pkgName.toLowerCase()) || packages[1];
+            
+            container.innerHTML = `
+                <div class="font-bold text-sm text-navyDark border-b pb-2 flex justify-between">
+                    <span>${pkg.name} Features</span>
+                    <span class="text-brandPrimary">৳${pkg.price}</span>
+                </div>
+                ${pkg.features.map(f => `
+                    <div class="flex items-center gap-2 text-slate-600">
+                        <i class="fa-solid fa-check text-brandPrimary"></i>
+                        <span>${f}</span>
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        // Website Cost Calculator Logic
+        function updateCalculator() {
+            const type = document.getElementById('calcType').value;
+            const pages = document.getElementById('calcPages').value;
+            const isEcom = document.getElementById('calcEcom').checked;
+            const isBooking = document.getElementById('calcBooking').checked;
+            const isPayment = document.getElementById('calcPayment').checked;
+            const isAdmin = document.getElementById('calcAdmin').checked;
+
+            let min = 5000, max = 8000;
+
+            if (type === 'ecommerce') { min = 12000; max = 18000; }
+            else if (type === 'booking') { min = 10000; max = 15000; }
+            else if (type === 'business') { min = 7000; max = 10000; }
+
+            if (pages === '10') { min += 2000; max += 3000; }
+            if (pages === '20') { min += 5000; max += 7000; }
+
+            if (isEcom) { min += 3000; max += 5000; }
+            if (isBooking) { min += 2000; max += 3000; }
+            if (isPayment) { min += 1500; max += 2500; }
+            if (isAdmin) { min += 2000; max += 4000; }
+
+            document.getElementById('calcDisplayRange').innerText = `৳${min.toLocaleString()} - ৳${max.toLocaleString()}`;
+        }
+
+        // Toggle Pricing Mode
+        function switchPricingTab(mode) {
+            const pkgBtn = document.getElementById('togglePackagesBtn');
+            const custBtn = document.getElementById('toggleCustomBtn');
+            
+            if (mode === 'packages') {
+                pkgBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-brandPrimary text-white shadow-md';
+                custBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 text-slate-600 hover:text-navyDark';
+                document.getElementById('packageGrid').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                custBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-brandPrimary text-white shadow-md';
+                pkgBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 text-slate-600 hover:text-navyDark';
+                openQuoteModal('Custom Solution');
+            }
+        }
+
+        // Details Modal
+        function openDetailsModal(pkgId) {
+            const pkg = packages.find(p => p.packageId === pkgId) || packages[0];
+            const content = document.getElementById('modalContent');
+            
+            content.innerHTML = `
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">${pkg.name} Package</span>
+                <h3 class="text-2xl font-black text-navyDark mt-2">৳${pkg.price}</h3>
+                <p class="text-xs text-slate-500 mt-1 mb-4">${pkg.recommendedFor}</p>
+
+                <div class="space-y-2 border-t pt-4 mb-6">
+                    <h4 class="font-bold text-xs text-navyDark mb-2">Package Inclusions:</h4>
+                    ${pkg.features.map(f => `
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                            <i class="fa-solid fa-check text-brandPrimary"></i>
+                            <span>${f}</span>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="flex gap-2">
+                    <button onclick="closeDetailsModal(); openQuoteModal('${pkg.name}');" class="flex-1 bg-brandPrimary text-white py-3 rounded-xl font-bold text-xs shadow-md">
+                        Proceed to Quote
+                    </button>
+                    <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20more%20about%20${pkg.name}%20Package." target="_blank" class="bg-emerald-600 text-white px-4 py-3 rounded-xl font-bold text-xs flex items-center justify-center">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                    </a>
+                </div>
+            `;
+
+            document.getElementById('detailsModal').classList.remove('hidden');
+            document.getElementById('detailsModal').classList.add('flex');
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal').classList.add('hidden');
+            document.getElementById('detailsModal').classList.remove('flex');
+        }
+
+        // Quote Modal
+        function openQuoteModal(pkgName = '') {
+            if (pkgName) {
+                document.getElementById('quoteService').value = pkgName;
+            }
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const pkg = document.getElementById('quoteService').value;
+            const details = document.getElementById('quoteDetails').value;
+            
+            const msg = `Hello Web Pro BD, I am ${name} (${phone}). I want a quote for: ${pkg}. Details: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(msg)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('#faqAccordion i').forEach(i => i.style.transform = 'rotate(0deg)');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

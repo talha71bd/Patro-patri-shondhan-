@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Refund & Cancellation Policy | Web Pro BD</title>
+    <meta name="title" content="Refund & Cancellation Policy | Web Pro BD">
+    <meta name="description" content="Web Pro BD-এর Refund ও Cancellation Policy সম্পর্কে জানুন। Website development payment, advance, cancellation, refund, revision, domain, hosting এবং project delivery সম্পর্কিত নিয়ম সহজ বাংলায় দেখুন।">
+    <meta name="keywords" content="web pro bd refund policy, website cancellation policy bangladesh, website payment terms, website development refund dhaka, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/Refund.html">
+    <meta property="og:title" content="Refund & Cancellation Policy | Web Pro BD">
+    <meta property="og:description" content="Web Pro BD-এর সার্ভিস নেওয়ার আগে পেমেন্ট, রিফান্ড ও ক্যান্সেলেশন নিয়মগুলো সহজ বাংলায় জেনে নিন।">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .accordion-content {
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .refund-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .refund-card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Print CSS for Clean Printing */
+        @media print {
+            header, footer, #readingProgressBar, #floatingWa, #printBtn, .no-print {
+                display: none !important;
+            }
+            body { bg: #fff !important; color: #000 !important; }
+            .print-full-width { width: 100% !important; max-width: 100% !important; }
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Refund & Cancellation Policy | Web Pro BD",
+      "description": "Web Pro BD-এর সার্ভিস ফি, অ্যাডভান্স, ক্যান্সেলেশন ও রিফান্ড নীতিমালা।",
+      "publisher": {
+        "@type": "ProfessionalService",
+        "name": "Web Pro BD",
+        "telephone": "+8801516513987",
+        "url": "https://webprobd.com"
+      }
+    }
+    </script>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen relative">
+
+    <!-- Reading Progress Bar -->
+    <div id="readingProgressBar" class="fixed top-0 left-0 h-1 bg-brandPrimary z-50 transition-all duration-150 w-0"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="Portfolio.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="About.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="Refund.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Refund Policy
+                    </a>
+                    <a href="Contact.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA & Print Button -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="window.print()" id="printBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5" title="প্রিন্ট অথবা PDF সেভ করুন">
+                        <i class="fa-solid fa-print"></i> Print / Save
+                    </button>
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="Portfolio.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="About.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="Refund.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">Refund Policy</a>
+                <a href="Contact.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2 flex gap-2">
+                    <button onclick="window.print()" class="w-1/2 bg-slate-100 text-slate-800 py-3 rounded-xl font-bold text-xs text-center"><i class="fa-solid fa-print mr-1"></i> Print</button>
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-1/2 bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200/80 text-xs text-slate-500 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 font-medium">
+            <a href="#" class="hover:text-brandPrimary transition"><i class="fa-solid fa-house text-slate-400"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-navyDark font-bold">Refund & Cancellation Policy</span>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-20 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-8 space-y-5 animate__animated animate__fadeInLeft">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                        <i class="fa-solid fa-[#000] fa-rotate-left text-amber-400"></i>
+                        <span>WEB PRO BD • REFUND CENTER</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                        রিফান্ড ও ক্যান্সেলেশন <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">নীতিমালা</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+                        Web Pro BD-এর website development এবং অন্যান্য digital service নেওয়ার আগে payment, cancellation ও refund-এর নিয়মগুলো সহজ ভাষায় জেনে নিন।
+                    </p>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400 pt-1">
+                        <span><i class="fa-solid fa-clock-rotate-left text-brandPrimary"></i> সর্বশেষ আপডেট: <strong class="text-white" id="lastUpdatedDate">১৯ আগস্ট, ২০২৬</strong> (v1.0)</span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                        <a href="#refundFaq" class="bg-brandPrimary hover:bg-brandDark text-white font-bold px-6 py-3 rounded-xl text-xs transition shadow-md">রিফান্ড FAQ</a>
+                        <a href="Contact.html" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-3 rounded-xl text-xs transition">যোগাযোগ করুন</a>
+                    </div>
+                </div>
+
+                <!-- Refund Visual Badge -->
+                <div class="lg:col-span-4 hidden lg:flex justify-center animate__animated animate__fadeInRight">
+                    <div class="bg-navyCard border border-slate-700/80 p-6 rounded-3xl text-xs space-y-3 font-mono text-slate-300 shadow-2xl backdrop-blur-md animate-float text-center">
+                        <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-2 border border-emerald-500/30">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-white font-sans">Transparent Refund Terms</h3>
+                        <p class="text-[11px] text-slate-400">Fair, transparent and milestone-based project cancellation policies.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QUICK SUMMARY ==================== -->
+    <section class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <h2 class="text-xl font-black text-navyDark text-center sm:text-left">এক নজরে আমাদের নীতিমালা</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                <div class="p-5 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1.5 refund-card-hover">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-credit-card text-brandPrimary mr-1.5"></i> পেমেন্ট</h3>
+                    <p class="text-slate-600">Project অনুযায়ী payment structure quotation-এ স্পষ্টভাবে জানানো হবে।</p>
+                </div>
+                <div class="p-5 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1.5 refund-card-hover">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-ban text-amber-500 mr-1.5"></i> Cancellation</h3>
+                    <p class="text-slate-600">Cancellation-এর নিয়ম প্রজেক্টের বর্তমান স্টেজ এবং চুক্তি অনুযায়ী নির্ভর করবে।</p>
+                </div>
+                <div class="p-5 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1.5 refund-card-hover">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-rotate-left text-emerald-500 mr-1.5"></i> Refund</h3>
+                    <p class="text-slate-600">Refund প্রযোজ্য হলে নির্ধারিত প্রজেক্ট স্টেজ শর্ত অনুযায়ী ব্যবস্থা নেওয়া হবে।</p>
+                </div>
+                <div class="p-5 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1.5 refund-card-hover">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-globe text-sky-500 mr-1.5"></i> Domain & Hosting</h3>
+                    <p class="text-slate-600">Domain/hosting বা third-party কেনাকাটার খরচ আলাদা নিয়মের আওতায় থাকবে।</p>
+                </div>
+                <div class="p-5 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1.5 refund-card-hover">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-code text-indigo-500 mr-1.5"></i> Custom Development</h3>
+                    <p class="text-slate-600">Custom coding শুরু হওয়ার পর সম্পন্ন হওয়া কাজের অংশ অনুযায়ী হিসাব করা হবে।</p>
+                </div>
+                <div class="p-5 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1.5 refund-card-hover">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-headset text-purple-500 mr-1.5"></i> সরাসরি যোগাযোগ</h3>
+                    <p class="text-slate-600">কোনো সমস্যা হলে আগে Web Pro BD-এর সাথে সরাসরি কথা বলে সমাধান করুন।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== IMPORTANT NOTICE BOX ==================== -->
+    <section class="py-6 bg-amber-50/60 border-b border-amber-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-start gap-3 text-xs sm:text-sm text-amber-900 leading-relaxed">
+                <i class="fa-solid fa-circle-info text-amber-600 text-lg shrink-0 mt-0.5"></i>
+                <div>
+                    <strong class="font-extrabold block text-amber-950 mb-0.5">গুরুত্বপূর্ণ নোটিশ:</strong>
+                    প্রতিটি website project-এর requirement, development stage, third-party cost এবং payment structure আলাদা হতে পারে। তাই quotation, invoice অথবা project agreement-এ উল্লেখিত নির্দিষ্ট শর্তাবলী চূড়ান্ত বলে বিবেচিত হবে। পেমেন্ট করার পূর্বে quotation ও নীতিমালা ভালোভাবে পড়ে নেওয়ার পরামর্শ দেওয়া হচ্ছে।
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN CONTENT WITH TABLE OF CONTENTS ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 print-full-width">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Desktop Sticky Table of Contents (3 Cols) -->
+                <aside class="lg:col-span-3 hidden lg:block sticky top-28 space-y-4 no-print">
+                    <div class="bg-lightBg border border-slate-200 p-5 rounded-3xl shadow-sm text-xs space-y-3">
+                        <h3 class="font-black text-navyDark text-sm border-b pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-bars-staggered text-brandPrimary"></i> সূচিপত্র
+                        </h3>
+                        <nav id="tocNav" class="space-y-1.5 max-h-[70vh] overflow-y-auto no-scrollbar font-medium text-slate-600">
+                            <a href="#rsec1" class="block py-1 px-2 rounded hover:bg-slate-200">১. এই নীতিমালা সম্পর্কে</a>
+                            <a href="#rsec2" class="block py-1 px-2 rounded hover:bg-slate-200">২. Payment কীভাবে হতে পারে</a>
+                            <a href="#rsec3" class="block py-1 px-2 rounded hover:bg-slate-200">৩. Advance Payment</a>
+                            <a href="#rsec4" class="block py-1 px-2 rounded hover:bg-slate-200">৪. Customer Project Cancel করলে</a>
+                            <a href="#rsec5" class="block py-1 px-2 rounded hover:bg-slate-200">৫. Refund-এর যোগ্যতা</a>
+                            <a href="#rsec6" class="block py-1 px-2 rounded hover:bg-slate-200">৬. Non-refundable Cost</a>
+                            <a href="#rsec7" class="block py-1 px-2 rounded hover:bg-slate-200">৭. Domain ও Hosting</a>
+                            <a href="#rsec9" class="block py-1 px-2 rounded hover:bg-slate-200">৯. Premium Tools & Custom Dev</a>
+                            <a href="#rsec12" class="block py-1 px-2 rounded hover:bg-slate-200">১২. Revision & Extra Features</a>
+                            <a href="#rsec14" class="block py-1 px-2 rounded hover:bg-slate-200">১৪. Delay, Review & Delivery</a>
+                            <a href="#rsec18" class="block py-1 px-2 rounded hover:bg-slate-200">১৮. Technical Bugs vs New Feature</a>
+                            <a href="#rsec20" class="block py-1 px-2 rounded hover:bg-slate-200">২০. Duplicate or Failed Payment</a>
+                            <a href="#rsec22" class="block py-1 px-2 rounded hover:bg-slate-200">২২. Refund Request ও Timeline</a>
+                            <a href="#rsec25" class="block py-1 px-2 rounded hover:bg-slate-200">২৫. Dispute Resolution & Fair Use</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Mobile Collapsible TOC Dropdown -->
+                <div class="lg:hidden col-span-1 border rounded-2xl bg-lightBg p-4 no-print shadow-sm mb-4">
+                    <button onclick="toggleMobileToc()" class="w-full flex justify-between items-center text-xs font-bold text-navyDark">
+                        <span><i class="fa-solid fa-list text-brandPrimary mr-2"></i> সূচিপত্র খুলুন</span>
+                        <i class="fa-solid fa-chevron-down text-brandPrimary"></i>
+                    </button>
+                    <div id="mobileTocDrawer" class="hidden pt-3 border-t mt-3 text-xs space-y-1.5 max-h-60 overflow-y-auto">
+                        <a href="#rsec1" onclick="toggleMobileToc()" class="block py-1 text-slate-700">১. এই নীতিমালা সম্পর্কে</a>
+                        <a href="#rsec2" onclick="toggleMobileToc()" class="block py-1 text-slate-700">২. Payment কীভাবে হতে পারে</a>
+                        <a href="#rsec3" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৩. Advance Payment</a>
+                        <a href="#rsec4" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৪. Customer Project Cancel করলে</a>
+                        <a href="#rsec5" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৫. Refund-এর যোগ্যতা</a>
+                        <a href="#rsec6" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৬. Non-refundable Cost</a>
+                        <a href="#rsec22" onclick="toggleMobileToc()" class="block py-1 text-slate-700">২২. Refund Request ও Timeline</a>
+                    </div>
+                </div>
+
+                <!-- Policy Content (9 Cols Desktop) -->
+                <main class="lg:col-span-9 space-y-8 bg-lightBg p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm print-full-width">
+                    
+                    <!-- Section 01 -->
+                    <div id="rsec1" class="space-y-3 scroll-mt-28">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১. এই Refund & Cancellation Policy সম্পর্কে</h2>
+                            <button onclick="copySectionLink('rsec1')" class="text-slate-400 hover:text-brandPrimary text-xs" title="সেকশন লিংক কপি করুন">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Web Pro BD প্রয়োজন অনুযায়ী বিভিন্ন ব্যবসা ও প্রতিষ্ঠানের জন্য ওয়েবসাইট তৈরি, রিডিজাইন এবং কাস্টম ডেভেলপমেন্ট সার্ভিস প্রদান করে।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            একটি প্রজেক্ট শুরু করার আগে কাস্টমার এবং Web Pro BD-এর মধ্যে সার্ভিস স্কোপ, খরচ, টাইমলাইন এবং পেমেন্ট স্ট্রাকচার নির্ধারিত হতে পারে। এই নীতিমালার মূল উদ্দেশ্য হলো ক্যান্সেলেশন এবং রিফান্ড সম্পর্কিত বিষয়গুলো পরিষ্কারভাবে তুলে ধরা।
+                        </p>
+                    </div>
+
+                    <!-- Section 02 & 03 -->
+                    <div id="rsec2" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২. Payment ও Advance Payment Policy</h2>
+                            <button onclick="copySectionLink('rsec2')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            প্রজেক্ট অনুযায়ী পেমেন্ট স্ট্রাকচার আলাদা হতে পারে (যেমন: ফুল পেমেন্ট, অ্যাডভান্স + বাকি পেমেন্ট, অথবা মাইলস্টোন পেমেন্ট)।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            কাস্টম ওয়েবসাইট ডেভেলপমেন্ট শুরু করার জন্য নির্দিষ্ট অ্যাডভান্স পেমেন্ট গ্রহণ করা হয়ে থাকে, যা প্রজেক্টের শুরুর সেটআপ, ডিজাইন, রিসোর্স বুকিং বা থার্ডপার্টি সার্ভিস ক্রয়ে ব্যবহৃত হয়।
+                        </p>
+                        <div class="bg-blue-50 border-l-4 border-brandPrimary p-4 rounded-r-2xl text-xs text-navyDark space-y-1">
+                            <strong class="font-bold">স্মরণীয়:</strong>
+                            <p>Advance payment-এর refund প্রজেক্টের বর্তমান স্টেজ, সম্পন্ন হওয়া কাজ, থার্ডপার্টি খরচ এবং পূর্ব-নির্ধারিত চুক্তির ওপর নির্ভর করতে পারে।</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 04 - Project Cancellation Stages -->
+                    <div id="rsec4" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৪. Customer Project Cancel করলে কী হবে?</h2>
+                            <button onclick="copySectionLink('rsec4')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            কাস্টমার কোনো কারণে প্রজেক্ট বাতিল করতে চাইলে দ্রুত সরাসরি Web Pro BD-এর সাথে যোগাযোগ করতে হবে। বাতিলকরণের অনুরোধ পাওয়ার পর নিচের বিষয়গুলো বিবেচনা করা হবে:
+                        </p>
+
+                        <!-- Timeline Visual -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-bold text-slate-700 pt-2">
+                            <div class="p-3 bg-white border rounded-xl">Requirement Stage <span class="block text-[10px] font-normal text-slate-500 mt-0.5">সহজ ক্যান্সেলেশন</span></div>
+                            <div class="p-3 bg-white border rounded-xl">Design Stage <span class="block text-[10px] font-normal text-slate-500 mt-0.5">ডিজাইন খরচ প্রযোজ্য</span></div>
+                            <div class="p-3 bg-white border rounded-xl">Development Stage <span class="block text-[10px] font-normal text-slate-500 mt-0.5">ডেভেলপমেন্ট হিসাব</span></div>
+                            <div class="p-3 bg-white border rounded-xl">Third-Party Buy <span class="block text-[10px] font-normal text-slate-500 mt-0.5">Non-refundable</span></div>
+                            <div class="p-3 bg-white border rounded-xl col-span-2 bg-slate-900 text-white">Final Review / Delivery <span class="block text-[10px] font-normal text-slate-400 mt-0.5">চুক্তি অনুযায়ী পর্যালোচনা</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Section 05 & 06 -->
+                    <div id="rsec5" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৫. Refund-এর যোগ্যতা ও Non-refundable Costs</h2>
+                            <button onclick="copySectionLink('rsec5')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            কাজ শুরু না হওয়া, ভুল করে দ্বিগুণ পেমেন্ট করা বা চুক্তি অনুযায়ী সার্ভিস প্রদানে অক্ষম হওয়ার মতো যুক্তিসঙ্গত ক্ষেত্রে রিফান্ড বিবেচনা করা হতে পারে।
+                        </p>
+                        <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-xs text-amber-900 space-y-1">
+                            <strong class="font-bold flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Non-refundable খরচের তালিকা:</strong>
+                            <p>যেসব থার্ডপার্টি খরচ ইতোমধ্যে প্রদান করা হয়েছে এবং প্রোভাইডার থেকে ফেরত পাওয়া যায় না (যেমন: ডোমেইন রেজিস্ট্রেশন ফি, হোস্টিং চার্জ, প্রিমিয়াম থিম/প্লাগইন বা এপিআই কেনাকাটা), সেগুলো রিফান্ডের আওতায় আসবে না।</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 07 & 08 -->
+                    <div id="rsec7" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৭. Domain, Hosting & Premium Tools Policy</h2>
+                            <button onclick="copySectionLink('rsec7')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            কাস্টমারের জন্য থার্ডপার্টি থেকে ডোমেইন বা হোস্টিং রেজিস্টার করা হলে, রেজিস্টারারের পলিসি অনুযায়ী সেখানে রিফান্ড সার্ভিস সাধারণত বন্ধ থাকে। তবে ডোমেইনের সম্পূর্ণ মালিকানা কাস্টমারের নামেই ট্রান্সফার করে দেওয়া হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 12 & 13 -->
+                    <div id="rsec12" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১২. Revision & Extra Features Request</h2>
+                            <button onclick="copySectionLink('rsec12')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            প্রজেক্টের মূল কোটেশনে ছোটখাটো পরিবর্তন বা অ্যাডজাস্টমেন্ট অন্তর্ভুক্ত থাকে। তবে প্রজেক্ট শুরু হওয়ার পর সম্পূর্ণ নতুন পেজ, কাস্টম ব্যাকএন্ড বা নতুন পেমেন্ট/লগইন সিস্টেমের মতো বড় স্কোপ যুক্ত করতে চাইলে তা Extra Feature/Work হিসেবে গণ্য হবে এবং অতিরিক্ত ফি প্রযোজ্য হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 18 & 19 -->
+                    <div id="rsec18" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১৮. Technical Bugs vs New Feature Requirement</h2>
+                            <button onclick="copySectionLink('rsec18')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            ডেলিভারি করা ওয়েবসাইটে চুক্তিবদ্ধ কোনো ফিচারে কোনো টেকনিক্যাল সমস্যা বা বাগ (Bug) পাওয়া গেলে তা ফ্রী-সাপোর্ট পিরিয়ডের মধ্যে বিনামূল্যে ঠিক করে দেওয়া হবে। কোনো বাগ থাকা মানেই পুরো প্রজেক্টের রিফান্ড দাবি করা নয়; আগে কারিগরি ত্রুটি সমাধানের সুযোগ দিতে হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 20 & 21 -->
+                    <div id="rsec20" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২০. Duplicate / Failed Payments</h2>
+                            <button onclick="copySectionLink('rsec20')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            ভুলবশত একই সার্ভিসের জন্য দুইবার টাকা কেটে নিলে বা পেমেন্ট ফেইলড হয়ে পেমেন্ট গেটওয়েতে আটকে গেলে, ট্রানজ্যাকশন আইডি যাচাই সাপেক্ষে দ্রুততম সময়ে টাকা রিফান্ড বা এডজাস্ট করে দেওয়া হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 22 & 24 -->
+                    <div id="rsec22" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২২. Refund Request ও Processing Timeline</h2>
+                            <button onclick="copySectionLink('rsec22')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            রিফান্ডের আবেদন করতে আপনার নাম, প্রজেক্ট নাম, পেমেন্ট তারিখ, পরিমাণ এবং কারণ উল্লেখ করে ইমেইল (<strong class="text-brandPrimary">abutalha46700@gmail.com</strong>) বা হোয়াটসঅ্যাপে রিকোয়েস্ট পাঠান।
+                        </p>
+                        <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded-r-2xl text-xs text-red-900 space-y-1">
+                            <strong class="font-bold flex items-center gap-1"><i class="fa-solid fa-shield-virus text-red-600"></i> পেমেন্ট সিকিউরিটি নোটিশ:</strong>
+                            <p>রিফান্ড আবেদনের সময় কখনোই আপনার বিকাশ/নগদ/ব্যাংকের পিন নম্বর (PIN), পাসওয়ার্ড বা ওটিপি (OTP) শেয়ার করবেন না। Web Pro BD কখনো পিন নম্বর চায় না।</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 25 & 26 -->
+                    <div id="rsec25" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২৫. Dispute Resolution & Fair Service Principle</h2>
+                            <button onclick="copySectionLink('rsec25')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            যেকোনো মতবিরোধের ক্ষেত্রে কাস্টমার এবং Web Pro BD উভয় পক্ষের স্বার্থ বিবেচনা করে সৎ আলোচনার মাধ্যমে একটি ন্যায্য ও সম্মানজনক সমাধানের চেষ্টা করা হবে।
+                        </p>
+                    </div>
+
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REFUND DECISION FLOW DIAGRAM ==================== -->
+    <section class="py-16 bg-navyDark text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+            
+            <div class="max-w-2xl mx-auto space-y-2">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full border border-brandPrimary/20">PROCESS FLOW</span>
+                <h2 class="text-2xl sm:text-3xl font-black">Refund Processing Flow</h2>
+            </div>
+
+            <!-- Flow Diagram Visual -->
+            <div class="bg-navyCard border border-slate-800 p-6 rounded-3xl max-w-4xl mx-auto">
+                <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-xs font-bold">
+                    <div class="p-3.5 bg-slate-900 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                        <i class="fa-solid fa-file-signature text-brandPrimary text-base mb-1 block"></i>
+                        <span>01. Request</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-brandPrimary hidden sm:block"></i>
+                    <i class="fa-solid fa-arrow-down text-brandPrimary sm:hidden"></i>
+                    <div class="p-3.5 bg-slate-900 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                        <i class="fa-solid fa-calculator text-amber-400 text-base mb-1 block"></i>
+                        <span>02. Work Check</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-brandPrimary hidden sm:block"></i>
+                    <i class="fa-solid fa-arrow-down text-brandPrimary sm:hidden"></i>
+                    <div class="p-3.5 bg-slate-900 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                        <i class="fa-solid fa-receipt text-sky-400 text-base mb-1 block"></i>
+                        <span>03. Cost Deduction</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-brandPrimary hidden sm:block"></i>
+                    <i class="fa-solid fa-arrow-down text-brandPrimary sm:hidden"></i>
+                    <div class="p-3.5 bg-slate-900 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-base mb-1 block"></i>
+                        <span>04. Settlement</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== PRE-PAYMENT CHECKLIST ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">CHECKLIST</span>
+                <h2 class="text-2xl font-black text-navyDark mt-3">Payment করার আগে এই বিষয়গুলো দেখে নিন</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-slate-700 bg-lightBg p-6 rounded-3xl border">
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Project scope ভালোভাবে পড়েছি</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Price ও Quotation বুঝেছি</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Payment structure স্পষ্ট হওয়া</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Advance পরিমাণ জানা</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Revision-এর লিমিট জানা</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Cancellation নিয়মাবলী অবগত হওয়া</label>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REFUND FAQ ACCORDION ==================== -->
+    <section id="refundFaq" class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">REFUND FAQ</span>
+                <h2 class="text-2xl font-black text-navyDark mt-3">রিফান্ড সংক্রান্ত সাধারণ প্রশ্ন ও উত্তর</h2>
+            </div>
+
+            <div class="space-y-3" id="faqAccordion">
+                
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Advance payment কি সবসময় refundable?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-100 mt-1">না, সব প্রজেক্টে একই নিয়ম প্রযোজ্য নয়। প্রজেক্টের বর্তমান স্টেজ, সম্পন্ন হওয়া কাজের পরিমাণ ও থার্ডপার্টি খরচের ওপর নির্ভর করে সিদ্ধান্ত নেওয়া হয়।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Domain ও Hosting-এর টাকা কি ফেরত পাওয়া যাবে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-100 mt-1">থার্ডপার্টি ডোমেইন ও হোস্টিং রেজিস্টারারের পলিসি অনুযায়ী কেনাকাটা সম্পন্ন হলে এই ফি রিফান্ডযোগ্য নাও হতে পারে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>ভুল করে দুইবার টাকা দিলে কী করব?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-100 mt-1">পেমেন্ট ভেরিফাই বা যাচাই করার পর অতিরিক্ত টাকা দ্রুত ফেরত বা এডজাস্ট করা হয়।</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CONTACT CTA ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-black">Project শুরু করার আগে কোনো প্রশ্ন আছে?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-normal leading-relaxed">
+                Terms, pricing, feature বা website project সম্পর্কে কিছু জানতে চাইলে সরাসরি Web Pro BD-এর সাথে যোগাযোগ করুন।
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <a href="https://wa.me/8801516513987?text=%E0%A6%AE%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%82%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20Web%20Pro%20BD-%E0%A6%8F%E0%A6%B0%20Refund%20Policy%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%82%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%AE" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp করুন</span>
+                </a>
+                <a href="tel:01516513987" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                    Call করুন
+                </a>
+                <a href="Contact.html" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition">
+                    Contact Form
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Disclaimer Small Box -->
+    <div class="bg-slate-900 text-slate-400 text-[11px] py-4 px-4 text-center border-t border-slate-800 leading-relaxed">
+        <div class="max-w-4xl mx-auto">
+            এই নীতিমালা সাধারণ ব্যবসায়িক তথ্য প্রদানের উদ্দেশ্যে তৈরি করা হয়েছে। নির্দিষ্ট service, payment method, business structure এবং প্রযোজ্য আইন অনুযায়ী শর্ত পরিবর্তিত হতে পারে। প্রয়োজন হলে qualified legal professional-এর মাধ্যমে policy review করানো উচিত।
+        </div>
+    </div>
+
+    <!-- ==================== CONTACT INFO & SOCIAL ==================== -->
+    <section class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-lightBg rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT CARD</span>
+                    <h3 class="text-2xl font-black text-navyDark">Web Pro BD</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Abu Talha Khan</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-brands fa-whatsapp text-emerald-500 w-5"></i> WhatsApp: 01516513987</p>
+                        <p><i class="fa-solid fa-comments text-sky-500 w-5"></i> IMO: 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-facebook"></i> Facebook Page
+                    </a>
+                    <a href="https://www.facebook.com/Abu.talha017467" target="_blank" class="bg-slate-800 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-facebook text-blue-400"></i> Owner Profile
+                    </a>
+                    <button onclick="copyNumber()" class="bg-brandPrimary text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-copy"></i> Copy Number
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div id="floatingWa" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group no-print">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            WhatsApp-এ কথা বলুন
+        </span>
+        <a href="https://wa.me/8801516513987?text=%E0%A6%AE%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%82%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20Web%20Pro%20BD-%E0%A6%8F%E0%A6%B0%20Refund%20Policy%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%82%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%AE" target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        আধুনিক ও professional website solution।
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li>
+                        <li><a href="Pricing.html" class="hover:text-brandPrimary">Pricing</a></li>
+                        <li><a href="Portfolio.html" class="hover:text-brandPrimary">Portfolio</a></li>
+                        <li><a href="About.html" class="hover:text-brandPrimary">About</a></li>
+                        <li><a href="Refund.html" class="text-brandPrimary font-bold">Refund Policy</a></li>
+                        <li><a href="Contact.html" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== GET A QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">GET A QUOTE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">Get a Free Web Quotation</h3>
+            </div>
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <input type="text" id="quoteName" required placeholder="Your Name" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <input type="tel" id="quotePhone" required placeholder="Phone / WhatsApp" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <select id="quoteService" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    <option value="Business Website">Business Website</option>
+                    <option value="E-commerce Website">E-commerce Website</option>
+                    <option value="Custom Website">Custom Website</option>
+                </select>
+                <textarea id="quoteDetails" rows="3" placeholder="Project details..." class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs"></textarea>
+                <button type="submit" class="w-full bg-brandPrimary text-white py-3.5 rounded-xl font-bold text-xs shadow-lg">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION ENGINE ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupHeaderScroll();
+            setupReadingProgress();
+            setupActiveTocScroll();
+        });
+
+        // Configurable Refund Engine
+        const refundConfig = {
+            lastUpdated: "১৯ আগস্ট, ২০২৬",
+            version: "1.0",
+            advancePaymentEnabled: true,
+            milestonePaymentEnabled: true,
+            domainServiceEnabled: true,
+            hostingServiceEnabled: true
+        };
+
+        // Reading Progress Indicator
+        function setupReadingProgress() {
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                document.getElementById('readingProgressBar').style.width = `${progress}%`;
+            });
+        }
+
+        // Active Section TOC Highlighting
+        function setupActiveTocScroll() {
+            const sections = document.querySelectorAll('main > div[id]');
+            const navLinks = document.querySelectorAll('#tocNav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(sec => {
+                    const sectionTop = sec.offsetTop - 140;
+                    if (window.scrollY >= sectionTop) {
+                        current = sec.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('bg-brandPrimary/10', 'text-brandPrimary', 'font-bold');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('bg-brandPrimary/10', 'text-brandPrimary', 'font-bold');
+                    }
+                });
+            });
+        }
+
+        // Sticky Navbar Effect
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Copy Section Link
+        function copySectionLink(secId) {
+            const url = `${window.location.origin}${window.location.pathname}#${secId}`;
+            navigator.clipboard.writeText(url);
+            showToast("সেকশন লিংক কপি হয়েছে।");
+        }
+
+        // Copy Owner Number
+        function copyNumber() {
+            navigator.clipboard.writeText("01516513987");
+            showToast("নম্বর কপি হয়েছে।");
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function toggleMobileToc() {
+            document.getElementById('mobileTocDrawer').classList.toggle('hidden');
+        }
+
+        // Accordion Toggle
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('#faqAccordion i').forEach(i => i.style.transform = 'rotate(0deg)');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Quote Modal Functions
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const service = document.getElementById('quoteService').value;
+            const details = document.getElementById('quoteDetails').value;
+            
+            const message = `Hello Web Pro BD, I am ${name} (${phone}). I want a quote for: ${service}. Details: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(message)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

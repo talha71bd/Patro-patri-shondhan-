@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Dynamic SEO Meta Tags -->
+    <title id="metaTitle">Project Details | Web Pro BD</title>
+    <meta id="metaDesc" name="description" content="Explore professional website concepts and custom web solutions developed by Web Pro BD.">
+    <meta name="keywords" content="web pro bd portfolio, website demo, e-commerce concept, website development bangladesh, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta id="ogTitle" property="og:title" content="Project Details | Web Pro BD">
+    <meta id="ogDesc" property="og:description" content="Explore website details and features created by Web Pro BD.">
+    <meta id="ogImage" property="og:image" content="https://webprobd.com/og-default.jpg">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Hind Siliguri', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', 'Hind Siliguri', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float, .whatsapp-pulse, .animate__animated {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="Portfolio.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Portfolio
+                    </a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="Portfolio.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2">
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-2">
+                        <span>Get a Free Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200/80 text-xs text-slate-500 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 font-medium flex-wrap">
+            <a href="#" class="hover:text-brandPrimary transition"><i class="fa-solid fa-house text-slate-400"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <a href="Portfolio.html" class="hover:text-brandPrimary transition">Portfolio</a>
+            <span class="text-slate-300">/</span>
+            <span id="breadcrumbProjectName" class="text-navyDark font-bold">Loading...</span>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+    <main id="mainContainer" class="flex-grow">
+        
+        <!-- Loading Skeleton State -->
+        <div id="loadingSkeletonState" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="h-6 w-1/4 shimmer rounded-full"></div>
+                    <div class="h-10 w-3/4 shimmer rounded-xl"></div>
+                    <div class="h-16 w-full shimmer rounded-xl"></div>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="aspect-video w-full shimmer rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Not Found State -->
+        <div id="notFoundState" class="hidden py-20 text-center bg-white border-b">
+            <div class="max-w-md mx-auto px-4 space-y-4">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+                    <i class="fa-solid fa-folder-minus"></i>
+                </div>
+                <h2 class="text-2xl font-black text-navyDark">Project Not Found</h2>
+                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">The website concept or project you are looking for may have been removed or is unavailable.</p>
+                <div class="flex gap-3 justify-center pt-2">
+                    <a href="Portfolio.html" class="bg-brandPrimary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md">View All Projects</a>
+                    <button onclick="openQuoteModal()" class="bg-navyDark text-white px-5 py-2.5 rounded-xl text-xs font-bold">Get Custom Quote</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dynamic Project Details Container -->
+        <div id="projectDetailsContainer" class="hidden">
+            
+            <!-- Dynamic Project Hero -->
+            <section class="bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-12 lg:py-20 border-b border-slate-800 relative overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        
+                        <!-- Left Info -->
+                        <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                                <span id="heroCategoryBadge" class="bg-brandPrimary/20 text-brandPrimary border border-brandPrimary/40 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Category</span>
+                                <span id="heroStatusBadge" class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-3 py-1 rounded-full">Demo Concept</span>
+                            </div>
+
+                            <h1 id="heroTitle" class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">Project Title</h1>
+                            <p id="heroDescription" class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">Project Description</p>
+
+                            <!-- Tag Pills -->
+                            <div id="heroTagsContainer" class="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 pt-1"></div>
+
+                            <!-- CTAs -->
+                            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-3">
+                                <button onclick="requestSimilarCurrent()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
+                                    <span>I Want a Website Like This</span>
+                                </button>
+                                
+                                <span id="liveDemoBtnContainer" class="w-full sm:w-auto"></span>
+
+                                <a id="waDirectBtn" href="#" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-whatsapp text-base"></i>
+                                    <span>WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Large Browser Mockup Preview -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="w-full max-w-md bg-navyCard border border-slate-700 rounded-2xl shadow-2xl overflow-hidden group">
+                                <div class="bg-slate-800 px-3 py-2 flex items-center justify-between border-b border-slate-700">
+                                    <div class="flex gap-1.5">
+                                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+                                        <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
+                                        <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span>
+                                    </div>
+                                    <span id="heroDemoDomain" class="text-[10px] font-mono text-slate-400">demo.webprobd.com</span>
+                                </div>
+                                <div class="aspect-video relative overflow-hidden bg-slate-900">
+                                    <img id="heroThumbnail" src="" alt="Project Preview" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Responsive Frame Simulator Bar -->
+            <section class="py-6 bg-white border-b border-slate-200 shadow-sm">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-xs font-bold text-navyDark flex items-center gap-2">
+                        <i class="fa-solid fa-display text-brandPrimary"></i> Responsive Device Preview Simulator:
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="setDeviceFrame('desktop')" id="btnFrameDesktop" class="px-4 py-2 rounded-xl text-xs font-bold border transition bg-brandPrimary text-white"><i class="fa-solid fa-desktop mr-1"></i> Desktop</button>
+                        <button onclick="setDeviceFrame('tablet')" id="btnFrameTablet" class="px-4 py-2 rounded-xl text-xs font-bold border transition bg-slate-100 text-slate-700"><i class="fa-solid fa-tablet-screen-button mr-1"></i> Tablet</button>
+                        <button onclick="setDeviceFrame('mobile')" id="btnFrameMobile" class="px-4 py-2 rounded-xl text-xs font-bold border transition bg-slate-100 text-slate-700"><i class="fa-solid fa-mobile-screen mr-1"></i> Mobile</button>
+                    </div>
+                </div>
+                
+                <!-- Frame Container -->
+                <div class="max-w-7xl mx-auto px-4 mt-6">
+                    <div id="simFrameWrapper" class="w-full aspect-video max-w-5xl mx-auto bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden transition-all duration-500">
+                        <img id="simFrameImg" src="" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Overview & Quick Info Grid -->
+            <section class="py-16 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Left Overview -->
+                    <div class="lg:col-span-8 space-y-6">
+                        <h2 class="text-2xl font-black text-navyDark border-b pb-3">Project Overview</h2>
+                        <p id="overviewText" class="text-slate-600 text-sm sm:text-base leading-relaxed">Overview text...</p>
+                        
+                        <!-- Technologies Used -->
+                        <div class="pt-4 border-t">
+                            <h3 class="text-sm font-bold text-navyDark mb-3 uppercase tracking-wider">Built With & Capabilities</h3>
+                            <div id="techContainer" class="flex flex-wrap gap-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Quick Info Card -->
+                    <div class="lg:col-span-4">
+                        <div class="bg-lightBg border border-slate-200 p-6 rounded-3xl shadow-sm space-y-4">
+                            <h3 class="font-extrabold text-base text-navyDark border-b pb-3">Quick Information</h3>
+                            
+                            <div class="space-y-3 text-xs">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">Project Type:</span>
+                                    <span id="infoType" class="font-bold text-navyDark">Website</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">Category:</span>
+                                    <span id="infoCategory" class="font-bold text-navyDark">Business</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">Industry:</span>
+                                    <span id="infoIndustry" class="font-bold text-navyDark">Corporate</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">Status:</span>
+                                    <span id="infoStatus" class="font-bold text-emerald-600">Demo Concept</span>
+                                </div>
+                            </div>
+
+                            <button onclick="requestSimilarCurrent()" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-3 rounded-xl font-bold text-xs shadow-md transition mt-4">
+                                Request Similar Website
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Key Features Section -->
+            <section class="py-16 bg-lightBg border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">INCLUDED FEATURES</span>
+                        <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">Key Features Included</h2>
+                    </div>
+
+                    <div id="featuresGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Project Screenshots Gallery -->
+            <section class="py-16 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <div>
+                            <h2 class="text-2xl font-black text-navyDark">Project Screenshots Gallery</h2>
+                            <p class="text-xs text-slate-500 mt-0.5">Click any screenshot to view full-screen lightbox</p>
+                        </div>
+                    </div>
+
+                    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Experience Live Demo Section -->
+            <section class="py-16 bg-slate-900 text-white text-center border-b border-slate-800">
+                <div class="max-w-3xl mx-auto px-4 space-y-4">
+                    <h2 class="text-2xl sm:text-3xl font-black">Experience The Website</h2>
+                    <p class="text-slate-300 text-xs sm:text-sm">Want to see how this website works live? Explore the live interactive demo.</p>
+                    <div id="liveDemoSectionBtns" class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"></div>
+                </div>
+            </section>
+
+            <!-- Conversion CTA: I Want This Website -->
+            <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+                <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
+                    <h2 class="text-2xl sm:text-4xl font-black">Like This Website?</h2>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
+                        “Want a similar website for your business? Tell us what you need and we’ll help you build the right solution.”
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                        <button onclick="requestSimilarCurrent()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                            I Want This Website
+                        </button>
+                        <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition">
+                            Get Custom Quote
+                        </button>
+                        <a id="waCtaBtn" href="#" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>WhatsApp Us</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Share Project Bar -->
+            <section class="py-8 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-600">
+                    <span><i class="fa-solid fa-share-nodes text-brandPrimary mr-1"></i> Share This Project:</span>
+                    <div class="flex gap-2">
+                        <button onclick="copyProjectLink()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl transition"><i class="fa-solid fa-link mr-1"></i> Copy Link</button>
+                        <button onclick="shareWhatsApp()" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-xl transition"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Projects Section -->
+            <section class="py-16 bg-lightBg border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                    <h2 class="text-2xl font-black text-navyDark border-b pb-4">You May Also Like</h2>
+                    <div id="relatedGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Fullscreen Screenshots Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-50 p-4 backdrop-blur-md">
+        <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-2xl hover:text-red-400 z-10"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="prevLightbox()" class="absolute left-4 text-white text-3xl hover:text-brandPrimary z-10"><i class="fa-solid fa-chevron-left"></i></button>
+        <button onclick="nextLightbox()" class="absolute right-4 text-white text-3xl hover:text-brandPrimary z-10"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="max-w-4xl w-full max-h-[85vh] flex items-center justify-center">
+            <img id="lightboxImg" src="" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl">
+        </div>
+        <span id="lightboxCounter" class="absolute bottom-5 text-slate-400 text-xs font-mono font-bold">1 / 1</span>
+    </div>
+
+    <!-- Contact Panel CTA -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-lightBg rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT US</span>
+                    <h3 class="text-2xl font-black text-navyDark">Abu Talha Khan</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Web Pro BD</p>
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> Farmgate, Dhaka, Bangladesh</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="tel:01516513987" class="bg-navyDark text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm flex items-center gap-2"><i class="fa-solid fa-phone text-brandPrimary"></i> Call Now</a>
+                    <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20discuss%20a%20website%20project." target="_blank" class="bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm flex items-center gap-2"><i class="fa-brands fa-whatsapp text-base"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition">
+            Chat with Web Pro BD
+        </span>
+        <a id="floatingWaBtn" href="#" target="_blank" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                <div class="space-y-3">
+                    <span class="text-xl font-black text-white block">Web Pro <span class="text-brandPrimary">BD</span></span>
+                    <p class="text-xs text-slate-400">Professional website solutions for modern businesses in Bangladesh.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">Services</h4>
+                    <ul class="space-y-1.5"><li>Business Website</li><li>E-commerce</li><li>Landing Page</li><li>Portfolio</li><li>Restaurant</li></ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">Quick Links</h4>
+                    <ul class="space-y-1.5"><li><a href="#" class="hover:text-brandPrimary">Home</a></li><li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li><li><a href="Portfolio.html" class="text-brandPrimary font-bold">Portfolio</a></li><li><a href="Pricing.html" class="hover:text-brandPrimary">Pricing</a></li></ul>
+                </div>
+                <div class="space-y-1">
+                    <h4 class="text-white font-bold mb-3 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>Farmgate, Dhaka, Bangladesh</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                </div>
+            </div>
+            <div class="pt-8 text-center text-slate-500 text-xs">© Web Pro BD. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Request Similar / Quote Modal -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">REQUEST WEBSITE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">I Want a Website Like This</h3>
+                <p class="text-xs text-slate-500">Fill in your information to request a similar website project.</p>
+            </div>
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                        <input type="text" id="reqName" required placeholder="Full name" class="w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Business Name</label>
+                        <input type="text" id="reqBusiness" placeholder="Business name" class="w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                        <input type="tel" id="reqPhone" required placeholder="01516513987" class="w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp</label>
+                        <input type="tel" id="reqWhatsapp" placeholder="01516513987" class="w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Selected Demo Concept *</label>
+                    <input type="text" id="reqProjectName" readonly class="w-full px-3.5 py-2.5 bg-slate-100 border font-bold text-navyDark text-xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Special Requirements</label>
+                    <textarea id="reqDetails" rows="3" placeholder="Describe any custom changes or features you need..." class="w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-xs"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brandPrimary text-white py-3.5 rounded-xl font-bold text-xs shadow-lg">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION ENGINE ==================== -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        // Initial Local Dataset matching portfolio database
+        const portfolioDatabase = [
+            {
+                portfolioId: 'PORT-01',
+                title: 'Fashion Store Concept',
+                slug: 'fashion-store-concept',
+                category: 'Fashion',
+                industry: 'E-commerce',
+                projectType: 'E-commerce Website',
+                status: 'Demo Concept',
+                shortDescription: 'Modern online fashion store concept with mobile shopping experience.',
+                description: 'Fashion Store Concept is a complete, conversion-focused online fashion store template designed for clothing brands and boutiques. It features a responsive product catalog, categories, product details modal, cart management, and seamless WhatsApp order placement.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop',
+                gallery: [
+                    'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1200&auto=format&fit=crop'
+                ],
+                demoUrl: '',
+                features: ['Product Catalog & Filtering', 'Product Details Modal', 'Shopping Cart System', 'WhatsApp Order Placement', 'Mobile-First Responsive Layout', 'Google Maps Location Integration'],
+                technologies: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Google Sheets DB'],
+                tags: ['Responsive', 'WhatsApp', 'E-commerce', 'Cart System']
+            },
+            {
+                portfolioId: 'PORT-02',
+                title: 'Restaurant & Cafe Concept',
+                slug: 'restaurant-cafe-concept',
+                category: 'Restaurant',
+                industry: 'Food & Dining',
+                projectType: 'Restaurant Website',
+                status: 'Demo Concept',
+                shortDescription: 'Digital menu and restaurant ordering website concept.',
+                description: 'A modern, clean restaurant and cafe website template featuring a digital food menu, dish categories, photo gallery, location details, and direct WhatsApp food ordering.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop',
+                gallery: [
+                    'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop'
+                ],
+                demoUrl: '',
+                features: ['Digital Menu Categories', 'Dish Image Gallery', 'Table Reservation Form', 'Google Map & Contact Info', 'WhatsApp Direct Order'],
+                technologies: ['HTML5', 'CSS3', 'JavaScript'],
+                tags: ['Responsive', 'WhatsApp', 'Booking']
+            },
+            {
+                portfolioId: 'PORT-03',
+                title: 'Business Service Agency',
+                slug: 'business-service-agency',
+                category: 'Business',
+                industry: 'Corporate',
+                projectType: 'Business Website',
+                status: 'Demo Concept',
+                shortDescription: 'Clean corporate website concept for service companies.',
+                description: 'Professional website layout engineered for corporate companies, agencies, and service providers looking to showcase their services, company profile, and capture customer leads.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
+                gallery: [
+                    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop'
+                ],
+                demoUrl: '',
+                features: ['Services Grid', 'About Company Profile', 'Lead Contact Form', 'SEO Structure', 'Social Media Links'],
+                technologies: ['HTML5', 'Tailwind', 'JavaScript'],
+                tags: ['Responsive', 'Contact Form', 'SEO']
+            }
+        ];
+
+        let currentProject = null;
+        let activeGallery = [];
+        let currentLightboxIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupHeaderScroll();
+            initDynamicRouter();
+        });
+
+        // Sticky Navbar Effect
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Dynamic Router Engine (Parses URL ?slug= or ?id=)
+        async function initDynamicRouter() {
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('slug');
+            const id = params.get('id');
+
+            let project = null;
+
+            // Try local matching first
+            if (slug) {
+                project = portfolioDatabase.find(p => p.slug === slug);
+            } else if (id) {
+                project = portfolioDatabase.find(p => p.portfolioId === id);
+            } else {
+                project = portfolioDatabase[0]; // Default to first project if no parameter
+            }
+
+            // Optional API Fetch Attempt
+            try {
+                const res = await fetch(`${API_URL}?action=getPortfolio`);
+                const json = await res.json();
+                if (json.status === 'success' && json.data && json.data.length > 0) {
+                    const found = json.data.find(p => p.slug === slug || p.portfolio_id === id);
+                    if (found) project = found;
+                }
+            } catch (err) { console.log('Using local router project dataset'); }
+
+            document.getElementById('loadingSkeletonState').classList.add('hidden');
+
+            if (project) {
+                currentProject = project;
+                renderProjectDetails(project);
+            } else {
+                document.getElementById('notFoundState').classList.remove('hidden');
+            }
+        }
+
+        // Render Dynamic Project Data
+        function renderProjectDetails(p) {
+            document.getElementById('projectDetailsContainer').classList.remove('hidden');
+
+            // Page SEO Meta
+            document.title = `${p.title} | Web Pro BD Demo`;
+            document.getElementById('metaTitle').innerText = `${p.title} | Web Pro BD Demo`;
+            document.getElementById('metaDesc').content = p.shortDescription || p.description;
+            document.getElementById('breadcrumbProjectName').innerText = p.title;
+
+            // Hero Section
+            document.getElementById('heroCategoryBadge').innerText = p.category;
+            document.getElementById('heroStatusBadge').innerText = p.status;
+            document.getElementById('heroTitle').innerText = p.title;
+            document.getElementById('heroDescription').innerText = p.description;
+            document.getElementById('heroThumbnail').src = p.thumbnailUrl;
+            document.getElementById('simFrameImg').src = p.thumbnailUrl;
+
+            // Hero Tags
+            document.getElementById('heroTagsContainer').innerHTML = p.tags.map(t => 
+                `<span class="bg-slate-800 text-slate-300 text-[10px] font-bold px-2.5 py-1 rounded-md"># ${t}</span>`
+            ).join('');
+
+            // Live Demo CTAs
+            const liveDemoBtnContainer = document.getElementById('liveDemoBtnContainer');
+            const liveDemoSectionBtns = document.getElementById('liveDemoSectionBtns');
+
+            if (p.demoUrl) {
+                liveDemoBtnContainer.innerHTML = `<a href="${p.demoUrl}" target="_blank" class="w-full sm:w-auto bg-navyDark hover:bg-slate-800 text-white font-bold px-5 py-3.5 rounded-xl transition flex items-center justify-center gap-2"><span>Live Demo</span><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>`;
+                liveDemoSectionBtns.innerHTML = `<a href="${p.demoUrl}" target="_blank" class="bg-brandPrimary text-white font-bold px-7 py-3 rounded-xl text-xs">Open Live Demo <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a> <button onclick="requestSimilarCurrent()" class="bg-slate-800 text-white font-bold px-7 py-3 rounded-xl text-xs">Request Similar Website</button>`;
+            } else {
+                liveDemoBtnContainer.innerHTML = `<button disabled class="w-full sm:w-auto bg-slate-800 text-slate-500 font-bold px-5 py-3.5 rounded-xl text-xs cursor-not-allowed">Demo Coming Soon</button>`;
+                liveDemoSectionBtns.innerHTML = `<button disabled class="bg-slate-800 text-slate-500 font-bold px-7 py-3 rounded-xl text-xs cursor-not-allowed">Demo Coming Soon</button> <button onclick="requestSimilarCurrent()" class="bg-brandPrimary text-white font-bold px-7 py-3 rounded-xl text-xs">Request Similar Website</button>`;
+            }
+
+            // WhatsApp Direct Pre-filled Links
+            const waMsg = encodeURIComponent(`Hello Web Pro BD, I am interested in the ${p.title} website demo. I would like to discuss building a similar website.`);
+            const waUrl = `https://wa.me/8801516513987?text=${waMsg}`;
+            document.getElementById('waDirectBtn').href = waUrl;
+            document.getElementById('waCtaBtn').href = waUrl;
+            document.getElementById('floatingWaBtn').href = waUrl;
+
+            // Overview & Info Card
+            document.getElementById('overviewText').innerText = p.description;
+            document.getElementById('infoType').innerText = p.projectType || 'Website';
+            document.getElementById('infoCategory').innerText = p.category;
+            document.getElementById('infoIndustry').innerText = p.industry || 'General';
+            document.getElementById('infoStatus').innerText = p.status;
+
+            // Technologies Badges
+            document.getElementById('techContainer').innerHTML = p.technologies.map(t => 
+                `<span class="px-3 py-1.5 bg-slate-100 border text-slate-700 text-xs font-bold rounded-xl"><i class="fa-solid fa-code text-brandPrimary mr-1.5"></i>${t}</span>`
+            ).join('');
+
+            // Key Features Grid
+            document.getElementById('featuresGrid').innerHTML = p.features.map(f => `
+                <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-brandPrimary/10 text-brandPrimary flex items-center justify-center font-bold text-sm shrink-0">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xs sm:text-sm text-navyDark">${f}</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Optimized feature for modern businesses.</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Screenshots Gallery
+            activeGallery = p.gallery || [p.thumbnailUrl];
+            document.getElementById('galleryGrid').innerHTML = activeGallery.map((img, idx) => `
+                <div onclick="openLightbox(${idx})" class="group cursor-pointer rounded-2xl overflow-hidden border bg-slate-900 aspect-video relative shadow-sm hover:shadow-xl transition">
+                    <img src="${img}" alt="Screenshot ${idx + 1}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold text-xs gap-2">
+                        <i class="fa-solid fa-expand text-lg"></i>
+                        <span>View Screenshot</span>
+                    </div>
+                </div>
+            `).join('');
+
+            // Related Projects
+            renderRelatedProjects(p);
+        }
+
+        // Render Related Projects (Same category or remaining)
+        function renderRelatedProjects(curr) {
+            const container = document.getElementById('relatedGrid');
+            const related = portfolioDatabase.filter(p => p.portfolioId !== curr.portfolioId).slice(0, 3);
+
+            container.innerHTML = related.map(item => `
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between hover:-translate-y-1.5 transition duration-300">
+                    <div>
+                        <div class="rounded-2xl overflow-hidden border bg-slate-900 aspect-video mb-3">
+                            <img src="${item.thumbnailUrl}" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[10px] font-bold text-brandPrimary uppercase bg-brandPrimary/10 px-2.5 py-0.5 rounded-full">${item.category}</span>
+                        <h3 class="font-bold text-base text-navyDark mt-2 line-clamp-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 mt-1 leading-relaxed">${item.shortDescription}</p>
+                    </div>
+                    <div class="pt-4 border-t mt-4 flex gap-2">
+                        <a href="PortfolioDetails.html?slug=${item.slug}" class="flex-1 bg-brandPrimary hover:bg-brandDark text-white py-2 rounded-xl font-bold text-xs text-center shadow-sm">View Details</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Device Frame Simulation Controls
+        function setDeviceFrame(type) {
+            const wrapper = document.getElementById('simFrameWrapper');
+            const btnDesktop = document.getElementById('btnFrameDesktop');
+            const btnTablet = document.getElementById('btnFrameTablet');
+            const btnMobile = document.getElementById('btnFrameMobile');
+
+            [btnDesktop, btnTablet, btnMobile].forEach(b => b.className = "px-4 py-2 rounded-xl text-xs font-bold border transition bg-slate-100 text-slate-700");
+
+            if (type === 'mobile') {
+                wrapper.className = "w-56 aspect-[9/16] max-w-5xl mx-auto bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden transition-all duration-500";
+                btnMobile.className = "px-4 py-2 rounded-xl text-xs font-bold border transition bg-brandPrimary text-white";
+            } else if (type === 'tablet') {
+                wrapper.className = "w-80 aspect-[3/4] max-w-5xl mx-auto bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden transition-all duration-500";
+                btnTablet.className = "px-4 py-2 rounded-xl text-xs font-bold border transition bg-brandPrimary text-white";
+            } else {
+                wrapper.className = "w-full aspect-video max-w-5xl mx-auto bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden transition-all duration-500";
+                btnDesktop.className = "px-4 py-2 rounded-xl text-xs font-bold border transition bg-brandPrimary text-white";
+            }
+        }
+
+        // Screenshots Lightbox Controls
+        function openLightbox(idx) {
+            currentLightboxIndex = idx;
+            updateLightbox();
+            document.getElementById('lightboxModal').classList.remove('hidden');
+            document.getElementById('lightboxModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox() {
+            document.getElementById('lightboxImg').src = activeGallery[currentLightboxIndex];
+            document.getElementById('lightboxCounter').innerText = `${currentLightboxIndex + 1} / ${activeGallery.length}`;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+            document.getElementById('lightboxModal').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function prevLightbox() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + activeGallery.length) % activeGallery.length;
+            updateLightbox();
+        }
+
+        function nextLightbox() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % activeGallery.length;
+            updateLightbox();
+        }
+
+        // Keyboard navigation for Lightbox
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('lightboxModal');
+            if (!modal.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevLightbox();
+                if (e.key === 'ArrowRight') nextLightbox();
+            }
+        });
+
+        // Share Controls
+        function copyProjectLink() {
+            navigator.clipboard.writeText(window.location.href);
+            showToast('Project link copied to clipboard!');
+        }
+
+        function shareWhatsApp() {
+            const msg = `Check out this website concept: ${currentProject ? currentProject.title : ''} - ${window.location.href}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Modals & Quote Form
+        function requestSimilarCurrent() {
+            openQuoteModal(currentProject ? currentProject.title : 'Custom Website');
+        }
+
+        function openQuoteModal(projName = '') {
+            document.getElementById('reqProjectName').value = projName || (currentProject ? currentProject.title : 'Website Project');
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reqName').value;
+            const phone = document.getElementById('reqPhone').value;
+            const proj = document.getElementById('reqProjectName').value;
+            const details = document.getElementById('reqDetails').value;
+
+            const msg = `Hello Web Pro BD, I am ${name} (${phone}). I want a website like: ${proj}. Requirements: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(msg)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

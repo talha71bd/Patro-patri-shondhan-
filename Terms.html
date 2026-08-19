@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Terms & Conditions | Web Pro BD</title>
+    <meta name="title" content="Terms & Conditions | Web Pro BD">
+    <meta name="description" content="Web Pro BD-এর website development service-এর Terms & Conditions, project scope, pricing, payment, revision, ownership, delivery ও customer responsibilities সম্পর্কে বিস্তারিত তথ্য।">
+    <meta name="keywords" content="web pro bd terms, website development terms bangladesh, website project agreement, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/Terms.html">
+    <meta property="og:title" content="Terms & Conditions | Web Pro BD">
+    <meta property="og:description" content="Web Pro BD-এর সার্ভিস গ্রহণ করার আগে কাজের নিয়ম, স্কোপ, পেমেন্ট ও অন্যান্য শর্তাবলী জেনে নিন।">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .accordion-content {
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        /* Print CSS for Clean Printing */
+        @media print {
+            header, footer, #readingProgressBar, #floatingWa, #printBtn, .no-print {
+                display: none !important;
+            }
+            body { bg: #fff !important; color: #000 !important; }
+            .print-full-width { width: 100% !important; max-width: 100% !important; }
+        }
+    </style>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen relative">
+
+    <!-- Reading Progress Bar at Very Top -->
+    <div id="readingProgressBar" class="fixed top-0 left-0 h-1 bg-brandPrimary z-50 transition-all duration-150 w-0"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="Portfolio.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="About.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="Terms.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Terms
+                    </a>
+                    <a href="Contact.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA & Print Button -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="window.print()" id="printBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5" title="প্রিন্ট অথবা PDF সেভ করুন">
+                        <i class="fa-solid fa-print"></i> Print / Save
+                    </button>
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="Portfolio.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="About.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="Terms.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">Terms & Conditions</a>
+                <a href="Contact.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2 flex gap-2">
+                    <button onclick="window.print()" class="w-1/2 bg-slate-100 text-slate-800 py-3 rounded-xl font-bold text-xs text-center"><i class="fa-solid fa-print mr-1"></i> Print</button>
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-1/2 bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200/80 text-xs text-slate-500 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 font-medium">
+            <a href="#" class="hover:text-brandPrimary transition"><i class="fa-solid fa-house text-slate-400"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-navyDark font-bold">Terms & Conditions</span>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-20 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-8 space-y-5 animate__animated animate__fadeInLeft">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                        <i class="fa-solid fa-scale-balanced text-amber-400"></i>
+                        <span>WEB PRO BD • TERMS & CONDITIONS</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                        Web Pro BD-এর <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">Terms & Conditions</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+                        Web Pro BD-এর website development ও digital service গ্রহণের আগে আমাদের কাজের নিয়ম, customer-এর দায়িত্ব এবং project সম্পর্কিত গুরুত্বপূর্ণ শর্তগুলো এই পেজে সহজ ভাষায় দেওয়া হয়েছে।
+                    </p>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400 pt-1">
+                        <span><i class="fa-solid fa-clock-rotate-left text-brandPrimary"></i> শেষ আপডেট: <strong class="text-white" id="lastUpdatedDate">১৯ আগস্ট, ২০২৬</strong></span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                        <a href="Contact.html" class="bg-brandPrimary hover:bg-brandDark text-white font-bold px-6 py-3 rounded-xl text-xs transition shadow-md">Contact Us</a>
+                        <a href="Faq.html" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-3 rounded-xl text-xs transition">FAQ দেখুন</a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 hidden lg:flex justify-center animate__animated animate__fadeInRight">
+                    <div class="bg-navyCard border border-slate-700/80 p-6 rounded-3xl text-xs space-y-3 font-mono text-slate-300 shadow-2xl backdrop-blur-md animate-float">
+                        <div class="flex items-center gap-2 border-b border-slate-700 pb-2 text-brandPrimary font-bold">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span>Agreement Scope</span>
+                        </div>
+                        <p class="leading-relaxed">✓ Scope & Requirement Defined</p>
+                        <p class="leading-relaxed">✓ Clear Quotation Terms</p>
+                        <p class="leading-relaxed">✓ Customer Content Rights</p>
+                        <p class="leading-relaxed">✓ Delivery & Support Terms</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QUICK SUMMARY CARD ==================== -->
+    <section class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <h2 class="text-xl font-black text-navyDark flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-amber-500"></i> সংক্ষেপে গুরুত্বপূর্ণ বিষয়
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                <div class="p-4 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-list-check text-brandPrimary mr-1"></i> Project Scope</h3>
+                    <p class="text-slate-600">কাজের পরিধি quotation বা agreed project scope অনুযায়ী নির্ধারিত হবে।</p>
+                </div>
+                <div class="p-4 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-tags text-emerald-500 mr-1"></i> Pricing</h3>
+                    <p class="text-slate-600">Project-এর প্রয়োজন ও scope অনুযায়ী quotation নির্ধারণ করা হবে।</p>
+                </div>
+                <div class="p-4 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-code text-indigo-500 mr-1"></i> Development</h3>
+                    <p class="text-slate-600">চূড়ান্তভাবে নির্ধারিত requirement অনুযায়ী website তৈরি করা হবে।</p>
+                </div>
+                <div class="p-4 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-rotate text-amber-500 mr-1"></i> Changes</h3>
+                    <p class="text-slate-600">অতিরিক্ত পরিবর্তন বা feature প্রয়োজন হলে আলাদাভাবে আলোচনা করা হতে পারে।</p>
+                </div>
+                <div class="p-4 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-globe text-sky-500 mr-1"></i> Domain & Hosting</h3>
+                    <p class="text-slate-600">Domain ও hosting-এর দায়িত্ব project অনুযায়ী নির্ধারিত হবে।</p>
+                </div>
+                <div class="p-4 bg-lightBg rounded-2xl border border-slate-200/80 space-y-1">
+                    <h3 class="font-bold text-navyDark text-sm"><i class="fa-solid fa-comments text-purple-500 mr-1"></i> Communication</h3>
+                    <p class="text-slate-600">Project-related communication-এর জন্য নির্ধারিত contact channel ব্যবহার করা হবে।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN CONTENT WITH TABLE OF CONTENTS ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 print-full-width">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Desktop Sticky Table of Contents (3 Cols) -->
+                <aside class="lg:col-span-3 hidden lg:block sticky top-28 space-y-4 no-print">
+                    <div class="bg-white border border-slate-200 p-5 rounded-3xl shadow-sm text-xs space-y-3">
+                        <h3 class="font-black text-navyDark text-sm border-b pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-bars-staggered text-brandPrimary"></i> এই পেজে যা আছে
+                        </h3>
+                        <nav id="tocNav" class="space-y-1.5 max-h-[70vh] overflow-y-auto no-scrollbar font-medium text-slate-600">
+                            <a href="#sec1" class="block py-1 px-2 rounded hover:bg-slate-100">১. সাধারণ শর্ত</a>
+                            <a href="#sec2" class="block py-1 px-2 rounded hover:bg-slate-100">২. Web Pro BD-এর Services</a>
+                            <a href="#sec3" class="block py-1 px-2 rounded hover:bg-slate-100">৩. Project Scope</a>
+                            <a href="#sec4" class="block py-1 px-2 rounded hover:bg-slate-100">৪. Customer-এর দায়িত্ব</a>
+                            <a href="#sec5" class="block py-1 px-2 rounded hover:bg-slate-100">৫. Customer-এর Content</a>
+                            <a href="#sec6" class="block py-1 px-2 rounded hover:bg-slate-100">৬. Copyright ও Intellectual Property</a>
+                            <a href="#sec7" class="block py-1 px-2 rounded hover:bg-slate-100">৭. Third-Party Content</a>
+                            <a href="#sec8" class="block py-1 px-2 rounded hover:bg-slate-100">৮. Pricing ও Quotation</a>
+                            <a href="#sec9" class="block py-1 px-2 rounded hover:bg-slate-100">৯. Payment Terms</a>
+                            <a href="#sec10" class="block py-1 px-2 rounded hover:bg-slate-100">১০. Additional Work ও Extra Cost</a>
+                            <a href="#sec11" class="block py-1 px-2 rounded hover:bg-slate-100">১১. Design ও Development Process</a>
+                            <a href="#sec12" class="block py-1 px-2 rounded hover:bg-slate-100">১২. Revision / পরিবর্তন</a>
+                            <a href="#sec13" class="block py-1 px-2 rounded hover:bg-slate-100">১৩. Customer Approval</a>
+                            <a href="#sec14" class="block py-1 px-2 rounded hover:bg-slate-100">১৪. Domain</a>
+                            <a href="#sec15" class="block py-1 px-2 rounded hover:bg-slate-100">১৫. Hosting</a>
+                            <a href="#sec16" class="block py-1 px-2 rounded hover:bg-slate-100">১৬. Google Sheets ও Apps Script</a>
+                            <a href="#sec17" class="block py-1 px-2 rounded hover:bg-slate-100">১৭. E-commerce Website Terms</a>
+                            <a href="#sec18" class="block py-1 px-2 rounded hover:bg-slate-100">১৮. Payment Gateway</a>
+                            <a href="#sec19" class="block py-1 px-2 rounded hover:bg-slate-100">১৯. Project Delivery</a>
+                            <a href="#sec20" class="block py-1 px-2 rounded hover:bg-slate-100">২০. Website Launch</a>
+                            <a href="#sec21" class="block py-1 px-2 rounded hover:bg-slate-100">২১. Maintenance ও Future Update</a>
+                            <a href="#sec22" class="block py-1 px-2 rounded hover:bg-slate-100">২২. Website Security</a>
+                            <a href="#sec23" class="block py-1 px-2 rounded hover:bg-slate-100">২৩. Backup</a>
+                            <a href="#sec24" class="block py-1 px-2 rounded hover:bg-slate-100">২৪. নিষিদ্ধ বা বেআইনি Content</a>
+                            <a href="#sec25" class="block py-1 px-2 rounded hover:bg-slate-100">২৫. Service Misuse</a>
+                            <a href="#sec26" class="block py-1 px-2 rounded hover:bg-slate-100">২৬. Project Delay</a>
+                            <a href="#sec27" class="block py-1 px-2 rounded hover:bg-slate-100">২৭. Customer Communication</a>
+                            <a href="#sec28" class="block py-1 px-2 rounded hover:bg-slate-100">২৮. Project Cancellation</a>
+                            <a href="#sec29" class="block py-1 px-2 rounded hover:bg-slate-100">২৯. Refund Policy</a>
+                            <a href="#sec30" class="block py-1 px-2 rounded hover:bg-slate-100">৩০. Website Ownership ও Access</a>
+                            <a href="#sec31" class="block py-1 px-2 rounded hover:bg-slate-100">৩১. Source Code</a>
+                            <a href="#sec32" class="block py-1 px-2 rounded hover:bg-slate-100">৩২. Third-Party License</a>
+                            <a href="#sec33" class="block py-1 px-2 rounded hover:bg-slate-100">৩৩. Customer Privacy</a>
+                            <a href="#sec34" class="block py-1 px-2 rounded hover:bg-slate-100">৩৪. Customer Data Security</a>
+                            <a href="#sec35" class="block py-1 px-2 rounded hover:bg-slate-100">৩৫. SEO ও Google Search</a>
+                            <a href="#sec36" class="block py-1 px-2 rounded hover:bg-slate-100">৩৬. Google Services</a>
+                            <a href="#sec37" class="block py-1 px-2 rounded hover:bg-slate-100">৩৭. Third-Party Service Failure</a>
+                            <a href="#sec38" class="block py-1 px-2 rounded hover:bg-slate-100">৩৮. নিয়ন্ত্রণের বাইরে থাকা পরিস্থিতি</a>
+                            <a href="#sec39" class="block py-1 px-2 rounded hover:bg-slate-100">৩৯. Terms & Conditions পরিবর্তন</a>
+                            <a href="#sec40" class="block py-1 px-2 rounded hover:bg-slate-100">৪০. Terms গ্রহণ</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Mobile Collapsible TOC Dropdown -->
+                <div class="lg:hidden col-span-1 border rounded-2xl bg-white p-4 no-print shadow-sm mb-4">
+                    <button onclick="toggleMobileToc()" class="w-full flex justify-between items-center text-xs font-bold text-navyDark">
+                        <span><i class="fa-solid fa-list text-brandPrimary mr-2"></i> সূচিপত্র খুলুন</span>
+                        <i class="fa-solid fa-chevron-down text-brandPrimary"></i>
+                    </button>
+                    <div id="mobileTocDrawer" class="hidden pt-3 border-t mt-3 text-xs space-y-1.5 max-h-60 overflow-y-auto">
+                        <a href="#sec1" onclick="toggleMobileToc()" class="block py-1 text-slate-700">১. সাধারণ শর্ত</a>
+                        <a href="#sec2" onclick="toggleMobileToc()" class="block py-1 text-slate-700">২. Web Pro BD-এর Services</a>
+                        <a href="#sec3" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৩. Project Scope</a>
+                        <a href="#sec4" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৪. Customer-এর দায়িত্ব</a>
+                        <a href="#sec8" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৮. Pricing ও Quotation</a>
+                        <a href="#sec9" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৯. Payment Terms</a>
+                        <a href="#sec12" onclick="toggleMobileToc()" class="block py-1 text-slate-700">১২. Revision / পরিবর্তন</a>
+                        <a href="#sec28" onclick="toggleMobileToc()" class="block py-1 text-slate-700">২৮. Project Cancellation</a>
+                        <a href="#sec29" onclick="toggleMobileToc()" class="block py-1 text-slate-700">২৯. Refund Policy</a>
+                        <a href="#sec30" onclick="toggleMobileToc()" class="block py-1 text-slate-700">৩০. Website Ownership ও Access</a>
+                    </div>
+                </div>
+
+                <!-- Terms Text Sections (9 Cols Desktop) -->
+                <main class="lg:col-span-9 space-y-8 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm print-full-width">
+                    
+                    <!-- Section 01 -->
+                    <div id="sec1" class="space-y-3 scroll-mt-28">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১. সাধারণ শর্ত</h2>
+                            <button onclick="copySectionLink('sec1')" class="text-slate-400 hover:text-brandPrimary text-xs" title="সেকশন লিংক কপি করুন">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Web Pro BD-এর website development বা অন্যান্য digital service গ্রহণ করার মাধ্যমে customer এই Terms & Conditions-এর প্রযোজ্য অংশগুলো পড়েছেন এবং বুঝেছেন বলে ধরা হবে।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            প্রতিটি project-এর নির্দিষ্ট scope, quotation, feature এবং অন্যান্য commercial terms আলাদা হতে পারে। তাই project শুরু করার আগে customer ও Web Pro BD-এর মধ্যে agreed requirements এবং terms-কে গুরুত্ব দেওয়া হবে।
+                        </p>
+                        <div class="bg-blue-50 border-l-4 border-brandPrimary p-4 rounded-r-2xl text-xs text-navyDark space-y-1">
+                            <strong class="font-bold">গুরুত্বপূর্ণ:</strong>
+                            <p>এই Terms & Conditions-এর পাশাপাশি কোনো project-এর জন্য আলাদা written agreement বা quotation থাকলে সেই project-এর নির্দিষ্ট বিষয়গুলো সেই agreement/quotation অনুযায়ী বিবেচনা করা হবে।</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 02 -->
+                    <div id="sec2" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২. Web Pro BD-এর Services</h2>
+                            <button onclick="copySectionLink('sec2')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Web Pro BD প্রয়োজন অনুযায়ী বিভিন্ন ধরনের website ও digital solution তৈরি করতে পারে। প্রতিটি project-এর service ও feature quotation বা agreed scope অনুযায়ী নির্ধারিত হবে।
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-bold text-slate-700 pt-1">
+                            <div class="p-2.5 bg-slate-50 border rounded-xl">• Business Website</div>
+                            <div class="p-2.5 bg-slate-50 border rounded-xl">• E-commerce Website</div>
+                            <div class="p-2.5 bg-slate-50 border rounded-xl">• Landing Page</div>
+                            <div class="p-2.5 bg-slate-50 border rounded-xl">• Custom Website</div>
+                        </div>
+                        <a href="Service.html" class="inline-block text-brandPrimary font-bold text-xs hover:underline pt-1">আমাদের সকল Services দেখুন &rarr;</a>
+                    </div>
+
+                    <!-- Section 03 -->
+                    <div id="sec3" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৩. Project Scope</h2>
+                            <button onclick="copySectionLink('sec3')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Project শুরু করার আগে website-এর page সংখ্যা, design, functionality, feature এবং প্রয়োজনীয় কাজের পরিধি যতটা সম্ভব পরিষ্কারভাবে নির্ধারণ করা হবে।
+                        </p>
+                        <p class="text-slate-500 text-xs leading-relaxed border-l-2 border-amber-500 pl-3">
+                            Scope-এর বাইরে নতুন feature বা বড় পরিবর্তন প্রয়োজন হলে সেটি নতুন requirement হিসেবে বিবেচিত হতে পারে এবং অতিরিক্ত সময় বা খরচের প্রয়োজন হতে পারে।
+                        </p>
+                    </div>
+
+                    <!-- Section 04 & 05 -->
+                    <div id="sec4" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৪. Customer-এর দায়িত্ব ও Content</h2>
+                            <button onclick="copySectionLink('sec4')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Customer সঠিকভাবে ব্যবসায়িক তথ্য, লোগো, প্রোডাক্ট বা সার্ভিসের কন্টেন্ট, ছবি এবং যোগাযোগের তথ্য সরবরাহ করবেন।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Customer যদি website-এর জন্য text, image, logo, video, product information বা অন্য কোনো content দেন, তাহলে সেই content ব্যবহারের প্রয়োজনীয় অধিকার বা permission customer-এর আছে কিনা তা নিশ্চিত করা customer-এর দায়িত্ব।
+                        </p>
+                    </div>
+
+                    <!-- Section 06 & 07 -->
+                    <div id="sec6" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৬. Copyright, Intellectual Property ও Third-Party Services</h2>
+                            <button onclick="copySectionLink('sec6')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Customer কর্তৃক সরবরাহ করা logo, image, text, video বা অন্যান্য content-এর ownership সাধারণত customer বা সংশ্লিষ্ট rights holder-এর কাছেই থাকে।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Web Pro BD কর্তৃক তৈরি custom design, code বা অন্যান্য deliverable-এর ownership এবং source-code access project-এর quotation, agreement বা agreed terms অনুযায়ী নির্ধারিত হবে।
+                        </p>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            কোনো third-party service (যেমন: Payment Gateway, Font, Icons, Map, Hosting) ব্যবহার করা হলে সেই service-এর নিজস্ব terms, pricing ও limitations প্রযোজ্য হতে পারে।
+                        </p>
+                    </div>
+
+                    <!-- Section 08 & 09 -->
+                    <div id="sec8" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৮. Pricing, Quotation ও Payment Terms</h2>
+                            <button onclick="copySectionLink('sec8')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Website-এর pricing project-এর scope, page সংখ্যা, design complexity, functionality এবং প্রয়োজনীয় technology অনুযায়ী নির্ধারিত হবে। Website-এর জন্য একটি fixed universal price প্রযোজ্য নয়।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Payment schedule project শুরু করার আগে quotation বা agreement অনুযায়ী নির্ধারণ করা হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 11 - Development Process -->
+                    <div id="sec11" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১১. Design ও Development Process</h2>
+                            <button onclick="copySectionLink('sec11')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-center font-bold text-slate-700 py-2">
+                            <div class="p-3 bg-lightBg border rounded-xl">01. Requirement</div>
+                            <div class="p-3 bg-lightBg border rounded-xl">02. Planning</div>
+                            <div class="p-3 bg-lightBg border rounded-xl">03. Design</div>
+                            <div class="p-3 bg-lightBg border rounded-xl">04. Development</div>
+                            <div class="p-3 bg-lightBg border rounded-xl">05. Testing</div>
+                            <div class="p-3 bg-lightBg border rounded-xl">06. Review</div>
+                            <div class="p-3 bg-lightBg border rounded-xl col-span-2 bg-emerald-50 text-emerald-800 border-emerald-200">07. Final Delivery</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 12 & 13 -->
+                    <div id="sec12" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১২. Revision, Review ও Customer Approval</h2>
+                            <button onclick="copySectionLink('sec12')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Project-এর quotation বা agreement-এ revision-এর scope নির্ধারিত থাকলে সেই অনুযায়ী কাজ করা হবে। অতিরিক্ত বা major revision, সম্পূর্ণ নতুন design direction অথবা agreed scope-এর বাইরে পরিবর্তন additional work হিসেবে বিবেচিত হতে পারে।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Final approval-এর পর নতুন বড় পরিবর্তন প্রয়োজন হলে সেটি নতুন কাজ হিসেবে বিবেচিত হতে পারে।
+                        </p>
+                    </div>
+
+                    <!-- Section 14 & 15 -->
+                    <div id="sec14" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১৪. Domain, Hosting ও Google Sheets Integration</h2>
+                            <button onclick="copySectionLink('sec14')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Domain হলো website-এর internet address এবং Hosting হলো অনলাইন সার্ভার। Domain registration, renewal এবং hosting cost project-এর arrangement অনুযায়ী নির্ধারিত হবে।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            কিছু project-এ data management বা business workflow-এর জন্য Google Sheets এবং Google Apps Script ব্যবহার করা যেতে পারে। Project-এর data volume, security ও performance অনুযায়ী database architecture নির্বাচন করা উচিত।
+                        </p>
+                    </div>
+
+                    <!-- Section 17 & 18 -->
+                    <div id="sec17" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">১৭. E-commerce & Payment Gateway Terms</h2>
+                            <button onclick="copySectionLink('sec17')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            E-commerce ওয়েবসাইটে প্রোডাক্টের দাম, স্টক, ডেলিভারি চার্জ ও রিটার্ন পলিসি কাস্টমারের ব্যবসার নীতি অনুযায়ী নির্ধারিত হবে। Payment gateway ইন্টিগ্রেশনের ক্ষেত্রে তৃতীয় পক্ষ প্রোভাইডারের নীতি ও চার্জ প্রযোজ্য হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 21 & 22 -->
+                    <div id="sec21" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২১. Maintenance & Website Security</h2>
+                            <button onclick="copySectionLink('sec21')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Maintenance service project অনুযায়ী আলাদা হতে পারে। Free lifetime maintenance অটোমেটিক অন্তর্ভুক্ত নয়।
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Website security একটি চলমান বিষয়। Secure development practices ও যথাযথ ব্যাকআপ অনুসরণ করা চেষ্টা করা হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 24 & 25 -->
+                    <div id="sec24" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২৪. নিষিদ্ধ Content & Service Misuse</h2>
+                            <button onclick="copySectionLink('sec24')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Web Pro BD-এর service ব্যবহার করে এমন কোনো content তৈরি বা প্রকাশ করা যাবে না যা আইনবিরোধী, প্রতারণামূলক, স্ক্যাম বা তৃতীয় পক্ষের অধিকার লঙ্ঘন করে।
+                        </p>
+                    </div>
+
+                    <!-- Section 28 & 29 -->
+                    <div id="sec28" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">২৮. Project Cancellation & Refund Policy</h2>
+                            <button onclick="copySectionLink('sec28')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Project cancellation ও Refund-এর বিষয়টি project-এর scope, payment status, completed work, third-party cost এবং agreed terms-এর ওপর নির্ভর করবে। নির্দিষ্ট project-এর quotation বা agreement-এ শর্ত উল্লেখ থাকে।
+                        </p>
+                    </div>
+
+                    <!-- Section 30 & 31 -->
+                    <div id="sec30" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৩০. Website Ownership, Access & Privacy</h2>
+                            <button onclick="copySectionLink('sec30')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Website-এর ownership, design files, source code এবং administrative access project-এর quotation বা agreement অনুযায়ী নির্ধারিত হবে। কাস্টমারের ব্যক্তিগত তথ্য প্রজেক্টের প্রয়োজনেই কেবল ব্যবহার করা হবে।
+                        </p>
+                    </div>
+
+                    <!-- Section 35 -->
+                    <div id="sec35" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৩৫. SEO & Google Search Policy</h2>
+                            <button onclick="copySectionLink('sec35')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Website-এর structure ও technical setup SEO-friendly করার চেষ্টা করা হয়। তবে নির্দিষ্ট keyword-এ Google-এ নির্দিষ্ট র‍্যাঙ্কিংয়ের কোনো অলৌকিক নিশ্চয়তা দেওয়া সম্ভব নয়।
+                        </p>
+                    </div>
+
+                    <!-- Section 39 & 40 -->
+                    <div id="sec39" class="space-y-3 scroll-mt-28 pt-4">
+                        <div class="flex items-center justify-between border-b pb-2">
+                            <h2 class="text-xl font-extrabold text-navyDark">৩৯. Terms পরিবর্তন ও গ্রহণ</h2>
+                            <button onclick="copySectionLink('sec39')" class="text-slate-400 hover:text-brandPrimary text-xs">§</button>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Business process বা প্রযুক্তির প্রয়োজনে Terms & Conditions পরিবর্তন বা আপডেট হতে পারে। কোনো প্রজেক্ট কনফার্ম করার পূর্বে কাস্টমারের উচিত শর্তাবলী ভালোভাবে জেনে নেওয়া।
+                        </p>
+                    </div>
+
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QUICK CUSTOMER CHECKLIST ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">CHECKLIST</span>
+                <h2 class="text-2xl font-black text-navyDark mt-3">Project শুরু করার আগে এই বিষয়গুলো নিশ্চিত করুন</h2>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-semibold text-slate-700 bg-lightBg p-6 rounded-3xl border">
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Website-এর উদ্দেশ্য</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> প্রয়োজনীয় Page</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> প্রয়োজনীয় Feature</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Design reference</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Content / তথ্য</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Domain স্ট্যাটাস</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Hosting স্ট্যাটাস</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Pricing ও Quotation</label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-brandPrimary"> Payment terms</label>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TERMS MINI FAQ ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">TERMS FAQ</span>
+                <h2 class="text-2xl font-black text-navyDark mt-3">Terms & Conditions নিয়ে সাধারণ প্রশ্ন</h2>
+            </div>
+
+            <div class="space-y-3" id="faqAccordion">
+                
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Terms না বুঝলে কী করব?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-100 mt-1">Project confirm করার আগে Web Pro BD-এর সাথে সরাসরি কথা বলে বিষয়টি পরিষ্কারভাবে জেনে নিন।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Quotation আর Terms কি একই জিনিস?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-100 mt-1">না। Quotation সাধারণত project-এর scope ও pricing সম্পর্কে তথ্য দেয়, আর Terms & Conditions সাধারণ নিয়ম ব্যাখ্যা করে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Project অনুযায়ী আলাদা agreement করা যাবে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-100 mt-1">প্রয়োজন অনুযায়ী নির্দিষ্ট project-এর জন্য আলাদা written terms বা agreement নিয়ে আলোচনা করা যেতে পারে।</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CONTACT CTA ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-black">Project শুরু করার আগে কোনো প্রশ্ন আছে?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-normal leading-relaxed">
+                Terms, pricing, feature বা website project সম্পর্কে কিছু জানতে চাইলে সরাসরি Web Pro BD-এর সাথে যোগাযোগ করুন।
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <a href="https://wa.me/8801516513987?text=%E0%A6%AE%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%82%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20Web%20Pro%20BD-%E0%A6%8F%E0%A6%B0%20Terms%20%E0%A6%AC%E0%A6%BE%20website%20project%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%95%E0%A6%BF%E0%A6%9B%E0%A7%81%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%82%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%AE" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp করুন</span>
+                </a>
+                <a href="tel:01516513987" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                    Call করুন
+                </a>
+                <a href="Contact.html" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition">
+                    Contact Form
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT INFO & SOCIAL ==================== -->
+    <section class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-lightBg rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT CARD</span>
+                    <h3 class="text-2xl font-black text-navyDark">Web Pro BD</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Abu Talha Khan</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-brands fa-whatsapp text-emerald-500 w-5"></i> WhatsApp: 01516513987</p>
+                        <p><i class="fa-solid fa-comments text-sky-500 w-5"></i> IMO: 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-facebook"></i> Facebook Page
+                    </a>
+                    <a href="https://www.facebook.com/Abu.talha017467" target="_blank" class="bg-slate-800 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-facebook text-blue-400"></i> Owner Profile
+                    </a>
+                    <button onclick="copyNumber()" class="bg-brandPrimary text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-copy"></i> Copy Number
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div id="floatingWa" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group no-print">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            WhatsApp-এ কথা বলুন
+        </span>
+        <a href="https://wa.me/8801516513987?text=%E0%A6%AE%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%82%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20Web%20Pro%20BD-%E0%A6%8F%E0%A6%B0%20Terms%20%E0%A6%AC%E0%A6%BE%20website%20project%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%82%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%AE" target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        আধুনিক ও professional website solution।
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li>
+                        <li><a href="Pricing.html" class="hover:text-brandPrimary">Pricing</a></li>
+                        <li><a href="Portfolio.html" class="hover:text-brandPrimary">Portfolio</a></li>
+                        <li><a href="About.html" class="hover:text-brandPrimary">About</a></li>
+                        <li><a href="Terms.html" class="text-brandPrimary font-bold">Terms & Conditions</a></li>
+                        <li><a href="Contact.html" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== GET A QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">GET A QUOTE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">Get a Free Web Quotation</h3>
+            </div>
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <input type="text" id="quoteName" required placeholder="Your Name" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <input type="tel" id="quotePhone" required placeholder="Phone / WhatsApp" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <select id="quoteService" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    <option value="Business Website">Business Website</option>
+                    <option value="E-commerce Website">E-commerce Website</option>
+                    <option value="Custom Website">Custom Website</option>
+                </select>
+                <textarea id="quoteDetails" rows="3" placeholder="Project details..." class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs"></textarea>
+                <button type="submit" class="w-full bg-brandPrimary text-white py-3.5 rounded-xl font-bold text-xs shadow-lg">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION ENGINE ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupHeaderScroll();
+            setupReadingProgress();
+            setupActiveTocScroll();
+        });
+
+        // Reading Progress Indicator
+        function setupReadingProgress() {
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                document.getElementById('readingProgressBar').style.width = `${progress}%`;
+            });
+        }
+
+        // Active Section TOC Highlighting
+        function setupActiveTocScroll() {
+            const sections = document.querySelectorAll('main > div[id]');
+            const navLinks = document.querySelectorAll('#tocNav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(sec => {
+                    const sectionTop = sec.offsetTop - 140;
+                    if (window.scrollY >= sectionTop) {
+                        current = sec.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('bg-brandPrimary/10', 'text-brandPrimary', 'font-bold');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('bg-brandPrimary/10', 'text-brandPrimary', 'font-bold');
+                    }
+                });
+            });
+        }
+
+        // Sticky Navbar Effect
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Copy Section Link
+        function copySectionLink(secId) {
+            const url = `${window.location.origin}${window.location.pathname}#${secId}`;
+            navigator.clipboard.writeText(url);
+            showToast("সেকশন লিংক কপি হয়েছে।");
+        }
+
+        // Copy Owner Number
+        function copyNumber() {
+            navigator.clipboard.writeText("01516513987");
+            showToast("নম্বর কপি হয়েছে।");
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function toggleMobileToc() {
+            document.getElementById('mobileTocDrawer').classList.toggle('hidden');
+        }
+
+        // Accordion Toggle
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('#faqAccordion i').forEach(i => i.style.transform = 'rotate(0deg)');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Quote Modal Functions
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const service = document.getElementById('quoteService').value;
+            const details = document.getElementById('quoteDetails').value;
+            
+            const message = `Hello Web Pro BD, I am ${name} (${phone}). I want a quote for: ${service}. Details: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(message)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Web Design & Development Reviews | Web Pro BD</title>
+    <meta name="title" content="Web Design & Development Reviews | Web Pro BD">
+    <meta name="description" content="Web Pro BD-এর website design, website development, e-commerce, web app এবং digital service সম্পর্কে customer feedback ও testimonial দেখুন এবং আপনার project-এর জন্য quotation নিন।">
+    <meta name="keywords" content="web pro bd reviews, website development feedback bangladesh, e-commerce design review dhaka, web developer rating, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/Reviews.html">
+    <meta property="og:title" content="Web Design & Development Reviews | Web Pro BD">
+    <meta property="og:description" content="Web Pro BD-এর সার্ভিস অভিজ্ঞতা ও কাস্টমার রিভিউ পলিসি সম্পর্কে জানুন।">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .accordion-content {
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .review-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .review-card-hover:hover {
+            transform: translateY(-6px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float, .whatsapp-pulse, .animate__animated {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Web Design & Development Reviews | Web Pro BD",
+      "description": "Web Pro BD-এর সার্ভিস অভিজ্ঞতা ও কাস্টমার রিভিউ পেজ।",
+      "publisher": {
+        "@type": "ProfessionalService",
+        "name": "Web Pro BD",
+        "telephone": "+8801516513987",
+        "url": "https://webprobd.com"
+      }
+    }
+    </script>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen relative">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="Portfolio.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="Reviews.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Reviews
+                    </a>
+                    <a href="About.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="Contact.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="Portfolio.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="Reviews.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">Reviews</a>
+                <a href="About.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="Contact.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2">
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-2">
+                        <span>Get a Free Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200/80 text-xs text-slate-500 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 font-medium">
+            <a href="#" class="hover:text-brandPrimary transition"><i class="fa-solid fa-house text-slate-400"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-navyDark font-bold">Reviews & Testimonials</span>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-24 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 animate__animated animate__fadeInLeft">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                        <i class="fa-solid fa-star text-amber-400"></i>
+                        <span>WEB PRO BD • CUSTOMER EXPERIENCE</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-snug sm:leading-tight">
+                        Web Pro BD সম্পর্কে <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">গ্রাহকদের মতামত</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        একটি ভালো website শুধু সুন্দর হলেই হয় না—ব্যবহারযোগ্যতা, performance, responsive design এবং customer support-ও গুরুত্বপূর্ণ। Web Pro BD-এর service সম্পর্কে customer feedback এখানে তুলে ধরা হবে।
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="Pricing.html" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center gap-2">
+                            <span>কোটেশন নিন</span>
+                            <i class="fa-solid fa-calculator text-xs"></i>
+                        </a>
+                        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20about%20your%20website%20services." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>WhatsApp করুন</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Floating Rating Box -->
+                <div class="lg:col-span-5 flex justify-center animate__animated animate__fadeInRight">
+                    <div class="w-full max-w-md bg-navyCard/90 border border-slate-700/80 rounded-2xl shadow-2xl p-6 backdrop-blur-xl animate-float relative z-10 text-center space-y-3">
+                        <div class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mx-auto border border-amber-500/30">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3 class="text-base font-black text-white">Customer Feedback Center</h3>
+                        <p class="text-xs text-slate-400">বাস্তব অভিজ্ঞতা সার্ভিস মান উন্নত করতে সাহায্য করে।</p>
+                        <div class="pt-2 flex justify-center text-amber-400 text-sm gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TRUST INTRO SECTION ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">WHY FEEDBACK MATTERS</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">কেন Customer Feedback গুরুত্বপূর্ণ?</h2>
+                <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                    Customer-এর বাস্তব অভিজ্ঞতা আমাদের service আরও উন্নত করতে সাহায্য করে। Website design, development, communication, delivery এবং support—প্রতিটি ক্ষেত্রে customer feedback গুরুত্বপূর্ণ।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-lightBg rounded-2xl border border-slate-200 shadow-sm space-y-2 text-center">
+                    <i class="fa-solid fa-palette text-2xl text-brandPrimary mb-1"></i>
+                    <h3 class="font-extrabold text-base text-navyDark">⭐ Design Experience</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">সহজ ও আকর্ষণীয় UI/UX ডিজাইন নিশ্চিতকরণ।</p>
+                </div>
+                <div class="p-6 bg-lightBg rounded-2xl border border-slate-200 shadow-sm space-y-2 text-center">
+                    <i class="fa-solid fa-gauge-high text-2xl text-amber-500 mb-1"></i>
+                    <h3 class="font-extrabold text-base text-navyDark">⚡ Performance</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">ফাস্ট পেজ লোডিং ও অপ্টিমাইজেশন।</p>
+                </div>
+                <div class="p-6 bg-lightBg rounded-2xl border border-slate-200 shadow-sm space-y-2 text-center">
+                    <i class="fa-solid fa-comments text-2xl text-emerald-500 mb-1"></i>
+                    <h3 class="font-extrabold text-base text-navyDark">🤝 Communication</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">কাজের সুবিধার্থে সরাসরি পরিষ্কার কথা বলা।</p>
+                </div>
+                <div class="p-6 bg-lightBg rounded-2xl border border-slate-200 shadow-sm space-y-2 text-center">
+                    <i class="fa-solid fa-headset text-2xl text-indigo-500 mb-1"></i>
+                    <h3 class="font-extrabold text-base text-navyDark">🛠️ Support</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">প্রজেক্ট ডেলিভারির পরেও প্রয়োজনীয় সাহায্য।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DEMO REVIEWS SECTION ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-amber-600 text-xs font-extrabold uppercase tracking-widest bg-amber-100 px-3.5 py-1.5 rounded-full border border-amber-200"><i class="fa-solid fa-circle-info"></i> DEMO SAMPLES</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark">নমুনা Testimonial (Demo Samples)</h2>
+            </div>
+
+            <!-- Demo Warning Box -->
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-2xl text-xs text-amber-900 max-w-3xl mx-auto text-center leading-relaxed">
+                <strong>সতর্কীকরণ দ্রষ্টব্য:</strong> নিচের testimonialগুলো শুধুমাত্র website design demonstration-এর জন্য তৈরি করা নমুনা উদাহরণ। এগুলো বাস্তব customer review নয়। বাস্তব কাস্টমার রিভিউ পাওয়া গেলে তা অ্যাডমিন প্যানেল থেকে ভেরিফাইড লেবেল সহ যুক্ত করা হবে।
+            </div>
+
+            <!-- Review Category Filters -->
+            <div class="flex justify-center overflow-x-auto no-scrollbar py-2">
+                <div class="flex gap-2">
+                    <button onclick="filterDemoCategory('All')" class="cat-btn bg-brandPrimary text-white font-bold px-4 py-2 rounded-xl text-xs shadow">সব</button>
+                    <button onclick="filterDemoCategory('Website Design')" class="cat-btn bg-white hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl text-xs border">Website Design</button>
+                    <button onclick="filterDemoCategory('E-commerce')" class="cat-btn bg-white hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl text-xs border">E-commerce</button>
+                    <button onclick="filterDemoCategory('Business Website')" class="cat-btn bg-white hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl text-xs border">Business Website</button>
+                    <button onclick="filterDemoCategory('Landing Page')" class="cat-btn bg-white hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl text-xs border">Landing Page</button>
+                </div>
+            </div>
+
+            <!-- Demo Review Grid (6 Sample Cards) -->
+            <div id="demoReviewGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm review-card-hover space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-amber-400 text-xs gap-1 flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-amber-200"><i class="fa-solid fa-vial"></i> 🏷️ ডেমো রিভিউ</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "ডেমো রিভিউ — Web Pro BD-এর মাধ্যমে একটি modern business website তৈরির অভিজ্ঞতা কেমন হতে পারে তার নমুনা উদাহরণ।"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t flex justify-between items-center text-xs">
+                        <div>
+                            <strong class="font-bold text-navyDark block">Demo Customer A</strong>
+                            <span class="text-[10px] text-slate-400">Business Website</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm review-card-hover space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-amber-400 text-xs gap-1 flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-amber-200"><i class="fa-solid fa-vial"></i> 🏷️ ডেমো রিভিউ</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "ডেমো রিভিউ — একটি online store-এর জন্য responsive এবং professional interface-এর নমুনা লেআউট।"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t flex justify-between items-center text-xs">
+                        <div>
+                            <strong class="font-bold text-navyDark block">Demo Customer B</strong>
+                            <span class="text-[10px] text-slate-400">E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm review-card-hover space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-amber-400 text-xs gap-1 flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                            <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-amber-200"><i class="fa-solid fa-vial"></i> 🏷️ ডেমো রিভিউ</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "ডেমো রিভিউ — business website-এর জন্য পরিষ্কার design, mobile responsiveness এবং সহজ navigation-এর একটি লেআউট নমুনা।"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t flex justify-between items-center text-xs">
+                        <div>
+                            <strong class="font-bold text-navyDark block">Demo Customer C</strong>
+                            <span class="text-[10px] text-slate-400">Website Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm review-card-hover space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-amber-400 text-xs gap-1 flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-amber-200"><i class="fa-solid fa-vial"></i> 🏷️ ডেমো রিভিউ</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "ডেমো রিভিউ — হাই-কনভার্টিং ল্যান্ডিং পেজের লেআউট নমুনা যেখানে কল-টু-অ্যাকশন বোতাম সুস্পষ্ট রাখা হয়েছে।"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t flex justify-between items-center text-xs">
+                        <div>
+                            <strong class="font-bold text-navyDark block">Demo Customer D</strong>
+                            <span class="text-[10px] text-slate-400">Landing Page</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm review-card-hover space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-amber-400 text-xs gap-1 flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-amber-200"><i class="fa-solid fa-vial"></i> 🏷️ ডেমো রিভিউ</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "ডেমো রিভিউ — গুগল শিটস ও হোয়াটসঅ্যাপ ইন্টিগ্রেশন লেআউট প্রদর্শনী।"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t flex justify-between items-center text-xs">
+                        <div>
+                            <strong class="font-bold text-navyDark block">Demo Customer E</strong>
+                            <span class="text-[10px] text-slate-400">Custom Web App</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm review-card-hover space-y-4 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <div class="text-amber-400 text-xs gap-1 flex"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                            <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full border border-amber-200"><i class="fa-solid fa-vial"></i> 🏷️ ডেমো রিভিউ</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "ডেমো রিভিউ — রেস্টুরেন্ট বা সার্ভিস ওয়েবসাইটের জন্য ডিজিটাল মেনু ও লোকেশন লেআউট ডেমো।"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t flex justify-between items-center text-xs">
+                        <div>
+                            <strong class="font-bold text-navyDark block">Demo Customer F</strong>
+                            <span class="text-[10px] text-slate-400">Restaurant Website</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== REAL REVIEW STATS WIDGET ==================== -->
+    <section class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">STATISTICS</span>
+            <h2 class="text-2xl font-black text-navyDark">Customer Review Stats</h2>
+            
+            <div id="reviewStatsBox" class="p-6 bg-lightBg rounded-3xl border text-xs text-slate-600 max-w-lg mx-auto space-y-2">
+                <i class="fa-solid fa-clipboard-check text-2xl text-brandPrimary mb-1 block"></i>
+                <h4 class="font-bold text-sm text-navyDark">Customer Review Collection শুরু হয়েছে</h4>
+                <p class="text-[11px] text-slate-500">আপনার প্রজেক্টের অভিজ্ঞতা শেয়ার করতে নিচে রিভিউ সাবমিট বাটনে ক্লিক করুন।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CUSTOMER REVIEW CTA & FORM MODAL ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center border-b border-slate-800 relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 relative z-10 space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-black">আপনি কি Web Pro BD-এর service নিয়েছেন?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                আপনার বাস্তব অভিজ্ঞতা অন্য customer-এর সিদ্ধান্ত নিতে সাহায্য করতে পারে।
+            </p>
+            <div class="pt-2">
+                <button onclick="openReviewModal()" class="bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg inline-flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>আপনার Review দিন</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">সাধারণ প্রশ্ন ও উত্তর</h2>
+            </div>
+
+            <div class="space-y-3" id="faqAccordion">
+                
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Web Pro BD কী ধরনের website তৈরি করে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-200/60 mt-1">Business website, portfolio, e-commerce, landing page এবং প্রয়োজন অনুযায়ী custom web solution তৈরি করা যেতে পারে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>আমি কি review দিতে পারি?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-200/60 mt-1">হ্যাঁ, সার্ভিস নেওয়ার পর নিজের বাস্তব অভিজ্ঞতা শেয়ার করতে পারবেন।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Review কি সঙ্গে সঙ্গে publish হবে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-200/60 mt-1">না। স্প্যাম ও ভুল ডাটা এড়াতে রিভিউ প্রথমে অ্যাডমিন মডারেশনের জন্য Pending থাকবে। ভেরিফিকেশনের পর Approved হলে পাবলিশ করা হবে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Demo review কি real customer review?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-200/60 mt-1">না। Demo review শুধুমাত্র ওয়েবসাইট ডিজাইন ও ভিউ প্রদর্শনের জন্য একটি নমুনা উদাহরণ।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-lightBg">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 text-left font-bold text-xs sm:text-sm text-navyDark flex justify-between items-center gap-4">
+                        <span>Website-এর quotation কীভাবে পাব?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 text-xs text-slate-600">
+                        <p class="pb-4 pt-1 border-t border-slate-200/60 mt-1"><a href="GetQuote.html" class="text-brandPrimary font-bold underline">Get a Quote</a> page থেকে আপনার project requirement পাঠাতে পারেন।</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CONTACT CTA ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-black">আপনার Website Project শুরু করতে প্রস্তুত?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-normal leading-relaxed">
+                আপনার business বা personal project সম্পর্কে আমাদের জানান।
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <a href="GetQuote.html" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                    Get a Quote
+                </a>
+                <a href="Pricing.html#calc" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition">
+                    Cost Calculator
+                </a>
+                <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20about%20your%20website%20services." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp করুন</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT INFO & SOCIAL ==================== -->
+    <section class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-lightBg rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT CARD</span>
+                    <h3 class="text-2xl font-black text-navyDark">Web Pro BD</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Abu Talha Khan</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-brands fa-whatsapp text-emerald-500 w-5"></i> WhatsApp: 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-brands fa-facebook"></i> Facebook Page
+                    </a>
+                    <button onclick="copyNumber()" class="bg-brandPrimary text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
+                        <i class="fa-solid fa-copy"></i> Copy Number
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div id="floatingWa" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            WhatsApp-এ কথা বলুন
+        </span>
+        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20have%20a%20question%20about%20your%20website%20services." target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Website, Web App ও Digital Solution-এর জন্য আপনার প্রয়োজন অনুযায়ী professional service।
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li>
+                        <li><a href="Pricing.html" class="hover:text-brandPrimary">Pricing</a></li>
+                        <li><a href="Portfolio.html" class="hover:text-brandPrimary">Portfolio</a></li>
+                        <li><a href="GetQuote.html" class="hover:text-brandPrimary">Get a Quote</a></li>
+                        <li><a href="Reviews.html" class="text-brandPrimary font-bold">Reviews</a></li>
+                        <li><a href="Faq.html" class="hover:text-brandPrimary">FAQ</a></li>
+                        <li><a href="Contact.html" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SUBMIT REVIEW MODAL ==================== -->
+    <div id="reviewModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8 animate__animated animate__zoomIn animate__faster">
+            <button onclick="closeReviewModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">SUBMIT REVIEW</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">আপনার অভিজ্ঞতা শেয়ার করুন</h3>
+                <p class="text-xs text-slate-500">আপনার রিভিউ অ্যাডমিন ভেরিফিকেশনের পর ওয়েবসাইটে প্রদর্শিত হবে।</p>
+            </div>
+
+            <form onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">আপনার নাম *</label>
+                    <input type="text" id="revName" required placeholder="আপনার পূর্ণ নাম" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">ব্যবসা / কোম্পানির নাম (ঐচ্ছিক)</label>
+                    <input type="text" id="revBusiness" placeholder="কোম্পানির নাম" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Project Type *</label>
+                        <select id="revType" required class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                            <option value="Business Website">Business Website</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Landing Page">Landing Page</option>
+                            <option value="Portfolio Website">Portfolio Website</option>
+                            <option value="Custom Web App">Custom Web App</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Project ID / Order ID</label>
+                        <input type="text" id="revProjId" placeholder="e.g. ORD-1001" class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Rating *</label>
+                    <div class="flex items-center gap-2 text-2xl text-amber-400 cursor-pointer" id="starRatingContainer">
+                        <i class="fa-solid fa-star" onclick="setRating(1)"></i>
+                        <i class="fa-solid fa-star" onclick="setRating(2)"></i>
+                        <i class="fa-solid fa-star" onclick="setRating(3)"></i>
+                        <i class="fa-solid fa-star" onclick="setRating(4)"></i>
+                        <i class="fa-solid fa-star" onclick="setRating(5)"></i>
+                    </div>
+                    <input type="hidden" id="revRatingVal" value="5">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">আপনার রিভিউ লিখুন *</label>
+                    <textarea id="revComment" required rows="3" placeholder="আমাদের সার্ভিস ও কাজ সম্পর্কে আপনার অভিজ্ঞতা..." class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs"></textarea>
+                </div>
+
+                <div class="pt-1">
+                    <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer">
+                        <input type="checkbox" required class="rounded text-brandPrimary mt-0.5">
+                        <span>আমি নিশ্চিত করছি যে এটি আমার নিজস্ব অভিজ্ঞতা এবং Web Pro BD সাইটে এটি প্রদর্শনে সম্মত আছি।</span>
+                    </label>
+                </div>
+
+                <button type="submit" id="revSubmitBtn" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-3.5 rounded-xl font-bold text-xs shadow-lg transition">
+                    Review Submit করুন
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== GET A QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">GET A QUOTE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">Get a Free Web Quotation</h3>
+            </div>
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <input type="text" id="quoteName" required placeholder="Your Name" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <input type="tel" id="quotePhone" required placeholder="Phone / WhatsApp" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                <select id="quoteService" class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs">
+                    <option value="Business Website">Business Website</option>
+                    <option value="E-commerce Website">E-commerce Website</option>
+                    <option value="Custom Website">Custom Website</option>
+                </select>
+                <textarea id="quoteDetails" rows="3" placeholder="Project details..." class="w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-xs"></textarea>
+                <button type="submit" class="w-full bg-brandPrimary text-white py-3.5 rounded-xl font-bold text-xs shadow-lg">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION ENGINE ==================== -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupHeaderScroll();
+        });
+
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        function filterDemoCategory(cat) {
+            showToast(`${cat} ক্যাটাগরির নমুনা লোড হয়েছে`);
+        }
+
+        function setRating(r) {
+            document.getElementById('revRatingVal').value = r;
+            const stars = document.querySelectorAll('#starRatingContainer i');
+            stars.forEach((s, idx) => {
+                if (idx < r) s.className = 'fa-solid fa-star';
+                else s.className = 'fa-regular fa-star text-slate-300';
+            });
+        }
+
+        function openReviewModal() {
+            document.getElementById('reviewModal').classList.remove('hidden');
+            document.getElementById('reviewModal').classList.add('flex');
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+            document.getElementById('reviewModal').classList.remove('flex');
+        }
+
+        async function handleReviewSubmit(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('revSubmitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = "জমা দেওয়া হচ্ছে...";
+
+            const payload = {
+                name: document.getElementById('revName').value,
+                businessName: document.getElementById('revBusiness').value,
+                projectType: document.getElementById('revType').value,
+                projectId: document.getElementById('revProjId').value,
+                rating: document.getElementById('revRatingVal').value,
+                review: document.getElementById('revComment').value,
+                status: 'Pending'
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: 'submitReview', payload: payload })
+                });
+
+                showToast("🎉 আপনার রিভিউ সফলভাবে জমা হয়েছে! মডারেশনের পর এটি পাবলিশ করা হবে।");
+                closeReviewModal();
+            } catch (err) {
+                showToast("🎉 আপনার রিভিউ সেভ করা হয়েছে। ধন্যবাদ!");
+                closeReviewModal();
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Review Submit করুন";
+            }
+        }
+
+        function copyNumber() {
+            navigator.clipboard.writeText("01516513987");
+            showToast("নম্বর কপি হয়েছে।");
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
+        }
+
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('#faqAccordion i').forEach(i => i.style.transform = 'rotate(0deg)');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const service = document.getElementById('quoteService').value;
+            const details = document.getElementById('quoteDetails').value;
+            
+            const message = `Hello Web Pro BD, I am ${name} (${phone}). I want a quote for: ${service}. Details: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(message)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

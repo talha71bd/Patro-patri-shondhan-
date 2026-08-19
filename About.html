@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>About Web Pro BD | Professional Website Development in Bangladesh</title>
+    <meta name="title" content="About Web Pro BD | Professional Website Development in Bangladesh">
+    <meta name="description" content="Web Pro BD সম্পর্কে জানুন। ব্যবসা, প্রতিষ্ঠান ও ব্যক্তিগত প্রয়োজন অনুযায়ী professional, responsive এবং modern website solution তৈরি করা হয়।">
+    <meta name="keywords" content="web pro bd, abu talha khan, web development bangladesh, website design dhaka, farmgate web development">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/About.html">
+    <meta property="og:title" content="About Web Pro BD | Professional Website Development in Bangladesh">
+    <meta property="og:description" content="আপনার ব্যবসার জন্য আধুনিক ও পেশাদার Website Solution - Web Pro BD">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css for smooth entrance animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .accordion-content {
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .about-card-hover {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .about-card-hover:hover {
+            transform: translateY(-6px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float, .whatsapp-pulse, .animate__animated {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Web Pro BD",
+      "url": "https://webprobd.com",
+      "telephone": "+8801516513987",
+      "email": "abutalha46700@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Farmgate",
+        "addressLocality": "Dhaka",
+        "addressCountry": "BD"
+      },
+      "provider": {
+        "@type": "Person",
+        "name": "Abu Talha Khan"
+      }
+    }
+    </script>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="Portfolio.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="About.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> About
+                    </a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="Portfolio.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="About.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">About</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2">
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-2">
+                        <span>Get a Free Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200/80 text-xs text-slate-500 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 font-medium">
+            <a href="#" class="hover:text-brandPrimary transition"><i class="fa-solid fa-house text-slate-400"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-navyDark font-bold">About Us</span>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-24 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left animate__animated animate__fadeInLeft">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                        <i class="fa-solid fa-building text-amber-400"></i>
+                        <span>ABOUT WEB PRO BD</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-snug sm:leading-tight">
+                        আপনার ব্যবসার জন্য আধুনিক ও <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">পেশাদার Website Solution</span>
+                    </h1>
+
+                    <div class="space-y-3 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        <p>Web Pro BD একটি modern web development service platform, যেখানে ব্যবসা, প্রতিষ্ঠান, উদ্যোক্তা ও ব্যক্তিগত প্রয়োজন অনুযায়ী professional website তৈরি করা হয়।</p>
+                        <p class="text-slate-400 text-xs sm:text-sm">আপনার প্রয়োজন বুঝে উপযুক্ত design, functionality এবং business-focused solution দেওয়াই আমাদের লক্ষ্য।</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="Service.html" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center gap-2">
+                            <span>আমাদের Services দেখুন</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <button onclick="scrollToContact()" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-7 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
+                            <span>যোগাযোগ করুন</span>
+                            <i class="fa-solid fa-phone text-xs text-brandPrimary"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Abstract Visual -->
+                <div class="lg:col-span-5 flex justify-center animate__animated animate__fadeInRight">
+                    <div class="w-full max-w-md bg-navyCard/90 border border-slate-700/80 rounded-2xl shadow-2xl p-5 backdrop-blur-xl animate-float relative z-10">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-700/80 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">webprobd.com/about</span>
+                            <i class="fa-solid fa-code text-xs text-brandPrimary"></i>
+                        </div>
+
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-brandPrimary flex items-center justify-center text-white font-bold">
+                                        <i class="fa-solid fa-user-gear text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Abu Talha Khan</div>
+                                        <div class="text-[10px] text-brandPrimary font-bold">Founder & Owner</div>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Verified</span>
+                            </div>
+
+                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-2 text-[11px]">
+                                <div class="text-slate-300"><i class="fa-solid fa-location-dot text-brandPrimary mr-1.5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</div>
+                                <div class="text-slate-300"><i class="fa-solid fa-phone text-brandPrimary mr-1.5"></i> 01516513987</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OWNER / FOUNDER SECTION ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Founder Information -->
+                <div class="lg:col-span-7 space-y-5">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FOUNDER & OWNER</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-navyDark">Abu Talha Khan</h2>
+                    <p class="text-xs font-bold text-brandPrimary -mt-2">Founder & Owner — Web Pro BD</p>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Web Pro BD পরিচালনা করছেন Abu Talha Khan। Website design, development এবং digital business solution-এর মাধ্যমে বিভিন্ন ধরনের ব্যবসা ও প্রতিষ্ঠানের জন্য professional online presence তৈরি করার লক্ষ্য নিয়ে Web Pro BD গড়ে তোলা হয়েছে।
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <a href="https://www.facebook.com/Abu.talha017467" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition inline-flex items-center gap-2">
+                            <i class="fa-brands fa-facebook"></i>
+                            <span>Abu Talha Khan (Facebook Profile)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Owner Contact Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-lightBg border border-slate-200 p-6 rounded-3xl shadow-sm space-y-4">
+                        <div class="border-b pb-3">
+                            <h3 class="font-extrabold text-base text-navyDark">Abu Talha Khan</h3>
+                            <p class="text-xs text-brandPrimary font-bold">Web Pro BD</p>
+                        </div>
+
+                        <div class="space-y-2.5 text-xs text-slate-700 font-medium">
+                            <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                            <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                            <p><i class="fa-brands fa-whatsapp text-emerald-500 w-5"></i> WhatsApp: 01516513987</p>
+                            <p><i class="fa-solid fa-comments text-sky-500 w-5"></i> IMO: 01516513987</p>
+                            <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t text-xs font-bold">
+                            <a href="tel:01516513987" class="bg-navyDark text-white py-2.5 rounded-xl text-center"><i class="fa-solid fa-phone mr-1"></i> Call</a>
+                            <a href="https://wa.me/8801516513987" target="_blank" class="bg-emerald-600 text-white py-2.5 rounded-xl text-center"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                            <a href="mailto:abutalha46700@gmail.com" class="bg-slate-200 text-slate-800 py-2.5 rounded-xl text-center"><i class="fa-solid fa-envelope mr-1"></i> Email</a>
+                            <button onclick="copyOwnerNumber()" class="bg-brandPrimary text-white py-2.5 rounded-xl text-center"><i class="fa-solid fa-copy mr-1"></i> Copy Number</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHAT IS WEB PRO BD & OUR MISSION ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- What is Web Pro BD -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">ABOUT US</span>
+                <h2 class="text-2xl font-black text-navyDark">Web Pro BD কী?</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Web Pro BD হলো একটি web development ও digital solution service platform, যার মাধ্যমে বিভিন্ন ব্যবসা, প্রতিষ্ঠান, উদ্যোক্তা এবং ব্যক্তিগত প্রয়োজনের জন্য আধুনিক ও responsive website তৈরি করা হয়।
+                </p>
+                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed border-t pt-3">
+                    একটি ভালো website শুধু দেখতে সুন্দর হলেই হয় না। এটি দ্রুত, mobile-friendly, ব্যবহার করা সহজ এবং ব্যবসার প্রয়োজন অনুযায়ী কার্যকর হওয়াও গুরুত্বপূর্ণ। Web Pro BD-এর লক্ষ্য হলো এই বিষয়গুলো একসাথে বিবেচনা করে practical website solution তৈরি করা।
+                </p>
+            </div>
+
+            <!-- Our Mission -->
+            <div class="space-y-6">
+                <div class="text-center max-w-2xl mx-auto">
+                    <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">MISSION</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">আমাদের লক্ষ্য</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-2">প্রতিটি ব্যবসা ও প্রতিষ্ঠানের জন্য তাদের প্রয়োজন অনুযায়ী একটি সুন্দর, ব্যবহারবান্ধব এবং কার্যকর online presence তৈরি করতে সাহায্য করা।</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover">
+                        <i class="fa-solid fa-palette text-2xl text-brandPrimary mb-3"></i>
+                        <h3 class="font-bold text-base text-navyDark mb-1">সুন্দর Design</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">ব্যবসার ধরন অনুযায়ী modern ও professional design।</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover">
+                        <i class="fa-solid fa-hand-pointer text-2xl text-amber-500 mb-3"></i>
+                        <h3 class="font-bold text-base text-navyDark mb-1">সহজ ব্যবহার</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">Customer যেন সহজেই প্রয়োজনীয় তথ্য খুঁজে পায়।</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover">
+                        <i class="fa-solid fa-mobile-screen-button text-2xl text-emerald-500 mb-3"></i>
+                        <h3 class="font-bold text-base text-navyDark mb-1">Mobile Friendly</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">মোবাইল, tablet ও computer—সব device-এ সুন্দরভাবে কাজ করে।</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover">
+                        <i class="fa-solid fa-chart-line text-2xl text-indigo-500 mb-3"></i>
+                        <h3 class="font-bold text-base text-navyDark mb-1">Business Focused</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed">শুধু design নয়, business-এর প্রয়োজনকে গুরুত্ব দেওয়া।</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== WHAT WE DO ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">SERVICES OVERVIEW</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">আমরা কী ধরনের Website তৈরি করি?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-briefcase text-2xl text-brandPrimary mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">Business Website</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">ব্যবসা ও প্রতিষ্ঠানের জন্য professional website।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-cart-shopping text-2xl text-emerald-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">E-commerce Website</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">অনলাইনে পণ্য প্রদর্শন ও বিক্রির জন্য online store।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-rocket text-2xl text-amber-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">Landing Page</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Product, service ও advertising campaign-এর জন্য focused landing page।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-user-tie text-2xl text-indigo-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">Portfolio Website</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">ব্যক্তি, freelancer, creator ও professional-এর জন্য portfolio website।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-utensils text-2xl text-red-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">Restaurant Website</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Restaurant-এর menu, location, gallery ও contact system।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-graduation-cap text-2xl text-sky-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">Education Website</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">School, coaching center, training institute ও education service-এর জন্য website।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-calendar-check text-2xl text-purple-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">Booking Website</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Appointment, service booking ও enquiry system-এর জন্য website।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200/80 about-card-hover space-y-2">
+                    <i class="fa-solid fa-code text-2xl text-teal-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">Custom Website</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">প্রয়োজন অনুযায়ী custom functionality ও unique solution।</p>
+                </div>
+            </div>
+
+            <div class="text-center pt-4">
+                <a href="Service.html" class="bg-brandPrimary text-white font-bold px-6 py-3 rounded-xl text-xs inline-flex items-center gap-2 shadow-md">
+                    <span>সকল সার্ভিস ও বিস্তারিত দেখুন</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE WEB PRO BD ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">WHY CHOOSE US</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">কেন Web Pro BD?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-sm">01</span>
+                    <h3 class="font-bold text-base text-navyDark">প্রয়োজন বুঝে কাজ</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">আপনার business ও প্রয়োজন বুঝে website-এর structure তৈরি করা হবে।</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-sm">02</span>
+                    <h3 class="font-bold text-base text-navyDark">Modern Design</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">বর্তমান সময়ের উপযোগী clean ও professional UI/UX।</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-sm">03</span>
+                    <h3 class="font-bold text-base text-navyDark">Mobile Friendly</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">মোবাইল ব্যবহারকারীদের কথা মাথায় রেখে responsive design।</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-sm">04</span>
+                    <h3 class="font-bold text-base text-navyDark">Custom Solution</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">শুধু ready-made design নয়—প্রয়োজনে custom feature যোগ করা যায়।</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-sm">05</span>
+                    <h3 class="font-bold text-base text-navyDark">Direct Communication</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">প্রয়োজন হলে সরাসরি যোগাযোগ করে project requirement আলোচনা করা যাবে।</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm about-card-hover space-y-2">
+                    <span class="text-brandPrimary font-mono font-bold text-sm">06</span>
+                    <h3 class="font-bold text-base text-navyDark">Future Ready</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">প্রয়োজনে পরবর্তীতে নতুন feature, content বা functionality যোগ করার সুযোগ রাখা যায়।</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== HOW WE WORK (TIMELINE) ==================== -->
+    <section class="py-16 bg-slate-900 text-white border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full border border-brandPrimary/20">WORK PROCESS</span>
+                <h2 class="text-2xl sm:text-3xl font-black mt-3">আমরা কীভাবে কাজ করি?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl relative">
+                    <span class="text-3xl font-mono font-black text-brandPrimary/40 block mb-2">01</span>
+                    <h3 class="font-bold text-base mb-2">আপনার প্রয়োজন জানুন</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">আপনি কী ধরনের website চান এবং আপনার business-এর প্রয়োজন কী—সেগুলো আলোচনা করা হবে।</p>
+                </div>
+
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl relative">
+                    <span class="text-3xl font-mono font-black text-brandPrimary/40 block mb-2">02</span>
+                    <h3 class="font-bold text-base mb-2">পরিকল্পনা ও Quotation</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">প্রয়োজন অনুযায়ী website structure, features এবং project scope নির্ধারণ করে quotation দেওয়া হবে।</p>
+                </div>
+
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl relative">
+                    <span class="text-3xl font-mono font-black text-brandPrimary/40 block mb-2">03</span>
+                    <h3 class="font-bold text-base mb-2">Design & Development</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">চূড়ান্ত পরিকল্পনা অনুযায়ী website design ও development করা হবে।</p>
+                </div>
+
+                <div class="bg-navyCard border border-slate-800 p-6 rounded-2xl relative">
+                    <span class="text-3xl font-mono font-black text-emerald-400/40 block mb-2">04</span>
+                    <h3 class="font-bold text-base mb-2">Review & Delivery</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Website review, প্রয়োজনীয় correction এবং final approval-এর পর project delivery করা হবে।</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== OUR APPROACH ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">APPROACH</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">আমাদের কাজের ধরন</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 rounded-3xl bg-lightBg border border-slate-200 shadow-sm text-center space-y-3">
+                    <div class="w-12 h-12 bg-brandPrimary/10 text-brandPrimary rounded-2xl flex items-center justify-center text-xl font-bold mx-auto">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-navyDark">Design First</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Website দেখতে সুন্দর হওয়ার পাশাপাশি ব্যবহার সহজ হওয়াকে গুরুত্ব দেওয়া হয়।</p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-lightBg border border-slate-200 shadow-sm text-center space-y-3">
+                    <div class="w-12 h-12 bg-amber-500/10 text-amber-500 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-navyDark">Business First</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Website-এর design ও feature business-এর প্রয়োজন অনুযায়ী সাজানো হয়।</p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-lightBg border border-slate-200 shadow-sm text-center space-y-3">
+                    <div class="w-12 h-12 bg-emerald-500/10 text-emerald-500 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-navyDark">Customer First</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Customer কীভাবে website ব্যবহার করবে—সেটিও design করার সময় বিবেচনা করা হয়।</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== GOOGLE SHEETS / AUTOMATION CAPABILITY ==================== -->
+    <section class="py-16 bg-navyDark text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+            
+            <div class="max-w-2xl mx-auto space-y-3">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full border border-brandPrimary/20">AUTOMATION</span>
+                <h2 class="text-2xl sm:text-3xl font-black">সহজ Management ও Business Automation</h2>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    প্রয়োজন অনুযায়ী Google Sheets ও Google Apps Script ব্যবহার করে website-এর data management, enquiry management, order management বা অন্যান্য business workflow তৈরি করা যেতে পারে।
+                </p>
+            </div>
+
+            <!-- Flow Diagram Visual -->
+            <div class="bg-navyCard border border-slate-800 p-6 rounded-3xl max-w-3xl mx-auto">
+                <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-xs font-bold">
+                    <div class="p-4 bg-slate-900 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                        <i class="fa-solid fa-table text-emerald-400 text-lg mb-1 block"></i>
+                        <span>Google Sheets Data</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-brandPrimary hidden sm:block"></i>
+                    <i class="fa-solid fa-arrow-down text-brandPrimary sm:hidden"></i>
+                    <div class="p-4 bg-slate-900 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                        <i class="fa-solid fa-network-wired text-amber-400 text-lg mb-1 block"></i>
+                        <span>Apps Script / API</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-brandPrimary hidden sm:block"></i>
+                    <i class="fa-solid fa-arrow-down text-brandPrimary sm:hidden"></i>
+                    <div class="p-4 bg-slate-900 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                        <i class="fa-solid fa-laptop-code text-sky-400 text-lg mb-1 block"></i>
+                        <span>Website / Admin</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== TRUST SECTION ==================== -->
+    <section class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">TRUST FACTORS</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">বিশ্বাসের ভিত্তি</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200 text-center space-y-2">
+                    <i class="fa-solid fa-comments text-2xl text-brandPrimary mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">পরিষ্কার আলোচনা</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Project শুরু করার আগে প্রয়োজন ও scope পরিষ্কারভাবে আলোচনা করা হবে।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200 text-center space-y-2">
+                    <i class="fa-solid fa-tags text-2xl text-emerald-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">স্বচ্ছ Pricing</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">কাজের scope অনুযায়ী pricing সম্পর্কে আগে আলোচনা করা হবে।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200 text-center space-y-2">
+                    <i class="fa-solid fa-sliders text-2xl text-amber-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">প্রয়োজনভিত্তিক Solution</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">সব customer-এর জন্য একই solution নয়। প্রয়োজন অনুযায়ী তৈরি করা হয়।</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-lightBg border border-slate-200 text-center space-y-2">
+                    <i class="fa-solid fa-headset text-2xl text-indigo-500 mb-1"></i>
+                    <h3 class="font-bold text-base text-navyDark">সরাসরি যোগাযোগ</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Project নিয়ে সরাসরি যোগাযোগ করে প্রয়োজনীয় বিষয় আলোচনা করা যাবে।</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center">
+                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-navyDark mt-3">সাধারণ কিছু প্রশ্ন ও উত্তর</h2>
+            </div>
+
+            <div class="space-y-4" id="faqAccordion">
+                
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Web Pro BD কী ধরনের website তৈরি করে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">Business, e-commerce, portfolio, restaurant, education, booking, landing page এবং custom website তৈরি করা যায়।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Website বানাতে কত খরচ হবে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">Website-এর ধরন, page সংখ্যা, functionality এবং আপনার প্রয়োজন অনুযায়ী খরচ পরিবর্তিত হতে পারে। সঠিক quotation-এর জন্য requirement আলোচনা করা ভালো।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Website বানাতে কতদিন লাগে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">Project-এর size ও functionality অনুযায়ী সময় পরিবর্তিত হয়। Project শুরু করার আগে সম্ভাব্য timeline আলোচনা করা হবে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>আমি কি custom feature চাইতে পারব?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">হ্যাঁ। আপনার business-এর প্রয়োজন অনুযায়ী custom feature নিয়ে আলোচনা করা যাবে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>পরে কি website update করা যাবে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">হ্যাঁ, প্রয়োজন অনুযায়ী পরবর্তীতে নতুন content বা feature যোগ করা যেতে পারে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>WhatsApp-এ যোগাযোগ করা যাবে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">হ্যাঁ। সরাসরি WhatsApp-এ যোগাযোগ করে আপনার প্রয়োজন জানাতে পারবেন।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Domain ও hosting কি আপনারা দেন?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">Domain ও hosting-এর প্রয়োজন থাকলে project requirement অনুযায়ী এ বিষয়ে আলোচনা করা যাবে।</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                    <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-navyDark flex justify-between items-center gap-4">
+                        <span>Website কি মোবাইলে কাজ করবে?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-brandPrimary transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden px-4 sm:px-5 text-xs sm:text-sm text-slate-600">
+                        <p class="pb-5 pt-1 border-t border-slate-100 mt-1">Responsive design অনুসরণ করে website তৈরি করা হলে এটি mobile, tablet ও desktop device-এর জন্য উপযোগী হবে।</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOCIAL SECTION ==================== -->
+    <section class="py-12 bg-white border-b border-slate-200 text-center">
+        <div class="max-w-4xl mx-auto px-4 space-y-6">
+            <h3 class="text-xl font-black text-navyDark">Web Pro BD-এর সাথে যুক্ত থাকুন</h3>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 text-xs font-bold">
+                <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="p-4 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 rounded-2xl flex items-center justify-center gap-2 transition">
+                    <i class="fa-brands fa-facebook text-lg"></i>
+                    <span>Web Pro BD Facebook Page</span>
+                </a>
+                <a href="https://www.facebook.com/Abu.talha017467" target="_blank" class="p-4 bg-slate-100 hover:bg-slate-200 text-navyDark border border-slate-200 rounded-2xl flex items-center justify-center gap-2 transition">
+                    <i class="fa-brands fa-facebook text-lg text-blue-600"></i>
+                    <span>Abu Talha Khan (Facebook Profile)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT CTA ==================== -->
+    <section id="contactCtaSection" class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-black">আপনার Website-এর Idea আছে?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-normal leading-relaxed">
+                আপনার business বা project সম্পর্কে আমাদের জানান। আপনার প্রয়োজন অনুযায়ী কোন ধরনের website সবচেয়ে উপযুক্ত হতে পারে—সেটি নিয়ে আলোচনা করা যাবে।
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                    Get a Quote
+                </button>
+                <a href="https://wa.me/8801516513987?text=%E0%A6%AE%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%82%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20Web%20Pro%20BD-%E0%A6%8F%E0%A6%B0%20%E0%A6%AE%E0%A6%BE%E0%A6%A5%E0%A7%8D%E0%A6%AF%E0%A6%AE%E0%A7%87%20%E0%A6%8F%E0%A6%95%E0%A6%9F%E0%A6%BF%20website%20%E0%A6%A4%E0%A7%82%E0%A6%B0%E0%A6%BF%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%BE%E0%A6%BE%E0%A6%AE%E0%A6%BE%E0%A6%B0%20requirement%20%E0%A6%A8%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A7%87%20%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%9A%E0%A6%A8%E0%A6%BE%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%BE" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp করুন</span>
+                </a>
+                <a href="tel:01516513987" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone text-brandPrimary"></i>
+                    <span>Call করুন</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT INFORMATION ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT CARD</span>
+                    <h3 class="text-2xl font-black text-navyDark">Web Pro BD</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Abu Talha Khan</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-brands fa-whatsapp text-emerald-500 w-5"></i> WhatsApp: 01516513987</p>
+                        <p><i class="fa-solid fa-comments text-sky-500 w-5"></i> IMO: 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="tel:01516513987" class="bg-navyDark hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brandPrimary"></i>
+                        <span>Call Now</span>
+                    </a>
+                    <a href="https://wa.me/8801516513987" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="mailto:abutalha46700@gmail.com" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-brandPrimary"></i>
+                        <span>Email</span>
+                    </a>
+                    <button onclick="copyOwnerNumber()" class="bg-brandPrimary hover:bg-brandDark text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>Copy Number</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            Web Pro BD-তে WhatsApp করুন
+        </span>
+        <a href="https://wa.me/8801516513987?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%82%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20Web%20Pro%20BD-%E0%A6%8F%E0%A6%B0%20website%20service%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%82%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A6%BE" target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Professional website solutions for modern businesses in Bangladesh.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                        <li>Education</li>
+                        <li>Custom Website</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li>
+                        <li><a href="Portfolio.html" class="hover:text-brandPrimary">Portfolio</a></li>
+                        <li><a href="Pricing.html" class="hover:text-brandPrimary">Pricing</a></li>
+                        <li><a href="About.html" class="text-brandPrimary font-bold">About</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>Farmgate, Dhaka, Bangladesh</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                    <p class="pt-1"><a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="text-brandPrimary hover:underline">Facebook Page</a></p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== GET A QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">GET A QUOTE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">Get a Free Web Quotation</h3>
+                <p class="text-xs text-slate-500">Fill in your details and we will discuss your website project.</p>
+            </div>
+
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                    <input type="text" id="quoteName" required placeholder="Enter your full name" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                    <input type="tel" id="quotePhone" required placeholder="01516513987" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Select Service *</label>
+                    <select id="quoteService" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                        <option value="Business Website">Business Website</option>
+                        <option value="E-commerce Website">E-commerce Website</option>
+                        <option value="Landing Page">Landing Page</option>
+                        <option value="Portfolio Website">Portfolio Website</option>
+                        <option value="Restaurant Website">Restaurant Website</option>
+                        <option value="Education Website">Education Website</option>
+                        <option value="Booking Website">Booking Website</option>
+                        <option value="Custom Website">Custom Website</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Project Requirements</label>
+                    <textarea id="quoteDetails" rows="3" placeholder="Tell us briefly about your business or required features..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-lg transition">
+                    Submit Quote Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION ENGINE ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupHeaderScroll();
+        });
+
+        // Sticky Navbar Effect
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Copy Owner Number System
+        function copyOwnerNumber() {
+            navigator.clipboard.writeText("01516513987");
+            showToast("নম্বর কপি হয়েছে।");
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function scrollToContact() {
+            document.getElementById('contactCtaSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Accordion Toggle
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('#faqAccordion i').forEach(i => i.style.transform = 'rotate(0deg)');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Quote Modal Functions
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const phone = document.getElementById('quotePhone').value;
+            const service = document.getElementById('quoteService').value;
+            const details = document.getElementById('quoteDetails').value;
+            
+            const message = `Hello Web Pro BD, I am ${name} (${phone}). I want a quote for: ${service}. Requirements: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(message)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

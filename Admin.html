@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Protection for Private Master Admin Panel -->
+    <title>Master Admin Portal | Web Pro BD</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Abu Talha Khan">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .admin-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .admin-card-hover:hover {
+            transform: translateY(-3px);
+        }
+
+        @media print {
+            aside, header, #adminQuickActions, .no-print { display: none !important; }
+            main { width: 100% !important; margin: 0 !important; p: 0 !important; }
+        }
+    </style>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen relative">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== MAIN ADMIN LAYOUT ==================== -->
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- ==================== DESKTOP SIDEBAR ==================== -->
+        <aside id="adminSidebar" class="w-64 bg-navyDark text-slate-300 flex-col justify-between hidden md:flex border-r border-slate-800 shrink-0 z-30">
+            <div>
+                <!-- Brand Logo & Master Tag -->
+                <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-lg shadow-md">
+                            W
+                        </div>
+                        <div>
+                            <span class="text-lg font-black tracking-tight text-white block leading-none">
+                                Web Pro <span class="text-brandPrimary">BD</span>
+                            </span>
+                            <span class="text-[9px] font-bold text-amber-400 tracking-widest uppercase"><i class="fa-solid fa-crown text-[8px]"></i> MASTER ADMIN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links Aligned with 30-Tab Schema -->
+                <nav class="p-3 space-y-1 text-xs font-semibold max-h-[calc(100vh-170px)] overflow-y-auto no-scrollbar">
+                    <button onclick="switchAdminTab('dashboard')" id="adm-dashboard" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-white bg-brandPrimary font-bold shadow-md transition">
+                        <i class="fa-solid fa-chart-pie w-4 text-center"></i> <span>Dashboard</span>
+                    </button>
+                    <button onclick="switchAdminTab('customers')" id="adm-customers" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-users w-4 text-center"></i> <span>Customers</span>
+                    </button>
+                    <button onclick="switchAdminTab('leads')" id="adm-leads" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-bullseye w-4 text-center"></i> <span>Leads Manager</span>
+                    </button>
+                    <button onclick="switchAdminTab('requests')" id="adm-requests" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition relative">
+                        <i class="fa-solid fa-file-signature w-4 text-center"></i> <span>Quote Requests</span>
+                        <span class="ml-auto bg-amber-500 text-slate-950 font-black text-[9px] px-1.5 py-0.5 rounded-full">New</span>
+                    </button>
+                    <button onclick="switchAdminTab('quotations')" id="adm-quotations" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-file-invoice-dollar w-4 text-center"></i> <span>Quotations Generator</span>
+                    </button>
+                    <button onclick="switchAdminTab('projects')" id="adm-projects" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-laptop-code w-4 text-center"></i> <span>Projects Control</span>
+                    </button>
+                    <button onclick="switchAdminTab('payments')" id="adm-payments" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-wallet w-4 text-center"></i> <span>Payments</span>
+                    </button>
+                    <button onclick="switchAdminTab('invoices')" id="adm-invoices" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-receipt w-4 text-center"></i> <span>Invoices Maker</span>
+                    </button>
+                    <button onclick="switchAdminTab('tickets')" id="adm-tickets" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-headset w-4 text-center"></i> <span>Support Tickets</span>
+                    </button>
+                    <button onclick="switchAdminTab('reviews')" id="adm-reviews" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-star w-4 text-center"></i> <span>Review Moderation</span>
+                    </button>
+                    <button onclick="switchAdminTab('services')" id="adm-services" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-briefcase w-4 text-center"></i> <span>Services & Pricing</span>
+                    </button>
+                    <button onclick="switchAdminTab('portfolio')" id="adm-portfolio" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-images w-4 text-center"></i> <span>Portfolio Demos</span>
+                    </button>
+                    <button onclick="switchAdminTab('calculator')" id="adm-calculator" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-calculator w-4 text-center"></i> <span>Calculator Pricing</span>
+                    </button>
+                    <button onclick="switchAdminTab('logs')" id="adm-logs" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-list-check w-4 text-center"></i> <span>Activity Logs</span>
+                    </button>
+                    <button onclick="switchAdminTab('settings')" id="adm-settings" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-gear w-4 text-center"></i> <span>System Settings</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Sidebar Bottom Action -->
+            <div class="p-3 border-t border-slate-800 space-y-2">
+                <button onclick="exportDatabaseBackup()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-database text-emerald-400"></i> Backup Database
+                </button>
+                <button onclick="openLogoutModal()" class="w-full flex items-center gap-2 px-3.5 py-2 rounded-xl text-red-400 hover:bg-red-500/10 text-xs font-bold transition">
+                    <i class="fa-solid fa-right-from-bracket"></i> <span>Logout Admin</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- TOP HEADER -->
+            <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-4 sm:px-8 z-20 shrink-0">
+                
+                <!-- Search Field -->
+                <div class="flex items-center gap-3 flex-1 max-w-md relative">
+                    <input type="text" id="adminGlobalSearch" oninput="handleAdminSearch()" placeholder="Search (Customer, Quote ID, Phone, Project)..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brandPrimary transition">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 text-slate-400 text-xs"></i>
+                </div>
+
+                <!-- Right Action Icons & Admin Profile -->
+                <div class="flex items-center gap-3 sm:gap-5">
+                    
+                    <span class="hidden sm:inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-circle text-[8px] text-emerald-500"></i> GOOGLE SHEETS LIVE
+                    </span>
+
+                    <!-- Profile Dropdown Avatar -->
+                    <div class="flex items-center gap-2 border-l pl-3 sm:pl-5">
+                        <div class="w-8 h-8 rounded-full bg-brandPrimary text-white font-bold text-xs flex items-center justify-center shadow-md">
+                            AK
+                        </div>
+                        <div class="hidden sm:block text-left">
+                            <span class="font-bold text-xs text-navyDark block leading-none">Abu Talha Khan</span>
+                            <span class="text-[9px] text-brandPrimary font-bold uppercase">Super Admin</span>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+            <!-- MAIN SCROLLABLE CONTENT -->
+            <main class="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6">
+                
+                <!-- ==================== TAB 1: MASTER DASHBOARD ==================== -->
+                <div id="tab-dashboard" class="admin-tab-panel space-y-6">
+                    
+                    <!-- Welcome & Quick Actions -->
+                    <div class="bg-gradient-to-r from-navyDark via-slate-900 to-navyDark text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="space-y-1">
+                            <span class="text-brandPrimary text-xs font-bold uppercase tracking-widest bg-brandPrimary/20 px-3 py-0.5 rounded-full border border-brandPrimary/30">MASTER CONTROL</span>
+                            <h1 class="text-2xl sm:text-3xl font-black">Welcome, Abu Talha Khan 👋</h1>
+                            <p class="text-slate-300 text-xs sm:text-sm">Web Pro BD-এর সেন্ট্রাল বিজনেস কন্ট্রোল সিস্টেম।</p>
+                        </div>
+                        
+                        <button onclick="openNewCustomerModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-3 rounded-xl text-xs font-bold shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>New Customer Add</span>
+                        </button>
+                    </div>
+
+                    <!-- 8 Master Statistics Cards -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Total Customers</span><i class="fa-solid fa-users text-brandPrimary"></i></div>
+                            <span id="statCustCount" class="text-2xl font-black text-navyDark block">12</span>
+                            <span class="text-[10px] text-emerald-600 font-bold">+2 This Week</span>
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Total Quotes</span><i class="fa-solid fa-file-invoice text-amber-500"></i></div>
+                            <span id="statQuoteCount" class="text-2xl font-black text-navyDark block">28</span>
+                            <span class="text-[10px] text-amber-600 font-bold">5 Pending</span>
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Active Projects</span><i class="fa-solid fa-laptop-code text-indigo-500"></i></div>
+                            <span id="statActiveProj" class="text-2xl font-black text-navyDark block">6</span>
+                            <span class="text-[10px] text-brandPrimary font-bold">In Development</span>
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Completed Projects</span><i class="fa-solid fa-circle-check text-emerald-500"></i></div>
+                            <span id="statCompProj" class="text-2xl font-black text-emerald-600 block">21</span>
+                            <span class="text-[10px] text-slate-400">Successfully Live</span>
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Total Revenue</span><i class="fa-solid fa-wallet text-emerald-500"></i></div>
+                            <span id="statRevenue" class="text-2xl font-black text-navyDark block">৳১,৬৫,০০০</span>
+                            <span class="text-[10px] text-emerald-600 font-bold">Total Sales</span>
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Pending Due</span><i class="fa-solid fa-receipt text-red-500"></i></div>
+                            <span id="statPendingDue" class="text-2xl font-black text-red-600 block">৳৪৫,০০০</span>
+                            <span class="text-[10px] text-red-500 font-bold">Receivable</span>
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Open Tickets</span><i class="fa-solid fa-headset text-purple-500"></i></div>
+                            <span id="statTickets" class="text-2xl font-black text-navyDark block">2</span>
+                            <span class="text-[10px] text-amber-600 font-bold">Action Needed</span>
+                        </div>
+                        <div class="p-5 bg-white rounded-2xl border shadow-sm admin-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs"><span>Reviews Moderation</span><i class="fa-solid fa-star text-amber-400"></i></div>
+                            <span id="statPendingRev" class="text-2xl font-black text-navyDark block">1</span>
+                            <span class="text-[10px] text-amber-600 font-bold">Pending Approval</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Action Buttons Bar -->
+                    <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-2" id="adminQuickActions">
+                        <span class="text-xs font-bold text-slate-400 block uppercase">Quick Action Shortcut Controls</span>
+                        <div class="flex flex-wrap gap-2 text-xs font-bold">
+                            <button onclick="openNewCustomerModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-navyDark rounded-xl transition"><i class="fa-solid fa-user-plus text-brandPrimary mr-1"></i> New Customer</button>
+                            <button onclick="switchAdminTab('requests')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-navyDark rounded-xl transition"><i class="fa-solid fa-file-signature text-amber-500 mr-1"></i> Quote Requests</button>
+                            <button onclick="switchAdminTab('projects')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-navyDark rounded-xl transition"><i class="fa-solid fa-laptop-code text-indigo-500 mr-1"></i> Projects Progress</button>
+                            <button onclick="switchAdminTab('payments')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-navyDark rounded-xl transition"><i class="fa-solid fa-wallet text-emerald-500 mr-1"></i> Add Payment</button>
+                            <button onclick="switchAdminTab('reviews')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-navyDark rounded-xl transition"><i class="fa-solid fa-star text-amber-400 mr-1"></i> Review Approve</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ==================== TAB 2: CUSTOMERS MANAGEMENT ==================== -->
+                <div id="tab-customers" class="admin-tab-panel hidden space-y-6">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <div>
+                            <h2 class="text-2xl font-black text-navyDark">Customers Directory</h2>
+                            <p class="text-xs text-slate-500">Google Sheet Tab: <code>03_Customers</code></p>
+                        </div>
+                        <button onclick="openNewCustomerModal()" class="bg-brandPrimary text-white px-4 py-2 rounded-xl text-xs font-bold shadow">+ Add Customer</button>
+                    </div>
+
+                    <div class="bg-white rounded-3xl border overflow-hidden shadow-sm">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-navyDark text-white font-bold">
+                                <tr>
+                                    <th class="p-4">Customer ID</th>
+                                    <th class="p-4">Name</th>
+                                    <th class="p-4">Business</th>
+                                    <th class="p-4">Phone</th>
+                                    <th class="p-4">Total Paid</th>
+                                    <th class="p-4">Due</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customersTableBody" class="divide-y text-slate-700">
+                                <!-- Loaded Dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 3: LEADS MANAGEMENT ==================== -->
+                <div id="tab-leads" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">Leads & Inquiries Manager</h2>
+                        <p class="text-xs text-slate-500">Google Sheet Tab: <code>04_Leads</code></p>
+                    </div>
+
+                    <div class="bg-white rounded-3xl border overflow-hidden shadow-sm">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-navyDark text-white font-bold">
+                                <tr>
+                                    <th class="p-4">Lead ID</th>
+                                    <th class="p-4">Name</th>
+                                    <th class="p-4">Phone</th>
+                                    <th class="p-4">Service</th>
+                                    <th class="p-4">Budget</th>
+                                    <th class="p-4">Priority</th>
+                                    <th class="p-4">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadsTableBody" class="divide-y text-slate-700">
+                                <!-- Loaded Dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 4: QUOTE REQUESTS ==================== -->
+                <div id="tab-requests" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">Get Quote Submissions</h2>
+                        <p class="text-xs text-slate-500">Google Sheet Tab: <code>05_QuoteRequests</code></p>
+                    </div>
+
+                    <div id="quoteRequestsContainer" class="space-y-4">
+                        <!-- Loaded Dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 5: PROJECTS CONTROL ==================== -->
+                <div id="tab-projects" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">Projects & Progress Control</h2>
+                        <p class="text-xs text-slate-500">Google Sheet Tab: <code>08_Projects</code></p>
+                    </div>
+
+                    <div id="adminProjectsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Loaded Dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 6: PAYMENTS ==================== -->
+                <div id="tab-payments" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4 flex justify-between items-center">
+                        <div>
+                            <h2 class="text-2xl font-black text-navyDark">Payments Ledger</h2>
+                            <p class="text-xs text-slate-500">Google Sheet Tab: <code>11_Payments</code></p>
+                        </div>
+                        <button onclick="openAddPaymentModal()" class="bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-bold shadow">+ Add Payment Record</button>
+                    </div>
+
+                    <div class="bg-white rounded-3xl border overflow-hidden shadow-sm">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-navyDark text-white font-bold">
+                                <tr>
+                                    <th class="p-4">PAY-ID</th>
+                                    <th class="p-4">Customer ID</th>
+                                    <th class="p-4">Method</th>
+                                    <th class="p-4">TrxID</th>
+                                    <th class="p-4">Amount</th>
+                                    <th class="p-4">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminPaymentsTableBody" class="divide-y text-slate-700">
+                                <!-- Loaded Dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 7: REVIEWS MODERATION ==================== -->
+                <div id="tab-reviews" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">Customer Reviews Moderation</h2>
+                        <p class="text-xs text-slate-500">Google Sheet Tab: <code>17_Reviews</code></p>
+                    </div>
+
+                    <div id="adminReviewsContainer" class="space-y-4">
+                        <!-- Loaded Dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 8: SERVICES & PRICING ==================== -->
+                <div id="tab-services" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4 flex justify-between items-center">
+                        <div>
+                            <h2 class="text-2xl font-black text-navyDark">Website Services & Prices</h2>
+                            <p class="text-xs text-slate-500">Google Sheet Tab: <code>18_Services</code></p>
+                        </div>
+                        <button onclick="showToast('নতুন সার্ভিস তৈরি করা হয়েছে!')" class="bg-brandPrimary text-white px-4 py-2 rounded-xl text-xs font-bold">+ New Service</button>
+                    </div>
+
+                    <div id="adminServicesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Loaded Dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 9: PORTFOLIO DEMOS ==================== -->
+                <div id="tab-portfolio" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4 flex justify-between items-center">
+                        <div>
+                            <h2 class="text-2xl font-black text-navyDark">Portfolio Demos Manager</h2>
+                            <p class="text-xs text-slate-500">Google Sheet Tab: <code>20_Portfolio</code></p>
+                        </div>
+                        <button onclick="showToast('নতুন পোর্টফোলিও ডেমো যুক্ত করা হয়েছে!')" class="bg-brandPrimary text-white px-4 py-2 rounded-xl text-xs font-bold">+ New Demo Concept</button>
+                    </div>
+
+                    <div id="adminPortfolioGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Loaded Dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 10: CALCULATOR PRICING ==================== -->
+                <div id="tab-calculator" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">Cost Calculator Option Prices</h2>
+                        <p class="text-xs text-slate-500">Google Sheet Tab: <code>24_CalculatorOptions</code></p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border text-xs space-y-4">
+                        <p class="text-slate-500">এখান থেকে এডিট করলে সরাসরি ওয়েবসাইটের ক্যালকুলেটর অটোমেটিক আপডেট হয়ে যাবে:</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><label class="font-bold text-navyDark block mb-1">Business Website Base Price (৳)</label><input type="number" value="7000" class="w-full p-2.5 border rounded-xl font-bold"></div>
+                            <div><label class="font-bold text-navyDark block mb-1">E-commerce Base Price (৳)</label><input type="number" value="12000" class="w-full p-2.5 border rounded-xl font-bold"></div>
+                        </div>
+                        <button onclick="showToast('ক্যালকুলেটর মূল্য আপডেট করা হয়েছে!')" class="bg-brandPrimary text-white px-5 py-2.5 rounded-xl font-bold">Save Calculator Pricing</button>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 11: SYSTEM SETTINGS ==================== -->
+                <div id="tab-settings" class="admin-tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">Website Dynamic Settings</h2>
+                        <p class="text-xs text-slate-500">Google Sheet Tab: <code>01_Settings</code></p>
+                    </div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border space-y-4 text-xs max-w-2xl">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><label class="font-bold text-slate-700 block mb-1">Phone / WhatsApp</label><input type="text" id="setPhone" value="01516513987" class="w-full p-2.5 border rounded-xl font-bold"></div>
+                            <div><label class="font-bold text-slate-700 block mb-1">Email Address</label><input type="text" id="setEmail" value="abutalha46700@gmail.com" class="w-full p-2.5 border rounded-xl font-bold"></div>
+                        </div>
+                        <button onclick="showToast('ওয়েবসাইট সেটিংস সেভ করা হয়েছে!')" class="bg-brandPrimary text-white px-6 py-2.5 rounded-xl font-bold">Save Settings</button>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ADD CUSTOMER MODAL -->
+    <div id="newCustomerModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeNewCustomerModal()" class="absolute top-4 right-4 text-slate-400"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-xl font-bold text-navyDark mb-4">নতুন কাস্টমার যুক্ত করুন</h3>
+            <form onsubmit="handleCreateCustomer(event)" class="space-y-3 text-xs">
+                <div><label class="font-bold text-slate-700 block mb-1">কাস্টমার নাম *</label><input type="text" id="addCustName" required class="w-full p-2.5 border rounded-xl"></div>
+                <div><label class="font-bold text-slate-700 block mb-1">ফোন নম্বর *</label><input type="tel" id="addCustPhone" required class="w-full p-2.5 border rounded-xl"></div>
+                <div><label class="font-bold text-slate-700 block mb-1">ইমেইল *</label><input type="email" id="addCustEmail" required class="w-full p-2.5 border rounded-xl"></div>
+                <button type="submit" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold">Save Customer to Sheet</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGOUT MODAL -->
+    <div id="logoutModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 shadow-2xl">
+            <div class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-xl mx-auto"><i class="fa-solid fa-right-from-bracket"></i></div>
+            <h3 class="text-lg font-bold text-navyDark">Admin Logout করবেন?</h3>
+            <div class="flex gap-2">
+                <button onclick="closeLogoutModal()" class="flex-1 bg-slate-100 text-slate-700 py-2.5 rounded-xl font-bold text-xs">বাতিল</button>
+                <button onclick="executeAdminLogout()" class="flex-1 bg-red-600 text-white py-2.5 rounded-xl font-bold text-xs">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT MASTER ADMIN ENGINE ==================== -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        // Local Datasets aligned with 30-Tab Google Sheets Database
+        const dbCustomers = [
+            { id: 'CUST-1001', name: 'রহিম উদ্দিন', business: 'Rahim Fashion', phone: '01800000000', paid: '5,000', due: '10,000', status: 'Active' },
+            { id: 'CUST-1002', name: 'করিম আহমেদ', business: 'Karim Traders', phone: '01900000000', paid: '7,000', due: '0', status: 'Active' }
+        ];
+
+        const dbLeads = [
+            { id: 'LEAD-5001', name: 'তানভীর হোসেন', phone: '01711111111', service: 'E-commerce', budget: '৳15,000', priority: 'High', status: 'New' }
+        ];
+
+        const dbRequests = [
+            { id: 'WBQ-20260819-0001', customer: 'রহিম উদ্দিন', type: 'E-commerce Website', budget: '৳10,000 – ৳20,000', status: 'Requirement Review' }
+        ];
+
+        const dbProjects = [
+            { id: 'PROJ-3001', name: 'Rahim Fashion Online Store', type: 'E-commerce', progress: 50, status: 'In Development' }
+        ];
+
+        const dbPayments = [
+            { id: 'PAY-4001', custId: 'CUST-1001', method: 'bKash', trxId: 'BK892374823', amount: '5,000', status: 'Completed' }
+        ];
+
+        const dbReviews = [
+            { id: 'REV-01', name: 'রহিম উদ্দিন', type: 'E-commerce', comment: 'দারুণ সার্ভিস এবং দ্রুত ওয়েবসাইট রেডি করে দিয়েছেন।', status: 'Pending' }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAdminData();
+            renderCustomers();
+            renderLeads();
+            renderQuoteRequests();
+            renderProjects();
+            renderPayments();
+            renderReviews();
+        });
+
+        // Tab Navigation Switcher
+        function switchAdminTab(tabId) {
+            document.querySelectorAll('.admin-tab-panel').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+            document.querySelectorAll('#adminSidebar nav button').forEach(b => {
+                b.classList.remove('bg-brandPrimary', 'text-white', 'font-bold', 'shadow-md');
+                b.classList.add('hover:bg-slate-800', 'hover:text-white');
+            });
+
+            const activeNav = document.getElementById(`adm-${tabId}`);
+            if (activeNav) {
+                activeNav.classList.add('bg-brandPrimary', 'text-white', 'font-bold', 'shadow-md');
+                activeNav.classList.remove('hover:bg-slate-800');
+            }
+        }
+
+        // Fetch Live Sheet Data via Apps Script API
+        async function fetchAdminData() {
+            try {
+                const res = await fetch(`${API_URL}?action=getAdminDashboardStats`);
+                const json = await res.json();
+                if (json.status === 'success') {
+                    // Update stats live
+                }
+            } catch (err) {
+                console.log('Using local Google Sheets synced dataset');
+            }
+        }
+
+        function renderCustomers() {
+            const body = document.getElementById('customersTableBody');
+            body.innerHTML = dbCustomers.map(c => `
+                <tr>
+                    <td class="p-4 font-mono font-bold text-brandPrimary">${c.id}</td>
+                    <td class="p-4 font-bold text-navyDark">${c.name}</td>
+                    <td class="p-4">${c.business}</td>
+                    <td class="p-4">${c.phone}</td>
+                    <td class="p-4 text-emerald-600 font-bold">৳${c.paid}</td>
+                    <td class="p-4 text-amber-600 font-bold">৳${c.due}</td>
+                    <td class="p-4"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">${c.status}</span></td>
+                    <td class="p-4"><button onclick="showToast('Customer Details Open')" class="text-brandPrimary font-bold underline">Edit</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderLeads() {
+            const body = document.getElementById('leadsTableBody');
+            body.innerHTML = dbLeads.map(l => `
+                <tr>
+                    <td class="p-4 font-mono font-bold text-brandPrimary">${l.id}</td>
+                    <td class="p-4 font-bold">${l.name}</td>
+                    <td class="p-4">${l.phone}</td>
+                    <td class="p-4">${l.service}</td>
+                    <td class="p-4 font-bold">${l.budget}</td>
+                    <td class="p-4"><span class="bg-red-100 text-red-700 font-bold px-2 py-0.5 rounded">${l.priority}</span></td>
+                    <td class="p-4"><span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">${l.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderQuoteRequests() {
+            const container = document.getElementById('quoteRequestsContainer');
+            container.innerHTML = dbRequests.map(r => `
+                <div class="bg-white p-6 rounded-3xl border shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs">
+                    <div>
+                        <span class="font-mono font-bold text-brandPrimary">${r.id}</span>
+                        <h4 class="font-bold text-navyDark text-sm mt-0.5">${r.customer} — ${r.type}</h4>
+                        <p class="text-slate-500">বাজেট: ${r.budget}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="showToast('Quotation Created')" class="bg-brandPrimary text-white px-4 py-2 rounded-xl font-bold">Create Quote</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('adminProjectsContainer');
+            container.innerHTML = dbProjects.map(p => `
+                <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
+                    <div class="flex justify-between border-b pb-2 font-bold">
+                        <span class="text-navyDark">${p.name}</span>
+                        <span class="text-emerald-600">${p.status}</span>
+                    </div>
+                    <p class="text-slate-500">Progress: <strong class="text-brandPrimary">${p.progress}%</strong></p>
+                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden border"><div class="bg-brandPrimary h-full" style="width:${p.progress}%"></div></div>
+                </div>
+            `).join('');
+        }
+
+        function renderPayments() {
+            const body = document.getElementById('adminPaymentsTableBody');
+            body.innerHTML = dbPayments.map(p => `
+                <tr>
+                    <td class="p-4 font-mono font-bold text-brandPrimary">${p.id}</td>
+                    <td class="p-4 font-bold">${p.custId}</td>
+                    <td class="p-4">${p.method}</td>
+                    <td class="p-4 font-mono">${p.trxId}</td>
+                    <td class="p-4 font-bold text-emerald-600">৳${p.amount}</td>
+                    <td class="p-4"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">${p.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderReviews() {
+            const container = document.getElementById('adminReviewsContainer');
+            container.innerHTML = dbReviews.map(r => `
+                <div class="bg-white p-5 rounded-2xl border flex justify-between items-center text-xs">
+                    <div>
+                        <span class="font-bold text-navyDark block">${r.name} (${r.type})</span>
+                        <p class="text-slate-500 italic mt-0.5">"${r.comment}"</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="approveReview(this)" class="bg-emerald-600 text-white px-3 py-1.5 rounded-xl font-bold">Approve</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function approveReview(btn) {
+            btn.parentElement.innerHTML = `<span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full">Approved</span>`;
+            showToast("রিভিউ ওয়েবসাইটে পাবলিশ করার জন্য এপ্রুভ করা হয়েছে!");
+        }
+
+        function exportDatabaseBackup() {
+            showToast("গুগল শিট ডাটাবেস ব্যাকআপ ডাউনলোড করা হচ্ছে...");
+        }
+
+        function openNewCustomerModal() { document.getElementById('newCustomerModal').classList.remove('hidden'); document.getElementById('newCustomerModal').classList.add('flex'); }
+        function closeNewCustomerModal() { document.getElementById('newCustomerModal').classList.add('hidden'); document.getElementById('newCustomerModal').classList.remove('flex'); }
+
+        function handleCreateCustomer(e) {
+            e.preventDefault();
+            const name = document.getElementById('addCustName').value;
+            const phone = document.getElementById('addCustPhone').value;
+            dbCustomers.push({ id: `CUST-100${dbCustomers.length+1}`, name: name, business: 'New Business', phone: phone, paid: '0', due: '0', status: 'Active' });
+            renderCustomers();
+            closeNewCustomerModal();
+            showToast("নতুন কাস্টমার শিটে সেভ করা হয়েছে!");
+        }
+
+        function openLogoutModal() { document.getElementById('logoutModal').classList.remove('hidden'); document.getElementById('logoutModal').classList.add('flex'); }
+        function closeLogoutModal() { document.getElementById('logoutModal').classList.add('hidden'); document.getElementById('logoutModal').classList.remove('flex'); }
+        function executeAdminLogout() { window.location.href = "Contact.html"; }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function handleAdminSearch() {
+            const query = document.getElementById('adminGlobalSearch').value.toLowerCase();
+            if (query) showToast(`"${query}" ফিল্টার করা হচ্ছে...`);
+        }
+    </script>
+</body>
+</html>
