@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Protection for Private Customer Dashboard -->
+    <title>Customer Dashboard | Web Pro BD</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Abu Talha Khan">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .dash-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dash-card-hover:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Shimmer Loading */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float, .whatsapp-pulse, .animate__animated {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen relative">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== MAIN DASHBOARD LAYOUT ==================== -->
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- ==================== DESKTOP SIDEBAR ==================== -->
+        <aside id="desktopSidebar" class="w-64 bg-navyDark text-slate-300 flex-col justify-between hidden md:flex border-r border-slate-800 shrink-0 z-30">
+            <div>
+                <!-- Brand Logo Area -->
+                <div class="p-5 border-b border-slate-800 flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-lg shadow-md">
+                        W
+                    </div>
+                    <div>
+                        <span class="text-lg font-black tracking-tight text-white block leading-none">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase">Client Dashboard</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="p-3 space-y-1 text-xs font-semibold max-h-[calc(100vh-160px)] overflow-y-auto no-scrollbar">
+                    <button onclick="switchTab('overview')" id="nav-overview" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-white bg-brandPrimary font-bold shadow-md transition">
+                        <i class="fa-solid fa-house w-4 text-center"></i> <span>ড্যাশবোর্ড</span>
+                    </button>
+                    <button onclick="switchTab('quotes')" id="nav-quotes" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-file-invoice-dollar w-4 text-center"></i> <span>আমার কোটেশন</span>
+                    </button>
+                    <button onclick="switchTab('projects')" id="nav-projects" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-laptop-code w-4 text-center"></i> <span>প্রজেক্ট স্ট্যাটাস</span>
+                    </button>
+                    <button onclick="switchTab('orders')" id="nav-orders" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-cart-shopping w-4 text-center"></i> <span>আমার অর্ডার</span>
+                    </button>
+                    <button onclick="switchTab('payments')" id="nav-payments" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-wallet w-4 text-center"></i> <span>পেমেন্ট হিস্ট্রি</span>
+                    </button>
+                    <button onclick="switchTab('invoices')" id="nav-invoices" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-receipt w-4 text-center"></i> <span>ইনভয়েস</span>
+                    </button>
+                    <button onclick="switchTab('files')" id="nav-files" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-folder-open w-4 text-center"></i> <span>প্রজেক্ট ফাইলস</span>
+                    </button>
+                    <button onclick="switchTab('support')" id="nav-support" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition relative">
+                        <i class="fa-solid fa-headset w-4 text-center"></i> <span>সাপোর্ট টিকিট</span>
+                        <span id="ticketBadge" class="ml-auto bg-amber-500 text-slate-950 font-black text-[9px] px-1.5 py-0.5 rounded-full">1</span>
+                    </button>
+                    <button onclick="switchTab('notifications')" id="nav-notifications" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition relative">
+                        <i class="fa-solid fa-bell w-4 text-center"></i> <span>নোটিফিকেশন</span>
+                        <span id="notifBadge" class="ml-auto bg-red-500 text-white font-bold text-[9px] px-1.5 py-0.5 rounded-full">3</span>
+                    </button>
+                    <button onclick="switchTab('reviews')" id="nav-reviews" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-star w-4 text-center"></i> <span>আমার রিভিউ</span>
+                    </button>
+                    <button onclick="switchTab('profile')" id="nav-profile" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-user w-4 text-center"></i> <span>প্রোফাইল</span>
+                    </button>
+                    <button onclick="switchTab('settings')" id="nav-settings" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-slate-800 hover:text-white transition">
+                        <i class="fa-solid fa-gear w-4 text-center"></i> <span>সেটিংস</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Sidebar Bottom Info & Logout -->
+            <div class="p-3 border-t border-slate-800 space-y-2">
+                <div class="p-2.5 bg-slate-900 rounded-xl text-[10px] text-slate-400 flex items-center gap-2">
+                    <i class="fa-solid fa-database text-emerald-400"></i>
+                    <span>Google Sheets DB Connected</span>
+                </div>
+                <button onclick="openLogoutModal()" class="w-full flex items-center gap-2 px-3.5 py-2 rounded-xl text-red-400 hover:bg-red-500/10 text-xs font-bold transition">
+                    <i class="fa-solid fa-right-from-bracket"></i> <span>লগআউট (Logout)</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT AREA ==================== -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- TOP HEADER -->
+            <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-4 sm:px-8 z-20 shrink-0">
+                
+                <!-- Search Field -->
+                <div class="flex items-center gap-3 flex-1 max-w-md relative">
+                    <input type="text" id="dashSearchInput" oninput="handleDashSearch()" placeholder="খুঁজুন (Quote ID, Project, Invoice)..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brandPrimary transition">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 text-slate-400 text-xs"></i>
+                </div>
+
+                <!-- Right Action Icons & User Menu -->
+                <div class="flex items-center gap-3 sm:gap-5">
+                    
+                    <!-- Environment Badge -->
+                    <span class="hidden lg:inline-flex items-center gap-1.5 bg-amber-50 text-amber-800 border border-amber-200 text-[10px] font-bold px-2.5 py-1 rounded-full">
+                        <i class="fa-solid fa-[#000] fa-flask"></i> DEMO DATA / PREVIEW
+                    </span>
+
+                    <!-- Quick Notification Icon -->
+                    <button onclick="switchTab('notifications')" class="relative text-slate-600 hover:text-brandPrimary text-lg">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">3</span>
+                    </button>
+
+                    <!-- User Profile Dropdown Avatar -->
+                    <div class="relative flex items-center gap-2 border-l pl-3 sm:pl-5">
+                        <div class="w-8 h-8 rounded-full bg-brandPrimary/10 text-brandPrimary font-bold text-xs flex items-center justify-center border border-brandPrimary/30">
+                            RU
+                        </div>
+                        <div class="hidden sm:block text-left">
+                            <span id="headerCustName" class="font-bold text-xs text-navyDark block leading-none">রহিম উদ্দিন</span>
+                            <span class="text-[9px] text-slate-400 font-semibold">CUST-1001</span>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+            <!-- MAIN SCROLLABLE CONTENT -->
+            <main id="dashMainContent" class="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6">
+                
+                <!-- Loading Skeleton -->
+                <div id="dashSkeleton" class="hidden space-y-6">
+                    <div class="h-28 w-full shimmer rounded-3xl"></div>
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="h-24 shimmer rounded-2xl"></div>
+                        <div class="h-24 shimmer rounded-2xl"></div>
+                        <div class="h-24 shimmer rounded-2xl"></div>
+                        <div class="h-24 shimmer rounded-2xl"></div>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 1: OVERVIEW ==================== -->
+                <div id="tab-overview" class="tab-panel space-y-6">
+                    
+                    <!-- Welcome Banner & Smart Next Action -->
+                    <div class="bg-gradient-to-r from-navyDark via-slate-900 to-navyDark text-white p-6 sm:p-8 rounded-3xl shadow-xl relative overflow-hidden flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="space-y-1 relative z-10">
+                            <span class="text-brandPrimary text-xs font-bold uppercase tracking-widest bg-brandPrimary/20 px-3 py-0.5 rounded-full border border-brandPrimary/30">ACCOUNT DASHBOARD</span>
+                            <h1 class="text-2xl sm:text-3xl font-black">স্বাগতম, <span id="welcomeCustName">রহিম উদ্দিন</span> 👋</h1>
+                            <p class="text-slate-300 text-xs sm:text-sm">আপনার প্রজেক্টের বর্তমান অবস্থা এক নজরে দেখুন।</p>
+                        </div>
+                        
+                        <!-- Next Action Card -->
+                        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl text-xs space-y-1.5 w-full sm:w-auto shrink-0 relative z-10">
+                            <span class="text-amber-400 font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle-exclamation"></i> পরবর্তী কাজ:</span>
+                            <p id="nextActionText" class="text-white font-semibold">আপনার কোটেশন রিভিউ করে Accept করুন</p>
+                            <button onclick="switchTab('quotes')" class="text-brandPrimary font-bold text-[11px] underline block pt-0.5">কোটেশন দেখুন &rarr;</button>
+                        </div>
+                    </div>
+
+                    <!-- 4 Quick Statistics Cards -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm dash-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs">
+                                <span>সচল প্রজেক্ট</span>
+                                <i class="fa-solid fa-laptop-code text-brandPrimary"></i>
+                            </div>
+                            <span id="statActiveProjects" class="text-2xl font-black text-navyDark block">1</span>
+                            <span class="text-[10px] text-emerald-600 font-semibold">ইন-ডেভেলপমেন্ট</span>
+                        </div>
+
+                        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm dash-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs">
+                                <span>মোট পরিশোধিত</span>
+                                <i class="fa-solid fa-wallet text-emerald-500"></i>
+                            </div>
+                            <span id="statTotalPaid" class="text-2xl font-black text-navyDark block">৳৫,০০০</span>
+                            <span class="text-[10px] text-slate-400">অ্যাডভান্স পেমেন্ট</span>
+                        </div>
+
+                        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm dash-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs">
+                                <span>বকেয়া (Due)</span>
+                                <i class="fa-solid fa-receipt text-amber-500"></i>
+                            </div>
+                            <span id="statPendingPayments" class="text-2xl font-black text-amber-600 block">৳১০,০০০</span>
+                            <span class="text-[10px] text-slate-400">প্রজেক্ট ডেলিভারিতে প্রদেয়</span>
+                        </div>
+
+                        <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm dash-card-hover space-y-1">
+                            <div class="flex justify-between items-center text-slate-400 text-xs">
+                                <span>ওপেন টিকেট</span>
+                                <i class="fa-solid fa-headset text-indigo-500"></i>
+                            </div>
+                            <span id="statOpenTickets" class="text-2xl font-black text-navyDark block">1</span>
+                            <span class="text-[10px] text-amber-600 font-semibold">ইন-প্রোগ্রেস</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Progress & Timeline Widget -->
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b pb-4">
+                            <div>
+                                <span class="bg-brandPrimary/10 text-brandPrimary text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">CURRENT PROJECT</span>
+                                <h3 id="currProjName" class="text-xl font-black text-navyDark mt-1">Rahim Fashion Online Store</h3>
+                            </div>
+                            <span id="currProjStatus" class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold px-3 py-1 rounded-full">In Development (50%)</span>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-bold text-slate-700">
+                                <span>প্রজেক্ট প্রোগ্রেস:</span>
+                                <span id="currProjProgressText" class="text-brandPrimary">50% Completed</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden border">
+                                <div id="currProjProgressBar" class="bg-brandPrimary h-full w-1/2 transition-all duration-500"></div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Stages -->
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs font-bold text-center pt-2">
+                            <div class="p-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl">Requirement <i class="fa-solid fa-check ml-1"></i></div>
+                            <div class="p-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl">Planning & Design <i class="fa-solid fa-check ml-1"></i></div>
+                            <div class="p-3 bg-brandPrimary text-white rounded-xl shadow-md">Development <i class="fa-solid fa-spinner fa-spin ml-1"></i></div>
+                            <div class="p-3 bg-slate-100 text-slate-400 rounded-xl border">Testing & QA</div>
+                            <div class="p-3 bg-slate-100 text-slate-400 rounded-xl border col-span-2 sm:col-span-1">Final Delivery</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ==================== TAB 2: MY QUOTES ==================== -->
+                <div id="tab-quotes" class="tab-panel hidden space-y-6">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">আমার কোটেশন (My Quotes)</h2>
+                        <a href="GetQuote.html" class="bg-brandPrimary text-white px-4 py-2 rounded-xl text-xs font-bold shadow">+ নতুন Quote রিকোয়েস্ট</a>
+                    </div>
+
+                    <div id="quotesListContainer" class="space-y-4">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 3: MY PROJECTS ==================== -->
+                <div id="tab-projects" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">আমার প্রজেক্ট সমূহ (My Projects)</h2>
+                    </div>
+
+                    <div id="projectsListContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 4: MY ORDERS ==================== -->
+                <div id="tab-orders" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">আমার অর্ডার সমূহ (My Orders)</h2>
+                    </div>
+
+                    <div id="ordersListContainer" class="bg-white rounded-3xl border overflow-hidden shadow-sm">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-navyDark text-white font-bold border-b">
+                                <tr>
+                                    <th class="p-4">Order ID</th>
+                                    <th class="p-4">তারিখ</th>
+                                    <th class="p-4">সার্ভিস</th>
+                                    <th class="p-4">মোট টাকা</th>
+                                    <th class="p-4">স্ট্যাটাস</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody" class="divide-y text-slate-700">
+                                <tr><td colspan="5" class="p-6 text-center text-slate-400">অর্ডার ডাটা লোড হচ্ছে...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 5: PAYMENTS ==================== -->
+                <div id="tab-payments" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4 flex justify-between items-center">
+                        <h2 class="text-2xl font-black text-navyDark">পেমেন্ট হিস্ট্রি (Payment History)</h2>
+                    </div>
+
+                    <!-- Payment Breakdown Card -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-5 bg-white rounded-2xl border text-xs space-y-1">
+                            <span class="text-slate-400 font-bold block uppercase">Total Project Cost</span>
+                            <span class="text-2xl font-black text-navyDark">৳১৫,০০০</span>
+                        </div>
+                        <div class="p-5 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs space-y-1">
+                            <span class="text-emerald-700 font-bold block uppercase">Total Paid</span>
+                            <span class="text-2xl font-black text-emerald-600">৳৫,০০০</span>
+                        </div>
+                        <div class="p-5 bg-amber-50 border border-amber-200 rounded-2xl text-xs space-y-1">
+                            <span class="text-amber-800 font-bold block uppercase">Total Due</span>
+                            <span class="text-2xl font-black text-amber-600">৳১০,০০০</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl border overflow-hidden shadow-sm">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-navyDark text-white font-bold">
+                                <tr>
+                                    <th class="p-4">PAY-ID</th>
+                                    <th class="p-4">তারিখ</th>
+                                    <th class="p-4">মেথড</th>
+                                    <th class="p-4">TrxID</th>
+                                    <th class="p-4">পরিমাণ</th>
+                                    <th class="p-4">স্ট্যাটাস</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentsTableBody" class="divide-y text-slate-700">
+                                <!-- Dynamic Payments -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 6: INVOICES ==================== -->
+                <div id="tab-invoices" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">ইনভয়েস (Invoices)</h2>
+                    </div>
+
+                    <div id="invoicesListContainer" class="space-y-4">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 7: FILES ==================== -->
+                <div id="tab-files" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">প্রজেক্ট ফাইলস (My Files)</h2>
+                    </div>
+
+                    <div id="filesGridContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <!-- Dynamic Files -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 8: SUPPORT & TICKETS ==================== -->
+                <div id="tab-support" class="tab-panel hidden space-y-6">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">সাপোর্ট সেন্টার (Support Tickets)</h2>
+                        <button onclick="openTicketModal()" class="bg-brandPrimary text-white px-4 py-2 rounded-xl text-xs font-bold shadow">+ নতুন টিকিট খুলুন</button>
+                    </div>
+
+                    <div id="ticketsListContainer" class="space-y-4">
+                        <!-- Dynamic Tickets -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 9: NOTIFICATIONS ==================== -->
+                <div id="tab-notifications" class="tab-panel hidden space-y-6">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">নোটিফিকেশন সেন্টার</h2>
+                        <button onclick="markAllNotificationsRead()" class="text-xs font-bold text-brandPrimary hover:underline">সব পড়া হয়েছে চিহ্নিত করুন</button>
+                    </div>
+
+                    <div id="notificationsListContainer" class="bg-white rounded-3xl border divide-y text-xs">
+                        <!-- Dynamic Notifications -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 10: REVIEWS ==================== -->
+                <div id="tab-reviews" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4 flex justify-between items-center">
+                        <h2 class="text-2xl font-black text-navyDark">আমার রিভিউ (My Reviews)</h2>
+                        <a href="Reviews.html" class="bg-brandPrimary text-white px-4 py-2 rounded-xl text-xs font-bold">+ রিভিউ দিন</a>
+                    </div>
+
+                    <div id="reviewsListContainer" class="space-y-4">
+                        <!-- Dynamic Reviews -->
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 11: PROFILE ==================== -->
+                <div id="tab-profile" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">আমার প্রোফাইল (Customer Profile)</h2>
+                    </div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border space-y-6 max-w-2xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 rounded-full bg-brandPrimary/10 text-brandPrimary font-black text-xl flex items-center justify-center border border-brandPrimary/30">
+                                RU
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-lg text-navyDark">রহিম উদ্দিন</h3>
+                                <p class="text-xs text-slate-400">Customer ID: CUST-1001</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div><label class="font-bold text-slate-500 block mb-1">ফোন নম্বর:</label> <input type="text" readonly value="01800000000" class="w-full p-2.5 bg-slate-50 border rounded-xl font-bold"></div>
+                            <div><label class="font-bold text-slate-500 block mb-1">WhatsApp:</label> <input type="text" readonly value="8801800000000" class="w-full p-2.5 bg-slate-50 border rounded-xl font-bold"></div>
+                            <div><label class="font-bold text-slate-500 block mb-1">ইমেইল:</label> <input type="text" readonly value="rahim@fashion.com" class="w-full p-2.5 bg-slate-50 border rounded-xl font-bold"></div>
+                            <div><label class="font-bold text-slate-500 block mb-1">বিজনেসের নাম:</label> <input type="text" readonly value="Rahim Fashion" class="w-full p-2.5 bg-slate-50 border rounded-xl font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== TAB 12: SETTINGS ==================== -->
+                <div id="tab-settings" class="tab-panel hidden space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-black text-navyDark">একাউন্ট সেটিংস (Settings)</h2>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border max-w-xl space-y-4 text-xs">
+                        <div class="flex justify-between items-center p-3 bg-lightBg rounded-xl">
+                            <div>
+                                <strong class="block text-navyDark">ভাষা (Language)</strong>
+                                <span class="text-[10px] text-slate-400">ড্যাশবোর্ডের ভাষা নির্বাচন করুন</span>
+                            </div>
+                            <select class="p-2 border rounded-xl bg-white"><option value="bn">বাংলা</option><option value="en">English</option></select>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- ==================== MOBILE BOTTOM NAVIGATION ==================== -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 flex justify-around py-2.5 md:hidden z-40 shadow-lg text-xs">
+        <button onclick="switchTab('overview')" class="flex flex-col items-center text-slate-600 hover:text-brandPrimary">
+            <i class="fa-solid fa-house text-base"></i>
+            <span class="text-[9px] font-bold mt-1">হোম</span>
+        </button>
+        <button onclick="switchTab('projects')" class="flex flex-col items-center text-slate-600 hover:text-brandPrimary">
+            <i class="fa-solid fa-laptop-code text-base"></i>
+            <span class="text-[9px] font-bold mt-1">প্রজেক্ট</span>
+        </button>
+        <button onclick="switchTab('payments')" class="flex flex-col items-center text-slate-600 hover:text-brandPrimary">
+            <i class="fa-solid fa-wallet text-base"></i>
+            <span class="text-[9px] font-bold mt-1">পেমেন্ট</span>
+        </button>
+        <button onclick="switchTab('support')" class="flex flex-col items-center text-slate-600 hover:text-brandPrimary relative">
+            <i class="fa-solid fa-headset text-base"></i>
+            <span class="text-[9px] font-bold mt-1">সাপোর্ট</span>
+        </button>
+        <button onclick="switchTab('profile')" class="flex flex-col items-center text-slate-600 hover:text-brandPrimary">
+            <i class="fa-solid fa-user text-base"></i>
+            <span class="text-[9px] font-bold mt-1">প্রোফাইল</span>
+        </button>
+    </div>
+
+    <!-- CREATE TICKET MODAL -->
+    <div id="ticketModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 relative shadow-2xl">
+            <button onclick="closeTicketModal()" class="absolute top-4 right-4 text-slate-400"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-xl font-bold text-navyDark mb-4">নতুন সাপোর্ট টিকিট খুলুন</h3>
+            <form onsubmit="handleCreateTicket(event)" class="space-y-3 text-xs">
+                <div><label class="font-bold text-slate-700 block mb-1">বিষয় (Subject) *</label><input type="text" id="tickSub" required placeholder="সমস্যার বিষয়" class="w-full p-2.5 border rounded-xl"></div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div><label class="font-bold text-slate-700 block mb-1">ক্যাটাগরি</label><select id="tickCat" class="w-full p-2.5 border rounded-xl bg-white"><option value="Technical">Technical Problem</option><option value="Payment">Payment</option><option value="Project">Project</option></select></div>
+                    <div><label class="font-bold text-slate-700 block mb-1">Priority</label><select id="tickPrio" class="w-full p-2.5 border rounded-xl bg-white"><option value="High">High 🔴</option><option value="Medium">Medium 🟡</option><option value="Low">Low 🟢</option></select></div>
+                </div>
+                <div><label class="font-bold text-slate-700 block mb-1">মেসেজ বিবরণ *</label><textarea id="tickMsg" required rows="3" placeholder="বিস্তারিত লিখুন..." class="w-full p-2.5 border rounded-xl"></textarea></div>
+                <button type="submit" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold">টিকিট জমা দিন</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGOUT CONFIRMATION MODAL -->
+    <div id="logoutModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 shadow-2xl">
+            <div class="w-12 h-12 bg-red-100 text-red-500 rounded-full flex items-center justify-center text-xl mx-auto"><i class="fa-solid fa-right-from-bracket"></i></div>
+            <h3 class="text-lg font-bold text-navyDark">আপনি কি Logout করতে চান?</h3>
+            <div class="flex gap-2">
+                <button onclick="closeLogoutModal()" class="flex-1 bg-slate-100 text-slate-700 py-2.5 rounded-xl font-bold text-xs">বাতিল</button>
+                <button onclick="executeLogout()" class="flex-1 bg-red-600 text-white py-2.5 rounded-xl font-bold text-xs">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT DASHBOARD ENGINE ==================== -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        // Current Customer State
+        const currentCustomer = {
+            id: 'CUST-1001',
+            name: 'রহিম উদ্দিন',
+            business: 'Rahim Fashion',
+            phone: '01800000000',
+            email: 'rahim@fashion.com'
+        };
+
+        // Fallback Local Datasets matching Google Sheets Database Schema
+        const mockQuotes = [
+            { quoteId: 'QUO-2001', date: '19 Aug, 2026', type: 'E-commerce Website', amount: '15,000', status: 'Sent', validUntil: '25 Aug, 2026' }
+        ];
+
+        const mockProjects = [
+            { projectId: 'PROJ-3001', name: 'Rahim Fashion Online Store', type: 'E-commerce', progress: 50, status: 'In Development', manager: 'Dev Team A', deadline: '30 Aug, 2026' }
+        ];
+
+        const mockPayments = [
+            { payId: 'PAY-4001', date: '19 Aug, 2026', method: 'bKash', trxId: 'BK892374823', amount: '5,000', status: 'Completed' }
+        ];
+
+        const mockTickets = [
+            { ticketId: 'TKT-01', subject: 'Logo Change Request', category: 'Project', priority: 'Medium', status: 'In Progress', date: '19 Aug, 2026' }
+        ];
+
+        const mockNotifications = [
+            { id: 'NOTIF-01', title: 'নতুন কোটেশন পাওয়া গেছে', msg: 'আপনার E-commerce প্রজেক্টের কোটেশন রেডি।', time: '১০ মিনিট আগে', unread: true },
+            { id: 'NOTIF-02', title: 'পেমেন্ট রিসিভ করা হয়েছে', msg: '৳৫,০০০ অ্যাডভান্স পেমেন্ট গ্রহণ করা হয়েছে।', time: '১ ঘণ্টা আগে', unread: true }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchCustomerData();
+            renderQuotes();
+            renderProjects();
+            renderPayments();
+            renderTickets();
+            renderNotifications();
+        });
+
+        // Tab Navigation
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+            // Update Desktop Sidebar Active Styles
+            document.querySelectorAll('#desktopSidebar nav button').forEach(b => {
+                b.classList.remove('bg-brandPrimary', 'text-white', 'font-bold', 'shadow-md');
+                b.classList.add('hover:bg-slate-800', 'hover:text-white');
+            });
+
+            const activeNav = document.getElementById(`nav-${tabId}`);
+            if (activeNav) {
+                activeNav.classList.add('bg-brandPrimary', 'text-white', 'font-bold', 'shadow-md');
+                activeNav.classList.remove('hover:bg-slate-800');
+            }
+        }
+
+        // Fetch Data from Google Sheets API
+        async function fetchCustomerData() {
+            try {
+                const res = await fetch(`${API_URL}?action=getCustomerDashboard&customerId=${currentCustomer.id}`);
+                const json = await res.json();
+                if (json.status === 'success') {
+                    // Update views with live sheet data if available
+                }
+            } catch (err) {
+                console.log('Using fallback preview customer data');
+            }
+        }
+
+        function renderQuotes() {
+            const container = document.getElementById('quotesListContainer');
+            container.innerHTML = mockQuotes.map(q => `
+                <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-3">
+                    <div class="flex justify-between items-center border-b pb-2">
+                        <span class="font-mono font-bold text-brandPrimary text-xs">${q.quoteId}</span>
+                        <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${q.status}</span>
+                    </div>
+                    <div class="flex justify-between text-xs font-bold text-navyDark">
+                        <span>${q.type}</span>
+                        <span class="text-base text-brandPrimary">৳${q.amount}</span>
+                    </div>
+                    <div class="flex gap-2 pt-2 text-xs">
+                        <button onclick="acceptQuote('${q.quoteId}')" class="bg-brandPrimary text-white px-4 py-2 rounded-xl font-bold shadow">Accept Quote</button>
+                        <button onclick="showToast('কোটেশন সংশোধনের অনুরোধ পাঠানো হয়েছে')" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-xl font-bold">Request Changes</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projectsListContainer');
+            container.innerHTML = mockProjects.map(p => `
+                <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-3">
+                    <div class="flex justify-between border-b pb-2 text-xs">
+                        <span class="font-bold text-navyDark">${p.name}</span>
+                        <span class="text-emerald-600 font-bold">${p.status}</span>
+                    </div>
+                    <div class="space-y-1 text-xs text-slate-500">
+                        <p>ডেডলাইন: <strong class="text-navyDark">${p.deadline}</strong></p>
+                        <p>ম্যানেজার: <strong class="text-navyDark">${p.manager}</strong></p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPayments() {
+            const body = document.getElementById('paymentsTableBody');
+            body.innerHTML = mockPayments.map(p => `
+                <tr>
+                    <td class="p-4 font-mono font-bold text-brandPrimary">${p.payId}</td>
+                    <td class="p-4">${p.date}</td>
+                    <td class="p-4 font-bold">${p.method}</td>
+                    <td class="p-4 font-mono">${p.trxId}</td>
+                    <td class="p-4 font-bold text-emerald-600">৳${p.amount}</td>
+                    <td class="p-4"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">${p.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderTickets() {
+            const container = document.getElementById('ticketsListContainer');
+            container.innerHTML = mockTickets.map(t => `
+                <div class="bg-white p-5 rounded-2xl border flex justify-between items-center text-xs">
+                    <div>
+                        <span class="font-mono text-brandPrimary font-bold">${t.ticketId}</span>
+                        <h4 class="font-bold text-navyDark mt-0.5">${t.subject}</h4>
+                    </div>
+                    <span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded-full">${t.status}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderNotifications() {
+            const container = document.getElementById('notificationsListContainer');
+            container.innerHTML = mockNotifications.map(n => `
+                <div class="p-4 flex gap-3 items-start">
+                    <i class="fa-solid fa-circle-info text-brandPrimary text-base mt-0.5"></i>
+                    <div>
+                        <h4 class="font-bold text-navyDark">${n.title}</h4>
+                        <p class="text-slate-500 mt-0.5">${n.msg}</p>
+                        <span class="text-[10px] text-slate-400 block mt-1">${n.time}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function acceptQuote(id) {
+            showToast(`কোটেশন ${id} গ্রহণযোগ্য হিসেবে চিহ্নিত করা হয়েছে!`);
+        }
+
+        function openTicketModal() { document.getElementById('ticketModal').classList.remove('hidden'); document.getElementById('ticketModal').classList.add('flex'); }
+        function closeTicketModal() { document.getElementById('ticketModal').classList.add('hidden'); document.getElementById('ticketModal').classList.remove('flex'); }
+
+        function handleCreateTicket(e) {
+            e.preventDefault();
+            const sub = document.getElementById('tickSub').value;
+            mockTickets.push({ ticketId: `TKT-0${mockTickets.length+1}`, subject: sub, category: 'Project', priority: 'High', status: 'Open', date: 'আজ' });
+            renderTickets();
+            closeTicketModal();
+            showToast("নতুন সাপোর্ট টিকিট জমা হয়েছে!");
+        }
+
+        function openLogoutModal() { document.getElementById('logoutModal').classList.remove('hidden'); document.getElementById('logoutModal').classList.add('flex'); }
+        function closeLogoutModal() { document.getElementById('logoutModal').classList.add('hidden'); document.getElementById('logoutModal').classList.remove('flex'); }
+        function executeLogout() { window.location.href = "Contact.html"; }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function handleDashSearch() {
+            const query = document.getElementById('dashSearchInput').value.toLowerCase();
+            if (query) showToast(`"${query}" দিয়ে সার্চ করা হচ্ছে...`);
+        }
+    </script>
+</body>
+</html>

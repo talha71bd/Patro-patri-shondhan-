@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Website Portfolio & Demos | Web Pro BD Bangladesh</title>
+    <meta name="title" content="Website Portfolio & Demos | Web Pro BD Bangladesh">
+    <meta name="description" content="Explore professional website demos and web design projects from Web Pro BD, including business websites, e-commerce, restaurant, education and custom web solutions.">
+    <meta name="keywords" content="web pro bd portfolio, website demos bangladesh, e-commerce demo bd, business website portfolio dhaka, abu talha khan">
+    <meta name="author" content="Abu Talha Khan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webprobd.com/Portfolio.html">
+    <meta property="og:title" content="Website Portfolio & Demos | Web Pro BD Bangladesh">
+    <meta property="og:description" content="Explore professional website concepts and business solutions created by Web Pro BD.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2563eb',   // Modern Blue / Indigo
+                        brandDark: '#1e40af',      // Deep Indigo
+                        navyDark: '#0f172a',       // Slate Navy
+                        navyCard: '#1e293b',       // Card Navy Accent
+                        lightBg: '#f8fafc',        // Light Slate Gray
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Hind Siliguri', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', 'Hind Siliguri', sans-serif; }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-header-scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .portfolio-card-hover {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .portfolio-card-hover:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float, .whatsapp-pulse, .animate__animated {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Web Pro BD Portfolio & Demos",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Web Pro BD",
+        "telephone": "+8801516513987",
+        "url": "https://webprobd.com"
+      }
+    }
+    </script>
+</head>
+<body class="bg-lightBg text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
+                        W
+                    </div>
+                    <div>
+                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark transition duration-300">
+                            Web Pro <span class="text-brandPrimary">BD</span>
+                        </span>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Web Development Agency</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Home</a>
+                    <a href="Service.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Services</a>
+                    <a href="Portfolio.html" class="nav-link px-3 py-2 text-sm font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Portfolio
+                    </a>
+                    <a href="Pricing.html" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Pricing</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">About</a>
+                    <a href="#" class="nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-brandPrimary transition rounded-lg">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openQuoteModal()" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-2">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex md:hidden items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 hover:text-brandPrimary transition">
+                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Home</a>
+                <a href="Service.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Services</a>
+                <a href="Portfolio.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold text-brandPrimary bg-brandPrimary/10">Portfolio</a>
+                <a href="Pricing.html" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Pricing</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">About</a>
+                <a href="#" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100">Contact</a>
+                <div class="pt-2">
+                    <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-brandPrimary text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-2">
+                        <span>Get a Free Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Bar -->
+    <div class="bg-white border-b border-slate-200/80 text-xs text-slate-500 py-2.5 px-4">
+        <div class="max-w-7xl mx-auto flex items-center gap-2 font-medium">
+            <a href="#" class="hover:text-brandPrimary transition"><i class="fa-solid fa-house text-slate-400"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-navyDark font-bold">Portfolio & Demos</span>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-24 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left animate__animated animate__fadeInLeft">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
+                        <i class="fa-solid fa-laptop-code text-amber-400"></i>
+                        <span>OUR WORK</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                        Websites Designed to Make <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">Businesses Stand Out</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        “Explore our website concepts, business solutions and digital experiences created for different industries and business needs.”
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#portfolioGridSection" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-brandPrimary/30 transition duration-300 text-center flex items-center justify-center gap-2">
+                            <span>Explore Demos</span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </a>
+                        <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-7 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
+                            <span>Start Your Project</span>
+                            <i class="fa-solid fa-rocket text-xs text-brandPrimary"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Abstract Browser Stack Visual -->
+                <div class="lg:col-span-5 flex justify-center animate__animated animate__fadeInRight">
+                    <div class="w-full max-w-md bg-navyCard/90 border border-slate-700/80 rounded-2xl shadow-2xl p-5 backdrop-blur-xl animate-float relative z-10">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-700/80 mb-3">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                            </div>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-800 px-3 py-0.5 rounded-full border border-slate-700">webprobd.com/portfolio</span>
+                            <i class="fa-solid fa-[#000] fa-layer-group text-xs text-brandPrimary"></i>
+                        </div>
+
+                        <!-- Mock Browser Preview Window -->
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between shadow-inner">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-brandPrimary flex items-center justify-center text-white font-bold">
+                                        <i class="fa-solid fa-bag-shopping text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Fashion Store Concept</div>
+                                        <div class="text-[10px] text-emerald-400 font-bold">Demo Concept</div>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-md font-bold">Live Demo</span>
+                            </div>
+
+                            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800 flex justify-between items-center text-[11px]">
+                                <span class="text-slate-300"><i class="fa-solid fa-mobile-screen text-brandPrimary mr-1"></i> Mobile Responsive</span>
+                                <span class="text-slate-400 text-[10px]">100% Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Statement Section -->
+    <section class="py-8 bg-white border-b border-slate-200 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h3 class="text-sm sm:text-base font-bold text-navyDark">Every business is different. Your website should be too.</h3>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                “From simple business websites to complete online stores, Web Pro BD focuses on clean design, usability, responsive experiences and practical business features.”
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SEARCH & CATEGORY FILTER ==================== -->
+    <section class="py-8 bg-white border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            
+            <!-- Search & Controls Bar -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                
+                <!-- Search Input -->
+                <div class="w-full md:w-96 relative">
+                    <input type="text" id="portfolioSearchInput" oninput="handleSearch()" placeholder="Search projects, industries or features..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brandPrimary focus:ring-2 focus:ring-brandPrimary/20 transition shadow-inner">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-xs sm:text-sm"></i>
+                </div>
+
+                <!-- Controls Right: Result Counter & Sort Dropdown -->
+                <div class="flex items-center justify-between w-full md:w-auto gap-4">
+                    <span id="resultCountText" class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-xl border">
+                        8 Projects Found
+                    </span>
+
+                    <div class="flex items-center gap-2">
+                        <label for="sortSelect" class="text-xs font-bold text-slate-500 hidden sm:inline">Sort:</label>
+                        <select id="sortSelect" onchange="handleSort()" class="bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl text-xs font-bold text-navyDark focus:outline-none focus:border-brandPrimary">
+                            <option value="featured">Featured First</option>
+                            <option value="newest">Newest</option>
+                            <option value="az">A – Z</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Category Filter Horizontal Scroll -->
+            <div class="w-full overflow-x-auto no-scrollbar py-1">
+                <div class="flex items-center gap-2 min-w-max" id="categoryButtonsContainer">
+                    <button onclick="filterCategory('All')" class="category-btn bg-brandPrimary text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm shadow-md transition" data-category="All">All</button>
+                    <button onclick="filterCategory('Business')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Business">Business</button>
+                    <button onclick="filterCategory('E-commerce')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="E-commerce">E-commerce</button>
+                    <button onclick="filterCategory('Restaurant')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Restaurant">Restaurant</button>
+                    <button onclick="filterCategory('Fashion')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Fashion">Fashion</button>
+                    <button onclick="filterCategory('Education')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Education">Education</button>
+                    <button onclick="filterCategory('Portfolio')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Portfolio">Portfolio</button>
+                    <button onclick="filterCategory('Landing Page')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Landing Page">Landing Page</button>
+                    <button onclick="filterCategory('Booking')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Booking">Booking</button>
+                    <button onclick="filterCategory('Custom')" class="category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition" data-category="Custom">Custom</button>
+                </div>
+            </div>
+
+            <!-- Advanced Technology Filter Chips -->
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 text-xs">
+                <span class="font-bold text-slate-400 mr-1"><i class="fa-solid fa-filter"></i> Features:</span>
+                <button onclick="toggleTechFilter('Responsive')" class="tech-filter-chip bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1 rounded-lg font-medium transition" data-tech="Responsive">Responsive</button>
+                <button onclick="toggleTechFilter('WhatsApp')" class="tech-filter-chip bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1 rounded-lg font-medium transition" data-tech="WhatsApp">WhatsApp</button>
+                <button onclick="toggleTechFilter('E-commerce')" class="tech-filter-chip bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1 rounded-lg font-medium transition" data-tech="E-commerce">Cart System</button>
+                <button onclick="toggleTechFilter('Booking')" class="tech-filter-chip bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1 rounded-lg font-medium transition" data-tech="Booking">Booking Engine</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== FEATURED PROJECTS SECTION ==================== -->
+    <section id="featuredSection" class="py-12 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex justify-between items-center border-b pb-4">
+                <div>
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">HIGHLIGHTS</span>
+                    <h2 class="text-2xl font-black text-navyDark mt-1">Featured Projects</h2>
+                </div>
+            </div>
+
+            <div id="featuredContainer" class="space-y-12">
+                <!-- Dynamically Populated Featured Items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN PORTFOLIO GRID ==================== -->
+    <section id="portfolioGridSection" class="py-12 lg:py-16 flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <div class="flex justify-between items-center border-b pb-4">
+                <h2 class="text-2xl font-black text-navyDark">All Portfolio Concepts</h2>
+                <button onclick="resetAllFilters()" class="text-xs font-bold text-brandPrimary hover:underline">Reset All Filters</button>
+            </div>
+
+            <!-- Loading Skeleton State -->
+            <div id="loadingSkeleton" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-4 rounded-3xl border space-y-3">
+                    <div class="h-48 bg-slate-200 rounded-2xl animate-pulse"></div>
+                    <div class="h-4 w-1/2 bg-slate-200 rounded animate-pulse"></div>
+                    <div class="h-6 w-3/4 bg-slate-200 rounded animate-pulse"></div>
+                </div>
+                <div class="bg-white p-4 rounded-3xl border space-y-3">
+                    <div class="h-48 bg-slate-200 rounded-2xl animate-pulse"></div>
+                    <div class="h-4 w-1/2 bg-slate-200 rounded animate-pulse"></div>
+                    <div class="h-6 w-3/4 bg-slate-200 rounded animate-pulse"></div>
+                </div>
+            </div>
+
+            <!-- Grid Container: 3 Desktop, 2 Tablet, 1 Mobile -->
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Loaded dynamically -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyPortfolioState" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed p-8 max-w-md mx-auto">
+                <i class="fa-solid fa-folder-open text-4xl text-slate-300 mb-3 block"></i>
+                <h3 class="text-lg font-bold text-navyDark">No Projects Found</h3>
+                <p class="text-xs text-slate-500 mt-1 mb-4">Try selecting another category or resetting filters.</p>
+                <div class="flex justify-center gap-2">
+                    <button onclick="resetAllFilters()" class="bg-brandPrimary text-white text-xs font-bold px-4 py-2 rounded-xl">View All Projects</button>
+                    <button onclick="openQuoteModal()" class="bg-navyDark text-white text-xs font-bold px-4 py-2 rounded-xl">Request Custom Website</button>
+                </div>
+            </div>
+
+            <!-- Load More Projects Button -->
+            <div class="text-center pt-8">
+                <button id="loadMoreBtn" onclick="loadMoreProjects()" class="bg-white border border-slate-300 hover:border-brandPrimary text-navyDark font-bold px-8 py-3 rounded-xl text-xs sm:text-sm shadow-sm transition inline-flex items-center gap-2">
+                    <span>Load More Projects</span>
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== LIKE WHAT YOU SEE (CTA) ==================== -->
+    <section class="py-16 bg-navyDark text-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-black">Like What You See?</h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-normal leading-relaxed">
+                “Let's create a professional website tailored to your business requirements.”
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg">
+                    Start My Project
+                </button>
+                <button onclick="openQuoteModal('Custom Website')" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition">
+                    Get a Custom Quote
+                </button>
+                <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20website%20project." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="py-16 bg-lightBg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+                
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT US</span>
+                    <h3 class="text-2xl font-black text-navyDark">Abu Talha Khan</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm font-bold">Web Pro BD</p>
+                    
+                    <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> Farmgate, Dhaka, Bangladesh</p>
+                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
+                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
+                        <p><i class="fa-brands fa-facebook text-brandPrimary w-5"></i> <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="hover:underline">Facebook Profile</a></p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <a href="tel:01516513987" class="bg-navyDark hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brandPrimary"></i>
+                        <span>Call Now</span>
+                    </a>
+                    <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20discuss%20a%20website%20project." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2">
+                        <i class="fa-brands fa-facebook text-base"></i>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <span class="hidden sm:inline-block bg-navyDark text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition duration-300">
+            Chat with Web Pro BD
+        </span>
+        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20discuss%20a%20website%20project." target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white block">
+                        Web Pro <span class="text-brandPrimary">BD</span>
+                    </span>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Professional website solutions for modern businesses in Bangladesh.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Services</h4>
+                    <ul class="space-y-2">
+                        <li>Business Website</li>
+                        <li>E-commerce</li>
+                        <li>Landing Page</li>
+                        <li>Portfolio</li>
+                        <li>Restaurant</li>
+                        <li>Education</li>
+                        <li>Custom Website</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brandPrimary">Home</a></li>
+                        <li><a href="Service.html" class="hover:text-brandPrimary">Services</a></li>
+                        <li><a href="Portfolio.html" class="text-brandPrimary font-bold">Portfolio</a></li>
+                        <li><a href="Pricing.html" class="hover:text-brandPrimary">Pricing</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">About</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="text-white font-bold mb-4 text-sm">Contact</h4>
+                    <p class="font-bold text-white">Abu Talha Khan</p>
+                    <p>Farmgate, Dhaka, Bangladesh</p>
+                    <p>01516513987</p>
+                    <p>abutalha46700@gmail.com</p>
+                    <p class="pt-1"><a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="text-brandPrimary hover:underline">Facebook</a></p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-slate-500 text-xs">
+                © Web Pro BD. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== PROJECT DETAILS MODAL ==================== -->
+    <div id="detailsModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl my-8 animate__animated animate__zoomIn animate__faster">
+            <button onclick="closeDetailsModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="detailsModalContent">
+                <!-- Dynamically Loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== REQUEST SIMILAR WEBSITE / QUOTE MODAL ==================== -->
+    <div id="quoteModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8 animate__animated animate__zoomIn animate__faster">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="mb-6">
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">REQUEST WEBSITE</span>
+                <h3 class="text-xl font-extrabold text-navyDark mt-2">I Want a Website Like This</h3>
+                <p class="text-xs text-slate-500">Fill in your information to request a similar website project.</p>
+            </div>
+
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                        <input type="text" id="reqName" required placeholder="Enter full name" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Business Name</label>
+                        <input type="text" id="reqBusiness" placeholder="Business name" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                        <input type="tel" id="reqPhone" required placeholder="01516513987" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Number</label>
+                        <input type="tel" id="reqWhatsapp" placeholder="01516513987" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-brandPrimary">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Selected Demo Concept *</label>
+                    <input type="text" id="reqProjectName" readonly class="w-full px-3.5 py-2.5 bg-slate-100 border border-slate-200 rounded-xl text-xs font-bold text-navyDark">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Special Requirements or Notes</label>
+                    <textarea id="reqDetails" rows="3" placeholder="Describe any custom changes or features you need..." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brandPrimary"></textarea>
+                </div>
+
+                <button type="submit" id="submitReqBtn" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-lg transition">
+                    Request This Website
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION ENGINE ==================== -->
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+
+        // Initial Data Model (Dynamic Architecture ready for Future Google Sheets Backend)
+        const defaultPortfolio = [
+            {
+                portfolioId: 'PORT-01',
+                title: 'Fashion Store Concept',
+                category: 'Fashion',
+                industry: 'E-commerce',
+                description: 'Modern online fashion store concept with product catalog, cart system and WhatsApp-first order placement.',
+                shortDescription: 'Modern online fashion store with mobile shopping experience.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Product catalog', 'Product Categories', 'Shopping Cart', 'WhatsApp Ordering', 'Responsive Mobile Design'],
+                technologies: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Google Sheets DB'],
+                tags: ['Responsive', 'WhatsApp', 'E-commerce', 'Cart System'],
+                featured: true,
+                sortOrder: 1
+            },
+            {
+                portfolioId: 'PORT-02',
+                title: 'Restaurant & Cafe Concept',
+                category: 'Restaurant',
+                industry: 'Food & Dining',
+                description: 'Modern restaurant website concept featuring digital food menu, gallery, location and WhatsApp order placement.',
+                shortDescription: 'Digital menu and restaurant ordering website concept.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Digital Menu', 'Food Categories', 'Gallery', 'Google Map Location', 'WhatsApp Order'],
+                technologies: ['HTML5', 'CSS3', 'JavaScript'],
+                tags: ['Responsive', 'WhatsApp', 'Booking'],
+                featured: true,
+                sortOrder: 2
+            },
+            {
+                portfolioId: 'PORT-03',
+                title: 'Business Service Agency',
+                category: 'Business',
+                industry: 'Corporate',
+                description: 'Professional business website concept for corporate agencies, service providers and shops.',
+                shortDescription: 'Clean corporate website concept for service companies.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Services Section', 'About Us', 'Contact Enquiry Form', 'Google Map Integration', 'Social Media Links'],
+                technologies: ['HTML5', 'Tailwind', 'JavaScript'],
+                tags: ['Responsive', 'Contact Form', 'SEO'],
+                featured: true,
+                sortOrder: 3
+            },
+            {
+                portfolioId: 'PORT-04',
+                title: 'Coaching & Education Institute',
+                category: 'Education',
+                industry: 'Education',
+                description: 'Modern education website concept for schools, coaching centers and training institutes.',
+                shortDescription: 'Course catalog and student enquiry concept.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Course Catalog', 'Teachers Directory', 'Notice Board', 'Admission Enquiry Form'],
+                technologies: ['HTML5', 'CSS3', 'JavaScript'],
+                tags: ['Responsive', 'Contact Form'],
+                featured: false,
+                sortOrder: 4
+            },
+            {
+                portfolioId: 'PORT-05',
+                title: 'Creator & Developer Portfolio',
+                category: 'Portfolio',
+                industry: 'Personal Brand',
+                description: 'Clean personal portfolio concept for freelancers, developers, creators and designers.',
+                shortDescription: 'Personal showcase and project portfolio concept.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Project Showcase', 'Skills Grid', 'Experience Timeline', 'Contact Form'],
+                technologies: ['HTML5', 'Tailwind', 'JS'],
+                tags: ['Responsive', 'Custom UI'],
+                featured: false,
+                sortOrder: 5
+            },
+            {
+                portfolioId: 'PORT-06',
+                title: 'High-Converting Product Landing Page',
+                category: 'Landing Page',
+                industry: 'Marketing',
+                description: 'Single-product landing page concept built specifically for high-conversion Facebook ad campaigns.',
+                shortDescription: 'Conversion-focused single product landing page.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Call To Action Sections', 'Lead Form', 'Direct WhatsApp Buy', 'Fast Mobile Speed'],
+                technologies: ['HTML5', 'CSS3', 'JS'],
+                tags: ['Responsive', 'WhatsApp', 'SEO'],
+                featured: false,
+                sortOrder: 6
+            },
+            {
+                portfolioId: 'PORT-07',
+                title: 'Consultation & Appointment Booking',
+                category: 'Booking',
+                industry: 'Services',
+                description: 'Online booking and appointment reservation concept for consultants, doctors and salons.',
+                shortDescription: 'Appointment and booking reservation concept.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Service Selection', 'Date & Time Booking', 'Confirmation System', 'Customer Details Form'],
+                technologies: ['HTML5', 'Tailwind', 'JS'],
+                tags: ['Responsive', 'Booking'],
+                featured: false,
+                sortOrder: 7
+            },
+            {
+                portfolioId: 'PORT-08',
+                title: 'Custom Business Automation Engine',
+                category: 'Custom',
+                industry: 'Software',
+                description: 'Custom web solution integrating Google Sheets DB, Web API and custom business workflows.',
+                shortDescription: 'Custom web application with database automation.',
+                thumbnailUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+                demoUrl: '',
+                status: 'Demo Concept',
+                features: ['Custom Workflow', 'Google Sheets DB', 'Apps Script API', 'Admin Management Prep'],
+                technologies: ['Apps Script', 'Google Sheets', 'JS', 'Tailwind'],
+                tags: ['Responsive', 'Admin Panel', 'API Integration'],
+                featured: false,
+                sortOrder: 8
+            }
+        ];
+
+        let portfolio = [...defaultPortfolio];
+        let currentCategory = 'All';
+        let activeTechFilters = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPortfolioFromAPI();
+            renderFeaturedProjects();
+            renderPortfolioGrid(portfolio);
+            setupHeaderScroll();
+        });
+
+        // Sticky Navbar Effect
+        function setupHeaderScroll() {
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('glass-header-scrolled', 'shadow-lg');
+                    header.classList.remove('glass-header');
+                } else {
+                    header.classList.add('glass-header');
+                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
+                }
+            });
+        }
+
+        // Fetch Data from Google Sheets API
+        async function loadPortfolioFromAPI() {
+            try {
+                const res = await fetch(`${API_URL}?action=getPortfolio`);
+                const json = await res.json();
+                if (json.status === 'success' && json.data && json.data.length > 0) {
+                    portfolio = json.data;
+                    renderFeaturedProjects();
+                    renderPortfolioGrid(portfolio);
+                }
+            } catch (err) {
+                console.log('Using static fallback portfolio data');
+            }
+        }
+
+        // Render Featured Projects (Alternating Layout)
+        function renderFeaturedProjects() {
+            const container = document.getElementById('featuredContainer');
+            const featuredList = portfolio.filter(p => p.featured);
+
+            if (featuredList.length === 0) {
+                document.getElementById('featuredSection').classList.add('hidden');
+                return;
+            }
+
+            container.innerHTML = featuredList.map((item, idx) => `
+                <div class="bg-white rounded-3xl border border-slate-200/80 shadow-md p-6 sm:p-8 flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center hover:shadow-xl transition duration-300">
+                    
+                    <!-- Screenshot Browser Mockup -->
+                    <div class="w-full lg:w-1/2 overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 group shadow-lg">
+                        <div class="bg-slate-800 p-2.5 flex items-center gap-1.5 border-b border-slate-700">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+                            <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
+                            <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span>
+                            <span class="text-[10px] text-slate-400 font-mono ml-2">webprobd.com/demo/${item.portfolioId}</span>
+                        </div>
+                        <div class="aspect-video relative overflow-hidden bg-slate-100">
+                            <img src="${item.thumbnailUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Details Right/Left -->
+                    <div class="w-full lg:w-1/2 space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-brandPrimary/10 text-brandPrimary text-xs font-extrabold px-3 py-1 rounded-full uppercase">${item.category}</span>
+                            <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${item.status}</span>
+                        </div>
+
+                        <h3 class="text-2xl font-black text-navyDark">${item.title}</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">${item.description}</p>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            ${item.tags.map(t => `<span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-2.5 py-1 rounded-md"># ${fCheck(t)}</span>`).join('')}
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-3 pt-4 border-t">
+                            <button onclick="requestSimilar('${item.title}')" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md transition">
+                                I Want a Website Like This
+                            </button>
+                            <button onclick="openDetailsModal('${item.portfolioId}')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl font-bold text-xs transition">
+                                View Details
+                            </button>
+                            ${item.demoUrl ? `<a href="${item.demoUrl}" target="_blank" class="bg-navyDark text-white px-4 py-2.5 rounded-xl font-bold text-xs">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></a>` : `<button disabled class="bg-slate-200 text-slate-400 px-3 py-2.5 rounded-xl font-bold text-xs cursor-not-allowed">Demo Coming Soon</button>`}
+                        </div>
+                    </div>
+
+                </div>
+            `).join('');
+        }
+
+        function fCheck(val) { return val; }
+
+        // Render Portfolio Grid
+        function renderPortfolioGrid(list) {
+            const grid = document.getElementById('portfolioGrid');
+            const countText = document.getElementById('resultCountText');
+            const emptyState = document.getElementById('emptyPortfolioState');
+
+            countText.innerText = `${list.length} Projects Found`;
+
+            if (list.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            grid.innerHTML = list.map(item => `
+                <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-5 flex flex-col justify-between portfolio-card-hover relative group">
+                    <div>
+                        <!-- Browser Frame Thumbnail -->
+                        <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 mb-4 shadow-sm">
+                            <div class="bg-slate-800 px-3 py-2 flex items-center justify-between border-b border-slate-700">
+                                <div class="flex gap-1">
+                                    <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                                    <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+                                    <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                                </div>
+                                <span class="text-[9px] font-mono text-slate-400">demo.webprobd.com</span>
+                            </div>
+                            <div class="aspect-video overflow-hidden bg-slate-100 relative">
+                                <img src="${item.thumbnailUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                        </div>
+
+                        <!-- Card Info -->
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold uppercase text-brandPrimary bg-brandPrimary/10 px-2.5 py-0.5 rounded-full">${item.category}</span>
+                            <span class="text-[10px] font-bold text-slate-400 border px-2 py-0.5 rounded-full">${item.status}</span>
+                        </div>
+
+                        <h3 class="font-extrabold text-base text-navyDark mb-1 line-clamp-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-4">${item.shortDescription || item.description}</p>
+
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            ${item.tags.slice(0, 3).map(t => `<span class="bg-slate-100 text-slate-600 text-[9px] font-bold px-2 py-0.5 rounded">#${t}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="pt-3 border-t border-slate-100 space-y-2">
+                        <button onclick="requestSimilar('${item.title}')" class="w-full bg-brandPrimary hover:bg-brandDark text-white py-2.5 rounded-xl font-bold text-xs shadow-sm transition">
+                            Request Similar
+                        </button>
+                        <div class="flex gap-2">
+                            <button onclick="openDetailsModal('${item.portfolioId}')" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded-xl font-bold text-xs transition">
+                                Details
+                            </button>
+                            ${item.demoUrl ? `<a href="${item.demoUrl}" target="_blank" class="flex-1 bg-navyDark text-white py-2 rounded-xl font-bold text-xs text-center">Live Demo</a>` : `<button disabled class="flex-1 bg-slate-100 text-slate-400 py-2 rounded-xl font-bold text-xs cursor-not-allowed">Demo Soon</button>`}
+                        </div>
+                    </div>
+
+                </div>
+            `).join('');
+        }
+
+        // Filtering Logic
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === cat) {
+                    btn.className = 'category-btn bg-brandPrimary text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm shadow-md transition';
+                } else {
+                    btn.className = 'category-btn bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-xl text-xs sm:text-sm transition';
+                }
+            });
+            applyFilters();
+        }
+
+        function toggleTechFilter(tech) {
+            const idx = activeTechFilters.indexOf(tech);
+            if (idx > -1) activeTechFilters.splice(idx, 1);
+            else activeTechFilters.push(tech);
+
+            document.querySelectorAll('.tech-filter-chip').forEach(btn => {
+                if (activeTechFilters.includes(btn.getAttribute('data-tech'))) {
+                    btn.className = 'tech-filter-chip bg-brandPrimary text-white px-3 py-1 rounded-lg font-bold transition';
+                } else {
+                    btn.className = 'tech-filter-chip bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1 rounded-lg font-medium transition';
+                }
+            });
+            applyFilters();
+        }
+
+        function handleSearch() { applyFilters(); }
+        function handleSort() { applyFilters(); }
+
+        function applyFilters() {
+            const query = document.getElementById('portfolioSearchInput').value.toLowerCase();
+            const sort = document.getElementById('sortSelect').value;
+
+            let result = [...portfolio];
+
+            if (currentCategory !== 'All') {
+                result = result.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
+            }
+
+            if (activeTechFilters.length > 0) {
+                result = result.filter(p => activeTechFilters.every(ft => p.tags.includes(ft)));
+            }
+
+            if (query) {
+                result = result.filter(p => 
+                    p.title.toLowerCase().includes(query) ||
+                    p.description.toLowerCase().includes(query) ||
+                    p.category.toLowerCase().includes(query) ||
+                    p.tags.some(t => t.toLowerCase().includes(query))
+                );
+            }
+
+            if (sort === 'az') {
+                result.sort((a,b) => a.title.localeCompare(b.title));
+            } else if (sort === 'newest') {
+                result.sort((a,b) => b.sortOrder - a.sortOrder);
+            } else {
+                result.sort((a,b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+            }
+
+            renderPortfolioGrid(result);
+        }
+
+        function resetAllFilters() {
+            document.getElementById('portfolioSearchInput').value = '';
+            activeTechFilters = [];
+            document.querySelectorAll('.tech-filter-chip').forEach(btn => btn.className = 'tech-filter-chip bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1 rounded-lg font-medium transition');
+            filterCategory('All');
+        }
+
+        // Details Modal
+        function openDetailsModal(id) {
+            const item = portfolio.find(p => p.portfolioId === id) || portfolio[0];
+            const container = document.getElementById('detailsModalContent');
+
+            container.innerHTML = `
+                <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">${item.category}</span>
+                <h3 class="text-2xl font-black text-navyDark mt-2">${item.title}</h3>
+                <p class="text-xs text-slate-500 mt-1 mb-4">${item.description}</p>
+
+                <!-- Responsive Device Simulation Frame -->
+                <div class="bg-slate-900 rounded-2xl border p-3 mb-6 text-center">
+                    <div class="flex justify-center gap-2 mb-2 text-xs font-bold text-slate-400">
+                        <button onclick="setSimFrame('desktop')" class="px-3 py-1 rounded bg-slate-800 hover:bg-brandPrimary text-white"><i class="fa-solid fa-desktop"></i> Desktop</button>
+                        <button onclick="setSimFrame('mobile')" class="px-3 py-1 rounded bg-slate-800 hover:bg-brandPrimary text-white"><i class="fa-solid fa-mobile-screen"></i> Mobile</button>
+                    </div>
+                    <div id="simFrame" class="w-full aspect-video bg-slate-100 rounded-xl overflow-hidden transition-all duration-300 mx-auto">
+                        <img src="${item.thumbnailUrl}" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="space-y-2 border-t pt-4 mb-6">
+                    <h4 class="font-bold text-xs text-navyDark">Key Features Included:</h4>
+                    ${item.features.map(f => `<div class="text-xs text-slate-600 font-semibold"><i class="fa-solid fa-check text-brandPrimary mr-2"></i>${f}</div>`).join('')}
+                </div>
+
+                <div class="flex gap-2">
+                    <button onclick="closeDetailsModal(); requestSimilar('${item.title}');" class="flex-1 bg-brandPrimary text-white py-3 rounded-xl font-bold text-xs shadow-md">
+                        Request Similar Website
+                    </button>
+                    <button onclick="shareProject('${item.title}')" class="bg-slate-100 text-slate-700 px-4 py-3 rounded-xl font-bold text-xs">
+                        <i class="fa-solid fa-share-nodes"></i> Share
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('detailsModal').classList.remove('hidden');
+            document.getElementById('detailsModal').classList.add('flex');
+        }
+
+        function setSimFrame(type) {
+            const frame = document.getElementById('simFrame');
+            if (type === 'mobile') {
+                frame.className = "w-48 aspect-[9/16] bg-slate-100 rounded-xl overflow-hidden transition-all duration-300 mx-auto";
+            } else {
+                frame.className = "w-full aspect-video bg-slate-100 rounded-xl overflow-hidden transition-all duration-300 mx-auto";
+            }
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal').classList.add('hidden');
+            document.getElementById('detailsModal').classList.remove('flex');
+        }
+
+        function requestSimilar(projName) {
+            document.getElementById('reqProjectName').value = projName;
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.getElementById('quoteModal').classList.remove('flex');
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reqName').value;
+            const phone = document.getElementById('reqPhone').value;
+            const project = document.getElementById('reqProjectName').value;
+            const details = document.getElementById('reqDetails').value;
+
+            const msg = `Hello Web Pro BD, I saw the ${project} demo concept and I want a similar website for my business. Name: ${name}, Phone: ${phone}. Requirements: ${details}`;
+            window.open(`https://wa.me/8801516513987?text=${encodeURIComponent(msg)}`, '_blank');
+            closeQuoteModal();
+        }
+
+        function shareProject(title) {
+            if (navigator.share) {
+                navigator.share({ title: title, text: 'Check out this website concept on Web Pro BD', url: window.location.href });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast('Project link copied to clipboard!');
+            }
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border animate__animated animate__fadeInRight';
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function loadMoreProjects() {
+            const btn = document.getElementById('loadMoreBtn');
+            btn.innerText = "Loading More...";
+            setTimeout(() => {
+                btn.innerText = "All Demo Projects Loaded";
+                btn.disabled = true;
+            }, 1000);
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        function openQuoteModal(pkg = '') {
+            document.getElementById('reqProjectName').value = pkg || 'Custom Web Solution';
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.getElementById('quoteModal').classList.add('flex');
+        }
+    </script>
+</body>
+</html>PortfolioDetails.html
