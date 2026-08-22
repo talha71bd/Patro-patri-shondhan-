@@ -1,945 +1,947 @@
 <!DOCTYPE html>
-<html lang="bn" class="scroll-smooth">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>পাত্রপাত্রী সন্ধান | দ্বীনি জীবনসঙ্গী</title>
     
-    <!-- Primary SEO Meta Tags -->
-    <title>Web Pro BD | ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট বাংলাদেশ</title>
-    <meta name="title" content="Web Pro BD | ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট বাংলাদেশ">
-    <meta name="description" content="Web Pro BD-এর মাধ্যমে ব্যবসা, প্রতিষ্ঠান, অনলাইন শপ ও ব্যক্তিগত ব্র্যান্ডের জন্য আধুনিক ওয়েবসাইট, ই-কমার্স, ল্যান্ডিং পেজ ও ওয়েব সলিউশন তৈরি করুন।">
-    <meta name="keywords" content="Web Pro BD, ওয়েবসাইট তৈরি, ওয়েবসাইট ডিজাইন, ওয়েবসাইট ডেভেলপমেন্ট, ওয়েবসাইট তৈরি বাংলাদেশ, Website Design Bangladesh, Website Development Bangladesh, Web Developer Bangladesh, ওয়েবসাইট ডিজাইন ঢাকা, Business Website, E-commerce Website, abu talha khan">
-    <meta name="author" content="Abu Talha Khan">
-    <meta name="robots" content="index, follow">
+    <!-- ১. ব্রাউজার ট্যাবের ফেভিকন (Browser Tab Favicon Logo) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
 
-    <!-- Open Graph / Facebook -->
+    <!-- ২. ফেসবুক ও হোয়াটসঅ্যাপে লিংক শেয়ার প্রিভিউ লোগো (Social Open Graph) -->
+    <meta property="og:title" content="পাত্রপাত্রী সন্ধান | ১০০% বিনামূল্যে পাত্র-পাত্রীর বায়োডাটা সন্ধান">
+    <meta property="og:description" content="কোনো সার্ভিস ফি বা মাধ্যম খরচ ছাড়াই অভিভাবকের সম্মতিতে উপযুক্ত দ্বীনি পাত্র-পাত্রী খুঁজুন অথবা বিনামূল্যে নিজের বায়োডাটা জমা দিন।">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://webprobd.com/index.html">
-    <meta property="og:title" content="Web Pro BD | ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট বাংলাদেশ">
-    <meta property="og:description" content="আপনার ব্যবসার জন্য তৈরি করুন একটি আধুনিক ও প্রফেশনাল ওয়েবসাইট - ডিজিটাল পরিচয়ের শক্তিশালী ভিত্তি।">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brandPrimary: '#2563eb',   // Modern Indigo / Blue
-                        brandDark: '#1e40af',      // Deep Indigo
-                        navyDark: '#0f172a',       // Slate Navy
-                        navyCard: '#1e293b',       // Card Navy Accent
-                        lightBg: '#f8fafc',        // Light Slate Gray
-                    },
-                    fontFamily: {
-                        sans: ['Hind Siliguri', 'Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- গুগলের সুতন্নিএমজে-লুক ক্লাসিক বাংলা ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
-        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
         
-        .glass-header {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .dark .glass-header {
-            background: rgba(15, 23, 42, 0.92);
-        }
-        .glass-header-scrolled {
-            background: rgba(15, 23, 42, 0.96);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        :root {
+            --pp-teal: #0d9488;
+            --pp-teal-dark: #0f766e;
+            --pp-primary: #e11d48;
+            --pp-bg: #f8fafc;
+            --pp-text-main: #0f172a;
+            --pp-text-muted: #64748b;
+            --pp-border: #e2e8f0;
         }
 
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tiro Bangla', 'Hind Siliguri', serif !important; }
+        html, body { width: 100%; min-height: 100vh; background-color: var(--pp-bg); color: var(--pp-text-main); overflow-x: hidden; }
 
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-        }
-        .whatsapp-pulse { animation: pulseGlow 2s infinite; }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .accordion-content { transition: max-height 0.35s cubic-bezier(0, 1, 0, 1); }
-
-        .card-hover-effect {
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-8px);
+        /* লোগো ইমেজের সুন্দর সিএসএস */
+        .brand-logo-img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15);
+            border: 1px solid #99f6e4;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .animate-float, .whatsapp-pulse, .animate__animated {
-                animation: none !important;
-                transition: none !important;
-            }
+        .drawer-logo-img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.2);
+            border: 1.5px solid #99f6e4;
         }
+
+        /* অ্যানিমেশনস */
+        @keyframes floatAnim { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        .float-anim { animation: floatAnim 3s ease-in-out infinite; }
+        @keyframes avatarGlow { 0% { box-shadow: 0 0 0 0 rgba(13,148,136,0.4); } 70% { box-shadow: 0 0 0 8px rgba(13,148,136,0); } 100% { box-shadow: 0 0 0 0 rgba(13,148,136,0); } }
+        @keyframes ppPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        @keyframes modalPop { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+        /* ড্রয়ার মেনু সিএসএস */
+        .drawer-backdrop {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
+            z-index: 99998; display: none; opacity: 0; transition: opacity .3s ease;
+        }
+        .drawer-backdrop.active { display: block !important; opacity: 1; }
+        .drawer-menu {
+            position: fixed; top: 0; left: -285px; width: 265px; height: 100vh;
+            background: #fff; z-index: 99999; box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+            display: flex; flex-direction: column; justify-content: space-between;
+            transition: left .3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .drawer-menu.active { left: 0 !important; }
+        .drawer-header { padding: 16px; background: linear-gradient(135deg,#ccfbf1,#e0f2fe); border-bottom: 1px solid #99f6e4; display: flex; align-items: center; justify-content: space-between; }
+        .drawer-brand { display: flex; align-items: center; gap: 8px; }
+        .drawer-title { margin: 0; font-size: 16px; font-weight: 800; color: var(--pp-teal-dark); }
+        .drawer-subtitle { margin: 0; font-size: 11px; color: var(--pp-text-muted); }
+        .drawer-close-btn { background: none; border: none; font-size: 18px; color: var(--pp-text-muted); cursor: pointer; padding: 4px; }
+        .drawer-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+        .drawer-item { padding: 9px 12px; border-radius: 8px; color: var(--pp-text-main); text-decoration: none; font-size: 13px; font-weight: 600; transition: all .2s; background: #f8fafc; border: 1px solid #f1f5f9; }
+        .drawer-item:hover { background: #ccfbf1; color: var(--pp-teal-dark); border-color: #99f6e4; transform: translateX(3px); }
+        .drawer-free-badge { margin-top: 15px; padding: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; border-radius: 10px; font-size: 11.5px; font-weight: 700; text-align: center; }
+        .drawer-footer { padding: 14px; border-top: 1px solid #e2e8f0; background: #f8fafc; font-size: 11px; color: var(--pp-text-muted); }
+        .drawer-footer p { margin: 2px 0; }
+
+        /* টপ নেভিগেশন বার */
+        .top-navbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255,255,255,0.98); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 900; }
+        .menu-toggle-btn { background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 5px 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .menu-icon { font-size: 17px; color: var(--pp-text-main); }
+        .nav-brand { display: flex; align-items: center; gap: 6px; cursor: pointer; user-select: none; }
+        .brand-name { font-size: 17px; font-weight: 800; color: var(--pp-teal-dark); }
+        .nav-cta-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 3px 10px rgba(13,148,136,0.2); }
+
+        /* টিকার */
+        .header-ticker-container { display: flex; overflow: hidden; width: 100%; background: linear-gradient(135deg,#ccfbf1 0%,#f0fdf4 100%); border-bottom: 1px solid #99f6e4; padding: 6px 0; }
+        .header-ticker-track { display: flex; align-items: center; gap: 15px; white-space: nowrap; padding-right: 40px; animation: tickerSlide 22s linear infinite; }
+        @keyframes tickerSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        .app-title { color: var(--pp-teal-dark); margin: 0; font-size: 12.5px; font-weight: 800; display: inline-block; }
+        .app-subtitle { color: var(--pp-text-muted); font-size: 11px; font-weight: 600; margin: 0; display: inline-block; }
+
+        /* হিরো সেকশন */
+        .hero-section { padding: 28px 14px; text-align: center; background: linear-gradient(180deg,#ccfbf1 0%,#ffffff 100%); border-bottom: 1px solid #e2e8f0; }
+        .hero-badge { display: inline-block; padding: 5px 14px; background: #fff; border: 1px solid #99f6e4; border-radius: 20px; font-size: 12px; font-weight: 700; color: var(--pp-teal-dark); margin-bottom: 12px; box-shadow: 0 2px 8px rgba(13,148,136,0.08); }
+        .hero-title { font-size: 22px; font-weight: 800; line-height: 1.4; margin: 0 0 10px 0; color: #0f172a; }
+        @media (min-width: 640px) { .hero-title { font-size: 32px; } }
+        .highlight-text { color: var(--pp-teal-dark); }
+        .hero-description { font-size: 13.5px; color: var(--pp-text-muted); max-width: 600px; margin: 0 auto 18px auto; line-height: 1.6; }
+        .hero-btn-group { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px; }
+        .hero-btn { padding: 10px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700; cursor: pointer; border: none; text-decoration: none; display: inline-block; }
+        .primary-btn { background: var(--pp-teal); color: #fff !important; box-shadow: 0 4px 14px rgba(13,148,136,0.25); }
+        .secondary-btn { background: #0f172a; color: #fff !important; }
+        
+        /* গ্রিডসমূহ: মোবাইলে ১ কলাম */
+        .hero-stats-grid,
+        .features-grid,
+        .steps-container,
+        .social-grid,
+        .cards-container {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        @media (min-width: 640px) {
+            .hero-stats-grid { grid-template-columns: repeat(3, 1fr) !important; max-width: 750px !important; }
+            .features-grid { grid-template-columns: repeat(3, 1fr) !important; max-width: 900px !important; }
+            .steps-container { grid-template-columns: repeat(2, 1fr) !important; max-width: 900px !important; }
+            .social-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 850px !important; }
+            .cards-container { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+
+        @media (min-width: 1024px) {
+            .steps-container { grid-template-columns: repeat(4, 1fr) !important; }
+            .social-grid { grid-template-columns: repeat(4, 1fr) !important; }
+            .cards-container { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+
+        .stat-card { background: #fff; padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+        .stat-icon { font-size: 24px; display: block; margin-bottom: 4px; }
+        .stat-title { font-size: 13px; font-weight: 800; display: block; color: #0f172a; }
+        .stat-desc { font-size: 11px; color: var(--pp-text-muted); }
+
+        .info-section { padding: 28px 14px; border-bottom: 1px solid #e2e8f0; }
+        .bg-soft { background: #f8fafc; }
+        .section-header { text-align: center; margin-bottom: 20px; }
+        .section-tag { font-size: 11.5px; font-weight: 800; color: var(--pp-teal-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+        .section-title { font-size: 20px; font-weight: 800; margin: 4px 0 0 0; color: #0f172a; }
+
+        .feature-card { background: #fff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .f-icon { font-size: 28px; margin-bottom: 6px; }
+        .feature-card h3 { margin: 0 0 6px 0; font-size: 15px; font-weight: 800; color: #0f172a; }
+        .feature-card p { margin: 0; font-size: 12.5px; color: var(--pp-text-muted); line-height: 1.55; }
+
+        .step-card { background: #fff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; position: relative; }
+        .step-num { position: absolute; top: 14px; right: 14px; width: 26px; height: 26px; background: #ccfbf1; color: var(--pp-teal-dark); border-radius: 50%; font-size: 12.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+        .step-card h3 { margin: 0 0 6px 0; font-size: 14.5px; font-weight: 800; color: #0f172a; padding-right: 25px; }
+        .step-card p { margin: 0; font-size: 12px; color: var(--pp-text-muted); line-height: 1.5; }
+
+        .clean-register-section { padding: 28px 14px; background: linear-gradient(135deg,#ccfbf1 0%,#fafafa 100%); border-bottom: 1px solid #e2e8f0; }
+        .reg-cta-card { max-width: 750px; margin: 0 auto; background: #fff; padding: 24px 16px; border-radius: 18px; border: 1.5px solid #99f6e4; box-shadow: 0 8px 25px rgba(13,148,136,0.06); text-align: center; }
+        .reg-badge { display: inline-block; padding: 4px 12px; background: #f0fdf4; color: var(--pp-teal-dark); border-radius: 20px; font-size: 11.5px; font-weight: 800; margin-bottom: 8px; border: 1px solid #bbf7d0; }
+        .reg-title { margin: 0 0 8px 0; font-size: 21px; font-weight: 800; color: #0f172a; }
+        .reg-desc { font-size: 13px; color: var(--pp-text-muted); max-width: 550px; margin: 0 auto 14px auto; line-height: 1.6; }
+        .reg-features-mini { font-size: 11.5px; font-weight: 700; color: #166534; margin-bottom: 18px; }
+        .reg-btn-box { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .reg-main-btn { background: var(--pp-teal); color: #fff !important; border: none; padding: 11px 22px; border-radius: 10px; font-size: 13.5px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 12px rgba(13,148,136,0.25); text-decoration: none; transition: all .2s; }
+        .reg-wa-btn { background: #0f172a; color: #fff !important; border: none; padding: 11px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 800; cursor: pointer; }
+
+        .search-engine-section { padding: 28px 12px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+        .view-all-biodata-btn { display: inline-block; background: var(--pp-teal); color: #fff !important; padding: 11px 22px; border-radius: 10px; font-size: 13.5px; font-weight: 800; text-decoration: none; box-shadow: 0 4px 15px rgba(13,148,136,0.25); }
+
+        .mini-faq-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px; cursor: pointer; }
+        .mini-faq-q { font-size: 13.5px; font-weight: 800; color: #0f172a; display: flex; justify-content: space-between; align-items: center; }
+        .mini-faq-a { font-size: 12px; color: #475569; margin-top: 6px; display: none; line-height: 1.5; border-top: 1px dashed #e2e8f0; padding-top: 6px; }
+        .mini-faq-card.open .mini-faq-a { display: block; }
+        .q-arrow { font-size: 11px; color: var(--pp-teal-dark); transition: transform 0.2s; }
+
+        .sec-link-btn { display: inline-block; background: #0f172a; color: #fff !important; padding: 9px 18px; border-radius: 8px; font-size: 12.5px; font-weight: 700; text-decoration: none; }
+        .sec-link-btn.primary { background: var(--pp-teal); }
+
+        .admin-profile-section { padding: 28px 14px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+        .admin-card { max-width: 600px; margin: 0 auto; background: #fff; padding: 18px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+        .admin-avatar-box { width: 60px; height: 60px; background: #ccfbf1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; border: 2px solid #99f6e4; shrink: 0; }
+        .admin-info { flex: 1; min-width: 200px; }
+        .admin-tag { font-size: 10px; font-weight: 800; color: var(--pp-teal-dark); text-transform: uppercase; }
+        .admin-name { margin: 2px 0 6px 0; font-size: 17px; font-weight: 800; color: #0f172a; }
+        .admin-bio { margin: 0 0 8px 0; font-size: 12px; color: var(--pp-text-muted); line-height: 1.55; font-style: italic; }
+        .admin-details { font-size: 11.5px; font-weight: 600; color: #0f172a; }
+
+        .social-contact-section { padding: 28px 14px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+        .social-card { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; border: 1px solid #e2e8f0; text-decoration: none; color: #0f172a; background: #f8fafc; }
+        .social-card .s-icon { font-size: 24px; }
+        .social-card h4 { margin: 0; font-size: 13.5px; font-weight: 800; }
+        .social-card p { margin: 2px 0 0 0; font-size: 11.5px; color: var(--pp-text-muted); }
+
+        .app-footer { padding: 28px 14px 16px 14px; background: #0f172a; color: #fff !important; }
+        .footer-content { max-width: 900px; margin: 0 auto 16px auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .footer-brand h3 { margin: 0; font-size: 16.5px; color: #2dd4bf; }
+        .footer-brand p { margin: 4px 0 0 0; font-size: 12px; color: #94a3b8; max-width: 300px; }
+        .footer-info p { margin: 3px 0; font-size: 12px; color: #cbd5e1; }
+        .footer-bottom { border-top: 1px solid #334155; padding-top: 14px; text-align: center; font-size: 11px; color: #64748b; }
+
+        /* ফিল্টার ও কার্ড কন্ট্রোলস */
+        .filter-wrapper { background: #f8fafc; padding: 8px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 10px; width: 100%; }
+        .filter-row { display: flex !important; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 6px; width: 100%; }
+        .filter-row:last-child { margin-bottom: 0; }
+        .search-box { flex: 1 1 100%; min-width: 0; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12px; outline: none; background: #fff; height: 34px; }
+        .category-select { flex: 1 1 30%; min-width: 100px; padding: 6px 18px 6px 8px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12px; outline: none; background-color: #fff; font-weight: 600; cursor: pointer; -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230f766e' stroke-width='3'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 6px center; background-size: 10px; height: 34px; line-height: 1.2; }
+        .reset-btn { flex: 1 1 100%; background: #64748b; color: #fff !important; border: none; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; height: 34px; }
+
+        .loading-container { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 25px 10px; width: 100%; margin: 0 auto; }
+        .heart-spinner { font-size: 28px !important; margin-bottom: 4px !important; animation: ppPulse 1s infinite !important; display: inline-block !important; }
+
+        .biodata-card { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.02); overflow: hidden; border: 1px solid var(--pp-border); display: flex !important; flex-direction: column !important; justify-content: space-between; cursor: pointer; transition: all .2s ease; margin: 0 !important; width: 100% !important; }
+        .card-top { padding: 8px 6px; text-align: center !important; background: linear-gradient(180deg,#f0fdf4 0%,#ffffff 100%); position: relative; border-bottom: 1px solid #dcfce7; width: 100% !important; }
+        .card-top.female-bg { background: linear-gradient(180deg,#fff1f2 0%,#ffffff 100%); border-bottom: 1px solid #ffe4e6; }
+        .badge-container { position: absolute; top: 6px; left: 6px; background: #fff; padding: 2px 6px; border-radius: 6px; border: 1px solid #99f6e4; font-size: 10.5px; font-weight: 800; color: var(--pp-teal-dark); }
+        .fav-heart-btn { position: absolute; top: 6px; right: 6px; background: #fff; border: 1px solid #e2e8f0; padding: 2px 6px; border-radius: 12px; font-size: 11px; cursor: pointer; }
+        .fav-heart-btn.liked { background: #fff1f2; border-color: #fecdd3; color: var(--pp-primary); }
+
+        .avatar-box { position: relative; width: 54px; height: 54px; margin: 2px auto 4px auto; border-radius: 50%; padding: 2px; background: linear-gradient(135deg,var(--pp-teal),#38bdf8); animation: avatarGlow 2s infinite; }
+        .avatar-box img { width: 100% !important; height: 100% !important; object-fit: cover; border-radius: 50%; background: #fff; }
+        .card-top h3 { margin: 2px 0 1px 0; font-size: 15.5px; color: var(--pp-text-main); font-weight: 800; text-align: center !important; }
+        .card-top p { margin: 0; font-size: 11.5px; color: var(--pp-text-muted); font-weight: 600; text-align: center !important; }
+        .card-body { padding: 6px; width: 100% !important; text-align: left; }
+        .info-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 5px !important; margin-bottom: 5px; }
+        .info-box { background: #f8fafc; padding: 5px 7px; border-radius: 6px; border: 1px solid #f1f5f9; text-align: left !important; }
+        .info-title { font-size: 9.5px; color: var(--pp-text-muted); display: block; font-weight: 700; text-transform: uppercase; }
+        .info-value { font-size: 12px; color: var(--pp-text-main); font-weight: 700; word-break: break-word; }
+        
+        .expanded-details { max-height: 0; overflow: hidden; opacity: 0; transition: all .35s ease; background: #fafafa; padding: 0 6px; }
+        .expanded-details.open { max-height: 1000px; opacity: 1; padding: 6px 6px 8px 6px; border-top: 1px dashed #cbd5e1; }
+        .section-title { font-size: 11px; font-weight: 800; color: var(--pp-teal-dark); margin: 6px 0 3px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; text-transform: uppercase; }
+        .detail-row { display: flex !important; justify-content: space-between !important; margin-bottom: 3px; font-size: 12px; border-bottom: 1px dashed #f1f5f9; padding-bottom: 2px; gap: 4px; }
+        .detail-label { color: var(--pp-text-muted); font-weight: 600; }
+        .detail-val { color: var(--pp-text-main); font-weight: 700; text-align: right !important; word-break: break-word; flex: 1; }
+        .privacy-badge { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 5px 6px; border-radius: 6px; font-size: 10.5px; font-weight: 600; text-align: center !important; margin-top: 6px; }
+        
+        .card-footer { padding: 6px; background: #fff; border-top: 1px solid #f1f5f9; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 4px; flex-wrap: wrap; }
+        .toggle-hint { font-size: 11.5px; color: var(--pp-teal-dark); font-weight: 700; display: flex; align-items: center; gap: 2px; }
+        .whatsapp-btn { background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); color: #fff !important; border: none; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+        .download-btn { background: #f0fdf4; color: #166534 !important; border: 1px solid #bbf7d0; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+        .toast-msg { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #fff !important; padding: 8px 16px; border-radius: 18px; font-size: 11.5px; font-weight: 600; z-index: 999999; box-shadow: 0 3px 12px rgba(0,0,0,.3); }
+
+        /* হিডেন গোপন এডমিন মোডাল */
+        .secret-modal-backdrop { position: fixed; inset: 0; background: rgba(15,23,42,0.7); backdrop-filter: blur(5px); z-index: 999999; display: none; align-items: center; justify-content: center; padding: 16px; }
+        .secret-modal-backdrop.active { display: flex !important; }
+        .secret-modal-card { background: #fff; max-width: 360px; width: 100%; border-radius: 20px; padding: 24px 18px; text-align: center; border: 1.5px solid #99f6e4; box-shadow: 0 20px 40px rgba(0,0,0,0.3); animation: modalPop 0.3s ease-out; }
     </style>
-
-    <!-- Schema.org Organization Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Web Pro BD",
-      "url": "https://webprobd.com",
-      "logo": "https://webprobd.com/assets/logo.png",
-      "telephone": "+8801516513987",
-      "email": "abutalha46700@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Farmgate",
-        "addressLocality": "Dhaka",
-        "addressCountry": "BD"
-      },
-      "founder": {
-        "@type": "Person",
-        "name": "Abu Talha Khan"
-      }
-    }
-    </script>
 </head>
-<body class="bg-lightBg dark:bg-navyDark dark:text-slate-100 text-slate-800 antialiased flex flex-col min-h-screen relative transition-colors duration-300">
+<body>
 
-    <!-- Toast Notification Container -->
-    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2 pointer-events-none"></div>
+<div id="ppSearchPageRoot">
+    <!-- স্লাইড ওভার ড্রয়ার মেনু ব্যাকড্রপ -->
+    <div id="ppDrawerBackdrop" class="drawer-backdrop" onclick="ppToggleDrawer(false)"></div>
 
-    <!-- ==================== STICKY MASTER HEADER ==================== -->
-    <header id="mainHeader" class="glass-header sticky top-0 z-40 transition-all duration-300 border-b border-slate-200/80 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div id="headerContainer" class="flex items-center justify-between h-20 transition-all duration-300">
-                
-                <!-- Brand Logo -->
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPrimary to-brandDark flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition duration-300">
-                        W
-                    </div>
-                    <div>
-                        <span id="brandText" class="text-xl font-black tracking-tight text-navyDark dark:text-white transition duration-300">
-                            Web Pro <span class="text-brandPrimary">BD</span>
-                        </span>
-                        <span class="block text-[10px] font-bold text-slate-400 tracking-wider uppercase -mt-1">Master Web Portal</span>
-                    </div>
-                </a>
-
-                <!-- Navigation Links to Standalone Pages (Matching Exact Filenames) -->
-                <nav class="hidden lg:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link px-3 py-2 text-xs font-bold text-brandPrimary bg-brandPrimary/10 rounded-lg flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary animate-ping"></span> Home
-                    </a>
-                    <a href="about.html" class="nav-link px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brandPrimary transition rounded-lg">About</a>
-                    <a href="service.html" class="nav-link px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brandPrimary transition rounded-lg">Services</a>
-                    <a href="portfolio.html" class="nav-link px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brandPrimary transition rounded-lg">Portfolio</a>
-                    <a href="pricing.html" class="nav-link px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brandPrimary transition rounded-lg">Pricing</a>
-                    <a href="reviews.html" class="nav-link px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brandPrimary transition rounded-lg">Reviews</a>
-                    <a href="faq.html" class="nav-link px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brandPrimary transition rounded-lg">FAQ</a>
-                    <a href="contact.html" class="nav-link px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-brandPrimary transition rounded-lg">Contact</a>
-                </nav>
-
-                <!-- Header Right CTAs & Theme Switcher -->
-                <div class="hidden md:flex items-center gap-2 lg:gap-3">
-                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 text-xs font-bold transition">
-                        <i id="themeIcon" class="fa-solid fa-moon"></i>
-                    </button>
-                    <a href="dashboard.html" class="text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-brandPrimary px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
-                        <i class="fa-solid fa-user-check text-brandPrimary"></i> Client Login
-                    </a>
-                    <a href="getQuote.html" class="bg-brandPrimary hover:bg-brandDark text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition duration-300 active:scale-95 flex items-center gap-1.5">
-                        <span>Get Quote</span>
-                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger Button -->
-                <div class="flex lg:hidden items-center gap-2">
-                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 text-xs font-bold">
-                        <i id="themeIconMobile" class="fa-solid fa-moon"></i>
-                    </button>
-                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="p-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:text-brandPrimary transition">
-                        <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Mobile Drawer Navigation with Exact Case Filename Links -->
-        <div id="mobileDrawer" class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-navyDark/95 backdrop-blur-xl transition-all duration-300">
-            <div class="px-4 pt-2 pb-6 space-y-2 text-sm font-semibold">
-                <a href="index.html" class="block px-4 py-2 rounded-xl text-brandPrimary bg-brandPrimary/10 font-bold">🏠 Home</a>
-                <a href="about.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">👤 About Us Page</a>
-                <a href="#about" onclick="toggleMobileMenu()" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">📌 About Section</a>
-                <a href="service.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">🛠️ Services Page</a>
-                <a href="#services" onclick="toggleMobileMenu()" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">📌 Services Section</a>
-                <a href="portfolio.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">💼 Portfolio Page</a>
-                <a href="#portfolio" onclick="toggleMobileMenu()" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">📌 Portfolio Demos</a>
-                <a href="pricing.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">💰 Pricing Page</a>
-                <a href="#pricing" onclick="toggleMobileMenu()" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">📌 Pricing Section</a>
-                <a href="#calculator" onclick="toggleMobileMenu()" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">🧮 Cost Calculator</a>
-                <a href="getQuote.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">📋 Get Quote Page</a>
-                <a href="#order" onclick="toggleMobileMenu()" class="block px-4 py-2 rounded-xl text-brandPrimary font-bold bg-blue-50 dark:bg-slate-800">📋 Order / Inquiry Form</a>
-                <a href="reviews.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">⭐ Reviews Page</a>
-                <a href="faq.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">❓ FAQ & Help Center</a>
-                <a href="contact.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">📞 Contact Page</a>
-                <a href="dashboard.html" class="block px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">👤 Client Login</a>
-                
-                <!-- Admin Login Modal Trigger at Very Bottom -->
-                <div class="pt-3 border-t border-slate-200 dark:border-slate-800">
-                    <button onclick="openAdminLoginModal(); toggleMobileMenu();" class="w-full text-left px-4 py-2.5 rounded-xl bg-slate-900 text-amber-400 font-extrabold text-xs shadow flex items-center justify-between">
-                        <span>🔐 Admin Login</span>
-                        <i class="fa-solid fa-lock text-xs"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ==================== HERO SECTION ==================== -->
-    <section id="home" class="relative bg-gradient-to-b from-slate-900 via-navyDark to-slate-900 text-white py-16 lg:py-24 border-b border-slate-800 overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPrimary/20 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                
-                <!-- Left Hero Content -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left animate__animated animate__fadeInLeft">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 text-brandPrimary text-xs font-extrabold uppercase tracking-widest backdrop-blur-md">
-                        <i class="fa-solid fa-sparkles text-amber-400"></i>
-                        <span>WEB PRO BD • WEB DESIGN & DEVELOPMENT</span>
-                    </div>
-
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-snug sm:leading-tight">
-                        আপনার ব্যবসার জন্য তৈরি করুন <br class="hidden sm:inline">
-                        একটি আধুনিক ও প্রফেশনাল ওয়েবসাইট <br>
-                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent">ডিজিটাল পরিচয়ের শক্তিশালী ভিত্তি</span>
-                    </h1>
-
-                    <p class="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                        আপনার ব্যবসা, প্রতিষ্ঠান, ব্যক্তিগত ব্র্যান্ড বা অনলাইন শপের জন্য Web Pro BD তৈরি করে আধুনিক, দ্রুত, মোবাইল রেসপন্সিভ এবং ব্যবহারবান্ধব ওয়েবসাইট ও ওয়েব সলিউশন।
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="getQuote.html" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-brandPrimary/30 transition duration-300 text-center flex items-center justify-center gap-2">
-                            <span>🚀 এখনই শুরু করুন</span>
-                        </a>
-                        <a href="pricing.html#calc" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-7 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
-                            <span>🧮 খরচ হিসাব করুন</span>
-                        </a>
-                        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20about%20your%20website%20services." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3.5 rounded-xl transition text-center flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span>WhatsApp</span>
-                        </a>
-                    </div>
-
-                    <!-- Owner Profile Area -->
-                    <div class="pt-6 border-t border-slate-800 flex items-center justify-center lg:justify-start gap-3">
-                        <div class="w-10 h-10 rounded-full bg-brandPrimary/20 border border-brandPrimary/40 flex items-center justify-center font-bold text-xs text-brandPrimary overflow-hidden shrink-0">
-                            <img src="/assets/abu-talha.jpg" alt="Abu Talha Khan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full h-full object-cover">
-                            <span class="hidden w-full h-full items-center justify-center bg-brandPrimary text-white font-black text-xs">AT</span>
-                        </div>
-                        <div class="text-left text-xs">
-                            <span class="font-bold text-white block">Abu Talha Khan</span>
-                            <span class="text-[10px] text-slate-400">Founder & Web Creator — Web Pro BD</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Hero Mockup Visual -->
-                <div class="lg:col-span-5 flex justify-center animate__animated animate__fadeInRight">
-                    <div class="w-full max-w-md bg-navyCard/90 border border-slate-700/80 rounded-2xl shadow-2xl p-5 backdrop-blur-xl animate-float relative z-10">
-                        <div class="flex items-center justify-between pb-3 border-b border-slate-700/80 mb-4">
-                            <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                            </div>
-                            <span class="text-[11px] font-mono text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">webprobd.com</span>
-                            <i class="fa-solid fa-code text-xs text-brandPrimary"></i>
-                        </div>
-
-                        <div class="space-y-3 font-mono text-xs">
-                            <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2.5">
-                                    <div class="w-8 h-8 rounded-lg bg-brandPrimary flex items-center justify-center text-white font-bold">
-                                        <i class="fa-solid fa-cart-shopping text-xs"></i>
-                                    </div>
-                                    <div>
-                                        <div class="text-xs font-bold text-white">E-commerce & Business</div>
-                                        <div class="text-[10px] text-emerald-400 font-bold">Google Sheets Backend</div>
-                                    </div>
-                                </div>
-                                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">Active</span>
-                            </div>
-
-                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-2 text-[11px]">
-                                <div class="text-slate-300"><i class="fa-solid fa-check text-brandPrimary mr-1.5"></i> 100% Mobile Responsive UI</div>
-                                <div class="text-slate-300"><i class="fa-solid fa-check text-brandPrimary mr-1.5"></i> Fast Loading Speed & SEO Ready</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== QUICK ACTION BAR ==================== -->
-    <section class="py-4 bg-slate-900 border-b border-slate-800 sticky top-20 z-30 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 overflow-x-auto no-scrollbar">
-            <div class="flex items-center justify-center sm:justify-around gap-4 min-w-max text-xs font-bold text-slate-300">
-                <a href="service.html" class="hover:text-brandPrimary transition flex items-center gap-1.5"><i class="fa-solid fa-briefcase text-brandPrimary"></i> Services</a>
-                <a href="portfolio.html" class="hover:text-brandPrimary transition flex items-center gap-1.5"><i class="fa-solid fa-images text-indigo-400"></i> Portfolio Demos</a>
-                <a href="pricing.html" class="hover:text-brandPrimary transition flex items-center gap-1.5"><i class="fa-solid fa-tags text-amber-400"></i> Pricing</a>
-                <a href="pricing.html#calc" class="hover:text-brandPrimary transition flex items-center gap-1.5"><i class="fa-solid fa-calculator text-emerald-400"></i> Cost Calculator</a>
-                <a href="getQuote.html" class="bg-brandPrimary text-white px-3 py-1 rounded-lg flex items-center gap-1.5 shadow"><i class="fa-solid fa-paper-plane text-[10px]"></i> Get Quote</a>
-                <a href="contact.html" class="hover:text-brandPrimary transition flex items-center gap-1.5"><i class="fa-solid fa-headset text-red-400"></i> Contact Us</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== TRUST BAR ==================== -->
-    <section class="py-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap items-center justify-around gap-4 text-xs font-bold text-slate-600 dark:text-slate-300">
-                <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandPrimary"></i> Responsive Design</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandPrimary"></i> Modern UI</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandPrimary"></i> Fast Performance</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandPrimary"></i> Customer Support</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brandPrimary"></i> Custom Solution</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== WEBSITE DIRECTORY OVERVIEW ==================== -->
-    <section class="py-16 bg-lightBg dark:bg-navyDark border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">WEBSITE DIRECTORY</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-navyDark dark:text-white mt-3">আমাদের ওয়েবসাইটের পেজ লিংকসমূহ</h2>
-                <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">এক ক্লিকে আপনার প্রয়োজনীয় পেজে সরাসরি প্রবেশ করুন:</p>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-xs font-semibold">
-                <a href="service.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-brandPrimary text-sm"><i class="fa-solid fa-briefcase mr-1.5"></i> Services Page</div>
-                    <p class="text-slate-500 text-[11px]">আমাদের সকল ওয়েবসাইট ডেভেলপমেন্ট সেবা</p>
-                </a>
-                <a href="pricing.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-amber-500 text-sm"><i class="fa-solid fa-tags mr-1.5"></i> Pricing Page</div>
-                    <p class="text-slate-500 text-[11px]">প্যাকেজ মূল্য ও বাজেট ক্যালকুলেটর</p>
-                </a>
-                <a href="portfolio.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-indigo-500 text-sm"><i class="fa-solid fa-images mr-1.5"></i> Portfolio Page</div>
-                    <p class="text-slate-500 text-[11px]">আমাদের তৈরি ডেমো প্রজেক্ট শোকেস</p>
-                </a>
-                <a href="getQuote.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-emerald-600 text-sm"><i class="fa-solid fa-calculator mr-1.5"></i> Get a Quote Page</div>
-                    <p class="text-slate-500 text-[11px]">অনলাইন প্রজেক্ট কোটেশন রিকোয়েস্ট</p>
-                </a>
-                <a href="about.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-sky-500 text-sm"><i class="fa-solid fa-user mr-1.5"></i> About Us Page</div>
-                    <p class="text-slate-500 text-[11px]">Web Pro BD ও ওনার পরিচিতি</p>
-                </a>
-                <a href="reviews.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-amber-400 text-sm"><i class="fa-solid fa-star mr-1.5"></i> Reviews Page</div>
-                    <p class="text-slate-500 text-[11px]">গ্রাহকদের সার্ভিস অভিজ্ঞতা ও রিভিউ</p>
-                </a>
-                <a href="faq.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-purple-500 text-sm"><i class="fa-solid fa-circle-question mr-1.5"></i> FAQ Page</div>
-                    <p class="text-slate-500 text-[11px]">সাধারণ প্রশ্ন ও সাহায্য কেন্দ্র</p>
-                </a>
-                <a href="contact.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-red-500 text-sm"><i class="fa-solid fa-headset mr-1.5"></i> Contact Page</div>
-                    <p class="text-slate-500 text-[11px]">হোয়াটসঅ্যাপ, ফোন ও ইমেইল ঠিকানা</p>
-                </a>
-                <a href="dashboard.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-brandPrimary text-sm"><i class="fa-solid fa-user-check mr-1.5"></i> Customer Dashboard</div>
-                    <p class="text-slate-500 text-[11px]">কাস্টমার প্রজেক্ট ও বিলিং ট্র্যাকিং</p>
-                </a>
-                <a href="terms.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-slate-700 dark:text-slate-300 text-sm"><i class="fa-solid fa-file-contract mr-1.5"></i> Terms & Conditions</div>
-                    <p class="text-slate-500 text-[11px]">কাজের নিয়ম ও শর্তাবলী</p>
-                </a>
-                <a href="privacy.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-slate-700 dark:text-slate-300 text-sm"><i class="fa-solid fa-shield-halved mr-1.5"></i> Privacy Policy</div>
-                    <p class="text-slate-500 text-[11px]">ডাটা প্রটেকশন ও প্রাইভেসি পলিসি</p>
-                </a>
-                <a href="refund.html" class="p-4 bg-white dark:bg-navyCard border rounded-2xl shadow-sm hover:border-brandPrimary transition space-y-1">
-                    <div class="font-extrabold text-emerald-600 text-sm"><i class="fa-solid fa-rotate-left mr-1.5"></i> Refund Policy</div>
-                    <p class="text-slate-500 text-[11px]">প্রজেক্ট ক্যান্সেলেশন ও রিফান্ড নীতি</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== ABOUT SECTION (#about) ==================== -->
-    <section id="about" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-4">
-                    <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">ABOUT US</span>
-                    <h2 class="text-2xl sm:text-3xl font-black text-navyDark dark:text-white">Web Pro BD সম্পর্কে</h2>
-                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
-                        Web Pro BD-এর লক্ষ্য হলো ব্যবসা, প্রতিষ্ঠান, অনলাইন শপ ও ব্যক্তিগত ব্র্যান্ডের জন্য আধুনিক ও কার্যকর ওয়েব সলিউশন তৈরি করা। আপনার প্রয়োজন বুঝে উপযুক্ত ডিজাইন, ফাংশনালিটি এবং বিজনেস-ফোকাসড সলিউশন দেওয়াই আমাদের মূল উদ্দেশ্য।
-                    </p>
-                    <div class="pt-2 flex flex-wrap gap-3">
-                        <a href="about.html" class="bg-brandPrimary hover:bg-brandDark text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow inline-flex items-center gap-2">
-                            <span>About Page-এ যান</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                        <a href="contact.html" class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white px-5 py-2.5 rounded-xl text-xs font-bold border">
-                            আমার সাথে কথা বলুন
-                        </a>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 bg-lightBg dark:bg-navyCard border p-6 rounded-3xl shadow-sm text-xs space-y-3">
-                    <div class="flex items-center gap-3 border-b pb-3">
-                        <div class="w-12 h-12 rounded-full bg-brandPrimary text-white font-black text-base flex items-center justify-center">AT</div>
-                        <div>
-                            <strong class="font-extrabold text-navyDark dark:text-white text-sm block">Abu Talha Khan</strong>
-                            <span class="text-brandPrimary font-bold text-[11px]">Founder & Web Creator</span>
-                        </div>
-                    </div>
-                    <p class="text-slate-500 dark:text-slate-400"><i class="fa-solid fa-location-dot text-brandPrimary mr-1.5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
-                    <p class="text-slate-500 dark:text-slate-400"><i class="fa-solid fa-envelope text-brandPrimary mr-1.5"></i> abutalha46700@gmail.com</p>
-                    <p class="text-slate-500 dark:text-slate-400"><i class="fa-solid fa-phone text-brandPrimary mr-1.5"></i> 01516513987</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SERVICES SECTION (#services) ==================== -->
-    <section id="services" class="py-16 bg-lightBg dark:bg-navyDark border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b pb-4">
+    <!-- বাম পাশের স্লাইড ওভার ড্রয়ার মেনু -->
+    <div id="ppDrawerMenu" class="drawer-menu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <img src="logo.png" alt="পাত্রপাত্রী সন্ধান লোগো" class="drawer-logo-img float-anim">
                 <div>
-                    <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">OUR SERVICES</span>
-                    <h2 class="text-2xl sm:text-3xl font-black text-navyDark dark:text-white mt-2">আমাদের প্রধান সেবাসমূহ</h2>
+                    <h4 class="drawer-title">পাত্রপাত্রী সন্ধান</h4>
+                    <p class="drawer-subtitle">ইসলামিক ম্যাচমেকিং প্ল্যাটফর্ম</p>
                 </div>
-                <a href="service.html" class="bg-brandPrimary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow">
-                    সব সার্ভিস দেখুন &rarr;
-                </a>
             </div>
-
-            <!-- Service Cards Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="p-6 rounded-3xl bg-white dark:bg-navyCard border card-hover-effect space-y-3 flex flex-col justify-between">
-                    <div>
-                        <i class="fa-solid fa-briefcase text-2xl text-brandPrimary mb-2 block"></i>
-                        <h3 class="font-bold text-base text-navyDark dark:text-white">Business Website</h3>
-                        <p class="text-slate-500 text-xs leading-relaxed">সাধারণ ব্যবসা ও প্রতিষ্ঠানের জন্য প্রফেশনাল ওয়েবসাইট।</p>
-                    </div>
-                    <div class="pt-2 border-t flex gap-2">
-                        <a href="getQuote.html" class="flex-1 bg-brandPrimary text-white text-center py-2 rounded-xl text-xs font-bold">এই Service নিতে চাই</a>
-                        <a href="service.html" class="bg-slate-100 text-slate-700 px-3 py-2 rounded-xl text-xs font-bold">Details</a>
-                    </div>
-                </div>
-
-                <div class="p-6 rounded-3xl bg-white dark:bg-navyCard border card-hover-effect space-y-3 flex flex-col justify-between">
-                    <div>
-                        <i class="fa-solid fa-cart-shopping text-2xl text-emerald-500 mb-2 block"></i>
-                        <h3 class="font-bold text-base text-navyDark dark:text-white">E-commerce Website</h3>
-                        <p class="text-slate-500 text-xs leading-relaxed">অনলাইনে পণ্য বিক্রির জন্য পূর্ণাঙ্গ অনলাইন শপ।</p>
-                    </div>
-                    <div class="pt-2 border-t flex gap-2">
-                        <a href="getQuote.html" class="flex-1 bg-brandPrimary text-white text-center py-2 rounded-xl text-xs font-bold">এই Service নিতে চাই</a>
-                        <a href="service.html" class="bg-slate-100 text-slate-700 px-3 py-2 rounded-xl text-xs font-bold">Details</a>
-                    </div>
-                </div>
-
-                <div class="p-6 rounded-3xl bg-white dark:bg-navyCard border card-hover-effect space-y-3 flex flex-col justify-between">
-                    <div>
-                        <i class="fa-solid fa-rocket text-2xl text-amber-500 mb-2 block"></i>
-                        <h3 class="font-bold text-base text-navyDark dark:text-white">Landing Page</h3>
-                        <p class="text-slate-500 text-xs leading-relaxed">নির্দিষ্ট প্রোডাক্ট অ্যাড ক্যাম্পেইনের জন্য ল্যান্ডিং পেজ।</p>
-                    </div>
-                    <div class="pt-2 border-t flex gap-2">
-                        <a href="getQuote.html" class="flex-1 bg-brandPrimary text-white text-center py-2 rounded-xl text-xs font-bold">এই Service নিতে চাই</a>
-                        <a href="service.html" class="bg-slate-100 text-slate-700 px-3 py-2 rounded-xl text-xs font-bold">Details</a>
-                    </div>
-                </div>
-
+            <button class="drawer-close-btn" onclick="ppToggleDrawer(false)">✕</button>
+        </div>
+        <div class="drawer-body">
+            <a href="index.html" class="drawer-item">🏠 হোম পেজ</a>
+            <a href="biodata-list.html" class="drawer-item">🔍 বায়োডাটা খুঁজুন</a>
+            <a href="biodata-form.html" class="drawer-item">📝 বায়োডাটা জমা দিন (ফ্রি)</a>
+            <a href="faq.html" class="drawer-item">❓ সাহায্য ও সাধারণ জিজ্ঞাসা</a>
+            <a href="privacy-policy.html" class="drawer-item">📜 গোপনীয়তা নীতি ও শর্তাবলী</a>
+            <a href="https://sikkha71bd.vercel.app/" target="_blank" class="drawer-item">🎓 শিক্ষা ৭১ বিডি</a>
+            <a href="#ppContactSection" class="drawer-item" onclick="ppToggleDrawer(false)">📞 সোশ্যাল মিডিয়া ও যোগাযোগ</a>
+            
+            <div class="drawer-free-badge">
+                🎉 ১০০% ফ্রি সেবা • কোনো হিডেন ফি নেই
             </div>
         </div>
-    </section>
-
-    <!-- ==================== PORTFOLIO DEMOS SECTION (#portfolio) ==================== -->
-    <section id="portfolio" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="flex justify-between items-center border-b pb-4">
-                <div>
-                    <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">SHOWCASE</span>
-                    <h2 class="text-2xl font-black text-navyDark dark:text-white mt-2">আমাদের কাজের Demo Project</h2>
-                </div>
-                <a href="portfolio.html" class="bg-navyDark text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow">
-                    সব পোর্টফোলিও দেখুন &rarr;
-                </a>
-            </div>
-
-            <!-- Demo Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <div class="bg-lightBg dark:bg-navyCard rounded-3xl border p-4 space-y-3">
-                    <div class="aspect-video bg-slate-900 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
-                        <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">DEMO PROJECT</span>
-                    </div>
-                    <h3 class="font-bold text-sm text-navyDark dark:text-white">Fashion Store Concept</h3>
-                    <div class="flex gap-2">
-                        <a href="portfolioDetails.html?slug=fashion-store-concept" class="flex-1 bg-slate-100 text-slate-800 text-center py-2 rounded-xl text-xs font-bold">Details</a>
-                        <a href="getQuote.html" class="flex-1 bg-brandPrimary text-white text-center py-2 rounded-xl text-xs font-bold">এই টাইপ চাই</a>
-                    </div>
-                </div>
-
-                <div class="bg-lightBg dark:bg-navyCard rounded-3xl border p-4 space-y-3">
-                    <div class="aspect-video bg-slate-900 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
-                        <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">DEMO PROJECT</span>
-                    </div>
-                    <h3 class="font-bold text-sm text-navyDark dark:text-white">Restaurant & Cafe Concept</h3>
-                    <div class="flex gap-2">
-                        <a href="portfolioDetails.html?slug=restaurant-cafe-concept" class="flex-1 bg-slate-100 text-slate-800 text-center py-2 rounded-xl text-xs font-bold">Details</a>
-                        <a href="getQuote.html" class="flex-1 bg-brandPrimary text-white text-center py-2 rounded-xl text-xs font-bold">এই টাইপ চাই</a>
-                    </div>
-                </div>
-
-                <div class="bg-lightBg dark:bg-navyCard rounded-3xl border p-4 space-y-3">
-                    <div class="aspect-video bg-slate-900 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
-                        <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">DEMO PROJECT</span>
-                    </div>
-                    <h3 class="font-bold text-sm text-navyDark dark:text-white">Business Service Agency</h3>
-                    <div class="flex gap-2">
-                        <a href="portfolioDetails.html?slug=business-service-agency" class="flex-1 bg-slate-100 text-slate-800 text-center py-2 rounded-xl text-xs font-bold">Details</a>
-                        <a href="getQuote.html" class="flex-1 bg-brandPrimary text-white text-center py-2 rounded-xl text-xs font-bold">এই টাইপ চাই</a>
-                    </div>
-                </div>
-
-            </div>
+        <div class="drawer-footer">
+            <p>প্রতিষ্ঠাতা ও পরিচালক: <b>Abu Talha Khan</b></p>
+            <p>📍 ঢাকা ফার্মগেট | মেহেন্দিগঞ্জ, বরিশাল</p>
         </div>
-    </section>
-
-    <!-- ==================== PRICING SECTION (#pricing) ==================== -->
-    <section id="pricing" class="py-16 bg-lightBg dark:bg-navyDark border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="flex justify-between items-center border-b pb-4">
-                <div>
-                    <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">PRICING</span>
-                    <h2 class="text-2xl sm:text-3xl font-black text-navyDark dark:text-white mt-3">সহজ ও স্বচ্ছ Pricing</h2>
-                </div>
-                <a href="pricing.html" class="bg-brandPrimary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow">
-                    সব প্যাকেজ দেখুন &rarr;
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Starter -->
-                <div class="bg-white dark:bg-navyCard p-6 rounded-3xl border space-y-4 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold text-navyDark dark:text-white">Starter Package</h3>
-                        <span class="text-2xl font-black text-brandPrimary block mt-1">৳৩,০০০</span>
-                        <p class="text-xs text-slate-500 mt-1">ছোট ব্যবসা ও ব্যক্তিগত ওয়েবসাইটের জন্য</p>
-                    </div>
-                    <a href="getQuote.html" class="block w-full bg-navyDark text-white text-center py-2.5 rounded-xl font-bold text-xs">এই Package নির্বাচন করুন</a>
-                </div>
-
-                <!-- Business -->
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border-2 border-brandPrimary shadow-xl space-y-4 flex flex-col justify-between relative">
-                    <span class="absolute -top-3 left-6 bg-brandPrimary text-white text-[10px] font-black px-3 py-0.5 rounded-full">POPULAR</span>
-                    <div>
-                        <h3 class="text-lg font-bold text-navyDark dark:text-white">Business Package</h3>
-                        <span class="text-2xl font-black text-brandPrimary block mt-1">৳৭,০০০</span>
-                        <p class="text-xs text-slate-500 mt-1">প্রফেশনাল অনলাইন উপস্থিতির জন্য</p>
-                    </div>
-                    <a href="getQuote.html" class="block w-full bg-brandPrimary text-white text-center py-2.5 rounded-xl font-bold text-xs shadow-md">এই Package নির্বাচন করুন</a>
-                </div>
-
-                <!-- E-commerce -->
-                <div class="bg-white dark:bg-navyCard p-6 rounded-3xl border space-y-4 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold text-navyDark dark:text-white">E-commerce Package</h3>
-                        <span class="text-2xl font-black text-brandPrimary block mt-1">৳১২,০০০+</span>
-                        <p class="text-xs text-slate-500 mt-1">অনলাইনে পণ্য বিক্রির অনলাইন শপ</p>
-                    </div>
-                    <a href="getQuote.html" class="block w-full bg-navyDark text-white text-center py-2.5 rounded-xl font-bold text-xs">এই Package নির্বাচন করুন</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== COST CALCULATOR SECTION (#calculator) ==================== -->
-    <section id="calculator" class="py-16 bg-gradient-to-r from-navyDark via-slate-900 to-navyDark text-white scroll-mt-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="text-center max-w-xl mx-auto space-y-2">
-                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full border border-brandPrimary/20">ESTIMATE BUDGET</span>
-                <h2 class="text-2xl sm:text-3xl font-black">অনলাইন বাজেট ক্যালকুলেটর</h2>
-                <p class="text-slate-300 text-xs sm:text-sm">আপনার রিকোয়ারমেন্টস অনুযায়ী আনুমানিক খরচ হিসাব করুন:</p>
-            </div>
-
-            <div class="bg-navyCard/90 border border-slate-700/80 p-6 sm:p-8 rounded-3xl space-y-6 text-xs shadow-2xl backdrop-blur-md">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block font-bold text-slate-300 mb-1">ওয়েবসাইটের ধরন</label>
-                        <select id="homeCalcType" onchange="updateHomeCalculator()" class="w-full p-2.5 bg-slate-900 border border-slate-700 text-white rounded-xl focus:outline-none">
-                            <option value="business">Business Website (৳7,000)</option>
-                            <option value="ecommerce">E-commerce Store (৳12,000)</option>
-                            <option value="landing">Landing Page (৳3,500)</option>
-                            <option value="portfolio">Portfolio Website (৳4,000)</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block font-bold text-slate-300 mb-1">Page সংখ্যা</label>
-                        <select id="homeCalcPages" onchange="updateHomeCalculator()" class="w-full p-2.5 bg-slate-900 border border-slate-700 text-white rounded-xl focus:outline-none">
-                            <option value="5">১ - ৫ পেজ</option>
-                            <option value="10">৬ - ১০ পেজ (+৳2,000)</option>
-                            <option value="20">১১ - ২০ পেজ (+৳5,000)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div>
-                        <span class="text-[10px] text-slate-400 font-bold block uppercase">আনুমানিক বাজেট রেঞ্জ</span>
-                        <span id="homeCalcDisplay" class="text-2xl sm:text-3xl font-black text-amber-400">৳7,000 - ৳9,000</span>
-                        <span class="block text-[10px] text-slate-400 mt-0.5">* এটি আনুমানিক ধারণামাত্র; চূড়ান্ত কোটেশন আলোচনার পর নির্ধারিত হবে।</span>
-                    </div>
-                    <a href="getQuote.html" class="w-full sm:w-auto bg-brandPrimary hover:bg-brandDark text-white px-6 py-3 rounded-xl font-bold text-center shadow-lg transition">
-                        এই Requirement দিয়ে Quote নিন
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== REVIEWS SECTION (#reviews) ==================== -->
-    <section id="reviews" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="flex justify-between items-center border-b pb-4">
-                <div>
-                    <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FEEDBACK</span>
-                    <h2 class="text-2xl font-black text-navyDark dark:text-white mt-2">গ্রাহকদের মতামত</h2>
-                </div>
-                <a href="reviews.html" class="bg-brandPrimary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow">
-                    সব Review দেখুন &rarr;
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-lightBg dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
-                    <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full">🏷️ ডেমো রিভিউ</span>
-                    <p class="text-slate-600 dark:text-slate-300 italic">"Web Pro BD-এর মাধ্যমে একটি modern business website তৈরির অভিজ্ঞতা কেমন হতে পারে তার নমুনা উদাহরণ।"</p>
-                    <span class="font-bold text-navyDark dark:text-white block">— Demo Customer A</span>
-                </div>
-                <div class="bg-lightBg dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
-                    <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full">🏷️ ডেমো রিভিউ</span>
-                    <p class="text-slate-600 dark:text-slate-300 italic">"একটি online store-এর জন্য responsive এবং professional interface-এর নমুনা লেআউট।"</p>
-                    <span class="font-bold text-navyDark dark:text-white block">— Demo Customer B</span>
-                </div>
-                <div class="bg-lightBg dark:bg-navyCard p-6 rounded-3xl border shadow-sm space-y-3 text-xs">
-                    <span class="bg-amber-100 text-amber-800 font-bold text-[10px] px-2.5 py-0.5 rounded-full">🏷️ ডেমো রিভিউ</span>
-                    <p class="text-slate-600 dark:text-slate-300 italic">"business website-এর জন্য পরিষ্কার design, mobile responsiveness এবং সহজ navigation-এর একটি লেআউট নমুনা।"</p>
-                    <span class="font-bold text-navyDark dark:text-white block">— Demo Customer C</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FAQ SECTION (#faq) ==================== -->
-    <section id="faq" class="py-16 bg-lightBg dark:bg-navyDark border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-3xl mx-auto px-4 space-y-6">
-            <div class="text-center">
-                <span class="text-brandPrimary text-xs font-extrabold uppercase tracking-widest bg-brandPrimary/10 px-3.5 py-1.5 rounded-full">FAQ</span>
-                <h2 class="text-2xl font-black text-navyDark dark:text-white mt-2">সাধারণ প্রশ্ন ও উত্তর</h2>
-            </div>
-
-            <div class="space-y-3" id="faqAccordion">
-                <div class="border rounded-2xl p-4 bg-white dark:bg-navyCard text-xs font-bold text-navyDark dark:text-white">
-                    <span>Website তৈরি করতে কতদিন সময় লাগে?</span>
-                    <p class="text-[11px] font-normal text-slate-500 mt-1">প্রজেক্টের সাইজ ও ফিচারের ওপর নির্ভর করে সময় নির্ধারিত হয়।</p>
-                </div>
-                <div class="border rounded-2xl p-4 bg-white dark:bg-navyCard text-xs font-bold text-navyDark dark:text-white">
-                    <span>Website-এর দাম কীভাবে নির্ধারণ হয়?</span>
-                    <p class="text-[11px] font-normal text-slate-500 mt-1">পেজ সংখ্যা, ফিচার ও রিকোয়ারমেন্টস অনুযায়ী নির্দিষ্ট বাজেট নির্ধারণ করা হয়।</p>
-                </div>
-            </div>
-
-            <div class="text-center pt-2">
-                <a href="faq.html" class="text-brandPrimary font-bold text-xs hover:underline">সব প্রশ্ন দেখুন &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== CONTACT SECTION (#contact) ==================== -->
-    <section id="contact" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-lightBg dark:bg-navyCard rounded-3xl border p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
-                
-                <div class="space-y-3 text-center lg:text-left">
-                    <span class="text-xs font-bold text-brandPrimary uppercase tracking-widest bg-brandPrimary/10 px-3 py-1 rounded-full">CONTACT CARD</span>
-                    <h3 class="text-2xl font-black text-navyDark dark:text-white">Web Pro BD</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-bold">Abu Talha Khan</p>
-                    
-                    <div class="pt-2 text-xs font-semibold text-slate-700 dark:text-slate-300 space-y-1">
-                        <p><i class="fa-solid fa-location-dot text-brandPrimary w-5"></i> ফার্মগেট, ঢাকা, বাংলাদেশ</p>
-                        <p><i class="fa-solid fa-phone text-brandPrimary w-5"></i> 01516513987</p>
-                        <p><i class="fa-brands fa-whatsapp text-emerald-500 w-5"></i> WhatsApp: 01516513987</p>
-                        <p><i class="fa-solid fa-envelope text-brandPrimary w-5"></i> abutalha46700@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
-                    <a href="https://www.facebook.com/profile.php?id=61593558263889" target="_blank" class="bg-blue-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
-                        <i class="fa-brands fa-facebook"></i> Facebook Page
-                    </a>
-                    <a href="https://wa.me/8801516513987" target="_blank" class="bg-emerald-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="contact.html" class="bg-navyDark text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2">
-                        <i class="fa-solid fa-envelope"></i> Contact Page
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/8801516513987?text=Hello%20Web%20Pro%20BD%2C%20I%20want%20to%20know%20about%20your%20website%20services." target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl whatsapp-pulse">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
     </div>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="bg-navyDark text-slate-400 text-xs border-t border-slate-800 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
-                
-                <div class="space-y-3">
-                    <span class="text-xl font-black text-white block">Web Pro <span class="text-brandPrimary">BD</span></span>
-                    <p class="text-slate-400 text-xs">আপনার business-এর জন্য আধুনিক web solution।</p>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-3 text-sm">Quick Links</h4>
-                    <ul class="space-y-1.5">
-                        <li><a href="index.html" class="text-brandPrimary font-bold">Home</a></li>
-                        <li><a href="about.html" class="hover:text-brandPrimary">About Us</a></li>
-                        <li><a href="service.html" class="hover:text-brandPrimary">Services</a></li>
-                        <li><a href="portfolio.html" class="hover:text-brandPrimary">Portfolio</a></li>
-                        <li><a href="pricing.html" class="hover:text-brandPrimary">Pricing</a></li>
-                        <li><a href="contact.html" class="hover:text-brandPrimary">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-3 text-sm">Services</h4>
-                    <ul class="space-y-1.5">
-                        <li>Business Website</li>
-                        <li>E-commerce</li>
-                        <li>Landing Page</li>
-                        <li>Web Application</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-3 text-sm">Support & Legal</h4>
-                    <ul class="space-y-1.5">
-                        <li><a href="faq.html" class="hover:text-brandPrimary">FAQ & Help</a></li>
-                        <li><a href="privacy.html" class="hover:text-brandPrimary">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-brandPrimary">Terms & Conditions</a></li>
-                        <li><a href="refund.html" class="hover:text-brandPrimary">Refund Policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="space-y-1.5">
-                    <h4 class="text-white font-bold mb-3 text-sm">Contact Info</h4>
-                    <p class="font-bold text-white">Abu Talha Khan</p>
-                    <p>ফার্মগেট, ঢাকা, বাংলাদেশ</p>
-                    <p>01516513987</p>
-                    <p>abutalha46700@gmail.com</p>
-                </div>
-
-            </div>
-
-            <div class="pt-8 text-center text-slate-500 text-xs">
-                © Web Pro BD. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- ADMIN LOGIN MODAL -->
-    <div id="adminLoginModal" class="fixed inset-0 bg-navyDark/90 backdrop-blur-md hidden items-center justify-center p-4 z-50 animate__animated animate__fadeIn">
-        <div class="bg-white dark:bg-navyCard rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl border border-slate-200 dark:border-slate-700">
-            <button onclick="closeAdminLoginModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navyDark dark:hover:text-white text-lg">
-                <i class="fa-solid fa-xmark"></i>
+    <!-- মেইন অ্যাপ কন্টেইনার -->
+    <div class="main-app-container">
+        
+        <!-- টপ নেভিগেশন বার (ব্র্যান্ড টাইটেলে ৩ বার ট্যাপ করলে এডমিন প্যানেল আনলক হবে) -->
+        <nav class="top-navbar">
+            <button class="menu-toggle-btn" onclick="ppToggleDrawer(true)" title="মেনু খুলুন">
+                <span class="menu-icon">☰</span>
             </button>
-            
-            <div class="text-center mb-6 space-y-2">
-                <div class="w-12 h-12 bg-amber-500/10 text-amber-500 rounded-2xl flex items-center justify-center text-2xl mx-auto border border-amber-500/20">
-                    <i class="fa-solid fa-lock"></i>
-                </div>
-                <h3 class="text-xl font-black text-navyDark dark:text-white">WEB PRO BD • ADMIN PORTAL</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400">মাস্টার এডমিন প্যানেলে প্রবেশ করতে অ্যাকাউন্ট তথ্য দিন।</p>
+            <div class="nav-brand" onclick="handleBrandClick(event)">
+                <img src="logo.png" alt="পাত্রপাত্রী সন্ধান লোগো" class="brand-logo-img float-anim">
+                <span class="brand-name">পাত্রপাত্রী সন্ধান</span>
+            </div>
+            <div class="nav-actions">
+                <a href="biodata-form.html" class="nav-cta-btn">📝 বায়োডাটা জমা দিন</a>
+            </div>
+        </nav>
+
+        <!-- নোটিশ অ্যানিমেটেড টিকার -->
+        <div class="header-ticker-container">
+            <div class="header-ticker-track">
+                <span class="app-title">💍 পাত্রপাত্রী সন্ধান - সম্পূর্ণ বিনামূল্যে পাত্র-পাত্রীর বায়োডাটা জমা দিন ও খুঁজুন</span>
+                <span class="app-subtitle">• কোনো সার্ভিস ফি বা মাধ্যম খরচ নেই ✨</span>
+                <span class="app-title">• শরিয়াহ সম্মতভাবে অভিভাবকের উপস্থিতিতে যোগাযোগ করুন</span>
+            </div>
+            <div class="header-ticker-track">
+                <span class="app-title">💍 পাত্রপাত্রী সন্ধান - সম্পূর্ণ বিনামূল্যে পাত্র-পাত্রীর বায়োডাটা জমা দিন ও খুঁজুন</span>
+                <span class="app-subtitle">• কোনো সার্ভিস ফি বা মাধ্যম খরচ নেই ✨</span>
+                <span class="app-title">• শরিয়াহ সম্মতভাবে অভিভাবকের উপস্থিতিতে যোগাযোগ করুন</span>
+            </div>
+        </div>
+
+        <!-- হিরো সেকশন -->
+        <section id="ppHeroSection" class="hero-section">
+            <div class="hero-badge float-anim">✨ ইসলামিক ও সুন্নতি বিবাহ মাধ্যম</div>
+            <h1 class="hero-title">সহজ ও নিরাপদ উপায়ে খুঁজুন আপনার <span class="highlight-text">দ্বীনি জীবনসঙ্গী</span></h1>
+            <p class="hero-description">
+                কোনো মধ্যস্থতাকারী বা সার্ভিস চার্জ ছাড়াই অভিভাবকের সম্মতিতে উপযুক্ত দ্বীনি পাত্র-পাত্রী খুঁজুন অথবা বিনামূল্যে নিজের বায়োডাটা জমা দিন।
+            </p>
+            <div class="hero-btn-group">
+                <a href="biodata-form.html" class="hero-btn primary-btn">📝 বায়োডাটা জমা দিন (ফ্রি)</a>
+                <a href="biodata-list.html" class="hero-btn secondary-btn">🔍 বায়োডাটা অনুসন্ধান করুন</a>
             </div>
 
-            <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-xs">
-                <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Admin Email / ID *</label>
-                    <input type="email" id="adminEmailInput" required value="admin@webprobd.com" placeholder="admin@webprobd.com" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:border-brandPrimary dark:text-white">
+            <!-- লাইভ স্ট্যাটস কার্ড -->
+            <div class="hero-stats-grid">
+                <div class="stat-card">
+                    <span class="stat-icon float-anim">🎁</span>
+                    <span class="stat-title">১০০% ফ্রি সেবা</span>
+                    <span class="stat-desc">কোনো সার্ভিস চার্জ নেই</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon float-anim">🔒</span>
+                    <span class="stat-title">সর্বোচ্চ প্রাইভেসি</span>
+                    <span class="stat-desc">যোগাযোগের তথ্য গোপন</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon float-anim">👨‍👩‍👧</span>
+                    <span class="stat-title">অভিভাবকের সম্পৃক্ততা</span>
+                    <span class="stat-desc">সুন্নতি ও নিরাপদ মাধ্যম</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- সেকশন ১: কেন আমাদের মাধ্যম -->
+        <section id="ppWhyUsSection" class="info-section bg-soft">
+            <div class="section-header">
+                <span class="section-tag">আমাদের বৈশিষ্ট্য</span>
+                <h2 class="section-title">কেন পাত্রপাত্রী সন্ধান ব্যবহার করবেন?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="f-icon">💝</div>
+                    <h3>সম্পূর্ণ ফি-মুক্ত সেবা</h3>
+                    <p>বায়োডাটা জমা দেওয়া থেকে শুরু করে পছন্দকৃত বায়োডাটার জন্য আবেদন করা পর্যন্ত কোনো অর্থ নেওয়া হয় না।</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">🛡️</div>
+                    <h3>নিরাপদ ও গোপনীয়তা</h3>
+                    <p>পাবলিক পেজে কারো মোবাইল নম্বর বা সোশ্যাল মিডিয়া লিংক দেখানো হয় না। নিরাপত্তা শতভাগ নিশ্চিত রাখা হয়।</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">🤝</div>
+                    <h3>সরাসরি অভিভাবকের মাধ্যমে</h3>
+                    <p>শরিয়াহ সম্মত নিয়ম মেনে সরাসরি পাত্র বা পাত্রীর অভিভাবকের সাথে যোগাযোগের সুযোগ প্রদান করা হয়।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- সেকশন ২: কীভাবে বায়োডাটা পূরণ করবেন -->
+        <section id="ppGuideSection" class="info-section">
+            <div class="section-header">
+                <span class="section-tag">সহজ গাইডলাইন</span>
+                <h2 class="section-title">কীভাবে বায়োডাটা পূরণ ও জমা দেবেন?</h2>
+            </div>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-num">১</div>
+                    <h3>ফর্ম খুলুন ও পূরণ করুন</h3>
+                    <p>আমাদের সহজ ফর্ম থেকে আপনার নাম, জন্মতারিখ, শিক্ষা, পরিবার ও প্রত্যাশার তথ্য সঠিকভাবে লিখুন।</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">২</div>
+                    <h3>তাৎক্ষণিক অটো-এপ্রুভ</h3>
+                    <p>জমা দেওয়ার সাথে সাথেই আপনার বায়োডাটাটি সরাসরি এপ্রুভ হয়ে একটি ইউনিক আইডি সহ জেনারেট হবে।</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">৩</div>
+                    <h3>ওয়েবসাইটে লাইভ প্রকাশ</h3>
+                    <p>কোনো প্রকার ঝুলন্ত পেন্ডিং ছাড়াই আপনার বায়োডাটাটি আমাদের ওয়েবসাইটে সাথে সাথে লাইভ হয়ে যাবে।</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">৪</div>
+                    <h3>যোগাযোগ ও প্রস্তাব</h3>
+                    <p>অন্য কোনো বায়োডাটা পছন্দ হলে আইডি দিয়ে আমাদের হোয়াটসঅ্যাপের মাধ্যমে যোগাযোগ করুন।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- সেকশন ৩: ক্লিন বায়োডাটা রেজিস্ট্রেশন হাব -->
+        <section id="ppRegisterSection" class="clean-register-section">
+            <div class="reg-cta-card">
+                <div class="reg-badge float-anim">📝 মাত্র ৩ মিনিটে বায়োডাটা তৈরি করুন</div>
+                <h2 class="reg-title">আপনার বায়োডাটা সম্পূর্ণ ফ্রিতে জমা দিন</h2>
+                <p class="reg-desc">
+                    পাত্রপাত্রী সন্ধান প্ল্যাটফর্মে আপনাকে স্বাগতম। আপনিও কি উপযুক্ত দ্বীনি পাত্র বা পাত্রী খুঁজছেন? আজই বিনামূল্যে আপনার বায়োডাটা নিবন্ধিত করুন।
+                </p>
+                <div class="reg-features-mini">
+                    <span>✅ কোনো সার্ভিস ফি নেই</span> • 
+                    <span>🔒 ১০০% তথ্য সুরক্ষিত</span> • 
+                    <span>⚡ তাৎক্ষণিক আইডি জেনারেট</span>
+                </div>
+                <div class="reg-btn-box">
+                    <a href="biodata-form.html" class="reg-main-btn">
+                        📝 বিনামূল্যে বায়োডাটা ফর্ম খুলুন ➔
+                    </a>
+                    <button class="reg-wa-btn" onclick="ppOpenWhatsApp('NEW_REGISTRATION', event)">
+                        💬 হোয়াটসঅ্যাপে সহায়তা নিন
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- সেকশন ৪: ল্যান্ডিং পেজে লাইভ ১০টি বায়োডাটা -->
+        <section id="ppSearchSection" class="search-engine-section">
+            <div class="section-header">
+                <span class="section-tag">সর্বশেষ বায়োডাটা</span>
+                <h2 class="section-title">সম্প্রতি প্রকাশিত বায়োডাটা সমূহ (১০টি)</h2>
+            </div>
+
+            <div class="filter-wrapper">
+                <div class="filter-row">
+                    <input type="text" id="ppSearchInput" class="search-box" placeholder="আইডি, জেলা, পেশা বা শিক্ষা দিয়ে খুঁজুন..." />
+                </div>
+                <div class="filter-row">
+                    <select id="ppGenderSelect" class="category-select">
+                        <option value="" />সকল (পাত্র/পাত্রী)
+                        <option value="পাত্র" />শুধু পাত্র
+                        <option value="পাত্রী" />শুধু পাত্রী
+                    </select>
+                    <select id="ppMaritalSelect" class="category-select">
+                        <option value="" />সকল বৈবাহিক অবস্থা
+                        <option value="অবিবাহিত" />অবিবাহিত
+                        <option value="ডিভোর্সি" />ডিভোর্সি
+                        <option value="বিধবা" />বিধবা / বিপত্নীক
+                    </select>
+                    <select id="ppDistrictSelect" class="category-select">
+                        <option value="" />সকল জেলা
+                    </select>
+                </div>
+                <div class="filter-row">
+                    <button class="reset-btn" onclick="ppResetFilters()">🔄 ফিল্টার রিসেট করো</button>
+                </div>
+            </div>
+
+            <div id="ppLoadingDiv" class="loading-container">
+                <div class="heart-spinner">💖</div>
+                <p style="font-size:12.5px; color:#64748b; margin:0;">বায়োডাটাগুলো লোড হচ্ছে...</p>
+            </div>
+
+            <!-- ১০টি কার্ডের গ্রিড -->
+            <div id="ppCardsContainer" class="cards-container"></div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="biodata-list.html" class="view-all-biodata-btn">
+                    👉 আরও সকল বায়োডাটা দেখুন (বায়োডাটা লিস্ট পেজে যান) ➔
+                </a>
+            </div>
+        </section>
+
+        <!-- সেকশন ৫: সাধারণ জিজ্ঞাসা ও সাহায্য মডিউল (FAQ Preview) -->
+        <section class="info-section bg-soft">
+            <div class="section-header">
+                <span class="section-tag">জিজ্ঞাসা ও উত্তর</span>
+                <h2 class="section-title">সাধারণ প্রশ্ন ও উত্তর (FAQ)</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto 20px auto; display: flex; flex-direction: column; gap: 8px;">
+                <div class="mini-faq-card" onclick="this.classList.toggle('open')">
+                    <div class="mini-faq-q">১. বায়োডাটা জমা দেওয়ার পর কতক্ষণ পর লাইভ হবে? <span class="q-arrow">▼</span></div>
+                    <div class="mini-faq-a">আমাদের ফর্মে জমা দেওয়ার সাথে সাথেই বায়োডাটা সরাসরি অটো-এপ্রুভড হয়ে লাইভ হয়ে যায়। কোনো প্রকার ঝুলন্ত অপেক্ষা করতে হয় না।</div>
                 </div>
 
-                <div>
-                    <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Admin Password *</label>
-                    <input type="password" id="adminPassInput" required value="••••••••" placeholder="Password" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:border-brandPrimary dark:text-white">
+                <div class="mini-faq-card" onclick="this.classList.toggle('open')">
+                    <div class="mini-faq-q">২. আমার মোবাইল নম্বর বা ছবি কি সবাই দেখতে পাবে? <span class="q-arrow">▼</span></div>
+                    <div class="mini-faq-a">জি না! প্রাইভেসির স্বার্থে ইউজারের মোবাইল নম্বর ও ফেসবুক আইডি গোপন রাখা হয়। একমাত্র অভিভাবকের উপস্থিতিতে এডমিন মেসেজের মাধ্যমে তথ্য আদান-প্রদান করা হয়।</div>
                 </div>
 
-                <div class="flex justify-between items-center text-[11px] text-slate-500 dark:text-slate-400">
-                    <label class="flex items-center gap-1.5 cursor-pointer">
-                        <input type="checkbox" checked class="rounded text-brandPrimary">
-                        <span>Remember Device</span>
-                    </label>
-                    <span class="text-brandPrimary font-bold">Encrypted Session</span>
+                <div class="mini-faq-card" onclick="this.classList.toggle('open')">
+                    <div class="mini-faq-q">৩. পছন্দ হওয়া বায়োডাটার সাথে কীভাবে যোগাযোগ করবো? <span class="q-arrow">▼</span></div>
+                    <div class="mini-faq-a">বায়োডাটার নিচে থাকা '💬 যোগাযোগ' বাটনে চাপ দিয়ে বায়োডাটা আইডি শেয়ার করে আমাদের হোয়াটসঅ্যাপে মেসেজ পাঠান।</div>
                 </div>
+            </div>
 
-                <button type="submit" id="adminLoginSubmitBtn" class="w-full bg-slate-900 hover:bg-black text-amber-400 font-extrabold py-3.5 rounded-xl text-xs shadow-lg transition flex items-center justify-center gap-2">
-                    <span>Login to Admin Panel</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </button>
-            </form>
+            <div style="text-align: center;">
+                <a href="faq.html" class="sec-link-btn">
+                    ❓ আরও সকল প্রশ্নের উত্তর দেখুন (FAQ পেজে যান) ➔
+                </a>
+            </div>
+        </section>
+
+        <!-- সেকশন ৬: প্রাইভেসী ও নীতিমালার সংক্ষিপ্ত রূপ -->
+        <section class="info-section">
+            <div class="section-header">
+                <span class="section-tag">তথ্য সুরক্ষা</span>
+                <h2 class="section-title">গোপনীয়তা নীতি ও নিরাপত্তা</h2>
+            </div>
+            <div style="max-width: 750px; margin: 0 auto; background: #fff; border: 1.5px solid #99f6e4; padding: 20px; border-radius: 16px; text-align: center; box-shadow: 0 4px 15px rgba(13,148,136,0.05);">
+                <p style="font-size: 13px; color: #334155; line-height: 1.7; margin-bottom: 15px;">
+                    🛡️ <b>নিরাপত্তা নিশ্চয়তা:</b> আমাদের প্ল্যাটফর্মে সংগৃহীত তথ্যের নিরাপত্তা শতভাগ বজায় রাখা হয়। কোনো বাণিজ্যিক উদ্দেশ্যে ইউজারদের ডাটা লেনদেন বা প্রকাশ করা হয় না। যেকোনো সময় ইউজার তার বায়োডাটা সম্পূর্ণ মুছে ফেলার দাবি জানাতে পারেন।
+                </p>
+                <a href="privacy-policy.html" class="sec-link-btn primary">
+                    📜 সম্পূর্ণ গোপনীয়তা নীতি পড়ুন ➔
+                </a>
+            </div>
+        </section>
+
+        <!-- সেকশন ৭: ওয়েবসাইট সার্ভিস ও অর্ডার ব্যানার -->
+        <section class="info-section bg-soft" style="background: linear-gradient(135deg, #ccfbf1 0%, #f0fdf4 100%);">
+            <div style="max-width: 750px; margin: 0 auto; text-align: center;">
+                <span class="section-tag">ওয়েবসাইট ডেভলপমেন্ট অফার</span>
+                <h2 class="section-title" style="margin-bottom: 8px;">আপনার নিজস্ব পাত্র-পাত্রী ওয়েবসাইট বানিয়ে নিন!</h2>
+                <p style="font-size: 13px; color: #475569; margin-bottom: 16px; line-height: 1.6;">
+                    আপনিও কি নিজেদের নামে এমন একটি ওয়েবসাইট চালু করতে চান? আমাদের কাছ থেকে ওয়েবসাইট বানিয়ে নিন। 
+                    <b>ডোমেইন ও হোস্টিং সম্পূর্ণ ফ্রি! বাৎসরিক কোনো সার্ভিস চার্জ বা রিনিউয়াল ফি দিতে হবে না।</b>
+                </p>
+                <a href="https://wa.me/8801516513987?text=আসসালামু%20আলাইকুম!%20আমি%20একটি%20বায়োডাটা%20ওয়েবসাইট%20বানাতে%20চাই।" target="_blank" class="reg-main-btn" style="display:inline-block; text-decoration:none;">
+                    💻 ওয়েবসাইটের জন্য যোগাযোগ করুন (WhatsApp) ➔
+                </a>
+            </div>
+        </section>
+
+        <!-- সেকশন ৮: এডমিন ও প্রতিষ্ঠাতা পরিচিতি -->
+        <section id="ppAdminSection" class="admin-profile-section">
+            <div class="admin-card">
+                <div class="admin-avatar-box">
+                    <span class="admin-avatar-icon">👨‍💼</span>
+                </div>
+                <div class="admin-info">
+                    <span class="admin-tag">প্রতিষ্ঠাতা ও পরিচালক</span>
+                    <h3 class="admin-name">Abu Talha Khan</h3>
+                    <p class="admin-bio">
+                        "আসসালামু আলাইকুম। আমাদের মূল লক্ষ্য দ্বীনি ভাই-বোনদের সুন্নতি বিবাহকে সহজ করা এবং যেকোনো প্রকার ফি ছাড়া সম্পূর্ণ ফ্রিতে সরাসরি অভিভাবকের সম্মতিতে বিশ্বস্ত মাধ্যম তৈরি করা।"
+                    </p>
+                    <div class="admin-details">
+                        <p>📍 <b>বর্তমান ঠিকানা:</b> ফার্মগেট, ঢাকা</p>
+                        <p>🏠 <b>স্থায়ী ঠিকানা:</b> মেহেন্দিগঞ্জ থানা, বরিশাল</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- সেকশন ৯: সামাজিক যোগাযোগ সেকশন -->
+        <section id="ppContactSection" class="social-contact-section">
+            <div class="section-header">
+                <span class="section-tag">যোগাযোগ</span>
+                <h2 class="section-title">আমাদের সাথে যুক্ত থাকুন</h2>
+            </div>
+            <div class="social-grid">
+                <a href="https://wa.me/8801516513987" target="_blank" class="social-card whatsapp">
+                    <span class="s-icon">💬</span>
+                    <div>
+                        <h4>হোয়াটসঅ্যাপ (WhatsApp)</h4>
+                        <p>+880 1516-513987</p>
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61592377920436" target="_blank" class="social-card facebook">
+                    <span class="s-icon">📘</span>
+                    <div>
+                        <h4>ফেসবুক পেজ (Facebook Page)</h4>
+                        <p>অফিসিয়াল পেজে ফলো করুন</p>
+                    </div>
+                </a>
+                <a href="https://facebook.com/groups/557796373008781/" target="_blank" class="social-card fbgroup">
+                    <span class="s-icon">👥</span>
+                    <div>
+                        <h4>ফেসবুক গ্রুপ (Facebook Group)</h4>
+                        <p>আমাদের দ্বীনি গ্রুপে যুক্ত হন</p>
+                    </div>
+                </a>
+                <a href="https://sikkha71bd.vercel.app/" target="_blank" class="social-card" style="border-color: #99f6e4;">
+                    <span class="s-icon">🎓</span>
+                    <div>
+                        <h4 style="color:var(--pp-teal-dark);">শিক্ষা ৭১ বিডি (Sikkha 71)</h4>
+                        <p>সহযোগী শিক্ষা ওয়েবসাইট</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ফুটার -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                        <img src="logo.png" alt="পাত্রপাত্রী সন্ধান লোগো" style="width:28px; height:28px; object-fit:contain; border-radius:50%;">
+                        <h3>পাত্রপাত্রী সন্ধান</h3>
+                    </div>
+                    <p>একটি সম্পূর্ণ ফি-মুক্ত সুন্নতি পাত্র-পাত্রী সন্ধান প্ল্যাটফর্ম।</p>
+                </div>
+                <div class="footer-info">
+                    <p>প্রতিষ্ঠাতা ও পরিচালক: <b>Abu Talha Khan</b></p>
+                    <p>ঠিকানা: ফার্মগেট, ঢাকা (স্থায়ী: মেহেন্দিগঞ্জ, বরিশাল)</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© ২০২৬ পাত্রপাত্রী সন্ধান প্ল্যাটফর্ম। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- গোপন এডমিন পপ-আপ মোডাল (৩ বার ক্লিক করলে এটি আনলক হবে) -->
+    <div id="secretAdminModal" class="secret-modal-backdrop" onclick="this.classList.remove('active')">
+        <div class="secret-modal-card" onclick="event.stopPropagation()">
+            <div style="font-size:32px; margin-bottom:6px;">🔐</div>
+            <h3 style="font-size:16px; font-weight:800; color:var(--pp-teal-dark);">হিডেন এডমিন প্যানেল</h3>
+            <p style="font-size:12px; color:var(--pp-text-muted); margin:6px 0 16px 0; line-height:1.5;">
+                আপনি হিডেন এডমিন অপশন আনলক করেছেন। এডমিন ড্যাশবোর্ডে প্রবেশ করতে নিচের বাটনে চাপ দিন।
+            </p>
+            <a href="admin.html" class="reg-main-btn" style="display:block; text-decoration:none; text-align:center;">
+                🔑 এডমিন প্যানেলে প্রবেশ করুন ➔
+            </a>
+            <button onclick="document.getElementById('secretAdminModal').classList.remove('active')" style="background:none; border:none; color:var(--pp-text-muted); font-size:12px; font-weight:bold; margin-top:12px; cursor:pointer; text-decoration:underline;">
+                বন্ধ করুন
+            </button>
         </div>
     </div>
 
-    <!-- JAVASCRIPT ENGINE -->
-    <script>
-        const API_URL = "https://script.google.com/macros/s/AKfycbyHB7DxMtbdtO_xvAAzJxz0ET8cOfwIxlk5BQ5jpFmQEEUI-szg0J1mL6zBqkE2PvdH7w/exec";
+    <!-- টোস্ট নোটিফিকেশন -->
+    <div id="ppToastMsg" class="toast-msg"></div>
+</div>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            setupHeaderScroll();
-            initTheme();
-            updateHomeCalculator();
-        });
+<script>
+(function(){
+    var fontImport = document.createElement('link');
+    fontImport.rel = 'stylesheet';
+    fontImport.href = 'https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&display=swap';
+    document.head.appendChild(fontImport);
 
-        function setupHeaderScroll() {
-            const header = document.getElementById('mainHeader');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    header.classList.add('glass-header-scrolled', 'shadow-lg');
-                    header.classList.remove('glass-header');
-                } else {
-                    header.classList.add('glass-header');
-                    header.classList.remove('glass-header-scrolled', 'shadow-lg');
-                }
-            });
-        }
+    const API_URL = "https://script.google.com/macros/s/AKfycby2aXpIWmDTv6o8rF9YV_2VifmeoKqz01QLHQP-upoxbpa120rS-NnMqNG9JbwdR0Y0Bw/exec";
+    const boyAvatar = "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
+    const femaleAvatar = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23fdf2f8'/><path d='M50 20c-10 0-18 8-18 18 0 12 8 22 18 22s18-10 18-22c0-10-8-18-18-18z' fill='%23f43f5e'/><path d='M22 82c0-16 12-26 28-26s28 10 28 26z' fill='%23f43f5e'/></svg>";
 
-        function toggleMobileMenu() {
-            document.getElementById('mobileDrawer').classList.toggle('hidden');
-        }
+    var districtsList = ["ঢাকা", "চট্টগ্রাম", "সিলেট", "খুলনা", "রাজশাহী", "বরিশাল", "রংপুর", "ময়মনসিংহ", "কুমিল্লা", "গাজীপুর", "নারায়ণগঞ্জ", "ফেনী", "নোয়াখালী", "বগুড়া", "পাবনা", "যশোর", "কুষ্টিয়া", "দিনাজপুর", "টাঙ্গাইল", "কিশোরগঞ্জ", "ব্রাহ্মণবাড়িয়া", "চাঁদপুর", "কক্সবাজার"];
 
-        function toggleDarkMode() {
-            const isDark = document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateThemeIcon(isDark);
-        }
+    let allData = [], filteredData = [];
+    const itemsPerPage = 10;
 
-        function initTheme() {
-            const saved = localStorage.getItem('theme');
-            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-                updateThemeIcon(true);
-            } else {
-                document.documentElement.classList.remove('dark');
-                updateThemeIcon(false);
-            }
-        }
+    let myFavorites = JSON.parse(localStorage.getItem('pp_fav_ids') || '[]');
 
-        function updateThemeIcon(isDark) {
-            const icon = document.getElementById('themeIcon');
-            const iconMobile = document.getElementById('themeIconMobile');
-            if (isDark) {
-                if (icon) icon.className = 'fa-solid fa-sun';
-                if (iconMobile) iconMobile.className = 'fa-solid fa-sun';
-            } else {
-                if (icon) icon.className = 'fa-solid fa-moon';
-                if (iconMobile) iconMobile.className = 'fa-solid fa-moon';
-            }
-        }
+    // গোপন এডমিন ৩-বার ক্লিক লজিক (Secret Triple Click Handler)
+    let secretClickCount = 0;
+    let secretClickTimer = null;
 
-        function updateHomeCalculator() {
-            const type = document.getElementById('homeCalcType').value;
-            const pages = document.getElementById('homeCalcPages').value;
-            
-            let min = 7000, max = 9000;
-            if (type === 'ecommerce') { min = 12000; max = 16000; }
-            else if (type === 'landing') { min = 3500; max = 5000; }
-            else if (type === 'portfolio') { min = 4000; max = 6000; }
+    window.handleBrandClick = function(e) {
+        secretClickCount++;
+        clearTimeout(secretClickTimer);
 
-            if (pages === '10') { min += 2000; max += 3000; }
-            if (pages === '20') { min += 5000; max += 7000; }
-
-            document.getElementById('homeCalcDisplay').innerText = `৳${min.toLocaleString()} - ৳${max.toLocaleString()}`;
-        }
-
-        // Admin Login Modal Controls
-        function openAdminLoginModal() {
-            document.getElementById('adminLoginModal').classList.remove('hidden');
-            document.getElementById('adminLoginModal').classList.add('flex');
-        }
-
-        function closeAdminLoginModal() {
-            document.getElementById('adminLoginModal').classList.add('hidden');
-            document.getElementById('adminLoginModal').classList.remove('flex');
-        }
-
-        function handleAdminLogin(e) {
-            e.preventDefault();
-            const submitBtn = document.getElementById('adminLoginSubmitBtn');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Authenticating...";
-
-            showToast("Admin session authenticated. Redirecting...");
-            setTimeout(() => {
-                window.location.href = "admin.html";
+        if (secretClickCount >= 3) {
+            secretClickCount = 0;
+            ppShowToast("🔓 হিডেন এডমিন অ্যাকসেস আনলক হয়েছে!");
+            document.getElementById('secretAdminModal').classList.add('active');
+        } else {
+            secretClickTimer = setTimeout(() => {
+                secretClickCount = 0;
+                window.location.href = 'index.html'; // ১ বার ক্লিক করলে হোমপেজে নিয়ে যাবে
             }, 800);
         }
+    };
 
-        function showToast(msg) {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = 'bg-slate-900 text-white p-3.5 rounded-2xl text-xs font-bold shadow-xl border border-slate-700 animate__animated animate__fadeInRight';
-            toast.innerText = msg;
-            container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
+    window.ppToggleDrawer = function(open) {
+        var menu = document.getElementById('ppDrawerMenu');
+        var backdrop = document.getElementById('ppDrawerBackdrop');
+        if (!menu || !backdrop) return;
+        if (open) {
+            menu.classList.add('active');
+            backdrop.classList.add('active');
+        } else {
+            menu.classList.remove('active');
+            backdrop.classList.remove('active');
         }
-    </script>
+    };
+
+    function fixBanglaEntities(str) {
+        if (!str) return '';
+        var div = document.createElement('div');
+        div.innerHTML = str;
+        var txt = div.textContent || div.innerText || str;
+        return txt.replace(/&#(\d+);/g, function(m, d) { return String.fromCharCode(d); }).replace(/&amp;/g, '&');
+    }
+
+    function getNormalizedGender(str) {
+        var g = fixBanglaEntities(String(str || '')).toLowerCase().trim();
+        if (g.includes('পাত্রী') || g.includes('female') || g.includes('মহিলা')) return 'female';
+        if (g.includes('পাত্র') || g.includes('male') || g.includes('পুরুষ')) return 'male';
+        return 'unknown';
+    }
+
+    function ppInit() {
+        ppPopulateDistrictDropdown();
+        ["ppSearchInput","ppGenderSelect","ppMaritalSelect","ppDistrictSelect"].forEach(function(id){
+            var el = document.getElementById(id);
+            if (el) { el.addEventListener('change', ppFilterCards); el.addEventListener('input', ppFilterCards); }
+        });
+        ppFetchData();
+    }
+    ppInit();
+
+    function ppPopulateDistrictDropdown() {
+        var dSel = document.getElementById('ppDistrictSelect');
+        if (!dSel) return;
+        dSel.innerHTML = '<option value="">সকল জেলা</option>';
+        districtsList.forEach(function(d) {
+            var opt = document.createElement('option');
+            opt.value = d; opt.textContent = d;
+            dSel.appendChild(opt);
+        });
+    }
+
+    function ppShowToast(msg) {
+        var t = document.getElementById('ppToastMsg');
+        if(!t) return;
+        t.innerText = msg; t.style.display = 'block';
+        setTimeout(function() { t.style.display = 'none'; }, 2200);
+    }
+
+    function ppFetchData() {
+        fetch(API_URL).then(res => res.json()).then(data => {
+            var processed = (data || []).map(function(item) {
+                var cleanGender = fixBanglaEntities(item.gender);
+                var normG = getNormalizedGender(cleanGender);
+                return {
+                    biodataId: fixBanglaEntities(item.biodataId),
+                    fullName: fixBanglaEntities(item.fullName),
+                    gender: cleanGender,
+                    normalizedGender: normG,
+                    isFemale: (normG === 'female'),
+                    dob: fixBanglaEntities(item.dob),
+                    height: fixBanglaEntities(item.height),
+                    bloodGroup: fixBanglaEntities(item.bloodGroup),
+                    maritalStatus: fixBanglaEntities(item.maritalStatus),
+                    religion: fixBanglaEntities(item.religion),
+                    education: fixBanglaEntities(item.education),
+                    profession: fixBanglaEntities(item.profession),
+                    orgDesignation: fixBanglaEntities(item.orgDesignation),
+                    monthlyIncome: fixBanglaEntities(item.monthlyIncome),
+                    presentAddress: fixBanglaEntities(item.presentAddress),
+                    district: fixBanglaEntities(item.district),
+                    fatherName: fixBanglaEntities(item.fatherName),
+                    motherName: fixBanglaEntities(item.motherName),
+                    siblingsInfo: fixBanglaEntities(item.siblingsInfo),
+                    familyStatus: fixBanglaEntities(item.familyStatus),
+                    partnerExpectation: fixBanglaEntities(item.partnerExpectation)
+                };
+            });
+
+            processed.sort((a, b) => (parseInt(b.biodataId.replace(/\D/g, '')) || 0) - (parseInt(a.biodataId.replace(/\D/g, '')) || 0));
+            allData = processed; filteredData = allData;
+            
+            var loader = document.getElementById('ppLoadingDiv');
+            if(loader) loader.style.display = 'none';
+            
+            ppRenderCards();
+        }).catch(err => {
+            var loader = document.getElementById('ppLoadingDiv');
+            if(loader) loader.innerHTML = '<p style="color:#ef4444; font-size:12px;">ডেটা লোড করতে সমস্যা হয়েছে।</p>';
+        });
+    }
+
+    function ppRenderCards() {
+        const container = document.getElementById('ppCardsContainer');
+        if(!container) return;
+        container.innerHTML = '';
+
+        if (!filteredData || filteredData.length === 0) {
+            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; font-size:12px; padding:20px 0;">কোনো বায়োডাটা পাওয়া যায়নি।</p>';
+            return;
+        }
+
+        const currentItems = filteredData.slice(0, itemsPerPage);
+
+        currentItems.forEach((item, index) => {
+            const cardId = 'pp-card-' + index;
+            const detailsId = 'pp-details-' + index;
+            var isFemale = item.isFemale;
+            var avatarImg = isFemale ? femaleAvatar : boyAvatar;
+            var isLiked = myFavorites.includes(item.biodataId);
+
+            const html = `
+                <div class="biodata-card" id="${cardId}" onclick="ppToggleCardDetails('${detailsId}', event)">
+                    <div class="card-top ${isFemale ? 'female-bg' : ''}">
+                        <span class="badge-container">${item.biodataId}</span>
+                        
+                        <button class="fav-heart-btn ${isLiked ? 'liked' : ''}" onclick="ppToggleFav('${item.biodataId}', event)">
+                            ❤️
+                        </button>
+
+                        <div class="avatar-box"><img src="${avatarImg}" alt="Avatar"></div>
+                        <h3>${item.fullName}</h3>
+                        <p>${item.gender} • ${item.district}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-box"><span class="info-title">জন্ম/বয়স</span><span class="info-value">${item.dob}</span></div>
+                            <div class="info-box"><span class="info-title">উচ্চতা</span><span class="info-value">${item.height}</span></div>
+                        </div>
+                        <div class="info-box"><span class="info-title">শিক্ষাগত যোগ্যতা</span><span class="info-value">${item.education}</span></div>
+                    </div>
+
+                    <div class="expanded-details" id="${detailsId}">
+                        <div class="section-title">১. ব্যক্তিগত তথ্য</div>
+                        <div class="detail-row"><span class="detail-label">উচ্চতা:</span><span class="detail-val">${item.height}</span></div>
+                        <div class="detail-row"><span class="detail-label">বৈবাহিক অবস্থা:</span><span class="detail-val">${item.maritalStatus}</span></div>
+                        <div class="detail-row"><span class="detail-label">ধর্ম:</span><span class="detail-val">${item.religion}</span></div>
+                        <div class="detail-row"><span class="detail-label">রক্তের গ্রুপ:</span><span class="detail-val">${item.bloodGroup || '-'}</span></div>
+
+                        <div class="section-title">২. পেশা ও ঠিকানা</div>
+                        <div class="detail-row"><span class="detail-label">পেশা:</span><span class="detail-val">${item.profession}</span></div>
+                        <div class="detail-row"><span class="detail-label">প্রতিষ্ঠান/পদবী:</span><span class="detail-val">${item.orgDesignation || '-'}</span></div>
+                        <div class="detail-row"><span class="detail-label">মাসিক আয়:</span><span class="detail-val">${item.monthlyIncome || '-'}</span></div>
+                        <div class="detail-row"><span class="detail-label">বর্তমান ঠিকানা:</span><span class="detail-val">${item.presentAddress}</span></div>
+                        <div class="detail-row"><span class="detail-label">স্থায়ী জেলা:</span><span class="detail-val">${item.district}</span></div>
+
+                        <div class="section-title">৩. পারিবারিক তথ্য</div>
+                        <div class="detail-row"><span class="detail-label">পিতার নাম:</span><span class="detail-val">${item.fatherName}</span></div>
+                        <div class="detail-row"><span class="detail-label">মাতার নাম:</span><span class="detail-val">${item.motherName || '-'}</span></div>
+                        <div class="detail-row"><span class="detail-label">ভাই-বোনের তথ্য:</span><span class="detail-val">${item.siblingsInfo || '-'}</span></div>
+                        <div class="detail-row"><span class="detail-label">পারিবারিক অবস্থা:</span><span class="detail-val">${item.familyStatus}</span></div>
+
+                        <div class="section-title">৪. প্রত্যাশা</div>
+                        <p style="font-size:11px; color:#334155; line-height:1.4;">${item.partnerExpectation || 'কোনো তথ্য নেই।'}</p>
+
+                        <div class="privacy-badge">🔒 প্রাইভেসির কারণে যোগাযোগের তথ্য গোপন রাখা হয়েছে।</div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="toggle-hint">▼ বিস্তারিত</div>
+                        <div>
+                            <button class="download-btn" onclick="ppShareBiodata('${item.biodataId}', event)">🔗 শেয়ার</button>
+                            <button class="whatsapp-btn" onclick="ppOpenWhatsApp('${item.biodataId}', event)">💬 যোগাযোগ</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += html;
+        });
+    }
+
+    window.ppToggleCardDetails = function(detailsId, event) {
+        if(event.target.closest('.whatsapp-btn') || event.target.closest('.download-btn') || event.target.closest('.fav-heart-btn')) return;
+        const el = document.getElementById(detailsId);
+        if(el) el.classList.toggle('open');
+    };
+
+    window.ppToggleFav = function(id, e) {
+        if (e) e.stopPropagation();
+        if (myFavorites.includes(id)) {
+            myFavorites = myFavorites.filter(x => x !== id);
+            ppShowToast('পছন্দের তালিকা থেকে সরানো হয়েছে');
+        } else {
+            myFavorites.push(id);
+            ppShowToast('❤️ পছন্দের তালিকায় সেভ হয়েছে!');
+        }
+        localStorage.setItem('pp_fav_ids', JSON.stringify(myFavorites));
+        ppRenderCards();
+    };
+
+    window.ppShareBiodata = function(id, e) {
+        if (e) e.stopPropagation();
+        const shareUrl = `${window.location.origin}/biodata-list.html?id=${id}`;
+        const shareText = `🌸 পাত্রপাত্রী সন্ধান প্ল্যাটফর্মে বায়োডাটা নং (${id}) দেখুন:\n${shareUrl}`;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(shareText);
+            ppShowToast("📋 শেয়ারিং লিংক কপি হয়েছে!");
+        } else {
+            alert(shareText);
+        }
+    };
+
+    window.ppOpenWhatsApp = function(bioId, event) {
+        if (event) event.stopPropagation();
+        var rawMsg = bioId === 'NEW_REGISTRATION' ? "আসসালামু আলাইকুম! আমি নতুন বায়োডাটা জমা দিতে চাই।" : "আসসালামু আলাইকুম! আমি বায়োডাটা নং (" + bioId + ") সম্পর্কে যোগাযোগ করতে চাই।";
+        var waUrl = "https://wa.me/8801516513987?text=" + encodeURIComponent(rawMsg);
+        window.open(waUrl, '_blank');
+    };
+
+    function ppFilterCards() {
+        var sElem = document.getElementById('ppSearchInput');
+        var gElem = document.getElementById('ppGenderSelect');
+        var mElem = document.getElementById('ppMaritalSelect');
+        var dElem = document.getElementById('ppDistrictSelect');
+
+        var query = sElem ? fixBanglaEntities(sElem.value).trim().toLowerCase() : '';
+        var genderVal = gElem ? fixBanglaEntities(gElem.value).trim() : '';
+        var maritalVal = mElem ? fixBanglaEntities(mElem.value).trim() : '';
+        var districtVal = dElem ? fixBanglaEntities(dElem.value).trim() : '';
+
+        filteredData = allData.filter(function(item) {
+            var matchesGender = true;
+            if (genderVal) {
+                if (genderVal.includes('পাত্রী')) matchesGender = (item.normalizedGender === 'female');
+                else if (genderVal.includes('পাত্র')) matchesGender = (item.normalizedGender === 'male');
+            }
+
+            var matchesMarital = maritalVal ? item.maritalStatus.toLowerCase().includes(maritalVal.toLowerCase()) : true;
+            var matchesDistrict = districtVal ? item.district.toLowerCase().includes(districtVal.toLowerCase()) : true;
+            var matchesQuery = query ? (
+                item.biodataId.toLowerCase().includes(query) ||
+                item.fullName.toLowerCase().includes(query) ||
+                item.district.toLowerCase().includes(query) ||
+                item.profession.toLowerCase().includes(query)
+            ) : true;
+
+            return matchesGender && matchesMarital && matchesDistrict && matchesQuery;
+        });
+
+        ppRenderCards();
+    }
+
+    window.ppResetFilters = function() {
+        document.getElementById('ppSearchInput').value = '';
+        document.getElementById('ppGenderSelect').value = '';
+        document.getElementById('ppMaritalSelect').value = '';
+        document.getElementById('ppDistrictSelect').value = '';
+        filteredData = allData; ppRenderCards();
+    };
+})();
+</script>
 </body>
 </html>
